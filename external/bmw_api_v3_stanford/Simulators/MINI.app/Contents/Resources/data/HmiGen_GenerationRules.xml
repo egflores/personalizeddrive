@@ -1,0 +1,2049 @@
+<rules>
+    <rule type="pluginApp" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects>
+            <entryPointEffect parentContainerID="0" entryListID="21006" applicationTypeID="0" colorSchemeID="0" iconActiveID="268492436" iconInactiveID="268492421" visualContextID="1145" optionContainerID="21441" insertBeforeID="0" insertAfterID="0" />
+        </ruleEffects>
+    </rule>
+    <rule type="hmiState" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiContainer" FocusIndex="0" ScrollEffectWidth="TRUE" statusbartype="1" MaximizeScreenSpace="FALSE">
+            <ID>0</ID>
+            <Peer moveable="FALSE" static="0">
+                <id>5001</id>
+            </Peer>
+            <Cursor width="678" />
+            <Attributes ignorecursorwidth="FALSE" />
+            <title COLOR="0" COLORINACTIVE="0">
+                <content id="0">
+                    <icon active="0" inactive="0" />
+                </content>
+            </title>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="678" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="528" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="928" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="800" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="488" />
+            </LayoutSet>
+            <Inputhandler type="102" acceleration="1" />
+            <TableLayout type="0" begin="0" end="6" />
+            <Control class="CHmiGauge" FocusIndex="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>4027</id>
+                </Peer>
+                <layout rows="0" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="568" y="62" width="60" height="416" />
+                </LayoutSet>
+                <Inputhandler type="301" acceleration="1" />
+                <Attributes minvalue="0" maxvalue="6" increment="1" />
+            </Control>
+        </Control>
+    </rule>
+    <rule type="popupHmiState" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiContainer" FocusIndex="0" ScrollEffectWidth="FALSE" statusbartype="1" MaximizeScreenSpace="FALSE">
+            <ID>0</ID>
+            <Peer moveable="FALSE" static="0">
+                <id>5001</id>
+            </Peer>
+            <Cursor width="1064" />
+            <Attributes ignorecursorwidth="FALSE" />
+            <title COLOR="0" COLORINACTIVE="0">
+                <content id="0">
+                    <icon active="0" inactive="0" />
+                </content>
+            </title>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="1064" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="624" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="1064" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="800" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="584" />
+            </LayoutSet>
+            <Inputhandler type="102" acceleration="1" />
+            <TableLayout type="0" begin="0" end="6" />
+        </Control>
+    </rule>
+    <rule type="label" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>2005</id>
+            </Peer>
+            <layout cuttype="0">
+                <tabstop value="0" />
+            </layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="678" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="528" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="928" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="488" height="58" />
+            </LayoutSet>
+            <Inputhandler type="402" acceleration="1" />
+            <ALIGNMENT>6</ALIGNMENT>
+            <Content>
+                <id>0</id>
+            </Content>
+        </Control>
+    </rule>
+    <rule type="terminalUI" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiContainer" FocusIndex="0" ScrollEffectWidth="FALSE" statusbartype="1" MaximizeScreenSpace="FALSE">
+            <ID>0</ID>
+            <Peer moveable="FALSE" static="0">
+                <id>5023</id>
+            </Peer>
+            <Cursor width="678" />
+            <Attributes ignorecursorwidth="FALSE" />
+            <title COLOR="0" COLORINACTIVE="0">
+                <content id="536870913">
+                    <icon active="268492428" inactive="268492404" />
+                </content>
+            </title>
+            <toolbar drawframe="TRUE" />
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1500" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="678" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="528" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="336" y="0" width="1080" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="488" />
+            </LayoutSet>
+            <Inputhandler type="102" acceleration="1" />
+            <TableLayout type="0" begin="0" end="6" />
+            <Control class="CHmiContainer" FocusIndex="0" MaximizeScreenSpace="FALSE">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>5018</id>
+                </Peer>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                    <LayoutElement class="CPeerL6CursorLayoutElement" width="678" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                    <LayoutElement class="CPeerL6CursorLayoutElement" width="528" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="60" y="0" width="800" height="480" />
+                </LayoutSet>
+                <Inputhandler type="0" acceleration="0" />
+                <TableLayout type="0" begin="0" end="6" />
+            </Control>
+            <Control class="CHmiLabel" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Variant flag="20242" />
+                <Peer moveable="FALSE" static="0">
+                    <id>1008</id>
+                </Peer>
+                <layout cuttype="1" />
+                <Content type="2">
+                    <id>536870913</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="210" y="56" width="20" height="420" />
+                </LayoutSet>
+                <Inputhandler type="0" acceleration="0" />
+                <ALIGNMENT>3</ALIGNMENT>
+            </Control>
+            <Control class="CHmiGauge" FocusIndex="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>4036</id>
+                </Peer>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="216" y="0" width="1280" height="480" />
+                </LayoutSet>
+                <Inputhandler type="317" acceleration="1" />
+                <Attributes minvalue="0" maxvalue="11" increment="1" />
+            </Control>
+        </Control>
+    </rule>
+    <rule type="image" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>2027</id>
+            </Peer>
+            <layout cuttype="1">
+                <tabstop value="0" />
+            </layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="308" height="300" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="308" height="300" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="308" height="300" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="308" height="300" />
+            </LayoutSet>
+            <Inputhandler type="402" acceleration="1" />
+            <ALIGNMENT>3</ALIGNMENT>
+            <Content>
+                <id>0</id>
+            </Content>
+        </Control>
+    </rule>
+    <rule type="separator" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>2011</id>
+            </Peer>
+            <layout cuttype="0">
+                <tabstop value="0" />
+            </layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="732" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="928" height="58" />
+            </LayoutSet>
+            <Inputhandler type="402" acceleration="1" />
+            <ALIGNMENT>3</ALIGNMENT>
+            <Content>
+                <id>0</id>
+            </Content>
+        </Control>
+    </rule>
+    <rule type="label" id="" applicationType="" actionType="" modelType="Richtext" level="0">
+        <ruleEffects />
+        <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>2028</id>
+            </Peer>
+            <layout cuttype="5">
+                <tabstop value="0" />
+            </layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="678" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="528" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="928" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="488" height="58" />
+            </LayoutSet>
+            <Inputhandler type="402" acceleration="1" />
+            <ALIGNMENT>6</ALIGNMENT>
+            <Content>
+                <id>0</id>
+            </Content>
+        </Control>
+    </rule>
+    <rule type="label" id="" applicationType="" actionType="" modelType="Html" level="0">
+        <ruleEffects />
+        <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>2031</id>
+            </Peer>
+            <layout cuttype="5">
+                <tabstop value="0" />
+            </layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="678" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="528" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="928" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="488" height="58" />
+            </LayoutSet>
+            <Inputhandler type="402" acceleration="1" />
+            <ALIGNMENT>6</ALIGNMENT>
+            <Content>
+                <id>0</id>
+            </Content>
+        </Control>
+    </rule>
+    <rule type="label" id="" applicationType="" actionType="" modelType="Info" level="0">
+        <ruleEffects />
+        <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>2019</id>
+            </Peer>
+            <layout cuttype="5">
+                <tabstop value="0" />
+            </layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="678" height="340" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="528" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="928" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="488" height="58" />
+            </LayoutSet>
+            <Inputhandler type="402" acceleration="1" />
+            <ALIGNMENT>6</ALIGNMENT>
+            <Content>
+                <id>0</id>
+            </Content>
+        </Control>
+    </rule>
+    <rule type="chart" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiList" FocusIndex="0">
+            <ID>0</ID>
+            <Peer moveable="FALSE" static="0">
+                <id>3069</id>
+            </Peer>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="40" width="650" height="480" />
+            </LayoutSet>
+            <Inputhandler type="0" acceleration="0" />
+            <Attributes multipleselection="0" visibleitems="0" />
+        </Control>
+    </rule>
+    <rule type="list" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiList" FocusIndex="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>3047</id>
+            </Peer>
+            <Attributes bitmapdisableddrawing="FALSE" colordependsonapplication="TRUE" useinactivefocushighlight="FALSE" minBitmapSize="0x0" multipleselection="0" visibleitems="7" />
+            <IndexLabels width="0" />
+            <COLOR>6</COLOR>
+            <COLORINACTIVE>22</COLORINACTIVE>
+            <COLORDISABLED>22</COLORDISABLED>
+            <Layout>
+                <Selection offset="0" width="18" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+            </Layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="678" height="58" />
+                <LayoutElement class="CPeerL6ListLayoutElement">
+                    <Selection offset="0" width="18" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="528" height="58" />
+                <LayoutElement class="CPeerL6ListLayoutElement">
+                    <Selection offset="0" width="18" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="928" height="58" />
+                <LayoutElement class="CPeerL6ListLayoutElement">
+                    <Selection offset="0" width="18" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="488" height="58" />
+                <LayoutElement class="CPeerL6ListLayoutElement">
+                    <Selection offset="0" width="18" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <Inputhandler type="202" acceleration="1" />
+        </Control>
+    </rule>
+    <rule type="list" id="" applicationType="" actionType="" modelType="Richtext" level="0">
+        <ruleEffects />
+        <Control class="CHmiList" FocusIndex="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>3070</id>
+            </Peer>
+            <Attributes bitmapdisableddrawing="FALSE" colordependsonapplication="TRUE" useinactivefocushighlight="FALSE" minBitmapSize="0x0" multipleselection="0" visibleitems="7" />
+            <IndexLabels width="0" />
+            <COLOR>6</COLOR>
+            <COLORINACTIVE>22</COLORINACTIVE>
+            <COLORDISABLED>22</COLORDISABLED>
+            <Layout>
+                <Selection offset="0" width="18" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+            </Layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="678" height="58" />
+                <LayoutElement class="CPeerL6ListLayoutElement">
+                    <Selection offset="0" width="18" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="528" height="58" />
+                <LayoutElement class="CPeerL6ListLayoutElement">
+                    <Selection offset="0" width="18" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="928" height="58" />
+                <LayoutElement class="CPeerL6ListLayoutElement">
+                    <Selection offset="0" width="18" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="488" height="58" />
+                <LayoutElement class="CPeerL6ListLayoutElement">
+                    <Selection offset="0" width="18" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="20" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <Inputhandler type="202" acceleration="1" />
+        </Control>
+    </rule>
+    <rule type="list" id="" applicationType="" actionType="" modelType="HeaderAndDetail" level="0">
+        <ruleEffects />
+        <Control class="CHmiList" FocusIndex="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>3068</id>
+            </Peer>
+            <List color="6" colorInactive="22" />
+            <Attributes drawSeparators="FALSE" multipleselection="0" visibleitems="7" />
+            <IndexLabels width="38" offset="14" padding="14" alignment="2" fontSize="36" textColor="6" />
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="678" height="58" />
+                <LayoutElement class="CPeerL6FlexListLayoutElement">
+                    <RowLayout type="0">
+                        <Cell lineStart="FALSE" width="593" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="0" colorActive="164" colorInactive="165" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="1" colorActive="0" colorInactive="0" squeezable="FALSE" />
+                    </RowLayout>
+                    <RowLayout type="1">
+                        <Cell lineStart="FALSE" width="593" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="0" colorActive="164" colorInactive="165" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="1" colorActive="0" colorInactive="0" squeezable="FALSE" />
+                        <Cell lineStart="TRUE" width="593" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="2" colorActive="0" colorInactive="0" squeezable="TRUE" />
+                    </RowLayout>
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="528" height="58" />
+                <LayoutElement class="CPeerL6FlexListLayoutElement">
+                    <RowLayout type="0">
+                        <Cell lineStart="FALSE" width="443" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="0" colorActive="164" colorInactive="165" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="1" colorActive="0" colorInactive="0" squeezable="FALSE" />
+                    </RowLayout>
+                    <RowLayout type="1">
+                        <Cell lineStart="FALSE" width="443" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="0" colorActive="164" colorInactive="165" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="1" colorActive="0" colorInactive="0" squeezable="FALSE" />
+                        <Cell lineStart="TRUE" width="443" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="2" colorActive="0" colorInactive="0" squeezable="TRUE" />
+                    </RowLayout>
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="488" height="58" />
+                <LayoutElement class="CPeerL6FlexListLayoutElement">
+                    <RowLayout type="0">
+                        <Cell lineStart="FALSE" width="403" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="0" colorActive="164" colorInactive="165" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="1" colorActive="0" colorInactive="0" squeezable="FALSE" />
+                    </RowLayout>
+                    <RowLayout type="1">
+                        <Cell lineStart="FALSE" width="403" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="0" colorActive="164" colorInactive="165" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="1" colorActive="0" colorInactive="0" squeezable="FALSE" />
+                        <Cell lineStart="TRUE" width="403" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="2" colorActive="0" colorInactive="0" squeezable="TRUE" />
+                    </RowLayout>
+                </LayoutElement>
+            </LayoutSet>
+            <Inputhandler type="202" acceleration="1" />
+        </Control>
+    </rule>
+    <rule type="list" id="" applicationType="" actionType="" modelType="Calendar" level="0">
+        <ruleEffects />
+        <Control class="CHmiList" FocusIndex="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>3068</id>
+            </Peer>
+            <List color="6" colorInactive="22" />
+            <Attributes drawSeparators="TRUE" multipleselection="0" visibleitems="7" />
+            <IndexLabels width="38" offset="14" padding="14" alignment="2" fontSize="36" textColor="6" />
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="678" height="58" />
+                <LayoutElement class="CPeerL6FlexListLayoutElement">
+                    <RowLayout type="0">
+                        <Cell lineStart="FALSE" width="593" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="0" colorActive="164" colorInactive="165" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="1" colorActive="164" colorInactive="165" squeezable="FALSE" />
+                        <Cell lineStart="TRUE" width="593" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="2" colorActive="0" colorInactive="0" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="3" colorActive="0" colorInactive="0" squeezable="FALSE" />
+                    </RowLayout>
+                    <RowLayout type="1">
+                        <Cell lineStart="FALSE" width="593" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="0" colorActive="164" colorInactive="165" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="1" colorActive="164" colorInactive="165" squeezable="FALSE" />
+                        <Cell lineStart="TRUE" width="593" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="2" colorActive="0" colorInactive="0" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="3" colorActive="0" colorInactive="0" squeezable="FALSE" />
+                    </RowLayout>
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="528" height="58" />
+                <LayoutElement class="CPeerL6FlexListLayoutElement">
+                    <RowLayout type="0">
+                        <Cell lineStart="FALSE" width="443" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="0" colorActive="164" colorInactive="165" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="1" colorActive="164" colorInactive="165" squeezable="FALSE" />
+                        <Cell lineStart="TRUE" width="443" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="2" colorActive="0" colorInactive="0" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="3" colorActive="0" colorInactive="0" squeezable="FALSE" />
+                    </RowLayout>
+                    <RowLayout type="1">
+                        <Cell lineStart="FALSE" width="443" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="0" colorActive="164" colorInactive="165" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="1" colorActive="164" colorInactive="165" squeezable="FALSE" />
+                        <Cell lineStart="TRUE" width="443" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="2" colorActive="0" colorInactive="0" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="3" colorActive="0" colorInactive="0" squeezable="FALSE" />
+                    </RowLayout>
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="488" height="58" />
+                <LayoutElement class="CPeerL6FlexListLayoutElement">
+                    <RowLayout type="0">
+                        <Cell lineStart="FALSE" width="403" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="0" colorActive="164" colorInactive="165" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="1" colorActive="164" colorInactive="165" squeezable="FALSE" />
+                        <Cell lineStart="TRUE" width="403" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="2" colorActive="0" colorInactive="0" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="3" colorActive="0" colorInactive="0" squeezable="FALSE" />
+                    </RowLayout>
+                    <RowLayout type="1">
+                        <Cell lineStart="FALSE" width="403" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="0" colorActive="164" colorInactive="165" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="1" colorActive="164" colorInactive="165" squeezable="FALSE" />
+                        <Cell lineStart="TRUE" width="403" offset="14" contentAlignment="0" cuttingStyle="0" contentColumn="2" colorActive="0" colorInactive="0" squeezable="TRUE" />
+                        <Cell lineStart="FALSE" width="66" offset="0" contentAlignment="0" cuttingStyle="0" contentColumn="3" colorActive="0" colorInactive="0" squeezable="FALSE" />
+                    </RowLayout>
+                </LayoutElement>
+            </LayoutSet>
+            <Inputhandler type="202" acceleration="1" />
+        </Control>
+    </rule>
+    <rule type="button" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>2005</id>
+            </Peer>
+            <layout cuttype="0">
+                <tabstop value="0" />
+            </layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="678" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="528" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="928" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="488" height="58" />
+            </LayoutSet>
+            <Inputhandler type="402" acceleration="1" />
+            <ALIGNMENT>6</ALIGNMENT>
+            <Content>
+                <id>0</id>
+            </Content>
+        </Control>
+    </rule>
+    <rule type="button" id="" applicationType="" actionType="" modelType="Info" level="0">
+        <ruleEffects />
+        <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>2019</id>
+            </Peer>
+            <layout cuttype="4">
+                <tabstop value="0" />
+            </layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="678" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="528" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="928" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="488" height="58" />
+            </LayoutSet>
+            <Inputhandler type="402" acceleration="1" />
+            <ALIGNMENT>6</ALIGNMENT>
+            <Content>
+                <id>0</id>
+            </Content>
+        </Control>
+    </rule>
+    <rule type="button" id="" applicationType="" actionType="" modelType="Richtext" level="0">
+        <ruleEffects />
+        <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>2028</id>
+            </Peer>
+            <layout cuttype="4">
+                <tabstop value="0" />
+            </layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="678" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="528" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="928" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="488" height="58" />
+            </LayoutSet>
+            <Inputhandler type="402" acceleration="1" />
+            <ALIGNMENT>6</ALIGNMENT>
+            <Content>
+                <id>0</id>
+            </Content>
+        </Control>
+    </rule>
+    <rule type="button" id="" applicationType="" actionType="spellWord" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>2010</id>
+            </Peer>
+            <layout cuttype="0">
+                <tabstop value="0" />
+            </layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="678" height="58" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="928" height="58" />
+            </LayoutSet>
+            <Inputhandler type="402" acceleration="1" />
+            <ALIGNMENT>6</ALIGNMENT>
+            <Content>
+                <id>0</id>
+            </Content>
+        </Control>
+    </rule>
+    <rule type="gauge" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiGauge" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="6" COLORINACTIVE="22">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>4033</id>
+            </Peer>
+            <layout cuttype="0">
+                <tabstop value="0" />
+            </layout>
+            <Content idleft="536881752" idright="536881776">
+                <Cell offset="433" />
+            </Content>
+            <Segment count="21" type="0" />
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="1280" height="58" />
+                <LayoutElement class="CPeerL6GaugeButtonLayoutElement" offset="433" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerL6GaugeButtonLayoutElement" offset="272" />
+            </LayoutSet>
+            <Inputhandler type="304" acceleration="1" />
+            <Attributes minvalue="-10" maxvalue="10" increment="1" />
+        </Control>
+    </rule>
+    <rule type="gauge" id="" applicationType="" actionType="" modelType="Balance" level="0">
+        <ruleEffects />
+        <Control class="CHmiGauge" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="6" COLORINACTIVE="22">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>4033</id>
+            </Peer>
+            <layout cuttype="0">
+                <tabstop value="0" />
+            </layout>
+            <Content idleft="536880840" idright="536880848">
+                <id>536880832</id>
+                <Cell offset="433" />
+            </Content>
+            <Segment count="21" type="3" />
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="1280" height="58" />
+                <LayoutElement class="CPeerL6GaugeButtonLayoutElement" offset="433" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerL6GaugeButtonLayoutElement" offset="285" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerL6GaugeButtonLayoutElement" offset="243" />
+            </LayoutSet>
+            <Inputhandler type="304" acceleration="1" />
+            <Attributes minvalue="-10" maxvalue="10" increment="1" />
+        </Control>
+    </rule>
+    <rule type="gauge" id="" applicationType="" actionType="" modelType="Progress" level="0">
+        <ruleEffects />
+        <Control class="CHmiGauge" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="6" COLORINACTIVE="22">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>4034</id>
+            </Peer>
+            <layout cuttype="0">
+                <tabstop value="0" />
+            </layout>
+            <Content>
+                <id>536870913</id>
+                <Cell offset="12" />
+            </Content>
+            <Slider length="300" />
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="340" height="58" />
+            </LayoutSet>
+            <Inputhandler type="304" acceleration="1" />
+            <Attributes minvalue="0" maxvalue="100" increment="1" />
+        </Control>
+    </rule>
+    <rule type="checkbox" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>2008</id>
+            </Peer>
+            <layout cuttype="0">
+                <tabstop value="0" />
+            </layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="678" height="58" />
+            </LayoutSet>
+            <Inputhandler type="402" acceleration="1" />
+            <ALIGNMENT>3</ALIGNMENT>
+            <Content>
+                <id>0</id>
+            </Content>
+        </Control>
+    </rule>
+    <rule type="radiobutton" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>2009</id>
+            </Peer>
+            <layout cuttype="0">
+                <tabstop value="0" />
+            </layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="1280" height="58" />
+            </LayoutSet>
+            <Inputhandler type="402" acceleration="1" />
+            <ALIGNMENT>3</ALIGNMENT>
+            <Content>
+                <id>0</id>
+            </Content>
+        </Control>
+    </rule>
+    <rule type="input" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiContainer" FocusIndex="0" Mode="0" statusbartype="0" MaximizeScreenSpace="FALSE">
+            <ID>0</ID>
+            <Peer moveable="FALSE" static="0">
+                <id>5005</id>
+            </Peer>
+            <Cursor width="400" />
+            <title>
+                <content id="536870913">
+                    <icon active="0" />
+                </content>
+            </title>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="678" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="800" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="488" />
+            </LayoutSet>
+            <Inputhandler type="102" acceleration="1" />
+            <TableLayout type="2" begin="0" end="6" />
+            <Control class="CHmiLabel" FocusIndex="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>1013</id>
+                </Peer>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="190" y="6" width="400" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="190" y="6" width="424" height="58" />
+                </LayoutSet>
+                <Inputhandler type="0" acceleration="0" />
+                <ALIGNMENT>0</ALIGNMENT>
+                <Content>
+                    <id>536870913</id>
+                </Content>
+            </Control>
+            <Control class="CHmiList" FocusIndex="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>3061</id>
+                </Peer>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="100" y="56" width="532" height="424" />
+                </LayoutSet>
+                <Inputhandler type="215" acceleration="1" />
+                <Attributes multipleselection="0" visibleitems="0" />
+            </Control>
+        </Control>
+    </rule>
+    <rule type="inputresultlist" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiContainer" FocusIndex="0" ScrollEffectWidth="FALSE" statusbartype="0" MaximizeScreenSpace="FALSE">
+            <ID>0</ID>
+            <Peer moveable="FALSE" static="0">
+                <id>5001</id>
+            </Peer>
+            <Cursor width="678" />
+            <Attributes ignorecursorwidth="FALSE" />
+            <title COLOR="0" COLORINACTIVE="0">
+                <content id="0">
+                    <icon active="0" inactive="0" />
+                </content>
+            </title>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="678" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="928" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="800" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="488" />
+            </LayoutSet>
+            <Inputhandler type="102" acceleration="1" />
+            <TableLayout type="0" begin="0" end="6" />
+            <Control class="CHmiGauge" FocusIndex="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>4027</id>
+                </Peer>
+                <layout rows="0" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="568" y="62" width="60" height="416" />
+                </LayoutSet>
+                <Inputhandler type="301" acceleration="1" />
+                <Attributes minvalue="0" maxvalue="10" increment="1" />
+            </Control>
+            <Control class="CHmiList" FocusIndex="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>3047</id>
+                </Peer>
+                <Attributes bitmapdisableddrawing="FALSE" colordependsonapplication="TRUE" useinactivefocushighlight="FALSE" minBitmapSize="0x0" multipleselection="0" visibleitems="7" />
+                <IndexLabels width="0" />
+                <COLOR>6</COLOR>
+                <COLORINACTIVE>22</COLORINACTIVE>
+                <COLORDISABLED>22</COLORDISABLED>
+                <Layout>
+                    <Selection offset="0" width="18" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                </Layout>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="678" height="58" />
+                    <LayoutElement class="CPeerL6ListLayoutElement">
+                        <Selection offset="0" width="18" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    </LayoutElement>
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="528" height="58" />
+                    <LayoutElement class="CPeerL6ListLayoutElement">
+                        <Selection offset="0" width="18" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    </LayoutElement>
+                </LayoutSet>
+                <Inputhandler type="202" acceleration="1" />
+            </Control>
+        </Control>
+    </rule>
+    <rule type="inputasia" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiContainer" FocusIndex="0" ScrollEffectWidth="FALSE" statusbartype="4" MaximizeScreenSpace="FALSE">
+            <ID>0</ID>
+            <Peer moveable="FALSE" static="0">
+                <id>5016</id>
+            </Peer>
+            <Cursor width="1500" />
+            <Attributes ignorecursorwidth="FALSE" />
+            <title COLOR="0" COLORINACTIVE="0">
+                <content id="536870913">
+                    <icon active="268492432" inactive="268492413" />
+                </content>
+            </title>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="1500" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="1500" />
+            </LayoutSet>
+            <Inputhandler type="114" acceleration="1" />
+            <TableLayout type="3" begin="0" end="6" />
+            <Control class="CHmiList" FocusIndex="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>3064</id>
+                </Peer>
+                <Attributes bitmapdisableddrawing="FALSE" colordependsonapplication="TRUE" useinactivefocushighlight="FALSE" multipleselection="0" visibleitems="10" />
+                <IndexLabels width="0" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="236" y="70" width="678" height="350" />
+                    <LayoutElement class="CPeerL6ListLayoutElement">
+                        <Selection offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="58" margin="20" cuttype="1" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    </LayoutElement>
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="236" y="70" width="488" height="350" />
+                    <LayoutElement class="CPeerL6ListLayoutElement">
+                        <Selection offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="58" margin="20" cuttype="1" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    </LayoutElement>
+                </LayoutSet>
+                <Inputhandler type="214" acceleration="1" />
+            </Control>
+            <Control class="CHmiList" FocusIndex="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>3065</id>
+                </Peer>
+                <Attributes bitmapdisableddrawing="FALSE" colordependsonapplication="TRUE" useinactivefocushighlight="FALSE" multipleselection="0" visibleitems="7" />
+                <IndexLabels width="0" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="236" y="70" width="50" height="350" />
+                    <LayoutElement class="CPeerL6ListLayoutElement">
+                        <Selection offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="58" margin="20" cuttype="1" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    </LayoutElement>
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="236" y="70" width="50" height="350" />
+                    <LayoutElement class="CPeerL6ListLayoutElement">
+                        <Selection offset="0" width="0" margin="20" cuttype="0" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                        <Cell offset="0" width="58" margin="20" cuttype="1" alignment="0" cutWidth="0" squeezable="FALSE" background="0" continuousbg="0" fontsize="0" secondfontsize="0" />
+                    </LayoutElement>
+                </LayoutSet>
+                <Inputhandler type="214" acceleration="1" />
+            </Control>
+            <Control class="CHmiLabel" FocusIndex="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>1013</id>
+                </Peer>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="236" y="7" width="664" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="236" y="7" width="414" height="58" />
+                </LayoutSet>
+                <Inputhandler type="0" acceleration="0" />
+                <ALIGNMENT>3</ALIGNMENT>
+                <Content>
+                    <id>536870913</id>
+                </Content>
+            </Control>
+            <Control class="CHmiLabel" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>1004</id>
+                </Peer>
+                <layout cuttype="0" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="330" y="420" width="1280" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="330" y="420" width="800" height="58" />
+                </LayoutSet>
+                <Inputhandler type="0" acceleration="0" />
+                <ALIGNMENT>3</ALIGNMENT>
+                <Content>
+                    <id>536870913</id>
+                </Content>
+            </Control>
+            <Control class="CHmiLabel" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>1004</id>
+                </Peer>
+                <layout cuttype="0" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="910" y="7" width="220" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="650" y="7" width="220" height="58" />
+                </LayoutSet>
+                <Inputhandler type="0" acceleration="0" />
+                <ALIGNMENT>2</ALIGNMENT>
+                <Content>
+                    <id>536870913</id>
+                </Content>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="32" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>2018</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="1500" />
+                <Content tooltip="536910696">
+                    <tooltip specialalphamode="FALSE" overlay="FALSE" />
+                    <id>268491842</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="70" width="66" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="70" width="66" height="58" />
+                </LayoutSet>
+                <Inputhandler type="405" acceleration="1" />
+                <ALIGNMENT>0</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="32" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>2018</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="1500" />
+                <Content tooltip="536910624">
+                    <tooltip specialalphamode="FALSE" overlay="FALSE" />
+                    <id>268491827</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="120" width="66" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="120" width="66" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>0</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="32" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>2018</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="1500" />
+                <Content tooltip="536911776">
+                    <tooltip specialalphamode="FALSE" overlay="FALSE" />
+                    <id>268491823</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="170" width="66" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="170" width="66" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>0</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="32" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Variant flag="10453" />
+                <Peer moveable="FALSE" static="0">
+                    <id>2018</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="1500" />
+                <Content tooltip="536910728">
+                    <tooltip specialalphamode="FALSE" overlay="FALSE" />
+                    <id>268491828</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="220" width="66" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="220" width="66" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>0</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="32" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>2018</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="1500" />
+                <Content tooltip="536899504">
+                    <tooltip specialalphamode="FALSE" overlay="FALSE" />
+                    <id>268491831</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="270" width="66" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="270" width="66" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>0</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="32" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>2018</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="1500" />
+                <Content tooltip="536899872">
+                    <tooltip specialalphamode="FALSE" overlay="FALSE" />
+                    <id>268491847</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="320" width="66" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="320" width="66" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>0</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="32" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>2018</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="1500" />
+                <Content tooltip="536899576">
+                    <tooltip specialalphamode="FALSE" overlay="FALSE" />
+                    <id>268491837</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="370" width="66" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="370" width="66" height="58" />
+                </LayoutSet>
+                <Inputhandler type="406" acceleration="1" />
+                <ALIGNMENT>0</ALIGNMENT>
+            </Control>
+        </Control>
+    </rule>
+    <rule type="inputasiafep" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiContainer" FocusIndex="0" ScrollEffectWidth="FALSE" statusbartype="0" MaximizeScreenSpace="FALSE">
+            <ID>0</ID>
+            <Peer moveable="FALSE" static="0">
+                <id>5001</id>
+            </Peer>
+            <Cursor width="678" />
+            <Attributes ignorecursorwidth="FALSE" />
+            <title COLOR="0" COLORINACTIVE="0">
+                <content id="536870913">
+                    <icon active="0" inactive="268492413" />
+                </content>
+            </title>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="678" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="582" y="0" width="800" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="488" />
+            </LayoutSet>
+            <Inputhandler type="102" acceleration="1" />
+            <TableLayout type="2" begin="0" end="6" />
+            <Control class="CHmiLabel" FocusIndex="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>1013</id>
+                </Peer>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="190" y="7" width="1000" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="190" y="7" width="520" height="58" />
+                </LayoutSet>
+                <Inputhandler type="0" acceleration="0" />
+                <ALIGNMENT>3</ALIGNMENT>
+                <Content>
+                    <id>536870913</id>
+                </Content>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2005</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="320" width="66" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="320" width="66" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>0</ALIGNMENT>
+                <Content>
+                    <id>536910712</id>
+                </Content>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2005</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="320" width="66" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="320" width="66" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>0</ALIGNMENT>
+                <Content>
+                    <id>536910720</id>
+                </Content>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2005</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="320" width="66" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="320" width="66" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>0</ALIGNMENT>
+                <Content>
+                    <id>536910704</id>
+                </Content>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2011</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="639" height="58" />
+                </LayoutSet>
+                <Inputhandler type="0" acceleration="0" />
+                <ALIGNMENT>6</ALIGNMENT>
+                <Content>
+                    <id>0</id>
+                </Content>
+            </Control>
+            <Control class="CHmiList" FocusIndex="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>3042</id>
+                </Peer>
+                <Attributes bitmapdisableddrawing="FALSE" colordependsonapplication="TRUE" useinactivefocushighlight="FALSE" multipleselection="0" visibleitems="7" />
+                <IndexLabels width="0" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="162" y="0" width="928" height="58" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="162" y="0" width="488" height="58" />
+                </LayoutSet>
+                <Inputhandler type="202" acceleration="1" />
+            </Control>
+            <Control class="CHmiGauge" FocusIndex="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>4027</id>
+                </Peer>
+                <layout rows="0" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="568" y="62" width="60" height="416" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="568" y="62" width="60" height="416" />
+                </LayoutSet>
+                <Inputhandler type="301" acceleration="1" />
+                <Attributes minvalue="0" maxvalue="0" increment="1" />
+            </Control>
+        </Control>
+    </rule>
+    <rule type="pluginApp" id="" applicationType="Settings" actionType="" modelType="" level="0">
+        <ruleEffects>
+            <entryPointEffect parentContainerID="0" entryListID="21006" applicationTypeID="10" colorSchemeID="0" iconActiveID="268492436" iconInactiveID="268492421" visualContextID="1145" optionContainerID="21441" insertBeforeID="0" insertAfterID="0" />
+        </ruleEffects>
+    </rule>
+    <rule type="pluginApp" id="" applicationType="ServiceMenu" actionType="" modelType="" level="0">
+        <ruleEffects>
+            <entryPointEffect parentContainerID="0" entryListID="21556" applicationTypeID="10" colorSchemeID="0" iconActiveID="268492436" iconInactiveID="268492421" visualContextID="1715" optionContainerID="0" insertBeforeID="0" insertAfterID="0" />
+        </ruleEffects>
+    </rule>
+    <rule type="pluginApp" id="" applicationType="DebugApplication" actionType="" modelType="" level="0">
+        <ruleEffects>
+            <entryPointEffect parentContainerID="0" entryListID="21545" applicationTypeID="10" colorSchemeID="0" iconActiveID="268492436" iconInactiveID="268492421" visualContextID="1145" optionContainerID="0" insertBeforeID="0" insertAfterID="0" />
+        </ruleEffects>
+    </rule>
+    <rule type="pluginApp" id="" applicationType="Multimedia" actionType="" modelType="" level="0">
+        <ruleEffects>
+            <entryPointEffect parentContainerID="0" entryListID="27003" applicationTypeID="6" colorSchemeID="3" iconActiveID="268492430" iconInactiveID="268492407" visualContextID="617" optionContainerID="28033" insertBeforeID="8" insertAfterID="0" />
+        </ruleEffects>
+    </rule>
+    <rule type="pluginApp" id="" applicationType="Navigation" actionType="" modelType="" level="0">
+        <ruleEffects>
+            <entryPointEffect parentContainerID="0" entryListID="16004" applicationTypeID="4" colorSchemeID="2" iconActiveID="268492432" iconInactiveID="268492413" visualContextID="880" optionContainerID="16175" insertBeforeID="0" insertAfterID="0" />
+        </ruleEffects>
+    </rule>
+    <rule type="pluginApp" id="" applicationType="Radio" actionType="" modelType="" level="0">
+        <ruleEffects>
+            <entryPointEffect parentContainerID="0" entryListID="15004" applicationTypeID="5" colorSchemeID="3" iconActiveID="268492433" iconInactiveID="268492416" visualContextID="571" optionContainerID="15223" insertBeforeID="8" insertAfterID="0" />
+        </ruleEffects>
+    </rule>
+    <rule type="pluginApp" id="" applicationType="Phone" actionType="" modelType="" level="0">
+        <ruleEffects>
+            <entryPointEffect parentContainerID="0" entryListID="19005" applicationTypeID="3" colorSchemeID="1" iconActiveID="268492797" iconInactiveID="268492780" visualContextID="513" optionContainerID="19263" insertBeforeID="0" insertAfterID="0" />
+        </ruleEffects>
+    </rule>
+    <rule type="pluginApp" id="" applicationType="OnlineServices" actionType="" modelType="" level="0">
+        <ruleEffects>
+            <entryPointEffect parentContainerID="0" entryListID="24008" applicationTypeID="8" colorSchemeID="1" iconActiveID="268492793" iconInactiveID="268492778" visualContextID="725" optionContainerID="24287" insertBeforeID="0" insertAfterID="0" />
+        </ruleEffects>
+    </rule>
+    <rule type="pluginApp" id="" applicationType="TerminalUI" actionType="" modelType="" level="0">
+        <ruleEffects>
+            <entryPointEffect parentContainerID="0" entryListID="24008" applicationTypeID="8" colorSchemeID="1" iconActiveID="268492793" iconInactiveID="268492778" visualContextID="725" optionContainerID="24287" insertBeforeID="0" insertAfterID="0" />
+        </ruleEffects>
+    </rule>
+    <rule type="pluginApp" id="" applicationType="VehicleInformation" actionType="" modelType="" level="0">
+        <ruleEffects>
+            <entryPointEffect parentContainerID="0" entryListID="23004" applicationTypeID="9" colorSchemeID="0" iconActiveID="268492782" iconInactiveID="268492774" visualContextID="1125" optionContainerID="23089" insertBeforeID="0" insertAfterID="0" />
+        </ruleEffects>
+    </rule>
+    <rule type="pluginApp" id="" applicationType="Addressbook" actionType="" modelType="" level="0">
+        <ruleEffects>
+            <entryPointEffect parentContainerID="0" entryListID="18011" applicationTypeID="7" colorSchemeID="0" iconActiveID="268492781" iconInactiveID="268492773" visualContextID="542" optionContainerID="18291" insertBeforeID="0" insertAfterID="0" />
+        </ruleEffects>
+    </rule>
+    <rule type="toolbarHmiState" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiContainer" FocusIndex="0" ScrollEffectWidth="FALSE" statusbartype="1" MaximizeScreenSpace="FALSE">
+            <ID>0</ID>
+            <Peer moveable="FALSE" static="0">
+                <id>5020</id>
+            </Peer>
+            <Cursor width="678" />
+            <Attributes ignorecursorwidth="FALSE" />
+            <title COLOR="0" COLORINACTIVE="0">
+                <content id="536870913">
+                    <icon active="268492428" inactive="268492404" />
+                </content>
+            </title>
+            <toolbar drawframe="FALSE" />
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="678" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="528" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="928" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="800" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="488" />
+            </LayoutSet>
+            <Inputhandler type="102" acceleration="1" />
+            <TableLayout type="0" begin="0" end="7" />
+            <Control class="CHmiContainer" FocusIndex="0" MaximizeScreenSpace="FALSE">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>5018</id>
+                </Peer>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                    <LayoutElement class="CPeerL6CursorLayoutElement" width="678" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                    <LayoutElement class="CPeerL6CursorLayoutElement" width="528" />
+                </LayoutSet>
+                <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="60" y="0" width="800" height="480" />
+                </LayoutSet>
+                <Inputhandler type="0" acceleration="0" />
+                <TableLayout type="0" begin="0" end="6" />
+            </Control>
+            <Control class="CHmiLabel" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Variant flag="20242" />
+                <Peer moveable="FALSE" static="0">
+                    <id>1008</id>
+                </Peer>
+                <layout cuttype="1" />
+                <Content type="2">
+                    <id>536870913</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="210" y="56" width="20" height="420" />
+                </LayoutSet>
+                <Inputhandler type="0" acceleration="0" />
+                <ALIGNMENT>3</ALIGNMENT>
+            </Control>
+        </Control>
+    </rule>
+    <rule type="toolbarButton" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiButton" FocusIndex="0" Fontsize="32" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+            <ID>0</ID>
+            <Peer moveable="FALSE" static="0">
+                <id>2018</id>
+            </Peer>
+            <layout cuttype="0">
+                <tabstop value="0" />
+            </layout>
+            <Content>
+                <tooltip specialalphamode="FALSE" overlay="FALSE" />
+                <id>0</id>
+            </Content>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="404" height="58" />
+            </LayoutSet>
+            <Inputhandler type="402" acceleration="1" />
+            <ALIGNMENT>1</ALIGNMENT>
+        </Control>
+    </rule>
+    <rule type="toolbarGauge" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiGauge" FocusIndex="0" Fontsize="0" DrawFlags="0">
+            <ID>0</ID>
+            <Peer moveable="FALSE" static="0">
+                <id>4043</id>
+            </Peer>
+            <layout cuttype="0">
+                <tabstop value="0" />
+            </layout>
+            <Content>
+                <tooltip specialalphamode="FALSE" overlay="FALSE" />
+            </Content>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="678" height="58" />
+            </LayoutSet>
+            <Inputhandler type="304" acceleration="1" />
+            <Attributes minvalue="0" maxvalue="100" increment="5" />
+        </Control>
+    </rule>
+    <rule type="toolbarGauge" id="" applicationType="" actionType="" modelType="slidableContent" level="0">
+        <ruleEffects />
+        <Control class="CHmiGauge" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="6" COLORINACTIVE="22">
+            <ID>0</ID>
+            <Peer moveable="FALSE" static="0">
+                <id>4044</id>
+            </Peer>
+            <layout cuttype="0">
+                <tabstop value="0" />
+            </layout>
+            <Content idleft="536889688" idright="536893712">
+                <id>536899304</id>
+                <Cell offset="40" />
+            </Content>
+            <Segment count="21" type="3" />
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="640" y="374" width="250" height="96" />
+                <LayoutElement class="CPeerL6GaugeButtonLayoutElement" offset="40" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="420" y="374" width="250" height="96" />
+                <LayoutElement class="CPeerL6GaugeButtonLayoutElement" offset="40" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="420" y="374" width="250" height="96" />
+                <LayoutElement class="CPeerL6GaugeButtonLayoutElement" offset="40" />
+            </LayoutSet>
+            <Inputhandler type="304" acceleration="1" />
+            <Attributes minvalue="0" maxvalue="100" increment="5" />
+        </Control>
+    </rule>
+    <rule type="gauge" id="" applicationType="" actionType="" modelType="Time" level="0">
+        <ruleEffects />
+        <Control class="CHmiGauge" FocusIndex="0" Fontsize="0" DrawFlags="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>4046</id>
+            </Peer>
+            <layout cuttype="0">
+                <tabstop value="0" />
+            </layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="1280" height="58" />
+                <LayoutElement class="CPeerL6FreeEditLabelLayoutElement">
+                    <FormatString text="--" position="418" width="38" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text=":" position="422" width="8" alignment="6" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="--" position="434" width="38" alignment="6" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="SID_BLANK" position="482" width="44" alignment="6" fontsize="28" cuttingStyle="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="1280" height="58" />
+                <LayoutElement class="CPeerL6FreeEditLabelLayoutElement">
+                    <FormatString text="--" position="324" width="38" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text=":" position="328" width="8" alignment="6" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="--" position="340" width="38" alignment="6" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="SID_BLANK" position="388" width="44" alignment="6" fontsize="28" cuttingStyle="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="800" height="58" />
+                <LayoutElement class="CPeerL6FreeEditLabelLayoutElement">
+                    <FormatString text="--" position="308" width="38" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text=":" position="312" width="8" alignment="6" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="--" position="324" width="38" alignment="6" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="SID_BLANK" position="372" width="44" alignment="6" fontsize="28" cuttingStyle="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <Inputhandler type="312" acceleration="1" />
+            <Attributes minvalue="0" maxvalue="23" increment="1" />
+        </Control>
+    </rule>
+    <rule type="gauge" id="" applicationType="" actionType="" modelType="Date" level="0">
+        <ruleEffects />
+        <Control class="CHmiGauge" FocusIndex="0" Fontsize="0" DrawFlags="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>4046</id>
+            </Peer>
+            <layout cuttype="0">
+                <tabstop value="0" />
+            </layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="1280" height="58" />
+                <LayoutElement class="CPeerL6FreeEditLabelLayoutElement">
+                    <FormatString text="--" position="418" width="40" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="." position="424" width="10" alignment="7" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="--" position="448" width="40" alignment="7" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="." position="472" width="10" alignment="7" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="----" position="478" width="80" alignment="6" fontsize="36" cuttingStyle="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="1280" height="58" />
+                <LayoutElement class="CPeerL6FreeEditLabelLayoutElement">
+                    <FormatString text="--" position="324" width="40" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="." position="330" width="10" alignment="7" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="--" position="354" width="40" alignment="7" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="." position="378" width="10" alignment="7" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="----" position="384" width="80" alignment="6" fontsize="36" cuttingStyle="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="800" height="58" />
+                <LayoutElement class="CPeerL6FreeEditLabelLayoutElement">
+                    <FormatString text="--" position="308" width="40" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="." position="314" width="10" alignment="7" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="--" position="338" width="40" alignment="7" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="." position="362" width="10" alignment="7" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="----" position="368" width="80" alignment="6" fontsize="36" cuttingStyle="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <Inputhandler type="310" acceleration="1" />
+            <Attributes minvalue="1" maxvalue="31" increment="1" />
+        </Control>
+    </rule>
+    <rule type="gauge" id="" applicationType="" actionType="" modelType="BigNumber" level="0">
+        <ruleEffects />
+        <Control class="CHmiGauge" FocusIndex="0" Fontsize="0" DrawFlags="0">
+            <ID>0</ID>
+            <Peer moveable="TRUE" static="0">
+                <id>4046</id>
+            </Peer>
+            <layout cuttype="0">
+                <tabstop value="0" />
+            </layout>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="1280" height="58" />
+                <LayoutElement class="CPeerL6FreeEditLabelLayoutElement">
+                    <FormatString text="0" position="398" width="20" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="0" position="418" width="20" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="0" position="438" width="20" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="0" position="458" width="20" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="0" position="478" width="20" alignment="8" fontsize="36" cuttingStyle="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="1280" height="58" />
+                <LayoutElement class="CPeerL6FreeEditLabelLayoutElement">
+                    <FormatString text="0" position="304" width="20" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="0" position="324" width="20" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="0" position="344" width="20" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="0" position="364" width="20" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="0" position="384" width="20" alignment="8" fontsize="36" cuttingStyle="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="800" height="58" />
+                <LayoutElement class="CPeerL6FreeEditLabelLayoutElement">
+                    <FormatString text="0" position="302" width="20" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="0" position="322" width="20" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="0" position="342" width="20" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="0" position="362" width="20" alignment="8" fontsize="36" cuttingStyle="0" />
+                    <FormatString text="0" position="382" width="20" alignment="8" fontsize="36" cuttingStyle="0" />
+                </LayoutElement>
+            </LayoutSet>
+            <Inputhandler type="312" acceleration="1" />
+            <Attributes minvalue="0" maxvalue="23" increment="1" />
+        </Control>
+    </rule>
+    <rule type="locationInput" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiContainer" FocusIndex="0" ScrollEffectWidth="FALSE" statusbartype="1" MaximizeScreenSpace="FALSE">
+            <ID>0</ID>
+            <Peer moveable="FALSE" static="0">
+                <id>5001</id>
+            </Peer>
+            <Cursor width="678" />
+            <Attributes ignorecursorwidth="FALSE" />
+            <title COLOR="0" COLORINACTIVE="0">
+                <content id="536904096">
+                    <icon active="268492432" inactive="268492413" />
+                </content>
+            </title>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="678" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="528" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="928" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="800" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="488" />
+            </LayoutSet>
+            <Inputhandler type="102" acceleration="1" />
+            <TableLayout type="0" begin="0" end="6" />
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2010</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <Content fixtext="536890120">
+                    <id>0</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="732" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>6</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2010</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <Content fixtext="536890112">
+                    <id>0</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="732" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>6</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2010</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <Content fixtext="536890136">
+                    <id>0</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="732" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>6</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2010</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <Content fixtext="536890144">
+                    <id>0</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="732" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>6</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2010</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <Content fixtext="536890128">
+                    <id>0</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="732" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>6</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2005</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="732" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>6</ALIGNMENT>
+                <Content>
+                    <id>536927832</id>
+                </Content>
+            </Control>
+            <Control class="CHmiGauge" FocusIndex="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>4027</id>
+                </Peer>
+                <layout rows="0" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="568" y="62" width="60" height="416" />
+                </LayoutSet>
+                <Inputhandler type="301" acceleration="1" />
+                <Attributes minvalue="0" maxvalue="0" increment="1" />
+            </Control>
+        </Control>
+    </rule>
+    <rule type="locationInputAsia" id="" applicationType="" actionType="" modelType="" level="0">
+        <ruleEffects />
+        <Control class="CHmiContainer" FocusIndex="0" ScrollEffectWidth="FALSE" statusbartype="1" MaximizeScreenSpace="FALSE">
+            <ID>0</ID>
+            <Peer moveable="FALSE" static="0">
+                <id>5001</id>
+            </Peer>
+            <Cursor width="678" />
+            <Attributes ignorecursorwidth="FALSE" />
+            <title COLOR="0" COLORINACTIVE="0">
+                <content id="536904096">
+                    <icon active="268492432" inactive="268492413" />
+                </content>
+            </title>
+            <LayoutSet class="CPeerLayoutSet" type="default">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="678" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="splitscreen">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="528" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="wide">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="1280" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="928" />
+            </LayoutSet>
+            <LayoutSet class="CPeerLayoutSet" type="default_16_9">
+                <LayoutElement class="CPeerPositionLayoutElement" x="0" y="0" width="800" height="480" />
+                <LayoutElement class="CPeerL6CursorLayoutElement" width="488" />
+            </LayoutSet>
+            <Inputhandler type="102" acceleration="1" />
+            <TableLayout type="0" begin="0" end="6" />
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2010</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <Content fixtext="536884288">
+                    <id>0</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="732" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>6</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2010</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <Content fixtext="536884312">
+                    <id>0</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="732" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>6</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2010</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <Content fixtext="536884336">
+                    <id>0</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="732" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>6</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2010</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <Content fixtext="536884360">
+                    <id>0</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="732" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>6</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2010</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <Content fixtext="536884384">
+                    <id>0</id>
+                </Content>
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="732" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>6</ALIGNMENT>
+            </Control>
+            <Control class="CHmiButton" FocusIndex="0" Fontsize="0" DrawFlags="0" COLOR="0" COLORINACTIVE="0">
+                <ID>0</ID>
+                <Peer moveable="TRUE" static="0">
+                    <id>2005</id>
+                </Peer>
+                <layout cuttype="0">
+                    <tabstop value="0" />
+                </layout>
+                <Cursor width="678" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="148" y="0" width="732" height="58" />
+                </LayoutSet>
+                <Inputhandler type="402" acceleration="1" />
+                <ALIGNMENT>6</ALIGNMENT>
+                <Content>
+                    <id>536927832</id>
+                </Content>
+            </Control>
+            <Control class="CHmiGauge" FocusIndex="0">
+                <ID>0</ID>
+                <Peer moveable="FALSE" static="0">
+                    <id>4027</id>
+                </Peer>
+                <layout rows="0" />
+                <LayoutSet class="CPeerLayoutSet" type="default">
+                    <LayoutElement class="CPeerPositionLayoutElement" x="568" y="62" width="60" height="416" />
+                </LayoutSet>
+                <Inputhandler type="301" acceleration="1" />
+                <Attributes minvalue="0" maxvalue="0" increment="1" />
+            </Control>
+        </Control>
+    </rule>
+</rules>
