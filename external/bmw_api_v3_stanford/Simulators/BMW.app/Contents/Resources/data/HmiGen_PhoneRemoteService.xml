@@ -1,0 +1,68 @@
+<pluginApps>
+    <pluginApp applicationType="ServiceMenu" textModel="19" text="">
+        <actions />
+        <models>
+            <formatDataModel id="3" formatString="%0">
+                <models>
+                    <sidDataModel id="21" sid="24456" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="5" formatString="%0 %1">
+                <models>
+                    <sidDataModel id="22" sid="24504" />
+                    <sidDataModel id="18" sid="24520" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="7" formatString="%0">
+                <models>
+                    <sidDataModel id="23" sid="24496" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="9" formatString="%0">
+                <models>
+                    <sidDataModel id="24" sid="24480" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="11" formatString="%0">
+                <models>
+                    <sidDataModel id="25" sid="24488" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="13" formatString="%0">
+                <models>
+                    <sidDataModel id="26" sid="24528" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="15" formatString="%0">
+                <models>
+                    <sidDataModel id="27" sid="24592" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="17" formatString="%0">
+                <models>
+                    <sidDataModel id="28" sid="24464" />
+                </models>
+            </formatDataModel>
+            <sidDataModel id="20" sid="24600" />
+            <sidDataModel id="19" sid="24440" />
+        </models>
+        <hmiStates>
+            <hmiState id="1" textModel="20">
+                <properties>
+                    <property id="22" value="false" />
+                </properties>
+                <components>
+                    <label id="2" text="BT Name:" model="3" />
+                    <label id="4" text="NAD: Not activated" model="5" />
+                    <label id="6" text="MCC / MNC:" model="7" />
+                    <label id="8" text="ICC ID:" model="9" />
+                    <label id="10" text="IMEI:" model="11" />
+                    <label id="12" text="Reg State:" model="13" />
+                    <label id="14" text="Sig Strength:" model="15" />
+                    <label id="16" text="GPS T/D: Not supported" model="17" />
+                </components>
+            </hmiState>
+        </hmiStates>
+        <events />
+    </pluginApp>
+</pluginApps>

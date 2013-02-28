@@ -1,0 +1,26 @@
+<html>
+<head>
+<!--    <script type='text/javascript' src='/jquery-1.6.4.min.js'></script> -->
+    <script type='text/javascript' src='jquery-1.6.4.min.js'></script>
+    <script type='text/javascript' src='ControlElementsEC.js'></script>
+    <link rel="stylesheet" type="text/css" href="ControlElementsEC.css" />
+</head>
+<body>
+<img src="ControlElementsEC.png" usemap="#shapes" />
+<map id="shapes" name="shapes">
+	<area shape="poly" alt="CD"     title="CD"     coords="28,105,37,44,101,27,98,87" onclick="click()" />
+	<area shape="poly" alt="RADIO"  title="RADIO"  coords="21,210,26,118,98,96,98,155" onclick="alert('RADIO')" />
+	<area shape="poly" alt="MENU"   title="MENU"   coords="103,149,107,26,176,25,180,149" onclick="alert('MENU')" />
+	<area shape="poly" alt="TEL"    title="TEL"    coords="255,105,246,44,182,27,185,87" onclick="alert('TEL')" />
+	<area shape="poly" alt="NAV"    title="NAV"    coords="264,210,259,118,187,96,187,155" onclick="alert('NAV')" />
+	<area shape="poly" alt="BACK"   title="BACK"   coords="57,465,39,385,142,425,142,478" onclick="alert('BACK')" />
+	<area shape="poly" alt="OPTION" title="OPTION" coords="230,465,248,385,148,425,148,478" onclick="alert('OPTION')" />
+	<area shape="circle" alt="CENTER" title="CENTER" coords="145,300,32" id="push_center" />
+<!--	<area shape="circle" alt="CENTER" title="CENTER" coords="145,300,32" onmousedown="ergoCmd1Push(ErgoCmd1Push.ECP_Tasteistgedrueckt.value)" onmouseup="ergoCmd1Push(ErgoCmd1Push.ECP_KeineAktion.value)" />-->
+	<area shape="circle" alt="NORTH"  title="NORTH"  coords="145,243,32" onmousedown="ergoCmd1Slope(0)" onmouseup="ergoCmd1Slope(15)" />
+	<area shape="circle" alt="EAST"   title="EAST"   coords="195,300,32" onmousedown="ergoCmd1Slope(2)" onmouseup="ergoCmd1Slope(15)" />
+	<area shape="circle" alt="SOUTH"  title="SOUTH"  coords="145,353,32" onmousedown="ergoCmd1Slope(4)" onmouseup="ergoCmd1Slope(15)" />
+	<area shape="circle" alt="WEST"   title="WEST"   coords="90,300,32"  onmousedown="ergoCmd1Slope(6)" onmouseup="ergoCmd1Slope(15)" />
+</map>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<pluginApps>
+    <pluginApp applicationType="ServiceMenu" textModel="510" text="">
+        <actions>
+            <hmiAction id="3" target="4" />
+            <hmiAction id="6" target="7" />
+            <hmiAction id="23" target="24" />
+            <hmiAction id="58" target="59" />
+            <hmiAction id="65" target="66" />
+            <hmiAction id="96" target="97" />
+            <hmiAction id="103" target="104" />
+            <hmiAction id="108" target="301" />
+            <hmiAction id="110" target="302" />
+            <hmiAction id="112" target="303" />
+            <hmiAction id="114" target="304" />
+            <hmiAction id="116" target="1" />
+            <raAction id="118" />
+            <raAction id="106" actionType="spellWord" />
+            <raAction id="317" actionType="spellWord" />
+            <raAction id="318" actionType="spellWord" />
+            <raAction id="319" actionType="spellWord" />
+            <raAction id="320" actionType="spellWord" />
+        </actions>
+        <models>
+            <formatDataModel id="9" formatString="%0">
+                <models>
+                    <sidDataModel id="600" sid="23776" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="11" formatString="%0">
+                <models>
+                    <sidDataModel id="601" sid="23784" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="13" formatString="%0">
+                <models>
+                    <sidDataModel id="602" sid="23752" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="15" formatString="%0">
+                <models>
+                    <sidDataModel id="603" sid="23760" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="17" formatString="%0">
+                <models>
+                    <sidDataModel id="604" sid="23800" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="19" formatString="%0">
+                <models>
+                    <sidDataModel id="605" sid="23792" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="21" formatString="%0">
+                <models>
+                    <sidDataModel id="606" sid="23768" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="61" formatString="%0">
+                <models>
+                    <sidDataModel id="607" sid="23968" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="63" formatString="%0">
+                <models>
+                    <sidDataModel id="608" sid="23976" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="68" formatString="%0 %1 %2">
+                <models>
+                    <sidDataModel id="609" sid="24160" />
+                    <sidDataModel id="610" sid="24144" />
+                    <sidDataModel id="611" sid="24152" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="70" formatString="%0 %1 %2">
+                <models>
+                    <sidDataModel id="612" sid="24392" />
+                    <sidDataModel id="613" sid="24376" />
+                    <sidDataModel id="614" sid="24384" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="72" formatString="%0">
+                <models>
+                    <sidDataModel id="615" sid="24184" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="74" formatString="%0">
+                <models>
+                    <sidDataModel id="616" sid="24192" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="76" formatString="%0">
+                <models>
+                    <sidDataModel id="617" sid="24296" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="78" formatString="%0">
+                <models>
+                    <sidDataModel id="618" sid="24120" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="80" formatString="%0">
+                <models>
+                    <sidDataModel id="619" sid="24400" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="82" formatString="%0">
+                <models>
+                    <sidDataModel id="620" sid="24352" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="84" formatString="%0">
+                <models>
+                    <sidDataModel id="621" sid="24328" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="86" formatString="%0">
+                <models>
+                    <sidDataModel id="622" sid="24312" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="88" formatString="%0">
+                <models>
+                    <sidDataModel id="623" sid="24320" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="90" formatString="%0">
+                <models>
+                    <sidDataModel id="624" sid="24064" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="92" formatString="%0">
+                <models>
+                    <sidDataModel id="625" sid="24056" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="94" formatString="%0">
+                <models>
+                    <sidDataModel id="626" sid="24088" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="99" formatString="%0">
+                <models>
+                    <sidDataModel id="627" sid="24032" />
+                </models>
+            </formatDataModel>
+            <formatDataModel id="101" formatString="%0">
+                <models>
+                    <sidDataModel id="628" sid="24024" />
+                </models>
+            </formatDataModel>
+            <raListModel id="306" />
+            <raListModel id="308" />
+            <raListModel id="310" />
+            <raListModel id="312" />
+            <raListModel id="314" />
+            <raListModel id="322" />
+            <sidDataModel id="500" sid="23736" />
+            <sidDataModel id="501" sid="23744" />
+            <sidDataModel id="502" sid="23824" />
+            <sidDataModel id="503" sid="23960" />
+            <sidDataModel id="504" sid="24048" />
+            <sidDataModel id="505" sid="24016" />
+            <sidDataModel id="506" sid="23992" />
+            <sidDataModel id="507" sid="24000" />
+            <sidDataModel id="508" sid="24424" />
+            <sidDataModel id="509" sid="24416" />
+            <sidDataModel id="510" sid="24432" />
+            <sidDataModel id="520" sid="19208" />
+            <sidDataModel id="521" sid="19200" />
+            <sidDataModel id="522" sid="19224" />
+            <sidDataModel id="523" sid="19232" />
+            <sidDataModel id="524" sid="19216" />
+        </models>
+        <hmiStates>
+            <hmiState id="1" textModel="509">
+                <properties>
+                    <property id="22" value="false" />
+                </properties>
+                <components>
+                    <button id="2" action="3" model="500" />
+                    <button id="64" action="65" model="504" />
+                    <button id="95" action="96" model="505" />
+                    <button id="102" action="103" model="506" />
+                    <button id="117" action="118" model="508" />
+                </components>
+            </hmiState>
+            <hmiState id="4" textModel="500">
+                <components>
+                    <button id="5" action="6" model="501" />
+                    <button id="22" action="23" model="502" />
+                    <button id="57" action="58" model="503" />
+                </components>
+            </hmiState>
+            <hmiState id="7" textModel="501">
+                <components>
+                    <label id="8" model="9" />
+                    <label id="10" model="11" />
+                    <label id="12" model="13" />
+                    <label id="14" model="15" />
+                    <label id="16" model="17" />
+                    <label id="18" model="19" />
+                    <label id="20" model="21" />
+                </components>
+            </hmiState>
+            <hmiState id="24" textModel="502">
+                <components>
+                    <list id="321" model="322" />
+                </components>
+            </hmiState>
+            <hmiState id="59" textModel="503">
+                <components>
+                    <label id="60" model="61" />
+                    <label id="62" model="63" />
+                </components>
+            </hmiState>
+            <hmiState id="66" textModel="504">
+                <components>
+                    <label id="67" model="68" />
+                    <label id="69" model="70" />
+                    <label id="71" model="72" />
+                    <label id="73" model="74" />
+                    <label id="75" model="76" />
+                    <label id="77" model="78" />
+                    <label id="79" model="80" />
+                    <label id="81" model="82" />
+                    <label id="83" model="84" />
+                    <label id="85" model="86" />
+                    <label id="87" model="88" />
+                    <label id="89" model="90" />
+                    <label id="91" model="92" />
+                    <label id="93" model="94" />
+                </components>
+            </hmiState>
+            <hmiState id="97" textModel="505">
+                <components>
+                    <label id="98" text="Map database:" model="99" />
+                    <label id="100" text="Air pictures:" model="101" />
+                </components>
+            </hmiState>
+            <hmiState id="104" textModel="506">
+                <components>
+                    <button id="105" tooltipModel="520" action="106" />
+                    <button id="107" tooltipModel="521" action="317" />
+                    <button id="109" tooltipModel="522" action="318" />
+                    <button id="111" tooltipModel="523" action="319" />
+                    <button id="113" tooltipModel="524" action="320" />
+                    <button id="115" action="116" model="507" />
+                </components>
+            </hmiState>
+            <hmiState id="300" textModel="520">
+                <components>
+                    <list id="305" model="306" action="323" />
+                </components>
+            </hmiState>
+            <hmiState id="301" textModel="521">
+                <components>
+                    <button id="400" />
+                    <button id="401" />
+                    <button id="402" />
+                    <separator id="403" />
+                    <list id="307" model="308" action="324">
+                        <properties>
+                            <property id="6" value="460" />
+                        </properties>
+                    </list>
+                </components>
+            </hmiState>
+            <hmiState id="302" textModel="522">
+                <components>
+                    <button id="404" />
+                    <separator id="405" />
+                    <button id="406" />
+                    <button id="407" />
+                    <button id="408" />
+                    <separator id="409" />
+                    <list id="309" model="310" action="325">
+                        <properties>
+                            <property id="6" value="460" />
+                        </properties>
+                    </list>
+                </components>
+            </hmiState>
+            <hmiState id="303" textModel="523">
+                <components>
+                    <list id="311" model="312" action="326">
+                        <properties>
+                            <property id="6" value="460" />
+                        </properties>
+                    </list>
+                </components>
+            </hmiState>
+            <hmiState id="304" textModel="524">
+                <components>
+                    <list id="313" model="314" action="327">
+                        <properties>
+                            <property id="6" value="460" />
+                        </properties>
+                    </list>
+                </components>
+            </hmiState>
+            <hmiState id="315" text="Speller">
+                <components>
+                    <input id="316" model="0" resultModel="0" suggestModel="0" action="0" suggestAction="0" resultAction="0" textModel="0" />
+                </components>
+            </hmiState>
+        </hmiStates>
+        <events />
+    </pluginApp>
+</pluginApps>

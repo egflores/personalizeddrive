@@ -1,0 +1,36 @@
+<pluginApps>
+    <pluginApp applicationType="Settings" textModel="2" text="Navi Quicktest">
+        <actions />
+        <models>
+            <sidDataModel id="2" sid="49904" />
+            <raListModel id="36" modelType="Info" />
+            <raListModel id="37" modelType="Info" />
+            <raListModel id="38" modelType="Info" />
+        </models>
+        <hmiStates>
+            <hmiState id="1" text="Navi Quicktest" textModel="2">
+                <properties>
+                    <property id="22" value="false" />
+                </properties>
+                <components>
+                    <list id="33" model="36">
+                        <properties>
+                            <property id="6" value="265,250" />
+                        </properties>
+                    </list>
+                    <list id="34" model="37">
+                        <properties>
+                            <property id="6" value="265,100,200" />
+                        </properties>
+                    </list>
+                    <list id="35" model="38">
+                        <properties>
+                            <property id="6" value="265,250" />
+                        </properties>
+                    </list>
+                </components>
+            </hmiState>
+        </hmiStates>
+        <events />
+    </pluginApp>
+</pluginApps>

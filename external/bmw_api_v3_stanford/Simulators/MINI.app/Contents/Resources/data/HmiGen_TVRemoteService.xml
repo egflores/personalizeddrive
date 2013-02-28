@@ -1,0 +1,70 @@
+<pluginApps>
+    <pluginApp applicationType="ServiceMenu" textModel="301" text="">
+        <actions>
+            <raAction id="303" />
+            <raAction id="305" />
+            <raAction id="307" />
+            <hmiAction id="327" target="320" />
+            <hmiAction id="329" target="330" />
+            <raAction id="309" />
+            <raAction id="311" />
+            <combinedAction id="323">
+                <actions>
+                    <raAction id="324" />
+                    <hmiAction id="325" target="300" />
+                </actions>
+            </combinedAction>
+            <combinedAction id="333">
+                <actions>
+                    <raAction id="334" />
+                    <hmiAction id="335" target="300" />
+                </actions>
+            </combinedAction>
+        </actions>
+        <models>
+            <sidDataModel id="2" sid="24448" />
+            <sidDataModel id="4" sid="24736" />
+            <sidDataModel id="7" sid="24832" />
+            <sidDataModel id="10" sid="24688" />
+            <sidDataModel id="13" sid="24752" />
+            <sidDataModel id="23" sid="24608" />
+            <sidDataModel id="301" sid="8528" />
+            <raListModel id="313" />
+            <raListModel id="317" />
+            <raGaugeModel id="318" min="0" max="255" value="0" increment="1" />
+            <raGaugeModel id="319" min="0" max="99995" value="0" increment="5" />
+            <raGaugeModel id="332" modelType="BigNumber" min="0" max="99995" value="0" increment="5" />
+            <raListModel id="322" />
+            <sidDataModel id="500" sid="24720" />
+        </models>
+        <hmiStates>
+            <toolbarHmiState id="300" textModel="500">
+                <properties>
+                    <property id="22" value="false" />
+                </properties>
+                <components>
+                    <list id="312" model="313" />
+                    <list id="316" model="317" />
+                </components>
+                <toolbarComponents>
+                    <gauge id="302" text="Ch" model="318" action="303" textModel="4" />
+                    <button id="328" text="Fr" tooltipModel="7" action="329" />
+                    <button id="306" text="CI" tooltipModel="10" selectAction="307" />
+                    <button id="308" text="Pa" tooltipModel="13" selectAction="309" />
+                    <button id="310" text="AI" tooltipModel="23" selectAction="311" />
+                </toolbarComponents>
+            </toolbarHmiState>
+            <hmiState id="320" textModel="10">
+                <components>
+                    <list id="321" model="322" action="323" />
+                </components>
+            </hmiState>
+            <hmiState id="330" textModel="7">
+                <components>
+                    <gauge id="331" model="332" action="333" textModel="7" />
+                </components>
+            </hmiState>
+        </hmiStates>
+        <events />
+    </pluginApp>
+</pluginApps>
