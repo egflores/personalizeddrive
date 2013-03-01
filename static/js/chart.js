@@ -1,4 +1,4 @@
-d3.json('testData.json', function (data) {
+d3.json('data/cumulativeLineData.json', function (data) {
 	nv.addGraph(function() {
 		var chart = nv.models.cumulativeLineChart()
 		    .x(function(d) { return d[0] })
