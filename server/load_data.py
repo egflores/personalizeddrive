@@ -1,9 +1,12 @@
 from peewee import *
 from datetime import *
 
+db = MySQLDatabase('pd_test', user='pd_tester', passwd='Nuggets', host='bmw.stanford.edu')
+db.connect()
+
 class BaseModel(Model):
     class Meta:
-        //correct database model
+        database = db
 
 class CarData(BaseModel):
     time = DateTimeField()
@@ -12,7 +15,8 @@ class CarData(BaseModel):
 def create_tables():
     CarData.create_table()
 
-//create_tables()
+import pdb; pdb.set_trace()
+create_tables()
 
 f = open('fakedata.txt')
 for line in f.readlines():
