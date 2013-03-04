@@ -3,23 +3,27 @@
     <head>
         <title>Bootstrap 101 Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	   <meta charset="utf-8">
+	    <meta charset="utf-8">
 
         <!-- Bootstrap -->
         <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
         <link href="static/css/nv.d3.css" rel="stylesheet" type="text/css">
         <style>
-	   svg {
-		display: block;
-	   }
+            svg {
+                display: block;
+            }
 
-	   #chart svg {
-          height: 500px;
-	     min-width: 100px;
-	     min-height: 100px;
-	   }
+            #chart svg {
+                height: 500px;
+                min-width: 100px;
+                min-height: 100px;
+	        }
 	   </style>
+
+        <script>
+            car_data = JSON.parse('{{ car_data|safe }}');   
+        </script>
     </head>
     <body>
         <div class="navbar navbar-inverse navbar-static-top">
