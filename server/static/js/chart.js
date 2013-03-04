@@ -1,5 +1,5 @@
 var chart;
-d3.json('data/cumulativeLineData.json', function (data) {
+d3.json('static/data/cumulativeLineData.json', function (data) {
 	nv.addGraph(function() {
 		chart = nv.models.lineChart()
 		    .x(function(d) { return d[0] })
@@ -14,7 +14,7 @@ d3.json('data/cumulativeLineData.json', function (data) {
 		chart.yAxis
 		    .tickFormat(d3.format(',.1%'));
 		
-		d3.select('#chart svg')
+		d3.select(".container").select('#chart svg')
 		    .datum(data)
 		    .transition().duration(500)
 		    .call(chart);
