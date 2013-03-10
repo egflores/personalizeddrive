@@ -33,7 +33,7 @@ class Car(db.Model):
     model = CharField()
     year = IntegerField()
     name = CharField()
-    picture = TextField()
+    picture = TextField(null=True)
 
 class Commute(db.Model):
     car = ForeignKeyField(Car, related_name="commutes", index=True)
@@ -81,7 +81,9 @@ def home():
         ]
     }
     car_data = json.dumps(sample_data)
-    return render_template('sample.html', car_data=car_data, name="two")
+    u = User.get(first_name="Jay", last_name="Borenstein")
+    c = Car.get(user=u)
+    return render_template('sample.html', car_data=car_data, car=c, name="two")
 
 @app.route('/dashboard')
 def dashboard():
