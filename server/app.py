@@ -81,7 +81,7 @@ def home():
         ]
     }
     car_data = json.dumps(sample_data)
-    return render_template('sample.html', car_data=car_data)
+    return render_template('sample.html', car_data=car_data, name="two")
 
 @app.route('/dashboard')
 def dashboard():
@@ -98,7 +98,7 @@ def dashboard():
         ]
     }
     car_data = json.dumps(sample_data)
-    return render_template('dashboard.html', car_data=car_data)
+    return render_template('dashboard.html', car_data=car_data, name="one")
 
 if __name__ == '__main__':
     User.create_table(fail_silently=True)

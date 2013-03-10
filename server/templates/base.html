@@ -15,10 +15,33 @@
             <div class="navbar-inner">
                 <a class="brand" href="#">My BMW</a>
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="dashboard">Dashboard</a></li>
-                    <li><a href="sample">Stupidity</a></li>
-                    <li><a href="#">Three</a></li>
-                    <li><a href="#">Four</a></li>
+				{% if name == "one" %}
+				<li class="active">
+				{% else %}
+				<li>
+				{% endif %}
+                    <a href="dashboard">Dashboard</a></li>
+
+				{% if name == "two" %}
+				<li class="active">
+				{% else %}
+				<li>
+				{% endif %}
+                    <a href="sample">Stupidity</a></li>
+
+				{% if name == "three" %}
+				<li class="active">
+				{% else %}
+				<li>
+				{% endif %}
+                    <a href="#">Three</a></li>
+
+				{% if name == "four" %}
+				<li class="active">
+				{% else %}
+				<li>
+				{% endif %}
+                    <a href="#">Four</a></li>
 			 </ul>
                 <ul class="nav pull-right">
                   <li class="dropdown">
