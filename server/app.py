@@ -1,7 +1,8 @@
 import json
 from flask import Flask, render_template 
 from flask_peewee.db import Database
-from peewee import DateTimeField, IntegerField, ForeignKeyField, DoubleField, CharField, TextField
+from peewee import DateTimeField, IntegerField, ForeignKeyField, \
+        DoubleField, CharField, TextField
 
 DATABASE = {
     'engine': 'peewee.MySQLDatabase',
@@ -81,7 +82,7 @@ def home():
         ]
     }
     car_data = json.dumps(sample_data)
-    return render_template('index.html', car_data=car_data)
+    return render_template('sample.html', car_data=car_data)
 
 if __name__ == '__main__':
     User.create_table(fail_silently=True)
