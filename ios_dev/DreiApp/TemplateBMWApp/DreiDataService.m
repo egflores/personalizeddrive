@@ -12,10 +12,10 @@
 
 - (id)init {
     if (self = [super init]) {
-        [self._dataStore initWithCapacity:100];
+        self._dataStore = [[NSMutableArray alloc] initWithCapacity:100];
         self._currentValues = [[[NSMutableDictionary alloc] initWithCapacity:10] retain];
         NSLog(@"done and done!");
-        [self setupTimer];
+        [self startTimer];
     }
     return self;
 }
@@ -26,18 +26,22 @@
     }
 }
 
--(void)setupTimer {
+-(void)startTimer {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                      target:self
-                                   selector:@selector(lol)
+                                   selector:@selector(saveData)
                                    userInfo:nil
                                     repeats:true];
 }
 
--(void)lol {
-    // pull the cachedvalues dict into the datastore array
-    //TODO: double check memory management
-    NSLog(@"I got called!");
+-(void)saveData {
+    NSMutableDictionary * dictCopy = [self._currentValues mutableCopy];
+    [dictCopy setValue:[[NSNumber alloc] initWithDouble:[[NSDate date] timeIntervalSince1970]] forKey:@"time"];
+    NSDictionary *newDict = [dictCopy copy];
+    [dictCopy release];
+    
+    [self._dataStore addObject:newDict];
+    NSLog(@"%@",self._dataStore);
 }
 
 @end
