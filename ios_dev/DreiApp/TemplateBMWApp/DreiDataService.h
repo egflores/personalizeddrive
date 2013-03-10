@@ -11,11 +11,14 @@
 
 @interface DreiDataService : NSObject
 
-@property (nonatomic, retain) NSMutableArray * _dataStore;
+@property (atomic, retain) NSMutableArray * _dataStore;
 @property (atomic,retain) NSMutableDictionary * _currentValues;
-@property (nonatomic,retain) NSTimer * timer;
+@property (atomic,retain) NSTimer * timer;
 
 
 -(void)initCurrentValues:(NSArray *)keys;
+-(void)startCollection;
+-(NSArray *)getDataKeys;
+
 
 @end

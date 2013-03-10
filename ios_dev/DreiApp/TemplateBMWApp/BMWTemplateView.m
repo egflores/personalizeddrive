@@ -17,6 +17,7 @@
 {
     /* lolling */
     DreiDataService *d = [[[DreiRealDataService alloc] initWithCDS:[self.application cdsService]] retain];
+    [d startCollection];
     NSLog(@"%@",d._currentValues);
     return;
     

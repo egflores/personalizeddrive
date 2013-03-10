@@ -14,6 +14,7 @@
 - (id)initWithCDS:(IDCdsService *) cdsService {
     if (self == [super init]) {
         self._cdsService = cdsService;
+        
         [self setupCDSCallbacks];
         
     }
@@ -21,10 +22,6 @@
 }
 
 - (void)setupCDSCallbacks {
-    NSLog(@"yep");
-
-    [self initCurrentValues:[[NSArray alloc] initWithObjects:@"headlights", @"speedActual", @"odometer",nil]];
-    
     [self._cdsService asyncGetProperty:CDSControlsHeadlights
                                 target:self
                               selector:@selector(handleHeadlightCallback:)
@@ -40,27 +37,42 @@
                               selector:@selector(handleOdometerCallback:)
                        completionBlock:^(NSError *error) { [self completionBlock:error]; }
      ];
+    [self._cdsService asyncGetProperty:CDSEngineStatus
+                                target:self
+                              selector:@selector(handleEngineCallback:)
+                       completionBlock:^(NSError *error) { [self completionBlock:error]; }
+     ];
+    [self._cdsService asyncGetProperty:CDSSensorsFuel
+                                target:self
+                              selector:@selector(handleFuelCallback:)
+                       completionBlock:^(NSError *error) { [self completionBlock:error]; }
+     ];
 }
 
 - (void)completionBlock:(NSError *)error {
-    NSLog(@"Got cblock");
+    NSLog(@"Got completion block! Zippiedee doo dah!");
 }
 
 - (void)handleHeadlightCallback: (NSDictionary *)data {
-    [self handleAsyncCallback:CDSControlsHeadlights dictKey:@"headlights" data:data];
+    [self._currentValues setValue:[data valueForKey:@"headlights"] forKey:@"headlights"];
 }
 
 - (void)handleSpeedCallback: (NSDictionary *)data {
-    [self handleAsyncCallback:CDSDrivingSpeedActual dictKey:@"speedActual" data:data];
+    [self._currentValues setValue:[data valueForKey:@"speedActual"] forKey:@"speedActual"];
 }
 
 - (void)handleOdometerCallback: (NSDictionary *)data {
-    [self handleAsyncCallback:CDSDrivingOdometer dictKey:@"odometer" data:data];
+    [self._currentValues setValue:[data valueForKey:@"odometer"] forKey:@"odometer"];
 }
 
-- (void)handleAsyncCallback:(NSString *)key dictKey:(NSString *)dictKey data:(NSDictionary *)datadict {
-    NSLog(@"Got callback");
-    NSLog(@"%@:%@",dictKey,[datadict valueForKey:dictKey]);
-    [self._currentValues setValue:[datadict valueForKey:dictKey] forKey:dictKey];
+- (void)handleEngineCallback: (NSDictionary *)data {
+    [self._currentValues setValue:[data valueForKey:@"status"] forKey:@"engine_status"];
 }
+
+- (void)handleFuelCallback: (NSDictionary *)data {
+    [self._currentValues setValue:[[data valueForKey:@"fuel"] valueForKey:@"range"] forKey:@"fuel_range"];
+    [self._currentValues setValue:[[data valueForKey:@"fuel"] valueForKey:@"tanklevel"] forKey:@"fuel_level"];
+    [self._currentValues setValue:[[data valueForKey:@"fuel"] valueForKey:@"reserve"] forKey:@"fuel_reserve"];
+}
+
 @end
