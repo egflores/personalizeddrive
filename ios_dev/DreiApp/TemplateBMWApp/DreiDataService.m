@@ -22,19 +22,19 @@
 
 -(void)initCurrentValues:(NSArray *)keys {
     for (NSString * obj in keys) {
-        [self._currentValues setValue:@"" forKey:obj];
+        [self._currentValues setValue:@"NODATA" forKey:obj];
     }
 }
 
 -(void)startTimer {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                      target:self
-                                   selector:@selector(saveData)
+                                   selector:@selector(saveDataCallback)
                                    userInfo:nil
                                     repeats:true];
 }
 
--(void)saveData {
+-(void)saveDataCallback {
     NSMutableDictionary * dictCopy = [self._currentValues mutableCopy];
     [dictCopy setValue:[[NSNumber alloc] initWithDouble:[[NSDate date] timeIntervalSince1970]] forKey:@"time"];
     NSDictionary *newDict = [dictCopy copy];
