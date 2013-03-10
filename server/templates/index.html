@@ -10,9 +10,6 @@
 
         <link href="static/css/nv.d3.css" rel="stylesheet" type="text/css">
         <style>
-            svg {
-                display: block;
-            }
 
             #chart svg {
                 height: 500px;
@@ -26,17 +23,24 @@
         </script>
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-static-top">
+        <div class="navbar navbar-static-top">
             <div class="navbar-inner">
                 <a class="brand" href="#">My BMW</a>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#">One</a></li>
+                    <li><a href="#">Two</a></li>
+                    <li><a href="#">Three</a></li>
+                    <li><a href="#">Four</a></li>
+			  </ul>
             </div>
         </div>
         <div class="container">
-            <h1> Wuttup </h1>
 
+		<div class="span12">
             <div id="chart">
 		    <svg></svg>
             </div>
+          </div>
         </div>
         <!-- <script src="http://code.jquery.com/jquery.js"></script> -->
         <!-- <script src="static/js/bootstrap.min.js"></script> -->
