@@ -58,13 +58,43 @@ class CCMMessage(db.Model):
     update_time = DateTimeField(index=True)
 
 class RawData(db.Model):
+
+    FUEL_RESERVE_ENUM = ['no', 'yes', 'invalid']
+    ENGINE_STATUS_ENUM = ['off', 'starting', 'running', 'invalid']
+    HEADLIGHTS_ENUM = ['on', 'off']
+
+    # foreign key to car table
     car = ForeignKeyField(Car, related_name="raw_data", index=True)
-    remaining_fuel = IntegerField() # in liters
-    remaining_range_fuel = IntegerField()
-    range_unit = CharField()
-    mileage = IntegerField()
-    ave_mpg = DoubleField()
+    
+    # update time (when this data was calculated)
     update_time = DateTimeField(index=True) 
+
+    # amount of gas in tank, in gallons
+    tank_level = IntegerField() # amount of gas in tank, in gallons
+
+    # number of miles that can be travelled on the current tank
+    fuel_range = IntegerField() 
+
+    # whether the tank is on fuel reserve
+    fuel_reserve = CharField(null=True, 
+            choices=[(c, c) for c in FUEL_RESERVE_ENUM])
+
+    # mileage count of car
+    odometer = IntegerField()
+
+    # average miles per gallon of the car, at this time
+    ave_mpg = DoubleField(null=True)
+
+    # whether the headlights are on or not
+    headlights = CharField(null=True, 
+            choices=[(c, c) for c in HEADLIGHTS_ENUM])
+
+    # current speed of the car
+    speed = DoubleField(null=True)
+
+    # current status of the Engine
+    engine_status = CharField(null=True, 
+            choices=[(c, c) for c in ENGINE_STATUS_ENUM])
 
 @app.route('/')
 def home():
