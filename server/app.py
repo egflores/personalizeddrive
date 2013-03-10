@@ -66,7 +66,7 @@ class RawData(db.Model):
     ave_mpg = DoubleField()
     update_time = DateTimeField(index=True) 
 
-@app.route('/')
+@app.route('/sample')
 def home():
     values = []
     for row in CarData.select():
@@ -83,6 +83,23 @@ def home():
     car_data = json.dumps(sample_data)
     return render_template('sample.html', car_data=car_data)
 
+@app.route('/dashboard')
+def dashboard():
+    values = []
+    for row in CarData.select():
+        values.append([int(row.time.strftime("%s")), row.mileage])
+
+    sample_data = {
+        'data': [
+            {
+                'key': 'Mileage',
+                'values': values
+            }
+        ]
+    }
+    car_data = json.dumps(sample_data)
+    return render_template('dashboard.html', car_data=car_data)
+
 if __name__ == '__main__':
     User.create_table(fail_silently=True)
     Car.create_table(fail_silently=True)
@@ -92,4 +109,5 @@ if __name__ == '__main__':
     RawData.create_table(fail_silently=True)
 
     app.run()
+
 
