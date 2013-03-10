@@ -8,6 +8,10 @@
         <!-- Bootstrap -->
         <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="static/css/bootstrap-responsive.css" rel="stylesheet">
+
+        <!-- Our Custom CSS -->
+        <link href="static/css/base.css" rel="stylesheet">
+
         {% block head %}{% endblock %}
    </head>
     <body>
@@ -29,7 +33,9 @@
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#carModal" data-toggle="modal">My Main Car</a></li>
+                            <li>
+                                <a href="#car-profile-modal" data-toggle="modal">My Main Car</a>
+                            </li>
                             <li class="divider"></li>
                             <li class="disabled"><a href="#"><b>Switch Cars</b></a></li>
                             <li><a href="#">My 2nd Car</a></li>
@@ -44,28 +50,29 @@
             {% block container %} {% endblock %}
         </div>
 
-        <div id="carModal" class="modal hide fade">
+        <div id="car-profile-modal" class="modal hide fade">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     &times;
                 </button>
-                <h3 style="text-align: center">&nbsp;</h3>
+                <h3>&nbsp;</h3>
             </div>
-            <div class="modal-body" style="padding: 0px">
+            <div class="modal-body">
                 <div>
                     <img src="static/img/{{car.picture}}" />
                 </div>
-                <div class="modal-myfooter" style="position: absolute; bottom:0px; width: 100%; background-color: black; opacity: .8; padding-bottom: 10px">
-                    <div style="text-align: center; color: white">
+                <div class="modal-myfooter">
+                    <div>
                         <h4>{{ car.name }}</h4>
                         {{ car.year }} &middot; {{ car.model }} &middot; BMW of Mountain View
                     </div> 
                 </div>
             </div>
         </div>     
-
+ 
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="static/js/bootstrap.min.js"></script>
+
         {% block script_includes %} {% endblock %}
     </body>
 </html>
