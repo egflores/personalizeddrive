@@ -66,6 +66,11 @@ class RawData(db.Model):
     ave_mpg = DoubleField()
     update_time = DateTimeField(index=True) 
 
+def getdefaultcar():
+    u = User.get(first_name="Jay", last_name="Borenstein")
+    c = Car.get(user=u)
+    return c
+
 @app.route('/sample')
 def home():
     values = []
@@ -81,9 +86,7 @@ def home():
         ]
     }
     car_data = json.dumps(sample_data)
-    u = User.get(first_name="Jay", last_name="Borenstein")
-    c = Car.get(user=u)
-    return render_template('sample.html', car_data=car_data, car=c, name="two")
+    return render_template('sample.html', car_data=car_data, car=getdefaultcar(), name="two")
 
 @app.route('/dashboard')
 def dashboard():
@@ -100,7 +103,7 @@ def dashboard():
         ]
     }
     car_data = json.dumps(sample_data)
-    return render_template('dashboard.html', car_data=car_data, name="one")
+    return render_template('dashboard.html', car_data=car_data, car=getdefaultcar(), name="one")
 
 if __name__ == '__main__':
     User.create_table(fail_silently=True)
