@@ -8,31 +8,19 @@
 
 #import "BMWTemplateView.h"
 #import "BMWViewProvider.h"
+#import "DreiFakeDataService.h"
 #import <BMWAppKit/BMWAppKit.h>
 
 @implementation BMWTemplateView
 
-/* Callback executed
- * Only thing that is left to do is figure out how to get the value
- */
-- (void)drivingSpeed:(NSDictionary *)test
-{
-    NSLog(@"TRYING TO OUTPUT DRIVING SPEED");
-    NSLog(CDSDrivingSpeedActual);
-    NSLog([test objectForKey:CDSDrivingSpeedActual]);
-    NSLog(@"nothing in the dict");
-}
-
 - (void)viewWillLoad:(IDView *)view
 {
-    
-    /* How to setup the callback */
-    IDCdsService *cdsService = [self.application cdsService];
-    [cdsService bindProperty:@"CDSDrivingSpeedActual" interval: 1 target:self selector:@selector(drivingSpeed:) completionBlock:^(NSError *error) {
-        NSLog(@"ERROR ERROR ERROR");
-        NSLog([error debugDescription]);
-    }];
-    /* END HOW TO SETUP THE CALLBACK */
+    /* lolling */
+    //DreiDataService *d = [[[DreiRealDataService alloc] initWithCDS:[self.application cdsService]] retain];
+    DreiDataService *d = [[DreiFakeDataService alloc] init];
+    [d startCollection];
+    NSLog(@"%@",d._currentValues);
+    return;
     
     self.title = @"Template Title";
     
