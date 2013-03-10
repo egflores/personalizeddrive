@@ -18,6 +18,8 @@
 
 -(void)initCurrentValues:(NSArray *)keys;
 -(void)startCollection;
+-(void)stopCollection;
+-(NSArray *)getData;
 -(NSArray *)getDataKeys;
 
 

@@ -8,7 +8,7 @@
 
 #import "BMWTemplateView.h"
 #import "BMWViewProvider.h"
-#import "DreiRealDataService.h"
+#import "DreiFakeDataService.h"
 #import <BMWAppKit/BMWAppKit.h>
 
 @implementation BMWTemplateView
@@ -16,7 +16,8 @@
 - (void)viewWillLoad:(IDView *)view
 {
     /* lolling */
-    DreiDataService *d = [[[DreiRealDataService alloc] initWithCDS:[self.application cdsService]] retain];
+    //DreiDataService *d = [[[DreiRealDataService alloc] initWithCDS:[self.application cdsService]] retain];
+    DreiDataService *d = [[DreiFakeDataService alloc] init];
     [d startCollection];
     NSLog(@"%@",d._currentValues);
     return;

@@ -39,6 +39,14 @@
                                     repeats:true];
 }
 
+-(void)stopCollection {
+    [self.timer invalidate];
+}
+
+-(NSArray *)getData {
+    return self._dataStore;
+}
+
 -(void)saveDataCallback {
     NSMutableDictionary * dictCopy = [self._currentValues mutableCopy];
     [dictCopy setValue:[[NSNumber alloc] initWithDouble:[[NSDate date] timeIntervalSince1970]] forKey:@"time"];
@@ -46,7 +54,6 @@
     [dictCopy release];
     
     [self._dataStore addObject:newDict];
-    NSLog(@"%@",self._dataStore);
 }
 
 @end
