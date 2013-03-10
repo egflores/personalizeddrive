@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block head %}
+    <link href="static/css/nv.d3.css" rel="stylesheet" type="text/css">
+    <script>
+        car_data = JSON.parse('{{ car_data|safe }}');   
+    </script>
+{% endblock %}
+
+{% block container %}
+    <div class="span12">
+        <div id="chart">
+            <svg style="height: 500px; min-width: 100px; min-height: 100px"></svg>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script_includes %}
+    <script src="static/js/d3.v3.js" type="text/javascript"></script>
+    <script src="static/js/nv.d3.js" type="text/javascript"></script>
+    <script src="static/js/chart.js" type="text/javascript"></script>
+{% endblock %}
+ 
