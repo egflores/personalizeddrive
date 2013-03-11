@@ -3,7 +3,6 @@
 //  TemplateBMWApp
 //
 //  Created by Stephen Trusheim on 3/8/13.
-//  Copyright (c) 2013 BMW Group. All rights reserved.
 //
 
 #import "DreiDataService.h"
@@ -19,12 +18,16 @@
     return self;
 }
 
+/*
+ * TODO: abstract this out somehow?
+ */
 -(NSArray *)getDataKeys {
     return [[NSArray alloc]
             initWithObjects:@"headlights", @"speedActual", @"odometer",@"engine_status",@"fuel_range",@"fuel_level",@"fuel_reserve",nil
             ];
 }
 
+/* "NODATA" is the sentinel for when no async callback has come in yet. */
 -(void)initCurrentValues:(NSArray *)keys {
     for (NSString * obj in keys) {
         [self._currentValues setValue:@"NODATA" forKey:obj];

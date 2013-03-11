@@ -3,7 +3,6 @@
 //  TemplateBMWApp
 //
 //  Created by Stephen Trusheim on 3/8/13.
-//  Copyright (c) 2013 BMW Group. All rights reserved.
 //
 
 #import "DreiRealDataService.h"
@@ -21,6 +20,9 @@
     return self;
 }
 
+/* Sets up all the CDS async callbacks.
+ * TODO: more CDS data?
+ */
 - (void)setupCDSCallbacks {
     [self._cdsService asyncGetProperty:CDSControlsHeadlights
                                 target:self
@@ -49,9 +51,15 @@
      ];
 }
 
+// TODO: what kinds of important messages might I get here?
 - (void)completionBlock:(NSError *)error {
     NSLog(@"Got completion block! Zippiedee doo dah!");
 }
+
+/* ----
+ * Below here are the various callbacks from the CDS. These functions all grab the appropriate values from the
+ * CDS dictionary and put them into the cached value dict.
+ */
 
 - (void)handleHeadlightCallback: (NSDictionary *)data {
     [self._currentValues setValue:[data valueForKey:@"headlights"] forKey:@"headlights"];
@@ -69,6 +77,8 @@
     [self._currentValues setValue:[data valueForKey:@"status"] forKey:@"engine_status"];
 }
 
+// TODO: I never get this callback, so I'm not sure that this function will actually work.
+// wrote it according to BMW's API docs, though.
 - (void)handleFuelCallback: (NSDictionary *)data {
     [self._currentValues setValue:[[data valueForKey:@"fuel"] valueForKey:@"range"] forKey:@"fuel_range"];
     [self._currentValues setValue:[[data valueForKey:@"fuel"] valueForKey:@"tanklevel"] forKey:@"fuel_level"];
