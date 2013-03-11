@@ -4,6 +4,7 @@ from flask_peewee.db import Database
 from peewee import DateTimeField, IntegerField, ForeignKeyField, \
         DoubleField, CharField, TextField
 from datetime import datetime
+from werkzeug.contrib.fixers import ProxyFix
 
 DATABASE = {
     'engine': 'peewee.MySQLDatabase',
@@ -17,6 +18,16 @@ SECRET_KEY = 'StephenTrusheim'
 
 app = Flask(__name__) 
 app.config.from_object(__name__) 
+try:
+    # tries to load config from an env variable
+    # that will override the settings declared in this file
+    # eventually, when we use chef or some deploy tool
+    # we shouldn't have to do this. 
+    app.config.from_envvar('PRODUCTION_SETTINGS')
+except:
+    pass
+
+app.wsgi_app = ProxyFix(app.wsgi_app) # makes app work on gunicorn
 db = Database(app)
 
 class CarData(db.Model):
