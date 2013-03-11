@@ -12,8 +12,8 @@
 NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged";
 
 @interface BMWManager () <IDApplicationDataSource, IDApplicationDelegate>
-@property(retain, nonatomic) IDApplication* application;
 @property(retain, nonatomic) BMWViewProvider* viewProvider;
+
 
 - (void)didConnectToBMW:(NSNotification*)notification;
 - (void)didDisconnectFromBMW:(NSNotification*)notification;

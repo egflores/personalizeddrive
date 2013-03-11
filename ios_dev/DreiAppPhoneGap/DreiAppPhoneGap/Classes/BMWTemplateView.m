@@ -12,12 +12,15 @@
 #import "DreiBMWFormatter.h"
 #import "DreiUploader.h"
 #import "DreiSendData.h"
+#import "DreiPGNotification.h"
 #import <BMWAppKit/BMWAppKit.h>
 
 @implementation BMWTemplateView
 
 - (void)viewWillLoad:(IDView *)view
 {
+    [[DreiPGNotification instance] sendStatusUpdate:@"HELLO!!!!"];
+    
     // Setup application itself
     self.title = @"Template Title";
     

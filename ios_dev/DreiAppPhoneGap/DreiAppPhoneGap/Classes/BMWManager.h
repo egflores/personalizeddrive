@@ -24,6 +24,7 @@ enum BMWManagerStatus {
  * to connect to.
  */
 @interface BMWManager : NSObject
+@property(retain, nonatomic) IDApplication* application;
 
 - (BMWManagerStatus)status;
 
