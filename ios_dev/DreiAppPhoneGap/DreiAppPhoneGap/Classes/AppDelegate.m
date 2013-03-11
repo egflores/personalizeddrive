@@ -67,7 +67,7 @@
     
     [[IDLogger defaultLogger] addAppender:self];
     
-    self.manager = [[[BMWManager alloc] init] autorelease];
+    self.bmwManager = [[[BMWManager alloc] init] autorelease];
 
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
@@ -132,7 +132,7 @@
 
 - (void)dealloc
 {
-    [_manager release];
+    [_bmwManager release];
     [super dealloc];
 }
 
