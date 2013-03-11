@@ -47,7 +47,7 @@
  * TODO: Rowan, Javascript master, needs to look at this.
  */
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback {
-    NSString *newString = [NSString stringWithFormat:@"drei_callback_%@(\"%@\")",callback,message];
+    NSString *newString = [NSString stringWithFormat:@"drei_callback_%@(%@);",callback,message];
     [self writeJavascript:newString];
     NSLog(newString);
     //CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
