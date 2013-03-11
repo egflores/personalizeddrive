@@ -172,6 +172,7 @@ def dashboard():
         return "Invalid Car"
 
     values = [(int(r.update_time.strftime("%s")), r.odometer) for r in rawdata]
+
     car_data = {
         'data': [
             {

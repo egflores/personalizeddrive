@@ -1,5 +1,5 @@
 nv.addGraph(function() {
-	var data = dashboard_data.car_data;
+	var data = dashboard_data.car_data.data;
     var chart = nv.models.lineChart()
         .x(function(d) { return d[0] })
         .y(function(d) { return d[1] }) //adjusting, 100% is 1.00, not 100 as it is in the data
@@ -22,7 +22,7 @@ nv.addGraph(function() {
 });
 
 nv.addGraph(function() {
-	var data = dashboard_data.car_data;
+	var data = dashboard_data.car_data.data;
 
 	var smallchart = nv.models.lineChart()
 		.x(function(d) { return d[0] })

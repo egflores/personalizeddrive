@@ -3,7 +3,7 @@
     <link href="static/css/nv.d3.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
         var dashboard_data = {
-            car_data:  {{ car_data|safe }},
+            car_data:  {{ car_data|tojson|safe }},
             tank_level: {{ tank_level }},
             fuel_range: {{ fuel_range }}
         }
