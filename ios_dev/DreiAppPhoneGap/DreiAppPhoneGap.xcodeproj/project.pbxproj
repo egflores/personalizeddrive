@@ -598,7 +598,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					/Users/rowanc/Desktop/CS210/personalizeddrive/external/bmw_api_v3_stanford/TemplateBMWApp/,
+					../../external/bmw_api_v3_stanford/TemplateBMWApp/,
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -622,7 +622,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					/Users/rowanc/Desktop/CS210/personalizeddrive/external/bmw_api_v3_stanford/TemplateBMWApp/,
+					../../external/bmw_api_v3_stanford/TemplateBMWApp/,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DreiAppPhoneGap/DreiAppPhoneGap-Prefix.pch";
