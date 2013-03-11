@@ -35,7 +35,7 @@
             <div>
                 <p><input type = "button" onClick = "window.drei_start('echome', function(echoValue) { alert(echoValue); });" value = "Start" /></p>
                 <p><input type = "button" onClick = "window.drei_stop('echome', function(echoValue) { alert(echoValue); });" value = "Stop" /></p>
-                <p><input type = "button" onClick = "window.drei_subscribe(function(echoValue) { alert(echoValue); });" value = "Subscribe" /></p>
+                <p><input type = "button" onClick = "window.drei_subscribe(function(echoValue) { alert(echoValue); });" value = "Upload" /></p>
 
             </div>
         </div>
@@ -52,7 +52,7 @@
                 cordova.exec(callback, function(err) { callback('Nothing to echo.'); }, "DreiConnect", "stop", []);
             };
             window.drei_subscribe = function(callback) {
-                cordova.exec(callback, function(err) { callback('Error on callback'); }, "DreiConnect", "subscribe", []);
+                cordova.exec(callback, function(err) { callback('Error on callback'); }, "DreiConnect", "upload", []);
             };
             </script>
     </body>

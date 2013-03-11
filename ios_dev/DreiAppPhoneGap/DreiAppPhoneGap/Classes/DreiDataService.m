@@ -9,13 +9,13 @@
 #import "DreiPGNotification.h"
 
 @implementation DreiDataService
-NSTimer * timer;
 
 - (id)init {
     if (self = [super init]) {
         self._dataStore = [[NSMutableArray alloc] initWithCapacity:100];
         self._currentValues = [[[NSMutableDictionary alloc] initWithCapacity:10] retain];
         [self initCurrentValues:[self getDataKeys]];
+        self.on = false;
     }
     return self;
 }
@@ -37,17 +37,19 @@ NSTimer * timer;
 }
 
 -(void)startCollection {
-    timer = [[NSTimer scheduledTimerWithTimeInterval:1.0
+    self._timer = [[NSTimer scheduledTimerWithTimeInterval:1.0
                                      target:self
                                    selector:@selector(saveDataCallback)
                                    userInfo:nil
                                     repeats:true] retain];
+    self.on = true; // HACK
 }
 
 -(void)stopCollection {
-    [timer invalidate];
-    [timer release];
-    timer = nil;
+    [self._timer invalidate];
+    [self._timer release];
+    self._timer = nil;
+    self.on = false; // HACK
     NSLog(@"Stopped collection");
 }
 
@@ -56,6 +58,7 @@ NSTimer * timer;
 }
 
 -(void)saveDataCallback {
+    if (!self.on) return; // HACK
     NSMutableDictionary * dictCopy = [self._currentValues mutableCopy];
     [dictCopy setValue:[[NSNumber alloc] initWithDouble:[[NSDate date] timeIntervalSince1970]] forKey:@"time"];
     NSDictionary *newDict = [dictCopy copy];
