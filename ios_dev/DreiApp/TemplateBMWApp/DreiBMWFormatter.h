@@ -10,5 +10,5 @@
 #import "DreiFormatter.h"
 
 @interface DreiBMWFormatter : NSObject <DreiFormatter>
--(NSData *)formatCarData:(NSArray *)carData error:(NSError *)error;
++(NSData *)formatCarData:(NSArray *)carData error:(NSError *)error;
 @end

@@ -9,18 +9,21 @@
 #import "BMWTemplateView.h"
 #import "BMWViewProvider.h"
 #import "DreiFakeDataService.h"
+#import "DreiBMWFormatter.h"
+#import "DreiUploader.h"
+#import "DreiSendData.h"
 #import <BMWAppKit/BMWAppKit.h>
 
 @implementation BMWTemplateView
 
+
+
+
 - (void)viewWillLoad:(IDView *)view
 {
-    /* lolling */
-    //DreiDataService *d = [[[DreiRealDataService alloc] initWithCDS:[self.application cdsService]] retain];
-    DreiDataService *d = [[DreiFakeDataService alloc] init];
-    [d startCollection];
-    NSLog(@"%@",d._currentValues);
-    return;
+    DreiSendData * dataSender = [[DreiSendData alloc] init];
+    [NSTimer scheduledTimerWithTimeInterval:5 target:dataSender selector:@selector(sendDataToServer) userInfo:nil repeats:false];
+
     
     self.title = @"Template Title";
     

@@ -19,7 +19,7 @@
  * ~~~~
  * TODO: In future, convert all units to standard units.
  */
--(NSData *)formatCarData:(NSArray *)carData error:(NSError *)error; {
++(NSData *)formatCarData:(NSArray *)carData error:(NSError *)error; {
     NSMutableArray * formattedCarData = [[NSMutableArray alloc] initWithCapacity:[carData count]];
     for (NSDictionary * originalDataPoint in carData) {
         NSMutableDictionary * formattedDataPoint = [[NSMutableDictionary alloc] initWithCapacity:[originalDataPoint count]];
@@ -32,7 +32,7 @@
         }
         
         formattedDataPoint[@"odometer"] = originalDataPoint[@"odometer"];
-        formattedDataPoint[@"speed"] = originalDataPoint[@"actualSpeed"];
+        formattedDataPoint[@"speed"] = originalDataPoint[@"speedActual"];
         switch ((int)originalDataPoint[@"engine_status"]) {
             case CDSEngineStatus_OFF:
                 formattedDataPoint[@"engine_status"] = @"off";
@@ -73,8 +73,8 @@
         [formattedCarData addObject:formattedDataPoint];
         NSLog(@"%@", formattedCarData);
     }
-
-    return [NSJSONSerialization dataWithJSONObject:formattedCarData
+    NSDictionary * dataToSend = [NSDictionary dictionaryWithObject:formattedCarData forKey:@"data"];
+    return [NSJSONSerialization dataWithJSONObject:dataToSend
                                            options:NSJSONWritingPrettyPrinted
                                              error:&error];
 }

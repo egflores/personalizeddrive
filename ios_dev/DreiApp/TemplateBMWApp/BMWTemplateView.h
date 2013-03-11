@@ -9,5 +9,5 @@
 #import <BMWAppKit/BMWAppKit.h>
 
 @interface BMWTemplateView : IDView
-
+@property (nonatomic, assign) NSMutableData *receivedData;
 @end

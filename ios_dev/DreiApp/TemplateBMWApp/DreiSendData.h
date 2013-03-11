@@ -1,13 +1,15 @@
 //
-//  DreiFormatter.m
+//  DreiSendData.h
 //  TemplateBMWApp
 //
 //  Created by Rowan Chakoumakos on 3/10/13.
 //  Copyright (c) 2013 BMW Group. All rights reserved.
 //
 
-#import "DreiFormatter.h"
+#import <Foundation/Foundation.h>
 
-@implementation DreiFormatter
+@interface DreiSendData : NSObject
+
+- (void) sendDataToServer;
 
 @end

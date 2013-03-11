@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C5FCDF216EAF7720026655B /* DreiUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FCDF116EAF7720026655B /* DreiUploader.m */; };
+		5C6CBCFA16ED380000BC041D /* DreiBMWFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CBCF916ED380000BC041D /* DreiBMWFormatter.m */; };
+		5C6CBD0116ED509300BC041D /* DreiDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CBCFC16ED4F6800BC041D /* DreiDataService.m */; };
+		5C6CBD0216ED509300BC041D /* DreiFakeDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CBCFE16ED4F6800BC041D /* DreiFakeDataService.m */; };
+		5C6CBD0316ED509300BC041D /* DreiRealDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CBD0016ED4F6800BC041D /* DreiRealDataService.m */; };
+		5C6CBD0616ED56C500BC041D /* DreiBMWDataSendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CBD0516ED56C500BC041D /* DreiBMWDataSendTests.m */; };
+		5CAD439E16ED5ABB00CAE484 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CAD439D16ED5ABB00CAE484 /* SenTestingKit.framework */; };
+		5CAD43A516ED5FB400CAE484 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CAD439D16ED5ABB00CAE484 /* SenTestingKit.framework */; };
+		5CAD43A616ED5FB400CAE484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC5D9FF15C7435900D0E845 /* UIKit.framework */; };
+		5CAD43A716ED5FB400CAE484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC5DA0115C7435900D0E845 /* Foundation.framework */; };
+		5CAD43AD16ED5FB400CAE484 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CAD43AB16ED5FB400CAE484 /* InfoPlist.strings */; };
+		5CAD43B716ED609000CAE484 /* DreiSendData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAD43B616ED609000CAE484 /* DreiSendData.m */; };
 		7B6980F11603A26B003F8F9B /* BMWAppKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7B6980EF1603A26B003F8F9B /* BMWAppKitResources.bundle */; };
 		7BBF41C815ED342A0096B817 /* bmw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7BBF41C715ED342A0096B817 /* bmw.jpg */; };
 		7BBF41CA15ED8F4E0096B817 /* bmwLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BBF41C915ED8F4D0096B817 /* bmwLogo.png */; };
@@ -31,6 +43,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C5FCDF016EAF73F0026655B /* DreiUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DreiUploader.h; sourceTree = "<group>"; };
+		5C5FCDF116EAF7720026655B /* DreiUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiUploader.m; sourceTree = "<group>"; };
+		5C6CBCF716ED37C100BC041D /* DreiFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DreiFormatter.h; sourceTree = "<group>"; };
+		5C6CBCF816ED380000BC041D /* DreiBMWFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreiBMWFormatter.h; sourceTree = "<group>"; };
+		5C6CBCF916ED380000BC041D /* DreiBMWFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiBMWFormatter.m; sourceTree = "<group>"; };
+		5C6CBCFB16ED4F6800BC041D /* DreiDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DreiDataService.h; sourceTree = "<group>"; };
+		5C6CBCFC16ED4F6800BC041D /* DreiDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DreiDataService.m; sourceTree = "<group>"; };
+		5C6CBCFD16ED4F6800BC041D /* DreiFakeDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DreiFakeDataService.h; sourceTree = "<group>"; };
+		5C6CBCFE16ED4F6800BC041D /* DreiFakeDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DreiFakeDataService.m; sourceTree = "<group>"; };
+		5C6CBCFF16ED4F6800BC041D /* DreiRealDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DreiRealDataService.h; sourceTree = "<group>"; };
+		5C6CBD0016ED4F6800BC041D /* DreiRealDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DreiRealDataService.m; sourceTree = "<group>"; };
+		5C6CBD0416ED56C500BC041D /* DreiBMWDataSendTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DreiBMWDataSendTests.h; path = ../TemplateBMWApp/DreiBMWDataSendTests.h; sourceTree = "<group>"; };
+		5C6CBD0516ED56C500BC041D /* DreiBMWDataSendTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DreiBMWDataSendTests.m; path = ../TemplateBMWApp/DreiBMWDataSendTests.m; sourceTree = "<group>"; };
+		5CAD439D16ED5ABB00CAE484 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5CAD43A416ED5FB400CAE484 /* DreiIntegrationTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DreiIntegrationTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CAD43AA16ED5FB400CAE484 /* DreiIntegrationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DreiIntegrationTests-Info.plist"; sourceTree = "<group>"; };
+		5CAD43AC16ED5FB400CAE484 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5CAD43B116ED5FB400CAE484 /* DreiIntegrationTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DreiIntegrationTests-Prefix.pch"; sourceTree = "<group>"; };
+		5CAD43B516ED609000CAE484 /* DreiSendData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreiSendData.h; sourceTree = "<group>"; };
+		5CAD43B616ED609000CAE484 /* DreiSendData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiSendData.m; sourceTree = "<group>"; };
 		7B6980EF1603A26B003F8F9B /* BMWAppKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BMWAppKitResources.bundle; sourceTree = "<group>"; };
 		7BBF41C715ED342A0096B817 /* bmw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bmw.jpg; sourceTree = "<group>"; };
 		7BBF41C915ED8F4D0096B817 /* bmwLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bmwLogo.png; sourceTree = "<group>"; };
@@ -63,6 +95,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5CAD43A016ED5FB400CAE484 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CAD43A516ED5FB400CAE484 /* SenTestingKit.framework in Frameworks */,
+				5CAD43A616ED5FB400CAE484 /* UIKit.framework in Frameworks */,
+				5CAD43A716ED5FB400CAE484 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7BC5D9F815C7435900D0E845 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -75,16 +117,58 @@
 				7BC5DA4715C747A600D0E845 /* ImageIO.framework in Frameworks */,
 				7BC5DA4815C747A600D0E845 /* MobileCoreServices.framework in Frameworks */,
 				7BF5A29016B8471A00B97CDE /* BMWAppKit.framework in Frameworks */,
+				5CAD439E16ED5ABB00CAE484 /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C5FCDEE16EAF7190026655B /* Drei */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CBCFB16ED4F6800BC041D /* DreiDataService.h */,
+				5C6CBCFC16ED4F6800BC041D /* DreiDataService.m */,
+				5C6CBCFD16ED4F6800BC041D /* DreiFakeDataService.h */,
+				5C6CBCFE16ED4F6800BC041D /* DreiFakeDataService.m */,
+				5C6CBCFF16ED4F6800BC041D /* DreiRealDataService.h */,
+				5C6CBD0016ED4F6800BC041D /* DreiRealDataService.m */,
+				5C6CBCF716ED37C100BC041D /* DreiFormatter.h */,
+				5C6CBCF816ED380000BC041D /* DreiBMWFormatter.h */,
+				5C6CBCF916ED380000BC041D /* DreiBMWFormatter.m */,
+				5C5FCDF016EAF73F0026655B /* DreiUploader.h */,
+				5C5FCDF116EAF7720026655B /* DreiUploader.m */,
+				5CAD43B516ED609000CAE484 /* DreiSendData.h */,
+				5CAD43B616ED609000CAE484 /* DreiSendData.m */,
+			);
+			name = Drei;
+			sourceTree = "<group>";
+		};
+		5CAD43A816ED5FB400CAE484 /* DreiIntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CBD0516ED56C500BC041D /* DreiBMWDataSendTests.m */,
+				5C6CBD0416ED56C500BC041D /* DreiBMWDataSendTests.h */,
+				5CAD43A916ED5FB400CAE484 /* Supporting Files */,
+			);
+			path = DreiIntegrationTests;
+			sourceTree = "<group>";
+		};
+		5CAD43A916ED5FB400CAE484 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5CAD43AA16ED5FB400CAE484 /* DreiIntegrationTests-Info.plist */,
+				5CAD43AB16ED5FB400CAE484 /* InfoPlist.strings */,
+				5CAD43B116ED5FB400CAE484 /* DreiIntegrationTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		7BC5D9F015C7435900D0E845 = {
 			isa = PBXGroup;
 			children = (
 				7BC5DA0515C7435900D0E845 /* TemplateBMWApp */,
+				5CAD43A816ED5FB400CAE484 /* DreiIntegrationTests */,
 				7BC5D9FE15C7435900D0E845 /* Frameworks */,
 				7BC5D9FC15C7435900D0E845 /* Products */,
 			);
@@ -94,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				7BC5D9FB15C7435900D0E845 /* TemplateBMWApp.app */,
+				5CAD43A416ED5FB400CAE484 /* DreiIntegrationTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,6 +186,7 @@
 		7BC5D9FE15C7435900D0E845 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5CAD439D16ED5ABB00CAE484 /* SenTestingKit.framework */,
 				7BF5A28F16B8471A00B97CDE /* BMWAppKit.framework */,
 				7B6980EF1603A26B003F8F9B /* BMWAppKitResources.bundle */,
 				7BC5DA4115C747A600D0E845 /* ExternalAccessory.framework */,
@@ -117,6 +203,7 @@
 		7BC5DA0515C7435900D0E845 /* TemplateBMWApp */ = {
 			isa = PBXGroup;
 			children = (
+				5C5FCDEE16EAF7190026655B /* Drei */,
 				7BC5DA0E15C7435900D0E845 /* AppDelegate.h */,
 				7BC5DA0F15C7435900D0E845 /* AppDelegate.m */,
 				7BC5DA3115C7441A00D0E845 /* BMW */,
@@ -159,6 +246,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5CAD43A316ED5FB400CAE484 /* DreiIntegrationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CAD43B216ED5FB400CAE484 /* Build configuration list for PBXNativeTarget "DreiIntegrationTests" */;
+			buildPhases = (
+				5CAD439F16ED5FB400CAE484 /* Sources */,
+				5CAD43A016ED5FB400CAE484 /* Frameworks */,
+				5CAD43A116ED5FB400CAE484 /* Resources */,
+				5CAD43A216ED5FB400CAE484 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DreiIntegrationTests;
+			productName = DreiIntegrationTests;
+			productReference = 5CAD43A416ED5FB400CAE484 /* DreiIntegrationTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		7BC5D9FA15C7435900D0E845 /* TemplateBMWApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7BC5DA1915C7435900D0E845 /* Build configuration list for PBXNativeTarget "TemplateBMWApp" */;
@@ -198,11 +303,20 @@
 			projectRoot = "";
 			targets = (
 				7BC5D9FA15C7435900D0E845 /* TemplateBMWApp */,
+				5CAD43A316ED5FB400CAE484 /* DreiIntegrationTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5CAD43A116ED5FB400CAE484 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CAD43AD16ED5FB400CAE484 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7BC5D9F915C7435900D0E845 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -219,23 +333,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5CAD43A216ED5FB400CAE484 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		5CAD439F16ED5FB400CAE484 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7BC5D9F715C7435900D0E845 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C6CBD0116ED509300BC041D /* DreiDataService.m in Sources */,
+				5C6CBD0216ED509300BC041D /* DreiFakeDataService.m in Sources */,
+				5C6CBD0316ED509300BC041D /* DreiRealDataService.m in Sources */,
 				7BC5DA0C15C7435900D0E845 /* main.m in Sources */,
 				7BC5DA1015C7435900D0E845 /* AppDelegate.m in Sources */,
 				7BC5DA1315C7435900D0E845 /* ViewController.m in Sources */,
 				7BC5DA2E15C7440B00D0E845 /* BMWManager.m in Sources */,
 				7BC5DA2F15C7440B00D0E845 /* BMWViewProvider.m in Sources */,
+				5C6CBD0616ED56C500BC041D /* DreiBMWDataSendTests.m in Sources */,
 				7BC5DA3015C7440B00D0E845 /* BMWTemplateView.m in Sources */,
+				5CAD43B716ED609000CAE484 /* DreiSendData.m in Sources */,
+				5C5FCDF216EAF7720026655B /* DreiUploader.m in Sources */,
+				5C6CBCFA16ED380000BC041D /* DreiBMWFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		5CAD43AB16ED5FB400CAE484 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5CAD43AC16ED5FB400CAE484 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		7BC5DA0815C7435900D0E845 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -255,6 +407,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5CAD43B316ED5FB400CAE484 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DreiIntegrationTests/DreiIntegrationTests-Prefix.pch";
+				INFOPLIST_FILE = "DreiIntegrationTests/DreiIntegrationTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5CAD43B416ED5FB400CAE484 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DreiIntegrationTests/DreiIntegrationTests-Prefix.pch";
+				INFOPLIST_FILE = "DreiIntegrationTests/DreiIntegrationTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		7BC5DA1715C7435900D0E845 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -304,8 +498,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					/Users/rowanc/Desktop/CS210/personalizeddrive/ios_dev/DreiApp/,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TemplateBMWApp/TemplateBMWApp-Prefix.pch";
@@ -321,8 +516,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					/Users/rowanc/Desktop/CS210/personalizeddrive/ios_dev/DreiApp/,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TemplateBMWApp/TemplateBMWApp-Prefix.pch";
@@ -337,6 +533,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5CAD43B216ED5FB400CAE484 /* Build configuration list for PBXNativeTarget "DreiIntegrationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CAD43B316ED5FB400CAE484 /* Debug */,
+				5CAD43B416ED5FB400CAE484 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		7BC5D9F515C7435900D0E845 /* Build configuration list for PBXProject "TemplateBMWApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
