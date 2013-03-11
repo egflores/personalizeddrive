@@ -19,7 +19,6 @@
 
 - (void)viewWillLoad:(IDView *)view
 {
-    [[DreiPGNotification instance] sendStatusUpdate:@"HELLO!!!!"];
     
     // Setup application itself
     self.title = @"Template Title";

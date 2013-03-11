@@ -35,18 +35,6 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-/**
- * TODO: subscribe seems to not work because Cordova closes the callbackId after a small window of time :(
- * How can we do multiple callbacks to the same JS?
- */
-- (void)subscribe:(CDVInvokedUrlCommand*)command
-{
-    [[DreiPGNotification instance] setSubscribeCallback:command.callbackId];
-    
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-}
-
 - (void)upload:(CDVInvokedUrlCommand*)command
 {
     [[[DreiPGNotification instance] getDataService] uploadData];
@@ -55,9 +43,13 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+/*
+ * TODO: Rowan, Javascript master, needs to look at this.
+ */
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback {
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:callback];
+    [self writeJavascript:[NSString stringWithFormat:@"alert('stuff happened: %@');",message]];
+    //CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
+    //[self.commandDelegate sendPluginResult:pluginResult callbackId:callback];
 }
 
 @end

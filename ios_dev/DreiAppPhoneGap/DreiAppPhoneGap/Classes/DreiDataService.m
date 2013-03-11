@@ -62,7 +62,7 @@ NSTimer * timer;
     [dictCopy release];
     
     [self._dataStore addObject:newDict];
-    [[DreiPGNotification instance] sendStatusUpdate:@"new stuff!"];
+    //[[DreiPGNotification instance] sendStatusUpdate:@"new stuff!"];
     NSLog(@"%@",newDict);
 }
 

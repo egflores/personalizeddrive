@@ -12,7 +12,6 @@
 
 -(void) start:(CDVInvokedUrlCommand *)command;
 -(void) stop:(CDVInvokedUrlCommand *)command;
--(void) subscribe:(CDVInvokedUrlCommand *)command;
 -(void) upload:(CDVInvokedUrlCommand *)command;
 
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback;
