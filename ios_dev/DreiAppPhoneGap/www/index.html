@@ -1,42 +1,256 @@
-<!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+  <head>
+    <meta charset="utf-8">
+    <title>Personalized Drive | App</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+    <!-- CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+
+      /* Sticky footer styles
+      -------------------------------------------------- */
+
+      html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 11px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+
+
+
+      /* Custom page CSS
+      -------------------------------------------------- */
+      /* Not required for template or sticky footer method. */
+
+      #wrap > .container {
+        padding-top: 20px;
+      }
+      .container .credit {
+        margin: 20px 0;
+      }
+
+      code {
+        font-size: 80%;
+      }
+
+      #blueOverlay {
+        display: none;
+      }
+      .blur {
+        width: 100%;
+        height: 260px;
+        position: absolute;
+        background-color: white;
+        opacity: .8;
+      }
+
+      #arrow {
+        width: 280px;
+        height: 260px;
+        position: absolute;
+        display: block;
+        margin: 5px auto;
+        vertical-align: middle;
+        margin-right: 3px;
+        font-size: 73px;
+        color: rgba(4, 0, 112, 0.77);
+      }
+
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+
+  </head>
+
+  <body>
+
+
+    <!-- Part 1: Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Fixed navbar -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" style="float:none; text-align: center;" href="#">Personalized Drive</a>
+          </div>
         </div>
-        <script type="text/javascript" src="cordova-2.5.0.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+      </div>
+
+      
+
+      <!-- Begin page content -->
+      <div class="container" style="position:relative;">
+        <div id="blurOverlay" class="blur"></div>
+        <!-- <div id="arrow"> <div class="icon-arrow-down"></div></div>-->
+        <table id="car_stats" class="table table-bordered table-striped">
+            <colgroup>
+              <col class="span1">
+              <col class="span7">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Statistic</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Fuel Level
+                </td>
+                <td id="fuel_level_value">43</td>
+              </tr>
+              <tr>
+                <td>
+                  Fuel Range
+                </td>
+                <td id="fuel_range_value">345</td>
+              </tr>
+              <tr>
+                <td>
+                  Fuel Reserve
+                </td>
+                <td id="fuel_reserve_value">no</td>
+              </tr>
+              <tr>
+                <td>
+                  Head Lights
+                </td>
+                <td id="head_lights_value">no</td>
+              </tr>
+              <tr>
+                <td>
+                  Odometer
+                </td>
+                <td id="odometer_value">1251</td>
+              </tr>
+              <tr>
+                <td>
+                  Speed
+                </td>
+                <td id="speed_value">45</td>
+              </tr>
+            </tbody>
+          </table>
+
+      <div id="push"></div>
+    </div>
+
+    <div id="footer" style="background-color: #fff">
+      <div class="container">
+        <a id="toggleTracking" class="btn btn-block btn-primary" href="#">Start Tracking</a>
+        <a id="upload" class="btn btn-block" href="#">Upload</a>
+
+      <div style="height: 15px"> <!-- spacing --></div>
+      </div>
+    </div>
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="cordova-2.5.0.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+      app.initialize();
+    </script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+
+      window.drei_callback_dataEntry = function(carData) {
+        $("#fuel_level_value").html(carData.fuel_level);
+        $("#fuel_range_value").html(carData.fuel_range);
+        $("#fuel_reserve_value").html(carData.fuel_reserve);
+        $("#head_lights_value").html(carData.headlights);
+        $("#odometer_value").html(carData.odometer);
+        $("#speed_value").html(carData.speed);
+      }
+      window.drei_start = function(str, callback) {
+          cordova.exec(callback, function(err) { callback('Nothing to echo.'); }, "DreiConnect", "start", [str]);
+      };
+      window.drei_stop = function(str, callback) {
+          cordova.exec(callback, function(err) { callback('Nothing to echo.'); }, "DreiConnect", "stop", []);
+      };
+      window.drei_subscribe = function(callback) {
+          cordova.exec(callback, function(err) { callback('Error on callback'); }, "DreiConnect", "upload", []);
+      };
+
+
+      var tracking = false;
+      $("#toggleTracking").bind("touchend", function(event) {
+        if(tracking) {
+          $("#toggleTracking").addClass('btn-primary');
+          $("#toggleTracking").removeClass('btn-warning');
+          $("#toggleTracking").html("Start Tracking");
+          $("#blurOverlay").addClass("blur");
+          window.drei_stop('echome', function(echoValue) {  });
+        } else {
+          $("#toggleTracking").removeClass('btn-primary');
+          $("#toggleTracking").addClass('btn-warning');
+          $("#toggleTracking").html("Stop Tracking");
+          $("#blurOverlay").removeClass("blur");
+          window.drei_start('echome', function(echoValue) {  });
+        }
+        tracking = !tracking;
+        event.preventDefault();
+        event.stopPropagation();
+      });
+
+      var uploading = false;
+      $("#upload").bind("touchend", function(event) {
+        if(!uploading) {
+          uploading = true;
+          $("#upload").addClass('btn-success');
+          $("#upload").html("Uploading....");
+          window.drei_subscribe(function(echoValue) {  });
+          setTimeout(function() {
+            uploading = false;
+            $("#upload").removeClass('btn-success');
+            $("#upload").html("Upload");
+          }, 1000);
+        }
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    </script>
+
 </html>

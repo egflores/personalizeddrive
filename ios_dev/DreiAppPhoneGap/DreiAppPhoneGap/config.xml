@@ -56,6 +56,7 @@
         <plugin name="Battery" value="CDVBattery" />
         <plugin name="Globalization" value="CDVGlobalization" />
         <plugin name="InAppBrowser" value="CDVInAppBrowser" />
+        <plugin name="DreiConnect" value="DreiConnect" onload="true" />
     </plugins>
 
     <access origin="*" />

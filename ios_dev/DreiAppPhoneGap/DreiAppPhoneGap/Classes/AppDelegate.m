@@ -26,9 +26,15 @@
 //
 
 #import "AppDelegate.h"
+#import "BMWManager.h"
 #import "MainViewController.h"
+#import "DreiPGNotification.h"
 
 #import <Cordova/CDVPlugin.h>
+
+@interface AppDelegate() <IDLogAppender>
+@end
+
 
 @implementation AppDelegate
 
@@ -59,6 +65,13 @@
  */
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
+    
+    [[IDLogger defaultLogger] addAppender:self];
+    
+    self.bmwManager = [[[BMWManager alloc] init] autorelease];
+    [DreiPGNotification instance].manager = self.bmwManager;
+
+    
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
 
     self.window = [[[UIWindow alloc] initWithFrame:screenBounds] autorelease];
@@ -78,6 +91,11 @@
     [self.window makeKeyAndVisible];
 
     return YES;
+}
+
+- (void)appendLoggerEvent:(IDLoggerEvent *)event
+{
+    NSLog(@"%@", event.message);
 }
 
 // this happens while we are running ( in the background, or from within our own app )
@@ -112,6 +130,12 @@
     NSUInteger supportedInterfaceOrientations = (1 << UIInterfaceOrientationPortrait) | (1 << UIInterfaceOrientationLandscapeLeft) | (1 << UIInterfaceOrientationLandscapeRight) | (1 << UIInterfaceOrientationPortraitUpsideDown);
 
     return supportedInterfaceOrientations;
+}
+
+- (void)dealloc
+{
+    [_bmwManager release];
+    [super dealloc];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication*)application
