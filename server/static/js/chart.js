@@ -47,6 +47,32 @@ nv.addGraph(function() {
 	return smallchart;
 });
 
+nv.addGraph(function() {
+	var data = dashboard_data.car_data.data;
+
+	var chart2 = nv.models.lineChart()
+		.x(function(d) { return d[0] })
+		.y(function(d) { return d[1] }) //adjusting, 100% is 1.00, not 100 as it is in the data
+		.color(d3.scale.category10().range());
+
+	chart2.xAxis
+		.tickFormat(function(d) {
+		// return d3.time.format("%Y-%m-%dT%H:%M:%S.%LZ")(d)
+			return d3.time.format('%x')(new Date(d * 1000))
+		});
+
+	d3.select(".container").select('#chart2 svg')
+		.datum(data)
+		.transition().duration(500)
+		.call(chart2);
+
+	d3.select(".container").select('#chart2 svg').selectAll("text").style("font-size","10px");
+
+	nv.utils.windowResize(chart2.update);
+
+	return chart2;
+});
+
 
 /*
  TO BE DELETED WHEN RENDERED OBSOLETE
@@ -88,7 +114,7 @@ function makegaugedata(num, max) {
 }
 
 
-function makegauge(data, id, name) {
+function makegauge(data, id, name, side) {
 	nv.addGraph(function() {
 	   var donut = nv.models.pieChart()
 		  .x(function(d) { return d.label })
@@ -165,6 +191,8 @@ function makenumber(data, max, id, name) {
 
 makegauge(makegaugedata(dashboard_data.tank_level,100), "donut", "Fuel Level");
 makegauge(makegaugedata(dashboard_data.fuel_range, 1000), "donut2", "Fuel Range");
+makegauge(makegaugedata(dashboard_data.tank_level,100), "donut4", "Fuel Level");
+makegauge(makegaugedata(dashboard_data.fuel_range, 1000), "donut5", "Fuel Range");
 makegauge(exampleData(28), "donut3");
 makenumber(92, 100, "text0", "% Funtimes");
 
