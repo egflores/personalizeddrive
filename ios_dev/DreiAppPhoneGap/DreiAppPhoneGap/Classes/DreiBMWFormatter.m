@@ -19,7 +19,7 @@
  * ~~~~
  * TODO: In future, convert all units to standard units.
  */
-+(NSData *)formatCarData:(NSArray *)carData error:(NSError *)error; {
++(NSData *)formatCarData:(NSArray *)carData error:(NSError *)error {
     NSMutableArray * formattedCarData = [[NSMutableArray alloc] initWithCapacity:[carData count]];
     for (NSDictionary * originalDataPoint in carData) {
         NSMutableDictionary * formattedDataPoint = [DreiBMWFormatter convertDataEntry:originalDataPoint error:error];
