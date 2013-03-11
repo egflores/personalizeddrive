@@ -175,7 +175,7 @@ def dashboard():
     car_data = {
         'data': [
             {
-                'key': 'Milesage',
+                'key': 'Mileage',
                 'values': values
             }
         ]
