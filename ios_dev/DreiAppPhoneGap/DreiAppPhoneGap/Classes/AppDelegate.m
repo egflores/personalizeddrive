@@ -28,6 +28,7 @@
 #import "AppDelegate.h"
 #import "BMWManager.h"
 #import "MainViewController.h"
+#import "DreiPGNotification.h"
 
 #import <Cordova/CDVPlugin.h>
 
@@ -67,7 +68,8 @@
     
     [[IDLogger defaultLogger] addAppender:self];
     
-    self.manager = [[[BMWManager alloc] init] autorelease];
+    self.bmwManager = [[[BMWManager alloc] init] autorelease];
+    [DreiPGNotification instance].manager = self.bmwManager;
 
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
@@ -132,7 +134,7 @@
 
 - (void)dealloc
 {
-    [_manager release];
+    [_bmwManager release];
     [super dealloc];
 }
 

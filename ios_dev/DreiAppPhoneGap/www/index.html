@@ -1,6 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <title>Personalized Drive | App</title>
@@ -198,54 +196,61 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
 
-    var fake_callback = function() {
-      $("#fuel_level_value").html(Math.floor((Math.random()*10)+1));
-      $("#fuel_range_value").html(Math.floor((Math.random()*10)+1));
-      $("#fuel_reserve_value").html(Math.floor((Math.random()*10)+1));
-      $("#head_lights_value").html(Math.floor((Math.random()*10)+1));
-      $("#odometer_value").html(Math.floor((Math.random()*10)+1));
-      $("#speed_value").html(Math.floor((Math.random()*10)+1));
-    }
-    var fake_callback_id;
-    var tracking = false;
-    $("#toggleTracking").click(function(event) {
-      if(tracking) {
-        $("#toggleTracking").addClass('btn-primary');
-        $("#toggleTracking").removeClass('btn-warning');
-        $("#toggleTracking").html("Start Tracking");
-        $("#blurOverlay").addClass("blur");
-        clearTimeout(fake_callback_id);
-      } else {
-        $("#toggleTracking").removeClass('btn-primary');
-        $("#toggleTracking").addClass('btn-warning');
-        $("#toggleTracking").html("Stop Tracking");
-        $("#blurOverlay").removeClass("blur");
-        fake_callback_id = setInterval(fake_callback, 750);
+      window.drei_callback_dataEntry = function(carData) {
+        $("#fuel_level_value").html(carData.fuel_level);
+        $("#fuel_range_value").html(carData.fuel_range);
+        $("#fuel_reserve_value").html(carData.fuel_reserve);
+        $("#head_lights_value").html(carData.headlights);
+        $("#odometer_value").html(carData.odometer);
+        $("#speed_value").html(carData.speed);
       }
-      tracking = !tracking;
-      event.preventDefault();
-      event.stopPropagation();
-    });
-
-    var uploading = false;
-    $("#upload").click(function(event) {
-      if(!uploading) {
-        uploading = true;
-        $("#upload").addClass('btn-success');
-        $("#upload").html("Uploading....");
-        setTimeout(function() {
-          uploading = false;
-          $("#upload").removeClass('btn-success');
-          $("#upload").html("Uploading");
-        }, 1000);
-      }
-      event.preventDefault();
-      event.stopPropagation();
-    });
+      window.drei_start = function(str, callback) {
+          cordova.exec(callback, function(err) { callback('Nothing to echo.'); }, "DreiConnect", "start", [str]);
+      };
+      window.drei_stop = function(str, callback) {
+          cordova.exec(callback, function(err) { callback('Nothing to echo.'); }, "DreiConnect", "stop", []);
+      };
+      window.drei_subscribe = function(callback) {
+          cordova.exec(callback, function(err) { callback('Error on callback'); }, "DreiConnect", "upload", []);
+      };
 
 
+      var tracking = false;
+      $("#toggleTracking").bind("touchend", function(event) {
+        if(tracking) {
+          $("#toggleTracking").addClass('btn-primary');
+          $("#toggleTracking").removeClass('btn-warning');
+          $("#toggleTracking").html("Start Tracking");
+          $("#blurOverlay").addClass("blur");
+          window.drei_stop('echome', function(echoValue) {  });
+        } else {
+          $("#toggleTracking").removeClass('btn-primary');
+          $("#toggleTracking").addClass('btn-warning');
+          $("#toggleTracking").html("Stop Tracking");
+          $("#blurOverlay").removeClass("blur");
+          window.drei_start('echome', function(echoValue) {  });
+        }
+        tracking = !tracking;
+        event.preventDefault();
+        event.stopPropagation();
+      });
 
+      var uploading = false;
+      $("#upload").bind("touchend", function(event) {
+        if(!uploading) {
+          uploading = true;
+          $("#upload").addClass('btn-success');
+          $("#upload").html("Uploading....");
+          window.drei_subscribe(function(echoValue) {  });
+          setTimeout(function() {
+            uploading = false;
+            $("#upload").removeClass('btn-success');
+            $("#upload").html("Upload");
+          }, 1000);
+        }
+        event.preventDefault();
+        event.stopPropagation();
+      });
     </script>
 
-  </body>
 </html>

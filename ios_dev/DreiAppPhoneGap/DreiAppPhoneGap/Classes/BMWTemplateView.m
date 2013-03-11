@@ -12,19 +12,15 @@
 #import "DreiBMWFormatter.h"
 #import "DreiUploader.h"
 #import "DreiSendData.h"
+#import "DreiPGNotification.h"
 #import <BMWAppKit/BMWAppKit.h>
 
 @implementation BMWTemplateView
 
-
-
-
 - (void)viewWillLoad:(IDView *)view
 {
-    DreiSendData * dataSender = [[DreiSendData alloc] init];
-    [NSTimer scheduledTimerWithTimeInterval:5 target:dataSender selector:@selector(sendDataToServer) userInfo:nil repeats:true];
     
-    
+    // Setup application itself
     self.title = @"Template Title";
     
     IDLabel *label = [IDLabel label];

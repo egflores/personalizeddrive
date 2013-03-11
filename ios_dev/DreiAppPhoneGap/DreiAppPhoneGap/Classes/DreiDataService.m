@@ -6,6 +6,8 @@
 //
 
 #import "DreiDataService.h"
+#import "DreiPGNotification.h"
+#import "DreiBMWFormatter.h"
 
 @implementation DreiDataService
 
@@ -14,6 +16,7 @@
         self._dataStore = [[NSMutableArray alloc] initWithCapacity:100];
         self._currentValues = [[[NSMutableDictionary alloc] initWithCapacity:10] retain];
         [self initCurrentValues:[self getDataKeys]];
+        self.on = false;
     }
     return self;
 }
@@ -35,15 +38,20 @@
 }
 
 -(void)startCollection {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+    self._timer = [[NSTimer scheduledTimerWithTimeInterval:1.0
                                      target:self
                                    selector:@selector(saveDataCallback)
                                    userInfo:nil
-                                    repeats:true];
+                                    repeats:true] retain];
+    self.on = true; // HACK
 }
 
 -(void)stopCollection {
-    [self.timer invalidate];
+    [self._timer invalidate];
+    [self._timer release];
+    self._timer = nil;
+    self.on = false; // HACK
+    NSLog(@"Stopped collection");
 }
 
 -(NSArray *)getData {
@@ -51,12 +59,15 @@
 }
 
 -(void)saveDataCallback {
+    if (!self.on) return; // HACK
     NSMutableDictionary * dictCopy = [self._currentValues mutableCopy];
     [dictCopy setValue:[[NSNumber alloc] initWithDouble:[[NSDate date] timeIntervalSince1970]] forKey:@"time"];
     NSDictionary *newDict = [dictCopy copy];
     [dictCopy release];
     
     [self._dataStore addObject:newDict];
+    [[DreiPGNotification instance] sendMessage:[DreiBMWFormatter formatDataEntryToString:newDict error:nil] toCallback:@"dataEntry"];
+    //NSLog(@"%@",newDict);
 }
 
 @end

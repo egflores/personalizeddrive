@@ -7,9 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <BMWAppKit/BMWAppKit.h>
 
 @interface DreiSendData : NSObject
 
-- (void) sendDataToServer;
+- (id) initWithCDS:(IDCdsService *)cdsService;
+- (void) uploadData;
+- (void) startCollection;
+- (void) stopCollection;
+- (void) getData;
+- (void) getLastItem;
 
 @end
