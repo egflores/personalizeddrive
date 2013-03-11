@@ -7,6 +7,7 @@
 //
 
 #import "DreiPGNotification.h"
+#import "DreiSendData.h"
 
 @implementation DreiPGNotification
 
@@ -23,12 +24,33 @@ static DreiPGNotification *gInstance = NULL;
     return gInstance;
 }
 
+NSString *subscribeCallback;
+
 -(BOOL)haveCDS {
     if (self.manager && self.manager.application && self.manager.application.cdsService) return true;
     return false;
 }
 
+-(DreiSendData *)getDataService {
+    if (self.dataService == nil) {
+        if ([self haveCDS]) {
+            self.dataService = [[[DreiSendData alloc] initWithCDS:self.manager.application.cdsService] autorelease];
+        }
+        else {
+            NSLog(@"Cannot setup data service - no CDS");
+        }
+    }
+    return self.dataService;
+    
+}
+
+-(void)setSubscribeCallback:(NSString *)callback {
+    subscribeCallback = callback;
+}
+
 - (BOOL)sendStatusUpdate:(NSString *)status {
+    if (self.connectEndpoint == NULL) return false;
+    [self.connectEndpoint sendMessage:status toCallback:subscribeCallback];
     return true;
 }
 

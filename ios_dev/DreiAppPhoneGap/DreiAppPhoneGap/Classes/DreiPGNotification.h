@@ -8,12 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import "BMWManager.h"
+#import "DreiConnect.h"
+#import "DreiSendData.h"
 
 @interface DreiPGNotification : NSObject
 
 @property BMWManager * manager;
+@property DreiConnect * connectEndpoint;
+@property (retain) DreiSendData * dataService;
 
 + (DreiPGNotification *)instance;
 - (BOOL)sendStatusUpdate:(NSString *)status;
+- (DreiSendData *)getDataService;
+-(void)setSubscribeCallback:(NSString *)callback;
 
 @end

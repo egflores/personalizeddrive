@@ -28,10 +28,18 @@ DreiUploader * uploader;
     return self;
 }
 
-- (void) sendDataToServer {
+- (void) uploadData {
     NSLog(@"Send data to the server");
     NSData * jsonCarData = [DreiBMWFormatter formatCarData:[d getData] error:nil];
     [uploader postJSON:jsonCarData toURL:[NSURL URLWithString:@"http://requestb.in/1coa33p1"]]; //TODO: Use manifest
+}
+
+- (void) startCollection {
+    [d startCollection];
+}
+
+- (void) stopCollection {
+    [d stopCollection];
 }
 
 @end

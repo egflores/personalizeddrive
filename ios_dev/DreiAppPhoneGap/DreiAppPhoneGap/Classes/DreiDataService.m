@@ -6,8 +6,10 @@
 //
 
 #import "DreiDataService.h"
+#import "DreiPGNotification.h"
 
 @implementation DreiDataService
+NSTimer * timer;
 
 - (id)init {
     if (self = [super init]) {
@@ -35,15 +37,18 @@
 }
 
 -(void)startCollection {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+    timer = [[NSTimer scheduledTimerWithTimeInterval:1.0
                                      target:self
                                    selector:@selector(saveDataCallback)
                                    userInfo:nil
-                                    repeats:true];
+                                    repeats:true] retain];
 }
 
 -(void)stopCollection {
-    [self.timer invalidate];
+    [timer invalidate];
+    [timer release];
+    timer = nil;
+    NSLog(@"Stopped collection");
 }
 
 -(NSArray *)getData {
@@ -57,6 +62,8 @@
     [dictCopy release];
     
     [self._dataStore addObject:newDict];
+    [[DreiPGNotification instance] sendStatusUpdate:@"new stuff!"];
+    NSLog(@"%@",newDict);
 }
 
 @end

@@ -12,6 +12,10 @@
 @interface DreiSendData : NSObject
 
 - (id) initWithCDS:(IDCdsService *)cdsService;
-- (void) sendDataToServer;
+- (void) uploadData;
+- (void) startCollection;
+- (void) stopCollection;
+- (void) getData;
+- (void) getLastItem;
 
 @end

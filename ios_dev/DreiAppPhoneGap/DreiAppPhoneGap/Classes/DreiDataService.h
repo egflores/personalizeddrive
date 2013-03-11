@@ -28,7 +28,6 @@
 
 @property (atomic, retain) NSMutableArray * _dataStore;
 @property (atomic,retain) NSMutableDictionary * _currentValues;
-@property (atomic,retain) NSTimer * timer;
 
 /* Sets all the data keys to "NODATA", the sentinel for when no data has come in. Call this to invalidate old data. */
 -(void)initCurrentValues:(NSArray *)keys;
