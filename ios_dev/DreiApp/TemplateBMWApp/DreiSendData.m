@@ -28,7 +28,7 @@ DreiUploader * uploader;
 - (void) sendDataToServer {
     NSLog(@"Send data to the server");
     NSData * jsonCarData = [DreiBMWFormatter formatCarData:[d getData] error:nil];
-    [uploader postJSON:jsonCarData toURL:[NSURL URLWithString:@"http://requestb.in/1coa33p1"]]; //TODO: Use manifest
+    [uploader postJSON:jsonCarData toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/rawcardata/update"]]; //TODO: Use manifest
 }
 
 @end
