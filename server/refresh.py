@@ -34,16 +34,22 @@ def loadRaw(data, vehicle):
         mpg = double(miles_driven/fuel_used)
         total_mpg += mpg
         mpg /= (len(result) + 1)
-    time = parseTime(data)
-    RawData.create(car = vehicle, remaining_fuel = fuel, remaining_range_fuel = data[0]['remainingRangeFuel'], range_unit = data[0]['rangeUnit'], mileage = miles, ave_mpg = mpg, update_time = time)
+    RawData.create(car = vehicle, remaining_fuel = fuel, remaining_range_fuel = data[0]['remainingRangeFuel'], range_unit = data[0]['rangeUnit'], mileage = miles, ave_mpg = mpg, update_time = parseTime(data))
     
 def loadCCM(data, vehicle):
-    # iterate through all messages and insert
-    CCMMessage.create(car = vehicle, type = , state)
+	for message in data[0]['checkControlMessages']:
+		CCMMessage.create(car = vehicle, ccm_id = message['ccmId'], mileage = message['ccmMileage'], description = message['ccmDescription'], update_time = parseTime(data))
 
 def loadCBS(data, vehicle):
-    # interate through all message and insert
-    CBSMessage.create()    
+	for message in data[0]['cbsData']:
+		miles = NULL
+		date = NULL
+		if 'cbsRemainingMileage' in message:
+			miles = int(message['cbsRemainingMileage'])
+		if 'cbsDueDate' in message:
+			date = message['cbsDueDate']
+			date = datetime(int(date.split('-')[0]), int(date.split('-')[1]), 1)
+		CBSMessage.create(car = vehicle, type = message['cbsType'], state = message['cbsState'], description = message['cbsDescription'], remaining_mileage = miles, due_date = date, update_time = parseTime(data))    
 
 def refresh(vehicle_id):
     address = '/api/v1/user/vehicles/' + vehicle_id + '/status'
