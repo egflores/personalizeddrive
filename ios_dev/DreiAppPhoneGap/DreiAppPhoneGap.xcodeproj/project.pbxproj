@@ -388,12 +388,28 @@
 		5C8444F516ED7B6F00B008C5 /* Drei */ = {
 			isa = PBXGroup;
 			children = (
+				72C2DDE116ED86380013EEF5 /* Public Formatter & Uploader */,
+				72C2DDE016ED862B0013EEF5 /* Data Service */,
+			);
+			name = Drei;
+			sourceTree = "<group>";
+		};
+		72C2DDE016ED862B0013EEF5 /* Data Service */ = {
+			isa = PBXGroup;
+			children = (
 				5C8444F616ED7B7B00B008C5 /* DreiDataService.h */,
 				5C8444F716ED7B7B00B008C5 /* DreiDataService.m */,
 				5C8444F816ED7B7B00B008C5 /* DreiFakeDataService.h */,
 				5C8444F916ED7B7B00B008C5 /* DreiFakeDataService.m */,
 				5C8444FA16ED7B7B00B008C5 /* DreiRealDataService.h */,
 				5C8444FB16ED7B7B00B008C5 /* DreiRealDataService.m */,
+			);
+			name = "Data Service";
+			sourceTree = "<group>";
+		};
+		72C2DDE116ED86380013EEF5 /* Public Formatter & Uploader */ = {
+			isa = PBXGroup;
+			children = (
 				5C8444FC16ED7B7B00B008C5 /* DreiFormatter.h */,
 				5C8444FD16ED7B7B00B008C5 /* DreiBMWFormatter.h */,
 				5C8444FE16ED7B7B00B008C5 /* DreiBMWFormatter.m */,
@@ -402,7 +418,7 @@
 				5C84450116ED7B7B00B008C5 /* DreiSendData.h */,
 				5C84450216ED7B7B00B008C5 /* DreiSendData.m */,
 			);
-			name = Drei;
+			name = "Public Formatter & Uploader";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
