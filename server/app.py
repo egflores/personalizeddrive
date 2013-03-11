@@ -1,8 +1,9 @@
 import json
-from flask import Flask, render_template 
+from flask import Flask, render_template, request, abort, jsonify
 from flask_peewee.db import Database
 from peewee import DateTimeField, IntegerField, ForeignKeyField, \
         DoubleField, CharField, TextField
+from datetime import datetime
 
 DATABASE = {
     'engine': 'peewee.MySQLDatabase',
@@ -96,7 +97,32 @@ class RawData(db.Model):
     engine_status = CharField(null=True, 
             choices=[(c, c) for c in ENGINE_STATUS_ENUM])
 
-def getdefaultcar():
+@app.route('/1.0/rawcardata/update', methods=['POST'])
+def post_rawdata():
+    if request.headers['Content-Type'] != 'application/json':
+        abort(415) # invalid content type
+         
+    data = request.json['data']
+    num_successful = 0
+    for rawdata in data:
+        try:
+            r = RawData()
+            c = Car.get(id=rawdata['car_id'])
+            r.car = c
+            r.update_time = datetime.fromtimestamp(rawdata['timestamp'])
+            r.tank_level = rawdata['fuel_level']
+            r.fuel_range = rawdata['fuel_range'] 
+            r.fuel_reserve = rawdata['fuel_reserve']
+            r.odometer = rawdata['odometer']
+            r.headlights = rawdata['headlights']
+            r.speed = rawdata['speed']
+            r.save()
+            num_successful += 1
+        except:
+            pass
+    return jsonify({'success': num_successful})        
+
+def get_default_car():
     u = User.get(first_name="Jay", last_name="Borenstein")
     c = Car.get(user=u)
     return c
@@ -116,7 +142,8 @@ def home():
         ]
     }
     car_data = json.dumps(sample_data)
-    return render_template('sample.html', car_data=car_data, car=getdefaultcar(), name="two")
+    return render_template('sample.html', car_data=car_data, 
+            car=get_default_car(), name="two")
 
 @app.route('/dashboard')
 def dashboard():
@@ -133,7 +160,8 @@ def dashboard():
         ]
     }
     car_data = json.dumps(sample_data)
-    return render_template('dashboard.html', car_data=car_data, car=getdefaultcar(), name="one")
+    return render_template('dashboard.html', car_data=car_data, 
+            car=get_default_car(), name="one")
 
 if __name__ == '__main__':
     User.create_table(fail_silently=True)
