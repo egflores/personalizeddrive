@@ -96,7 +96,12 @@ class RawData(db.Model):
     engine_status = CharField(null=True, 
             choices=[(c, c) for c in ENGINE_STATUS_ENUM])
 
-@app.route('/')
+def getdefaultcar():
+    u = User.get(first_name="Jay", last_name="Borenstein")
+    c = Car.get(user=u)
+    return c
+
+@app.route('/sample')
 def home():
     values = []
     for row in CarData.select():
@@ -111,9 +116,24 @@ def home():
         ]
     }
     car_data = json.dumps(sample_data)
-    u = User.get(first_name="Jay", last_name="Borenstein")
-    c = Car.get(user=u)
-    return render_template('sample.html', car_data=car_data, car=c)
+    return render_template('sample.html', car_data=car_data, car=getdefaultcar(), name="two")
+
+@app.route('/dashboard')
+def dashboard():
+    values = []
+    for row in CarData.select():
+        values.append([int(row.time.strftime("%s")), row.mileage])
+
+    sample_data = {
+        'data': [
+            {
+                'key': 'Mileage',
+                'values': values
+            }
+        ]
+    }
+    car_data = json.dumps(sample_data)
+    return render_template('dashboard.html', car_data=car_data, car=getdefaultcar(), name="one")
 
 if __name__ == '__main__':
     User.create_table(fail_silently=True)
@@ -124,4 +144,3 @@ if __name__ == '__main__':
     RawData.create_table(fail_silently=True)
 
     app.run()
-
