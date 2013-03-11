@@ -16,7 +16,10 @@
 DreiDataService *d;
 DreiUploader * uploader;
 
-- (id) init {
+/**
+ * TODO: Instead of using the fake data service, use the real data service!
+ */
+- (id) initWithCDS:(IDCdsService *)cdsService {
     if(self == [super init]) {
         d = [[DreiFakeDataService alloc] init];
         uploader = [[DreiUploader alloc]  init];
