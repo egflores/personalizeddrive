@@ -165,20 +165,6 @@ def home():
 @app.route('/dashboard')
 def dashboard():
     values = []
-    """
-    for row in CarData.select():
-        values.append([int(row.time.strftime("%s")), row.mileage])
-
-    sample_data = {
-        'data': [
-            {
-                'key': 'Mileage',
-                'values': values
-            }
-        ]
-    }
-    car_data = json.dumps(sample_data)
-    """
     car = get_default_car()
     rawdata = RawData.select().where(RawData.car==car).order_by(
             RawData.update_time.desc())
