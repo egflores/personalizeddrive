@@ -30,6 +30,7 @@ class User(db.Model):
 
 class Car(db.Model):
     user = ForeignKeyField(User, related_name="cars", index=True)
+    vehicle_id = CharField()
     model = CharField()
     year = IntegerField()
     name = CharField()
