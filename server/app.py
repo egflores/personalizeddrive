@@ -83,10 +83,10 @@ class RawData(db.Model):
     update_time = DateTimeField(index=True) 
 
     # amount of gas in tank, in gallons
-    tank_level = IntegerField() # amount of gas in tank, in gallons
+    tank_level = IntegerField(null=True) # amount of gas in tank, in gallons
 
     # number of miles that can be travelled on the current tank
-    fuel_range = IntegerField() 
+    fuel_range = IntegerField(null=True) 
 
     # whether the tank is on fuel reserve
     fuel_reserve = CharField(null=True, 
@@ -189,5 +189,4 @@ if __name__ == '__main__':
     CBSMessage.create_table(fail_silently=True)
     CCMMessage.create_table(fail_silently=True)
     RawData.create_table(fail_silently=True)
-
     app.run()
