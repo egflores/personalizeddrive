@@ -4,7 +4,7 @@ from flask_peewee.db import Database
 from peewee import DateTimeField, IntegerField, ForeignKeyField, \
         DoubleField, CharField, TextField
 from datetime import datetime
-import refresh
+from werkzeug.contrib.fixers import ProxyFix
 
 DATABASE = {
     'engine': 'peewee.MySQLDatabase',
@@ -18,6 +18,16 @@ SECRET_KEY = 'StephenTrusheim'
 
 app = Flask(__name__) 
 app.config.from_object(__name__) 
+try:
+    # tries to load config from an env variable
+    # that will override the settings declared in this file
+    # eventually, when we use chef or some deploy tool
+    # we shouldn't have to do this. 
+    app.config.from_envvar('PRODUCTION_SETTINGS')
+except:
+    pass
+
+app.wsgi_app = ProxyFix(app.wsgi_app) # makes app work on gunicorn
 db = Database(app)
 
 class CarData(db.Model):
@@ -108,10 +118,15 @@ def post_rawdata():
     num_successful = 0
     for rawdata in data:
         try:
-            r = RawData()
             c = Car.get(id=rawdata['car_id'])
-            r.car = c
-            r.update_time = datetime.fromtimestamp(rawdata['timestamp'])
+            timestamp = datetime.fromtimestamp(rawdata['timestamp'])
+            r = None
+            try:
+                r = RawData.get(car=c, update_time=timestamp)
+            except RawData.DoesNotExist:
+                r = RawData()
+                r.car = c
+                r.update_time = timestamp
             r.tank_level = rawdata['fuel_level']
             r.fuel_range = rawdata['fuel_range'] 
             r.fuel_reserve = rawdata['fuel_reserve']
@@ -164,6 +179,8 @@ def dashboard():
     car_data = json.dumps(sample_data)
     return render_template('dashboard.html', car_data=car_data, 
             car=get_default_car(), name="one")
+
+print "Running Drei with DEBUG=%s" % app.config.get('DEBUG', '')
 
 if __name__ == '__main__':
     User.create_table(fail_silently=True)
