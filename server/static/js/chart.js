@@ -1,9 +1,6 @@
-var chart;
-var smallchart;
-var donut;
-data = car_data.data;
 nv.addGraph(function() {
-    chart = nv.models.lineChart()
+	var data = dashboard_data.car_data.data;
+    var chart = nv.models.lineChart()
         .x(function(d) { return d[0] })
         .y(function(d) { return d[1] }) //adjusting, 100% is 1.00, not 100 as it is in the data
         .color(d3.scale.category10().range());
@@ -25,7 +22,9 @@ nv.addGraph(function() {
 });
 
 nv.addGraph(function() {
-	smallchart = nv.models.lineChart()
+	var data = dashboard_data.car_data.data;
+
+	var smallchart = nv.models.lineChart()
 		.x(function(d) { return d[0] })
 		.y(function(d) { return d[1] }) //adjusting, 100% is 1.00, not 100 as it is in the data
 		.color(d3.scale.category10().range());
@@ -39,13 +38,39 @@ nv.addGraph(function() {
 	d3.select(".container").select('#smallchart svg')
 		.datum(data)
 		.transition().duration(500)
-		.call(chart);
+		.call(smallchart);
 
 	d3.select(".container").select('#smallchart svg').selectAll("text").style("font-size","10px");
 
-	nv.utils.windowResize(chart.update);
+	nv.utils.windowResize(smallchart.update);
 
-	return chart;
+	return smallchart;
+});
+
+nv.addGraph(function() {
+	var data = dashboard_data.car_data.data;
+
+	var chart2 = nv.models.lineChart()
+		.x(function(d) { return d[0] })
+		.y(function(d) { return d[1] }) //adjusting, 100% is 1.00, not 100 as it is in the data
+		.color(d3.scale.category10().range());
+
+	chart2.xAxis
+		.tickFormat(function(d) {
+		// return d3.time.format("%Y-%m-%dT%H:%M:%S.%LZ")(d)
+			return d3.time.format('%x')(new Date(d * 1000))
+		});
+
+	d3.select(".container").select('#chart2 svg')
+		.datum(data)
+		.transition().duration(500)
+		.call(chart2);
+
+	d3.select(".container").select('#chart2 svg').selectAll("text").style("font-size","10px");
+
+	nv.utils.windowResize(chart2.update);
+
+	return chart2;
 });
 
 
@@ -70,8 +95,26 @@ function exampleData(num) {
   ];
 }
 
+function makegaugedata(num, max) {
+  return [
+  {
+    key: "data",
+    values: [
+      { 
+        "label" : "Fuel" ,
+        "value" : num
+      } , 
+      { 
+        "label" : "" , 
+        "value" : max-num
+      }
+    ]
+  }
+  ];
+}
 
-function makegauge(data, id) {
+
+function makegauge(data, id, name, side) {
 	nv.addGraph(function() {
 	   var donut = nv.models.pieChart()
 		  .x(function(d) { return d.label })
@@ -80,27 +123,76 @@ function makegauge(data, id) {
 		  .showLegend(false)
 		  .donut(true);
 
-		d3.select("#"+id+" svg")
+		var svg = d3.select("#"+id+" svg");
+
+		svg
 		    .datum(data)
 		    .transition().duration(1200)
 		    .call(donut);
 
-		d3.select("#"+id+" svg").append('text')
-			.text(data[0].values[0].value.toString())
+		svg.append('text')
+			.text(data[0].values[0].value)
 			.attr('x', 107)
 			.attr('y', 180)
 			.attr('fill', "rgb(58, 135, 173)")
 			.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
 			.style("font-weight", "bold")
 			.style('font-size', "80px")
-			.style('text-shadow', "0px 4px 0px rgba(88, 88, 88, 0.5)");
-	 
+			.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
+
+		if (name != null) {
+			svg.append('text')
+				.text(name)
+				.attr('x', 150 - name.length*16/2)
+				.attr('y', 40)
+				.attr('fill', "rgb(58, 135, 173)")
+				.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
+				.style("font-weight", "bold")
+				.style('font-size', "35px")
+				.style('text-shadow', "0px 1px 0px rgba(0, 0, 0, 0.5)");
+		}
+
 		return donut;
 	});
 }
 
-makegauge(exampleData(70), "donut");
-makegauge(exampleData(40), "donut2");
+function makenumber(data, max, id, name) {
+	if (name == null) {
+		return;
+	}
+
+	var color = d3.scale.linear()
+		.domain([0.0, max/2.0, max])
+		.range(["#CF002D","#E6CE67","#55CF75"]);
+
+	var svg = d3.select("#"+id+" svg");
+
+	if (name != null) {
+		svg.append('text')
+			.text(name)
+			.attr('x', 150 - name.length*18/2)
+			.attr('y', 40)
+			.attr('fill', color(data))
+			.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
+			.style("font-weight", "bold")
+			.style('font-size', "35px")
+			.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
+	}
+
+	svg.append('text').text(data.toString())
+		.attr('x', 75)
+		.attr('y', 200)
+		.attr('fill', color(data))
+		.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
+		.style("font-weight", "bold")
+		.style('font-size', "150px")
+		.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
+}
+
+makegauge(makegaugedata(dashboard_data.tank_level,100), "donut", "Fuel Level");
+makegauge(makegaugedata(dashboard_data.fuel_range, 1000), "donut2", "Fuel Range");
+makegauge(makegaugedata(dashboard_data.tank_level,100), "donut4", "Fuel Level");
+makegauge(makegaugedata(dashboard_data.fuel_range, 1000), "donut5", "Fuel Range");
 makegauge(exampleData(28), "donut3");
-makegauge(exampleData(92), "donut4");
+makenumber(92, 100, "text0", "% Funtimes");
 

@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block head %}
-    <link href="static/css/nv.d3.css" rel="stylesheet" type="text/css">
-    <script>
-        dashboard_data = {
-            car_data:  {{ car_data|safe }},
+    <link href="static/css/nv.d3.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        var dashboard_data = {
+            car_data:  {{ car_data|tojson|safe }},
             tank_level: {{ tank_level }},
             fuel_range: {{ fuel_range }}
         }
@@ -11,14 +11,14 @@
 {% endblock %}
 
 {% block container %}
-<br>
+<br />
 <div class="span12">
 	<div class="alert alert-info">
 		<a class="close" data-dismiss="alert" href="#">&times;</a>
 			<h1>Greetings Genius.</h1> <h3>We want you. Also, your car is probably broken. Consider fixing it.</h3>
 	</div>
 </div>
-<br>
+<br />
 <ul class="nav nav-tabs" id="dashtab">
 	<li class="active"><a href="#overview" data-toggle="tab">Overview</a></li>
 	<li><a href="#commute" data-toggle="tab">Commute</a></li>
@@ -41,13 +41,13 @@
 			</div>
 			<div class="span1"></div>
 			<div class="span2">
-				<div id="donut3">
+				<div id="text0">
 					<svg style="width: 300px; height: 300px; min-width: 100px; min-height: 100px"></svg>
 				</div>
 			</div>
 			<div class="span1"></div>
 			<div class="span2">
-				<div id="donut4">
+				<div id="donut3">
 					<svg style="width: 300px; height: 300px; min-width: 100px; min-height: 100px"></svg>
 				</div>
 			</div>
@@ -87,8 +87,22 @@
 			</div>
 		</div>
 	</div>
-	<div class="tab-pane" id="commute">HELLO</div>
-	<div class="tab-pane" id="carhealth"></div>
+	<div class="tab-pane" id="commute">
+		<div class="row-fluid">
+			<div class="span8">
+				<div id="chart2">
+					<svg style="width: 800px; height: 400px; min-width: 400px; min-height: 400px"></svg>
+				</div>
+			</div>
+			<div class="span4">
+				<div id="donut4">
+					<svg style="width: 300px; height: 300px; min-width: 100px; min-height: 100px"></svg>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tab-pane" id="carhealth">
+	</div>
 	<div class="tab-pane" id="location"></div>
 </div>
 {% endblock %}
@@ -96,6 +110,7 @@
 {% block script_includes %}
     <script src="static/js/d3.v3.js" type="text/javascript"></script>
     <script src="static/js/nv.d3.js" type="text/javascript"></script>
+    <script src="static/js/colorbrewer.js" type="text/javascript"></script>
     <script src="static/js/chart.js" type="text/javascript"></script>
 {% endblock %}
  
