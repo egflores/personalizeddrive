@@ -87,7 +87,7 @@
 +(NSData *)formatDataEntry:(NSDictionary *)originalDataPoint error:(NSError *)error {
     NSMutableDictionary * formattedDataPoint = [DreiBMWFormatter convertDataEntry:originalDataPoint error:error];
     return [NSJSONSerialization dataWithJSONObject:formattedDataPoint
-                                           options:NSJSONWritingPrettyPrinted
+                                           options:0
                                              error:&error];
 }
 
