@@ -44,13 +44,9 @@ NSString *subscribeCallback;
     
 }
 
--(void)setSubscribeCallback:(NSString *)callback {
-    subscribeCallback = callback;
-}
-
-- (BOOL)sendStatusUpdate:(NSString *)status {
+- (BOOL)sendMessage:(NSString *)status toCallback:(NSString *) callback {
     if (self.connectEndpoint == NULL) return false;
-    [self.connectEndpoint sendMessage:status toCallback:subscribeCallback];
+    [self.connectEndpoint sendMessage:status toCallback:callback];
     return true;
 }
 

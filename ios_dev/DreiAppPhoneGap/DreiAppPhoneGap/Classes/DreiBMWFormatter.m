@@ -90,4 +90,8 @@
                                            options:NSJSONWritingPrettyPrinted
                                              error:&error];
 }
+
++(NSString *)formatDataEntryToString:(NSDictionary *)originalDataPoint error:(NSError *)error {
+    return[[NSString alloc] initWithData:[DreiBMWFormatter formatDataEntry:originalDataPoint error:error] encoding:NSUTF8StringEncoding];
+}
 @end

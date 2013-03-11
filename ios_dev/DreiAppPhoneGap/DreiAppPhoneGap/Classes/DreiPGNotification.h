@@ -18,8 +18,7 @@
 @property (retain) DreiSendData * dataService;
 
 + (DreiPGNotification *)instance;
-- (BOOL)sendStatusUpdate:(NSString *)status;
 - (DreiSendData *)getDataService;
--(void)setSubscribeCallback:(NSString *)callback;
+- (BOOL)sendMessage:(NSString *)status toCallback:(NSString *) callback;
 
 @end
