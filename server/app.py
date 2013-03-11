@@ -118,10 +118,15 @@ def post_rawdata():
     num_successful = 0
     for rawdata in data:
         try:
-            r = RawData()
             c = Car.get(id=rawdata['car_id'])
-            r.car = c
-            r.update_time = datetime.fromtimestamp(rawdata['timestamp'])
+            timestamp = datetime.fromtimestamp(rawdata['timestamp'])
+            r = None
+            try:
+                r = RawData.get(car=c, update_time=timestamp)
+            except RawData.DoesNotExist:
+                r = RawData()
+                r.car = c
+                r.update_time = timestamp
             r.tank_level = rawdata['fuel_level']
             r.fuel_range = rawdata['fuel_range'] 
             r.fuel_reserve = rawdata['fuel_reserve']
@@ -174,6 +179,8 @@ def dashboard():
     car_data = json.dumps(sample_data)
     return render_template('dashboard.html', car_data=car_data, 
             car=get_default_car(), name="one")
+
+print "Running Drei with DEBUG=%s" % app.config.get('DEBUG', '')
 
 if __name__ == '__main__':
     User.create_table(fail_silently=True)
