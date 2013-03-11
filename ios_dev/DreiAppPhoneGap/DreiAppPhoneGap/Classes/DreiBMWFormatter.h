@@ -11,4 +11,7 @@
 
 @interface DreiBMWFormatter : NSObject <DreiFormatter>
 +(NSData *)formatCarData:(NSArray *)carData error:(NSError *)error;
++(NSData *)formatDataEntry:(NSDictionary *)originalDataPoint error:(NSError *)error;
++(NSMutableDictionary *)convertDataEntry:(NSDictionary *)originalDataPoint error:(NSError *)error;
+    
 @end
