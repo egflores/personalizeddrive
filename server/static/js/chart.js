@@ -124,13 +124,28 @@ function makenumber(data, max, id, name) {
 		.domain([0.0, max/2.0, max])
 		.range(["#CF002D","#E6CE67","#55CF75"]);
 
-	d3.select("#"+id+" svg").append('text').text(data.toString())
-		.attr('x', 60)
-		.attr('y', 180)
+	var svg = d3.select("#"+id+" svg");
+
+	if (name != null) {
+		svg.append('text')
+			.text(name)
+			.attr('x', 150 - name.length*18/2)
+			.attr('y', 40)
+			.attr('fill', color(data))
+			.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
+			.style("font-weight", "bold")
+			.style('font-size', "35px")
+			.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
+	}
+
+
+	svg.append('text').text(data.toString())
+		.attr('x', 75)
+		.attr('y', 200)
 		.attr('fill', color(data))
 		.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
 		.style("font-weight", "bold")
-		.style('font-size', "100px")
+		.style('font-size', "150px")
 		.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
 }
 
