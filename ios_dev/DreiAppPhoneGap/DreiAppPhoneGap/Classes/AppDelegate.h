@@ -29,6 +29,9 @@
 
 #import <Cordova/CDVViewController.h>
 
+@class ViewController;
+@class BMWManager;
+
 @interface AppDelegate : NSObject <UIApplicationDelegate>{}
 
 // invoke string is passed to your app on launch, this is only valid if you
@@ -37,6 +40,7 @@
 // http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
 
 @property (nonatomic, strong) IBOutlet UIWindow* window;
+@property (nonatomic, retain) BMWManager *manager;
 @property (nonatomic, strong) IBOutlet CDVViewController* viewController;
 
 @end
