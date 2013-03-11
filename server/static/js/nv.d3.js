@@ -7947,6 +7947,12 @@ nv.models.pie = function() {
 
 
           });
+		if (true) {
+			ae.append("g").classed("nv-label", true).each(function(d,i) {
+				var group = d3.select(this);
+				group.append('svg:title').text("HELLO THERE");
+			});
+		}
 
           slices.select(".nv-label").transition()
             .attr('transform', function(d) {
