@@ -71,7 +71,7 @@ function exampleData(num) {
 }
 
 
-function makegauge(data, id) {
+function makegauge(data, id, name) {
 	nv.addGraph(function() {
 	   var donut = nv.models.pieChart()
 		  .x(function(d) { return d.label })
@@ -80,12 +80,14 @@ function makegauge(data, id) {
 		  .showLegend(false)
 		  .donut(true);
 
-		d3.select("#"+id+" svg")
+		var svg = d3.select("#"+id+" svg");
+
+		svg
 		    .datum(data)
 		    .transition().duration(1200)
 		    .call(donut);
 
-		d3.select("#"+id+" svg").append('text')
+		svg.append('text')
 			.text(data[0].values[0].value.toString())
 			.attr('x', 107)
 			.attr('y', 180)
@@ -93,14 +95,47 @@ function makegauge(data, id) {
 			.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
 			.style("font-weight", "bold")
 			.style('font-size', "80px")
-			.style('text-shadow', "0px 4px 0px rgba(88, 88, 88, 0.5)");
-	 
+			.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
+
+		if (name != null) {
+			svg.append('text')
+				.text(name)
+				.attr('x', 150 - name.length*16/2)
+				.attr('y', 40)
+				.attr('fill', "rgb(58, 135, 173)")
+				.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
+				.style("font-weight", "bold")
+				.style('font-size', "35px")
+				.style('text-shadow', "0px 1px 0px rgba(0, 0, 0, 0.5)");
+		}
+
+
+
 		return donut;
 	});
 }
 
-makegauge(exampleData(70), "donut");
+function makenumber(data, max, id, name) {
+	if (name == null) {
+		return;
+	}
+
+	var color = d3.scale.linear()
+		.domain([0.0, max/2.0, max])
+		.range(["#CF002D","#E6CE67","#55CF75"]);
+
+	d3.select("#"+id+" svg").append('text').text(data.toString())
+		.attr('x', 60)
+		.attr('y', 180)
+		.attr('fill', color(data))
+		.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
+		.style("font-weight", "bold")
+		.style('font-size', "100px")
+		.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
+}
+
+makegauge(exampleData(70), "donut", "Fuel Level");
 makegauge(exampleData(40), "donut2");
 makegauge(exampleData(28), "donut3");
-makegauge(exampleData(92), "donut4");
+makenumber(20, 100, "text0", "Funtimes");
 
