@@ -34,7 +34,7 @@ def loadRaw(data, vehicle):
         mpg = double(miles_driven/fuel_used)
         total_mpg += mpg
         mpg /= (len(result) + 1)
-    RawData.create(car = vehicle, remaining_fuel = fuel, remaining_range_fuel = data[0]['remainingRangeFuel'], range_unit = data[0]['rangeUnit'], mileage = miles, ave_mpg = mpg, update_time = parseTime(data))
+    RawData.create(car = vehicle, update_time = parseDate(data), tank_level = fuel, fuel_range = data[0]['remainingRangeFuel'], fuel_reserve = NULL, odometer = miles, ave_mpg = mpg, headlights = NULL, speed = NULL, engine_status = NULL)
     
 def loadCCM(data, vehicle):
 	for message in data[0]['checkControlMessages']:
