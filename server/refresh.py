@@ -1,21 +1,12 @@
 from app.py import User, Car, Commute, CBSMessage, CCMMessage, RawData
 import json
 import requests
+import iso8601
 from datetime import datetime
 
 def parseTime(data):
     """ Creates a datetime object from the REST result """
-    t = data[0]['updateTime']
-    date = t.split('T')[0]
-    year = date.split('-')[0]
-    month = date.split('-')[1]
-    day = date.split('-')[2]
-    time = t.split('T')[1]
-    time = time.split('+')[0]
-    hour = time.split(':')[0]
-    minute = time.split(':')[1]
-    second = time.split(':')[2]
-    return datetime(int(year), int(month), int(day), int(hour), int(minute), int(second))
+    return iso8601.parse_date(data[0]['updateTime'])
 
 def loadRaw(data, vehicle):
     """ Inserts a row into RawData table """
