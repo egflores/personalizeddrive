@@ -52,18 +52,18 @@ nv.addGraph(function() {
 /*
  TO BE DELETED WHEN RENDERED OBSOLETE
 */
-function exampleData() {
+function exampleData(num) {
   return [
   {
     key: "data",
     values: [
       { 
         "label" : "Fuel" ,
-        "value" : 70
+        "value" : num
       } , 
       { 
         "label" : "" , 
-        "value" : 30
+        "value" : 100-num
       }
     ]
   }
@@ -99,5 +99,8 @@ function makegauge(data, id) {
 	});
 }
 
-makegauge(exampleData(), "donut");
+makegauge(exampleData(70), "donut");
+makegauge(exampleData(40), "donut2");
+makegauge(exampleData(28), "donut3");
+makegauge(exampleData(92), "donut4");
 
