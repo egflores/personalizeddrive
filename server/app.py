@@ -165,10 +165,14 @@ def home():
 @app.route('/dashboard')
 def dashboard():
     values = []
-    for row in CarData.select():
-        values.append([int(row.time.strftime("%s")), row.mileage])
+    car = get_default_car()
+    rawdata = RawData.select().where(RawData.car==car).order_by(
+            RawData.update_time.desc())
+    if rawdata.count() == 0:
+        return "Invalid Car"
 
-    sample_data = {
+    values = [(int(r.update_time.strftime("%s")), r.odometer) for r in rawdata]
+    car_data = {
         'data': [
             {
                 'key': 'Mileage',
@@ -176,9 +180,10 @@ def dashboard():
             }
         ]
     }
-    car_data = json.dumps(sample_data)
+    newest_data = rawdata[0]
     return render_template('dashboard.html', car_data=car_data, 
-            car=get_default_car(), name="one")
+            car=get_default_car(), tank_level=newest_data.tank_level, 
+            fuel_range=newest_data.fuel_range, name="one")
 
 print "Running Drei with DEBUG=%s" % app.config.get('DEBUG', '')
 
@@ -189,4 +194,5 @@ if __name__ == '__main__':
     CBSMessage.create_table(fail_silently=True)
     CCMMessage.create_table(fail_silently=True)
     RawData.create_table(fail_silently=True)
+
     app.run()
