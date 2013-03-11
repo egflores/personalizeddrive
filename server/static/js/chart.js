@@ -1,9 +1,6 @@
-var chart;
-var smallchart;
-var donut;
-data = car_data.data;
 nv.addGraph(function() {
-    chart = nv.models.lineChart()
+	var data = dashboard_data.car_data;
+    var chart = nv.models.lineChart()
         .x(function(d) { return d[0] })
         .y(function(d) { return d[1] }) //adjusting, 100% is 1.00, not 100 as it is in the data
         .color(d3.scale.category10().range());
@@ -25,7 +22,9 @@ nv.addGraph(function() {
 });
 
 nv.addGraph(function() {
-	smallchart = nv.models.lineChart()
+	var data = dashboard_data.car_data;
+
+	var smallchart = nv.models.lineChart()
 		.x(function(d) { return d[0] })
 		.y(function(d) { return d[1] }) //adjusting, 100% is 1.00, not 100 as it is in the data
 		.color(d3.scale.category10().range());
@@ -39,13 +38,13 @@ nv.addGraph(function() {
 	d3.select(".container").select('#smallchart svg')
 		.datum(data)
 		.transition().duration(500)
-		.call(chart);
+		.call(smallchart);
 
 	d3.select(".container").select('#smallchart svg').selectAll("text").style("font-size","10px");
 
-	nv.utils.windowResize(chart.update);
+	nv.utils.windowResize(smallchart.update);
 
-	return chart;
+	return smallchart;
 });
 
 
@@ -70,6 +69,24 @@ function exampleData(num) {
   ];
 }
 
+function makegaugedata(num, max) {
+  return [
+  {
+    key: "data",
+    values: [
+      { 
+        "label" : "Fuel" ,
+        "value" : num
+      } , 
+      { 
+        "label" : "" , 
+        "value" : max-num
+      }
+    ]
+  }
+  ];
+}
+
 
 function makegauge(data, id, name) {
 	nv.addGraph(function() {
@@ -88,7 +105,7 @@ function makegauge(data, id, name) {
 		    .call(donut);
 
 		svg.append('text')
-			.text(data[0].values[0].value.toString())
+			.text(data[0].values[0].value)
 			.attr('x', 107)
 			.attr('y', 180)
 			.attr('fill', "rgb(58, 135, 173)")
@@ -108,8 +125,6 @@ function makegauge(data, id, name) {
 				.style('font-size', "35px")
 				.style('text-shadow', "0px 1px 0px rgba(0, 0, 0, 0.5)");
 		}
-
-
 
 		return donut;
 	});
@@ -138,7 +153,6 @@ function makenumber(data, max, id, name) {
 			.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
 	}
 
-
 	svg.append('text').text(data.toString())
 		.attr('x', 75)
 		.attr('y', 200)
@@ -149,8 +163,8 @@ function makenumber(data, max, id, name) {
 		.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
 }
 
-makegauge(exampleData(70), "donut", "Fuel Level");
-makegauge(exampleData(40), "donut2");
+makegauge(makegaugedata(dashboard_data.tank_level,100), "donut", "Fuel Level");
+makegauge(makegaugedata(dashboard_data.fuel_range, 1000), "donut2", "Fuel Range");
 makegauge(exampleData(28), "donut3");
-makenumber(20, 100, "text0", "Funtimes");
+makenumber(92, 100, "text0", "% Funtimes");
 
