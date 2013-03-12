@@ -1,8 +1,10 @@
 import json
 from flask import Flask, render_template, request, abort, jsonify
 from flask_peewee.db import Database
+from flask_peewee.auth import Auth, BaseUser
+from flask_peewee.admin import Admin, ModelAdmin
 from peewee import DateTimeField, IntegerField, ForeignKeyField, \
-        DoubleField, CharField, TextField
+        DoubleField, CharField, TextField, BooleanField
 from datetime import datetime
 from werkzeug.contrib.fixers import ProxyFix
 
@@ -35,10 +37,20 @@ class CarData(db.Model):
     time = DateTimeField()
     mileage = IntegerField()
 
+class Admins(db.Model, BaseUser):
+    username = CharField(unique=True)
+    password = CharField()
+    email = CharField()
+    admin = BooleanField()
+    active = BooleanField(default=False)
+
 class User(db.Model):
     first_name = CharField()
     last_name = CharField()
     password = TextField()
+
+class UserAdmin(ModelAdmin):
+    columns = ('first_name', 'last_name', 'password')
 
 class Car(db.Model):
     user = ForeignKeyField(User, related_name="cars", index=True)
@@ -48,11 +60,17 @@ class Car(db.Model):
     name = CharField()
     picture = TextField(null=True)
 
+class CarAdmin(ModelAdmin):
+    columns = ('user', 'vehicle_id', 'model', 'year', 'name', 'picture');
+
 class Commute(db.Model):
     car = ForeignKeyField(Car, related_name="commutes", index=True)
     trip_mpg = DoubleField()
     trip_mileage = DoubleField()
     duration = IntegerField()
+
+class CommuteAdmin(ModelAdmin):
+    columns = ('car', 'trip_mpg', 'trip_milage', 'duration')
 
 class CBSMessage(db.Model):
     car = ForeignKeyField(Car, related_name="cbs_messages", index=True)
@@ -63,12 +81,18 @@ class CBSMessage(db.Model):
     due_date = DateTimeField(null=True)
     update_time = DateTimeField(index=True)
 
+class CBSMessageAdmin(ModelAdmin):
+    columns = ('car', 'type', 'state', 'description', 'remaining_mileage', 'due_date', 'update_time')
+
 class CCMMessage(db.Model):
     car = ForeignKeyField(Car, related_name="ccm_messages", index=True)
     ccm_id = IntegerField()
     mileage = IntegerField()
     description = TextField()
     update_time = DateTimeField(index=True)
+
+class CCMMessageAdmin(ModelAdmin):
+    columns = ('car', 'ccm_id', 'mileage', 'description', 'update_time')
 
 class RawData(db.Model):
 
@@ -108,6 +132,22 @@ class RawData(db.Model):
     # current status of the Engine
     engine_status = CharField(null=True, 
             choices=[(c, c) for c in ENGINE_STATUS_ENUM])
+
+class RawDataAdmin(ModelAdmin):
+    columns = ('car', 'update_time', 'tank_level', 'fuel_range', 'fuel_reserve', 'odometer', 'ave_mpg', 'headlights', 'speed', 'engine_status')
+
+### admin setup 
+auth = Auth(app, db, Admins)
+admin = Admin(app, auth)
+auth.register_admin(admin)
+admin.register(User, UserAdmin)
+admin.register(Car, CarAdmin)
+admin.register(RawData, RawDataAdmin)
+admin.register(CCMMessage, CCMMessageAdmin)
+admin.register(CBSMessage, CBSMessageAdmin)
+admin.register(Commute, CommuteAdmin)
+admin.setup()
+### setup end
 
 @app.route('/1.0/rawcardata/update', methods=['POST'])
 def post_rawdata():
@@ -195,5 +235,6 @@ if __name__ == '__main__':
     CBSMessage.create_table(fail_silently=True)
     CCMMessage.create_table(fail_silently=True)
     RawData.create_table(fail_silently=True)
+    auth.User.create_table(fail_silently=True)
 
     app.run()
