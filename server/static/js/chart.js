@@ -95,13 +95,13 @@ function exampleData(num) {
   ];
 }
 
-function makegaugedata(num, max) {
+function makegaugedata(num, max, name) {
   return [
   {
     key: "data",
     values: [
       { 
-        "label" : "Fuel" ,
+        "label" : name ,
         "value" : num
       } , 
       { 
@@ -113,15 +113,27 @@ function makegaugedata(num, max) {
   ];
 }
 
+function getcolors(value, max) {
+	var colors = [colorbrewer.Reds[3].reverse(), colorbrewer.Blues[3].reverse(), colorbrewer.Greens[3].reverse()];
+
+	return colors[Math.round(value / (max / 3))-1];
+}
+
 
 function makegauge(data, id, name, side) {
+
+	var value = data[0].values[0].value;
+
+	var colorz = getcolors(value, data[0].values[1].value + value);
+
 	nv.addGraph(function() {
 	   var donut = nv.models.pieChart()
 		  .x(function(d) { return d.label })
 		  .y(function(d) { return d.value })
 		  .showLabels(false)
 		  .showLegend(false)
-		  .donut(true);
+		  .donut(true)
+		  .color(colorz);
 
 		var svg = d3.select("#"+id+" svg");
 
@@ -131,13 +143,13 @@ function makegauge(data, id, name, side) {
 		    .call(donut);
 
 		svg.append('text')
-			.text(data[0].values[0].value)
-			.attr('x', 107)
+			.text(value)
+			.attr('x', function() { return value > 100 ? 90: 107; })
 			.attr('y', 180)
-			.attr('fill', "rgb(58, 135, 173)")
+			.attr('fill', colorz[0])
 			.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
 			.style("font-weight", "bold")
-			.style('font-size', "80px")
+			.style('font-size', function() { return value > 100 ? "70px" : "80px"; })
 			.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
 
 		if (name != null) {
@@ -145,7 +157,7 @@ function makegauge(data, id, name, side) {
 				.text(name)
 				.attr('x', 150 - name.length*16/2)
 				.attr('y', 40)
-				.attr('fill', "rgb(58, 135, 173)")
+				.attr('fill', colorz[0])
 				.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
 				.style("font-weight", "bold")
 				.style('font-size', "35px")
@@ -180,19 +192,19 @@ function makenumber(data, max, id, name) {
 	}
 
 	svg.append('text').text(data.toString())
-		.attr('x', 75)
-		.attr('y', 200)
+		.attr('x', function() { return data > 100 ? 40 : 75; })
+		.attr('y', 180)
 		.attr('fill', color(data))
 		.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
 		.style("font-weight", "bold")
-		.style('font-size', "150px")
+		.style('font-size', function() { return data > 100 ? "130px" : "150px"; })
 		.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
 }
 
-makegauge(makegaugedata(dashboard_data.tank_level,100), "donut", "Fuel Level");
-makegauge(makegaugedata(dashboard_data.fuel_range, 1000), "donut2", "Fuel Range");
-makegauge(makegaugedata(dashboard_data.tank_level,100), "donut4", "Fuel Level");
-makegauge(makegaugedata(dashboard_data.fuel_range, 1000), "donut5", "Fuel Range");
-makegauge(exampleData(28), "donut3");
-makenumber(92, 100, "text0", "% Funtimes");
+makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut", "Fuel Level");
+makegauge(makegaugedata(507, 1000, "Miles"), "donut2", "Oil Life");
+makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut4 svg g", "Fuel Level");
+makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut5 svg g", "Fuel Range");
+makegauge(makegaugedata(13,54, "Columbs"), "donut3", "Battery");
+makenumber(dashboard_data.fuel_range, 400, "text0", "Fuel Range");
 
