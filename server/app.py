@@ -202,7 +202,7 @@ def home():
     return render_template('sample.html', car_data=car_data, 
             car=get_default_car(), name="two")
 
-@app.route('/dashboard')
+@app.route('/')
 def dashboard():
     values = []
     car = get_default_car()
