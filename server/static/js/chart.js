@@ -182,7 +182,7 @@ function makenumber(data, max, id, name) {
 	}
 
 	svg.append('text').text(data.toString())
-		.attr('x', function() { return data > 100 ? 75 : 40; })
+		.attr('x', function() { return data > 100 ? 40 : 75; })
 		.attr('y', 180)
 		.attr('fill', color(data))
 		.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
@@ -192,9 +192,9 @@ function makenumber(data, max, id, name) {
 }
 
 makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut", "Fuel Level");
-makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut2", "Fuel Range");
+makegauge(makegaugedata(dashboard_data.fuel_range, 400, "Miles"), "donut2", "Fuel Range");
 makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut4 svg g", "Fuel Level");
 makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut5 svg g", "Fuel Range");
 makegauge(exampleData(28), "donut3");
-makenumber(922, 1000, "text0", "Amperes");
+makenumber(dashboard_data.fuel_range, 400, "text0", "Fuel Range");
 
