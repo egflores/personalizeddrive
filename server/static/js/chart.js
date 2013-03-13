@@ -95,13 +95,13 @@ function exampleData(num) {
   ];
 }
 
-function makegaugedata(num, max) {
+function makegaugedata(num, max, name) {
   return [
   {
     key: "data",
     values: [
       { 
-        "label" : "Fuel" ,
+        "label" : name ,
         "value" : num
       } , 
       { 
@@ -130,14 +130,16 @@ function makegauge(data, id, name, side) {
 		    .transition().duration(1200)
 		    .call(donut);
 
+		var value = data[0].values[0].value;
+
 		svg.append('text')
-			.text(data[0].values[0].value)
-			.attr('x', 107)
+			.text(value)
+			.attr('x', function() { return value > 100 ? 90: 107; })
 			.attr('y', 180)
 			.attr('fill', "rgb(58, 135, 173)")
 			.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
 			.style("font-weight", "bold")
-			.style('font-size', "80px")
+			.style('font-size', function() { return value > 100 ? "70px" : "80px"; })
 			.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
 
 		if (name != null) {
@@ -180,19 +182,19 @@ function makenumber(data, max, id, name) {
 	}
 
 	svg.append('text').text(data.toString())
-		.attr('x', 75)
-		.attr('y', 200)
+		.attr('x', function() { return data > 100 ? 75 : 40; })
+		.attr('y', 180)
 		.attr('fill', color(data))
 		.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
 		.style("font-weight", "bold")
-		.style('font-size', "150px")
+		.style('font-size', function() { return data > 100 ? "130px" : "150px"; })
 		.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
 }
 
-makegauge(makegaugedata(dashboard_data.tank_level,100), "donut", "Fuel Level");
-makegauge(makegaugedata(dashboard_data.fuel_range, 1000), "donut2", "Fuel Range");
-makegauge(makegaugedata(dashboard_data.tank_level,100), "donut4", "Fuel Level");
-makegauge(makegaugedata(dashboard_data.fuel_range, 1000), "donut5", "Fuel Range");
+makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut", "Fuel Level");
+makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut2", "Fuel Range");
+makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut4", "Fuel Level");
+makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut5", "Fuel Range");
 makegauge(exampleData(28), "donut3");
-makenumber(92, 100, "text0", "% Funtimes");
+makenumber(922, 1000, "text0", "% Funtimes");
 
