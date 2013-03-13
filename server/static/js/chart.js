@@ -193,8 +193,8 @@ function makenumber(data, max, id, name) {
 
 makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut", "Fuel Level");
 makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut2", "Fuel Range");
-makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut4", "Fuel Level");
-makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut5", "Fuel Range");
+makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut4 svg g", "Fuel Level");
+makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut5 svg g", "Fuel Range");
 makegauge(exampleData(28), "donut3");
-makenumber(922, 1000, "text0", "% Funtimes");
+makenumber(922, 1000, "text0", "Amperes");
 
