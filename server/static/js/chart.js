@@ -113,15 +113,27 @@ function makegaugedata(num, max, name) {
   ];
 }
 
+function getcolors(value, max) {
+	var colors = [colorbrewer.Reds[3].reverse(), colorbrewer.Blues[3].reverse(), colorbrewer.Greens[3].reverse()];
+
+	return colors[Math.round(value / (max / 3))-1];
+}
+
 
 function makegauge(data, id, name, side) {
+
+	var value = data[0].values[0].value;
+
+	var colorz = getcolors(value, data[0].values[1].value + value);
+
 	nv.addGraph(function() {
 	   var donut = nv.models.pieChart()
 		  .x(function(d) { return d.label })
 		  .y(function(d) { return d.value })
 		  .showLabels(false)
 		  .showLegend(false)
-		  .donut(true);
+		  .donut(true)
+		  .color(colorz);
 
 		var svg = d3.select("#"+id+" svg");
 
@@ -130,13 +142,11 @@ function makegauge(data, id, name, side) {
 		    .transition().duration(1200)
 		    .call(donut);
 
-		var value = data[0].values[0].value;
-
 		svg.append('text')
 			.text(value)
 			.attr('x', function() { return value > 100 ? 90: 107; })
 			.attr('y', 180)
-			.attr('fill', "rgb(58, 135, 173)")
+			.attr('fill', colorz[0])
 			.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
 			.style("font-weight", "bold")
 			.style('font-size', function() { return value > 100 ? "70px" : "80px"; })
@@ -147,7 +157,7 @@ function makegauge(data, id, name, side) {
 				.text(name)
 				.attr('x', 150 - name.length*16/2)
 				.attr('y', 40)
-				.attr('fill', "rgb(58, 135, 173)")
+				.attr('fill', colorz[0])
 				.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
 				.style("font-weight", "bold")
 				.style('font-size', "35px")
@@ -192,9 +202,9 @@ function makenumber(data, max, id, name) {
 }
 
 makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut", "Fuel Level");
-makegauge(makegaugedata(dashboard_data.fuel_range, 400, "Miles"), "donut2", "Fuel Range");
+makegauge(makegaugedata(507, 1000, "Miles"), "donut2", "Oil Life");
 makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut4 svg g", "Fuel Level");
 makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut5 svg g", "Fuel Range");
-makegauge(exampleData(28), "donut3");
+makegauge(exampleData(28), "donut3", "Battery");
 makenumber(dashboard_data.fuel_range, 400, "text0", "Fuel Range");
 
