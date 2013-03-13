@@ -25,8 +25,9 @@
 				{% else %}
 				<li>
 				{% endif %}
-                    <a href="dashboard">Dashboard</a></li>
+                    <a href="/">Dashboard</a></li>
 
+                {# commenting this out for now since we don't have any other pages
 				{% if name == "two" %}
 				<li class="active">
 				{% else %}
@@ -47,9 +48,12 @@
 				<li>
 				{% endif %}
                     <a href="#">Four</a></li>
+#}
+
 			 </ul>
 
                 <ul class="nav pull-right">
+                    <li class="divider-vertical"></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                           Mein BMW
@@ -66,6 +70,13 @@
                         </ul>
                     </li>
                 </ul>
+
+             <ul class="nav pull-right">
+				<li>
+                    <a href="#feedback-modal" data-toggle="modal">Leave us Feedback</a></li>
+            </ul>
+
+
             </div>
         </div>
 
@@ -92,6 +103,16 @@
                 </div>
             </div>
         </div>     
+
+        <div id="feedback-modal" class="modal hide fade">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Leave Us Feedback!</h3>
+            </div>
+            <div class="modal-body">
+            <iframe src="https://docs.google.com/forms/d/13gsoYXILdzu8HBoMp5Fpp8xLYohFOUwJ-WnZ9tLa0hc/viewform?embedded=true" width="530" height="430" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+            </div>
+        </div>
  
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="static/js/bootstrap.min.js"></script>
