@@ -205,6 +205,6 @@ makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut", "Fue
 makegauge(makegaugedata(507, 1000, "Miles"), "donut2", "Oil Life");
 makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut4 svg g", "Fuel Level");
 makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut5 svg g", "Fuel Range");
-makegauge(exampleData(28), "donut3", "Battery");
+makegauge(makegaugedata(13,54, "Columbs"), "donut3", "Battery");
 makenumber(dashboard_data.fuel_range, 400, "text0", "Fuel Range");
 
