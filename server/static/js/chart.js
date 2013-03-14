@@ -116,7 +116,7 @@ function makegaugedata(num, max, name) {
 function getcolors(value, max) {
 	var colors = [colorbrewer.Reds[3].reverse(), colorbrewer.Blues[3].reverse(), colorbrewer.Greens[3].reverse()];
 
-	return colors[Math.round(value / (max / 3))-1];
+	return colors[Math.floor(value / (max / 3))];
 }
 
 
