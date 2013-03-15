@@ -116,7 +116,7 @@ function makegaugedata(num, max, name) {
 function getcolors(value, max) {
 	var colors = [colorbrewer.Reds[3].reverse(), colorbrewer.Blues[3].reverse(), colorbrewer.Greens[3].reverse()];
 
-	return colors[Math.round(value / (max / 3))-1];
+	return colors[Math.floor(value / (max / 3))];
 }
 
 
@@ -144,18 +144,18 @@ function makegauge(data, id, name, side) {
 
 		svg.append('text')
 			.text(value)
-			.attr('x', function() { return value > 100 ? 90: 107; })
-			.attr('y', 180)
+			.attr('x', function() { return value > 100 ? 85: 94; })
+			.attr('y', function() { return value > 100 ? 163: 167; })
 			.attr('fill', colorz[0])
 			.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
 			.style("font-weight", "bold")
-			.style('font-size', function() { return value > 100 ? "70px" : "80px"; })
+			.style('font-size', function() { return value > 100 ? "60px" : "80px"; })
 			.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
 
 		if (name != null) {
 			svg.append('text')
 				.text(name)
-				.attr('x', 150 - name.length*16/2)
+				.attr('x', 140 - name.length*16/2)
 				.attr('y', 40)
 				.attr('fill', colorz[0])
 				.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
@@ -163,6 +163,8 @@ function makegauge(data, id, name, side) {
 				.style('font-size', "35px")
 				.style('text-shadow', "0px 1px 0px rgba(0, 0, 0, 0.5)");
 		}
+
+		nv.utils.windowResize(donut.update);
 
 		return donut;
 	});
@@ -182,7 +184,7 @@ function makenumber(data, max, id, name) {
 	if (name != null) {
 		svg.append('text')
 			.text(name)
-			.attr('x', 150 - name.length*18/2)
+			.attr('x', 130 - name.length*18/2)
 			.attr('y', 40)
 			.attr('fill', color(data))
 			.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
@@ -192,7 +194,7 @@ function makenumber(data, max, id, name) {
 	}
 
 	svg.append('text').text(data.toString())
-		.attr('x', function() { return data > 100 ? 40 : 75; })
+		.attr('x', function() { return data > 100 ? 20 : 55; })
 		.attr('y', 180)
 		.attr('fill', color(data))
 		.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
