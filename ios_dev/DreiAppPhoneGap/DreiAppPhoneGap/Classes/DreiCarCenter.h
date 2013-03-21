@@ -9,29 +9,30 @@
 #import <Foundation/Foundation.h>
 #import "BMWManager.h"
 #import "DreiConnect.h"
-#import "DreiCarLogger.h"
 
 @interface DreiCarCenter : NSObject
 
 @property(retain) BMWManager * manager;
 @property(retain) DreiConnect * connectEndpoint;
-@property(retain) DreiCarLogger * carLogger;
 
-/* Standard/low-level methods for working with the CarCenter */
+/* Message endpoint management */
 + (DreiCarCenter *)instance;
-- (DreiCarLogger *)getCarLogger;
 - (BOOL)sendMessage:(NSString *)status toCallback:(NSString *) callback;
-- (BOOL)hasDataService;
-- (IDCdsService *)getDataService;
 - (BOOL)hasConnectEndpoint;
+- (BOOL)hasBMWUIEndpoint;
 
-/* Message endpoints for applications */
+/* Data endpoints for applications */
 - (void)updateCarConnectionStatus:(BOOL)carConnected;
 - (void)updateCarDataService:(IDCdsService *)newDataService;
 
-/* CarLogger endpoints to centralize UI requests */
-- (void)updateCarLogging:(BOOL)logging;
+/* Car data */
+- (BOOL)hasDataService;
+- (IDCdsService *)getDataService;
 
-
+/* Drive log */
+- (void) driveLog_uploadDataRaw;
+- (void) driveLog_startCollection;
+- (void) driveLog_stopCollection;
+- (void) driveLog_clearData;
 
 @end

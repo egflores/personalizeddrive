@@ -7,6 +7,7 @@
 //
 
 #import "DreiUploader.h"
+#import "DreiBMWFormatter.h"
 
 @implementation DreiUploader
 
@@ -40,7 +41,7 @@ NSURL * _endpoint;
  * more robust handling of errors.  Currently, this method
  * would require delegation instead of blocks.
  */
--(void)postJSON:(NSData *)json toURL:(NSURL *)url {    
+-(void)postJSON:(NSData *)json toURL:(NSURL *)url error:(NSError *)error {
     NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:url];
     
     // Set the post to json
@@ -50,6 +51,10 @@ NSURL * _endpoint;
     [postRequest setHTTPBody:json];
     
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:postRequest delegate:self];
+    
+    if (!connection) {
+        NSLog("Error occurred!"); // TODO: pass back to NSError
+    }
     
     if (connection) {
         // The connection was established.
@@ -61,6 +66,11 @@ NSURL * _endpoint;
         // The download could not be made.
         NSLog( @"Data could not be received from");
     }
+}
+
+-(void)formatAndPost:(NSArray *)carData toURL:(NSURL *)url error:(NSError *)error {
+    NSData * carDataJson = [DreiBMWFormatter formatCarData:carData error:error];
+    [self postJSON:carDataJson toURL:url];
 }
 
 @end

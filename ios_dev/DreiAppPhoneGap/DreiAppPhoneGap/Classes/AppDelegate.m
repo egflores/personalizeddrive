@@ -69,8 +69,6 @@
     [[IDLogger defaultLogger] addAppender:self];
     
     self.bmwManager = [[[BMWManager alloc] init] autorelease];
-    [DreiCarCenter instance].manager = self.bmwManager;
-
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
 

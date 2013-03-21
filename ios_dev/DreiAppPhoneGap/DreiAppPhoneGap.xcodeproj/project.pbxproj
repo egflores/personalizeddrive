@@ -60,7 +60,6 @@
 		5C84450516ED7B7B00B008C5 /* DreiBMWDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8444FB16ED7B7B00B008C5 /* DreiBMWDataService.m */; };
 		5C84450616ED7B7B00B008C5 /* DreiBMWFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8444FE16ED7B7B00B008C5 /* DreiBMWFormatter.m */; };
 		5C84450716ED7B7B00B008C5 /* DreiUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C84450016ED7B7B00B008C5 /* DreiUploader.m */; };
-		5C84450816ED7B7B00B008C5 /* DreiCarLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C84450216ED7B7B00B008C5 /* DreiCarLogger.m */; };
 		5C84450A16ED7C1C00B008C5 /* manifest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C84450916ED7C1C00B008C5 /* manifest.plist */; };
 		72C2DDE516ED89F00013EEF5 /* DreiCarCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C2DDE416ED89F00013EEF5 /* DreiCarCenter.m */; };
 		72C2DDE816ED8AF30013EEF5 /* DreiConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C2DDE716ED8AF30013EEF5 /* DreiConnect.m */; };
@@ -153,8 +152,6 @@
 		5C8444FE16ED7B7B00B008C5 /* DreiBMWFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiBMWFormatter.m; sourceTree = "<group>"; };
 		5C8444FF16ED7B7B00B008C5 /* DreiUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreiUploader.h; sourceTree = "<group>"; };
 		5C84450016ED7B7B00B008C5 /* DreiUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiUploader.m; sourceTree = "<group>"; };
-		5C84450116ED7B7B00B008C5 /* DreiCarLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreiCarLogger.h; sourceTree = "<group>"; };
-		5C84450216ED7B7B00B008C5 /* DreiCarLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiCarLogger.m; sourceTree = "<group>"; };
 		5C84450916ED7C1C00B008C5 /* manifest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = manifest.plist; sourceTree = "<group>"; };
 		72C2DDE316ED89F00013EEF5 /* DreiCarCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreiCarCenter.h; sourceTree = "<group>"; };
 		72C2DDE416ED89F00013EEF5 /* DreiCarCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiCarCenter.m; sourceTree = "<group>"; };
@@ -422,8 +419,6 @@
 				5C8444FE16ED7B7B00B008C5 /* DreiBMWFormatter.m */,
 				5C8444FF16ED7B7B00B008C5 /* DreiUploader.h */,
 				5C84450016ED7B7B00B008C5 /* DreiUploader.m */,
-				5C84450116ED7B7B00B008C5 /* DreiCarLogger.h */,
-				5C84450216ED7B7B00B008C5 /* DreiCarLogger.m */,
 			);
 			name = "Upload Helpers";
 			sourceTree = "<group>";
@@ -573,7 +568,6 @@
 				5C84450516ED7B7B00B008C5 /* DreiBMWDataService.m in Sources */,
 				5C84450616ED7B7B00B008C5 /* DreiBMWFormatter.m in Sources */,
 				5C84450716ED7B7B00B008C5 /* DreiUploader.m in Sources */,
-				5C84450816ED7B7B00B008C5 /* DreiCarLogger.m in Sources */,
 				72C2DDE516ED89F00013EEF5 /* DreiCarCenter.m in Sources */,
 				72C2DDE816ED8AF30013EEF5 /* DreiConnect.m in Sources */,
 			);

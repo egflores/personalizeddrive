@@ -7,7 +7,9 @@
 //
 
 #import "DreiCarCenter.h"
-#import "DreiCarLogger.h"
+#import "DreiDataService.h"
+#import "DreiDebugDataService.h"
+#import "DreiUploader.h"
 
 @implementation DreiCarCenter
 
@@ -43,20 +45,6 @@ static DreiCarCenter *gInstance = NULL;
     return self.manager.application.cdsService;
 }
 
-/* Only in here because we needed a singleton to handle grabbing the logger */
--(DreiCarLogger *)getCarLogger {
-    if (self.carLogger == nil) {
-        if ([self hasDataService]) {
-            self.carLogger= [[[DreiCarLogger alloc] initWithCDS:[self getDataService]] autorelease];
-        }
-        else {
-            NSLog(@"Cannot setup data service - no CDS");
-        }
-    }
-    return self.carLogger;
-    
-}
-
 -(BOOL)hasConnectEndpoint {
     return (self.connectEndpoint != nil);
 }
@@ -82,7 +70,7 @@ static DreiCarCenter *gInstance = NULL;
 }
 
 -(void)updateCarDataService:(IDCdsService *)newDataService {
-    [[self getCarLogger] updateCDS:newDataService];
+    [[self getDDS] updateDataService:newDataService];
     if (newDataService != nil) {
         [self sendMessage:@"hasDataService" toCallback:@"connection"];
     } else {
@@ -98,5 +86,42 @@ static DreiCarCenter *gInstance = NULL;
 
     }
 }
+
+/* Car data log */
+
+DreiDataService *d;
+
+/* Only in here because we needed a singleton to handle grabbing the logger */
+-(DreiDataService *)getDDS {
+    if (d == nil) {
+        d = [[[DreiDebugDataService alloc] init] autorelease];
+    }
+    
+    return d;
+}
+
+- (void) driveLog_uploadDataRaw {
+    NSLog(@"Send data to the server");
+    DreiUploader *uploader = [[DreiUploader alloc] init];
+    [uploader formatAndPost:[[self getDDS] getData]
+                      toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/rawcardata/update"]
+                      error:nil
+     ]; //TODO: Use manifest
+}
+
+- (void) driveLog_clearData {
+    [[self getDDS] clearData];
+}
+
+- (void) driveLog_startCollection {
+    [[self getDDS] startCollection];
+    [self updateCarLogging:true];
+}
+
+- (void) driveLog_stopCollection {
+    [[self getDDS] stopCollection];
+    [self updateCarLogging:false];
+}
+
 
 @end

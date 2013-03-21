@@ -8,6 +8,7 @@
 
 #import "BMWManager.h"
 #import "BMWViewProvider.h"
+#import "DreiCarCenter.h"
 
 NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged";
 
@@ -37,6 +38,7 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
         NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
         [nc addObserver:self selector:@selector(didConnectToBMW:) name:IDVehicleDidConnectNotification object:nil];
         [nc addObserver:self selector:@selector(didDisconnectFromBMW:) name:IDVehicleDidDisconnectNotification object:nil];
+        [DreiCarCenter instance].manager = self;
     }
     
     return self;
@@ -48,6 +50,8 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
     [[NSNotificationCenter defaultCenter] removeObserver:self name:IDVehicleDidDisconnectNotification object:nil];
     [_viewProvider release];
     [_application release];
+    [DreiCarCenter instance].manager = nil;
+    [[DreiCarCenter instance] updateCarDataService:nil];
     [super dealloc];
 }
 
@@ -115,6 +119,7 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
     [self setupApplication];
     [self.application startWithCompletionBlock:nil];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
+    [[DreiCarCenter instance] updateCarDataService:self.application.cdsService];
 
     // Create and attach your View Controller hierarchy
     
@@ -124,6 +129,7 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
 - (void)disconnect
 {
     [UIApplication sharedApplication].idleTimerDisabled = NO;
+    [[DreiCarCenter instance] updateCarDataService:nil];
 
     [self cleanUp];
     [self postUpdate];

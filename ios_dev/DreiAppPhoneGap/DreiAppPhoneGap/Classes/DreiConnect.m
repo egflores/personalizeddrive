@@ -18,7 +18,7 @@
 
 - (void)startDriveLog:(CDVInvokedUrlCommand*)command
 {
-    [[[DreiCarCenter instance] getCarLogger] startCollection];
+    [[DreiCarCenter instance] driveLog_startCollection];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -26,7 +26,7 @@
 
 - (void)stopDriveLog:(CDVInvokedUrlCommand*)command
 {
-    [[[DreiCarCenter instance] getCarLogger] stopCollection];
+    [[DreiCarCenter instance] driveLog_stopCollection];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -34,7 +34,7 @@
 
 - (void)uploadDriveLog:(CDVInvokedUrlCommand*)command
 {
-    [[[DreiCarCenter instance] getCarLogger] uploadData];
+    [[DreiCarCenter instance] driveLog_uploadDataRaw];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -42,7 +42,7 @@
 
 - (void)clearDriveLog:(CDVInvokedUrlCommand*)command
 {
-    [[[DreiCarCenter instance] getCarLogger] clearData];
+    [[DreiCarCenter instance] driveLog_clearData];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
