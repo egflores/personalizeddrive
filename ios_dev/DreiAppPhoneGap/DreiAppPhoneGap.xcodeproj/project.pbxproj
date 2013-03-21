@@ -395,7 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				72C2DDE216ED89CC0013EEF5 /* PhoneGap plugins */,
-				72C2DDE116ED86380013EEF5 /* DreiCarLogger */,
+				72C2DDE116ED86380013EEF5 /* Upload Helpers */,
 				72C2DDE016ED862B0013EEF5 /* Data Service */,
 			);
 			name = Drei;
@@ -414,7 +414,7 @@
 			name = "Data Service";
 			sourceTree = "<group>";
 		};
-		72C2DDE116ED86380013EEF5 /* DreiCarLogger */ = {
+		72C2DDE116ED86380013EEF5 /* Upload Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				5C8444FC16ED7B7B00B008C5 /* DreiFormatter.h */,
@@ -425,7 +425,7 @@
 				5C84450116ED7B7B00B008C5 /* DreiCarLogger.h */,
 				5C84450216ED7B7B00B008C5 /* DreiCarLogger.m */,
 			);
-			name = DreiCarLogger;
+			name = "Upload Helpers";
 			sourceTree = "<group>";
 		};
 		72C2DDE216ED89CC0013EEF5 /* PhoneGap plugins */ = {

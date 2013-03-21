@@ -10,9 +10,10 @@
 
 @interface DreiConnect : CDVPlugin
 
--(void) start:(CDVInvokedUrlCommand *)command;
--(void) stop:(CDVInvokedUrlCommand *)command;
--(void) upload:(CDVInvokedUrlCommand *)command;
+-(void) startDriveLog:(CDVInvokedUrlCommand *)command;
+-(void) stopDriveLog:(CDVInvokedUrlCommand *)command;
+-(void) uploadDriveLog:(CDVInvokedUrlCommand *)command;
+-(void) clearDriveLog:(CDVInvokedUrlCommand *)command;
 
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback;
 

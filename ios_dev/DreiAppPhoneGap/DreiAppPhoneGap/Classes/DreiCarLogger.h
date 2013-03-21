@@ -16,7 +16,6 @@
 - (void) uploadData;
 - (void) startCollection;
 - (void) stopCollection;
-- (void) getData;
-- (void) getLastItem;
+- (void) clearData;
 
 @end

@@ -48,5 +48,8 @@
 
 -(void)updateDataService:(IDCdsService *)cdsService;
 
+/* Deletes all data currently stored */
+-(void)clearData;
+
 
 @end

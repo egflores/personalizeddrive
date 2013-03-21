@@ -21,6 +21,10 @@
     return self;
 }
 
+- (void)updateDataService:(IDCdsService *)cdsService {
+    // abstract
+}
+
 /*
  * TODO: abstract this out somehow?
  */
@@ -68,6 +72,10 @@
     [self._dataStore addObject:newDict];
     [[DreiCarCenter instance] sendMessage:[DreiBMWFormatter formatDataEntryToString:newDict error:nil] toCallback:@"dataEntry"];
     //NSLog(@"%@",newDict);
+}
+
+-(void)clearData {
+    self._dataStore = [[NSMutableArray alloc] initWithCapacity:100];
 }
 
 @end

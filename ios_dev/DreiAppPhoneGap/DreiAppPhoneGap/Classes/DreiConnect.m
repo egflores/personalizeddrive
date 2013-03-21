@@ -16,7 +16,7 @@
     [DreiCarCenter instance].connectEndpoint = self;
 }
 
-- (void)start:(CDVInvokedUrlCommand*)command
+- (void)startDriveLog:(CDVInvokedUrlCommand*)command
 {
     [[[DreiCarCenter instance] getCarLogger] startCollection];
     
@@ -24,7 +24,7 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-- (void)stop:(CDVInvokedUrlCommand*)command
+- (void)stopDriveLog:(CDVInvokedUrlCommand*)command
 {
     [[[DreiCarCenter instance] getCarLogger] stopCollection];
     
@@ -32,9 +32,17 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-- (void)upload:(CDVInvokedUrlCommand*)command
+- (void)uploadDriveLog:(CDVInvokedUrlCommand*)command
 {
     [[[DreiCarCenter instance] getCarLogger] uploadData];
+    
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)clearDriveLog:(CDVInvokedUrlCommand*)command
+{
+    [[[DreiCarCenter instance] getCarLogger] clearData];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -46,7 +54,6 @@
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback {
     NSString *newString = [NSString stringWithFormat:@"drei_callback_%@(%@);",callback,message];
     [self writeJavascript:newString];
-    NSLog(newString);
     //CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
     //[self.commandDelegate sendPluginResult:pluginResult callbackId:callback];
 }

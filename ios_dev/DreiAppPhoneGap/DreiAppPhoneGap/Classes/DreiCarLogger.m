@@ -10,6 +10,7 @@
 #import "DreiBMWFormatter.h"
 #import "DreiUploader.h"
 #import "DreiDebugDataService.h"
+#import "DreiCarCenter.h"
 
 @implementation DreiCarLogger
 
@@ -37,12 +38,18 @@ DreiUploader * uploader;
     [uploader postJSON:jsonCarData toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/rawcardata/update"]]; //TODO: Use manifest
 }
 
+- (void) clearData {
+    [d clearData];
+}
+
 - (void) startCollection {
     [d startCollection];
+    [[DreiCarCenter instance] updateCarLogging:true];
 }
 
 - (void) stopCollection {
     [d stopCollection];
+    [[DreiCarCenter instance] updateCarLogging:true];
 }
 
 @end

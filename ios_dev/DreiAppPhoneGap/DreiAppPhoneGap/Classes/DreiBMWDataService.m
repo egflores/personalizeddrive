@@ -14,7 +14,7 @@
     if (self == [super init]) {
         self._cdsService = cdsService;
         
-        [self setupCDSCallbacks];
+        [self bindCDSCallbacks];
         
     }
     return self;
