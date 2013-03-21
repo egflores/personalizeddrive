@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <BMWAppKit/BMWAppKit.h>
-#import "BMWTemplateView.h"
+#import "PDView.h"
 
 @interface BMWViewProvider : NSObject <IDHmiProvider>
 @property(nonatomic, retain) IDMultimediaInfo* multimediaInfo;
 @property(nonatomic, retain) IDStatusBar* statusBar;
 
 
-@property (nonatomic, retain) BMWTemplateView *templateView;
+@property (nonatomic, retain) PDView *pdView;
 
 
 @end

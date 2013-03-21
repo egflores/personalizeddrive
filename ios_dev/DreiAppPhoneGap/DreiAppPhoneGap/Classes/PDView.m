@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 BMW Group. All rights reserved.
 //
 
-#import "BMWTemplateView.h"
+#import "PDView.h"
 #import "BMWViewProvider.h"
 #import <BMWAppKit/BMWAppKit.h>
 
-@implementation BMWTemplateView
+@implementation PDView
 
 - (void)viewWillLoad:(IDView *)view
 {

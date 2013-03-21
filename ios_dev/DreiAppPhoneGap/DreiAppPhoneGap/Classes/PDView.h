@@ -8,6 +8,6 @@
 
 #import <BMWAppKit/BMWAppKit.h>
 
-@interface BMWTemplateView : IDView
+@interface PDView : IDView
 @property (nonatomic, assign) NSMutableData *receivedData;
 @end

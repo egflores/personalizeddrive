@@ -71,7 +71,7 @@
 			<integer>255</integer>
 		</dict>
 		<key>name</key>
-		<string>TemplateBMWApp</string>
+		<string>PersonalizedDrive</string>
 		<key>requiresAudioService</key>
 		<true/>
 		<key>requiresCarDataService</key>
@@ -79,9 +79,9 @@
 		<key>token</key>
 		<string>AAAAAA0ARQAsAGIAdgB0AHkAZQBoAFwASgBOADYAawAvADQAcgBXAE4AVABgADUAKQAYAH8AWABeAHgAWAB6AEYAVQB2ADkAOQAoAHQAcABxACUAPwAgAH8AegA6AA0ASwAfAGsAYwB0AAwAUQBZAE4AVgB5ACEAPwAvAF0AawBNAB8APAAbAG4AbwA8AFAAWQBeACEASgAjAAwASwBaAHcAEAA=</string>
 		<key>uniqueIdentifier</key>
-		<string>TemplateName-0.0.1</string>
+		<string>PersonalizedDrive-0.0.1</string>
 		<key>vendor</key>
-		<string>BMW Group</string>
+		<string>SU-BMW-DREI</string>
 		<key>version</key>
 		<string>0.0.1</string>
 	</dict>

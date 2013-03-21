@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BMWManager.h"
+#import "DreiBMWManager.h"
 #import "DreiConnect.h"
 
 @interface DreiCarCenter : NSObject
 
-@property(retain) BMWManager * manager;
+@property(retain) DreiBMWManager * manager;
 @property(retain) DreiConnect * connectEndpoint;
 
 /* Message endpoint management */

@@ -6,13 +6,13 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "BMWManager.h"
+#import "DreiBMWManager.h"
 #import "BMWViewProvider.h"
 #import "DreiCarCenter.h"
 
 NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged";
 
-@interface BMWManager () <IDApplicationDataSource, IDApplicationDelegate>
+@interface DreiBMWManager () <IDApplicationDataSource, IDApplicationDelegate>
 @property(retain, nonatomic) BMWViewProvider* viewProvider;
 
 
@@ -24,7 +24,7 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
 - (void)cleanUp;
 @end
 
-@implementation BMWManager
+@implementation DreiBMWManager
 @synthesize application = _application;
 @synthesize viewProvider = _viewProvider;
 

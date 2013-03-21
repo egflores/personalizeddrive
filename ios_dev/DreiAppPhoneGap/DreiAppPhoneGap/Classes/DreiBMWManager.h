@@ -23,7 +23,7 @@ enum BMWManagerStatus {
  * BMW App listening for a car
  * to connect to.
  */
-@interface BMWManager : NSObject
+@interface DreiBMWManager : NSObject
 @property(retain, nonatomic) IDApplication* application;
 
 - (BMWManagerStatus)status;
