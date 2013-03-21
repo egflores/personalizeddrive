@@ -31,8 +31,12 @@
 
 /* Drive log */
 - (void) driveLog_uploadDataRaw;
+- (void) driveLog_uploadCommuteLog;
 - (void) driveLog_startCollection;
 - (void) driveLog_stopCollection;
 - (void) driveLog_clearData;
+
+/* Debug */
++ (void) logDebugMessage:(NSString *)message from:(NSString *)from;
 
 @end

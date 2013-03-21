@@ -109,6 +109,15 @@ DreiDataService *d;
      ]; //TODO: Use manifest
 }
 
+- (void) driveLog_uploadCommuteLog {
+    NSLog(@"Send data to the server");
+    DreiUploader *uploader = [[DreiUploader alloc] init];
+    [uploader formatAndPost:[[self getDDS] getData]
+                      toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/commutelog/update"]
+                      error:nil
+     ]; //TODO: Use manifest
+}
+
 - (void) driveLog_clearData {
     [[self getDDS] clearData];
 }
@@ -121,6 +130,10 @@ DreiDataService *d;
 - (void) driveLog_stopCollection {
     [[self getDDS] stopCollection];
     [self updateCarLogging:false];
+}
+
++(void)logDebugMessage:(NSString *)message from:(NSString *)from {
+    // TODO
 }
 
 
