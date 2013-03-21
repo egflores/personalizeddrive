@@ -104,4 +104,8 @@ NSMutableArray * timers;
     [self._currentValues setValue:0 forKey:@"fuel_reserve"];
 }
 
+-(void)updateDataService:(IDCdsService *)cdsService {
+    // lol, data services? what's that.
+}
+
 @end

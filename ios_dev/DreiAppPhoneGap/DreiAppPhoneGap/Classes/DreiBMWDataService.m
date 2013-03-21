@@ -20,35 +20,61 @@
     return self;
 }
 
+- (void)updateDataService:(IDCdsService *)cdsService {
+    [self unbindCDSCallbacks];
+    self._cdsService = cdsService;
+    [self bindCDSCallbacks];
+}
+
 /* Sets up all the CDS async callbacks.
  * TODO: more CDS data?
+ * TODO: Use internal CDS API to get more values
  */
-- (void)setupCDSCallbacks {
-    [self._cdsService asyncGetProperty:CDSControlsHeadlights
+- (void)bindCDSCallbacks {
+    [self._cdsService bindProperty:CDSControlsHeadlights
                                 target:self
                               selector:@selector(handleHeadlightCallback:)
                        completionBlock:^(NSError *error) { [self completionBlock:error]; }
      ];
-    [self._cdsService asyncGetProperty:CDSDrivingSpeedActual
+    [self._cdsService bindProperty:CDSDrivingSpeedActual
                                 target:self
                               selector:@selector(handleSpeedCallback:)
                        completionBlock:^(NSError *error) { [self completionBlock:error]; }
      ];
-    [self._cdsService asyncGetProperty:CDSDrivingOdometer
+    [self._cdsService bindProperty:CDSDrivingOdometer
                                 target:self
                               selector:@selector(handleOdometerCallback:)
                        completionBlock:^(NSError *error) { [self completionBlock:error]; }
      ];
-    [self._cdsService asyncGetProperty:CDSEngineStatus
+    [self._cdsService bindProperty:CDSEngineStatus
                                 target:self
                               selector:@selector(handleEngineCallback:)
                        completionBlock:^(NSError *error) { [self completionBlock:error]; }
      ];
-    [self._cdsService asyncGetProperty:CDSSensorsFuel
+    [self._cdsService bindProperty:CDSSensorsFuel
                                 target:self
                               selector:@selector(handleFuelCallback:)
                        completionBlock:^(NSError *error) { [self completionBlock:error]; }
      ];
+}
+
+- (void) unbindCDSCallbacks {
+    [self._cdsService unbindProperty:CDSControlsHeadlights
+                     completionBlock:^(NSError *error) { [self completionBlock:error]; }
+     ];
+    [self._cdsService unbindProperty:CDSDrivingSpeedActual
+                     completionBlock:^(NSError *error) { [self completionBlock:error]; }
+     ];
+    [self._cdsService unbindProperty:CDSDrivingOdometer
+                     completionBlock:^(NSError *error) { [self completionBlock:error]; }
+     ];
+    [self._cdsService unbindProperty:CDSEngineStatus
+                     completionBlock:^(NSError *error) { [self completionBlock:error]; }
+     ];
+    [self._cdsService unbindProperty:CDSSensorsFuel
+                     completionBlock:^(NSError *error) { [self completionBlock:error]; }
+     ];
+        
 }
 
 // TODO: what kinds of important messages might I get here?

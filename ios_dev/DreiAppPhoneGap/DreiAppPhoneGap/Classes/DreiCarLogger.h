@@ -12,6 +12,7 @@
 @interface DreiCarLogger: NSObject
 
 - (id) initWithCDS:(IDCdsService *)cdsService;
+- (void) updateCDS:(IDCdsService *)cdsService;
 - (void) uploadData;
 - (void) startCollection;
 - (void) stopCollection;

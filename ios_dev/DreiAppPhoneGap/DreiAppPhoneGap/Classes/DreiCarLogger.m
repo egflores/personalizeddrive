@@ -27,6 +27,10 @@ DreiUploader * uploader;
     return self;
 }
 
+- (void)updateCDS:(IDCdsService *)cdsService {
+    [d updateDataService:cdsService];
+}
+
 - (void) uploadData {
     NSLog(@"Send data to the server");
     NSData * jsonCarData = [DreiBMWFormatter formatCarData:[d getData] error:nil];

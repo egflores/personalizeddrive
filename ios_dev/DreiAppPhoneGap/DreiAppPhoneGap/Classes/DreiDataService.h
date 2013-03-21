@@ -46,5 +46,7 @@
 /* Returns all the keys that will be in each returned NSDictionary. */
 -(NSArray *)getDataKeys;
 
+-(void)updateDataService:(IDCdsService *)cdsService;
+
 
 @end
