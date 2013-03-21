@@ -634,7 +634,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					../../external/bmw_api_v3_stanford/TemplateBMWApp/,
+					"../DreiApp/**",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -658,7 +658,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					../../external/bmw_api_v3_stanford/TemplateBMWApp/,
+					"../DreiApp/**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DreiAppPhoneGap/DreiAppPhoneGap-Prefix.pch";

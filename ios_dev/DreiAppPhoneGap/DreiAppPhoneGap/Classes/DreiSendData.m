@@ -23,7 +23,6 @@ DreiUploader * uploader;
     if(self == [super init]) {
         d = [[DreiFakeDataService alloc] init];
         uploader = [[DreiUploader alloc]  init];
-        [d startCollection];
     }
     return self;
 }

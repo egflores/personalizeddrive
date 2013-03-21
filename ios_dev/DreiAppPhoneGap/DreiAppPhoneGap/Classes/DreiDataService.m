@@ -59,7 +59,7 @@
 }
 
 -(void)saveDataCallback {
-    if (!self.on) return; // HACK
+    //if (!self.on) return; // HACK
     NSMutableDictionary * dictCopy = [self._currentValues mutableCopy];
     [dictCopy setValue:[[NSNumber alloc] initWithDouble:[[NSDate date] timeIntervalSince1970]] forKey:@"time"];
     NSDictionary *newDict = [dictCopy copy];
