@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <BMWAppKit/BMWAppKit.h>
 
-@interface DreiSendData : NSObject
+@interface DreiCarLogger: NSObject
 
 - (id) initWithCDS:(IDCdsService *)cdsService;
 - (void) uploadData;

@@ -5,10 +5,10 @@
 //  Created by Stephen Trusheim on 3/8/13.
 //
 
-#import "DreiRealDataService.h"
+#import "DreiBMWDataService.h"
 #import <BMWAppKit/BMWAppKit.h>
 
-@implementation DreiRealDataService
+@implementation DreiBMWDataService
 
 - (id)initWithCDS:(IDCdsService *) cdsService {
     if (self == [super init]) {

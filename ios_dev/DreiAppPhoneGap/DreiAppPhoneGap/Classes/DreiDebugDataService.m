@@ -5,9 +5,9 @@
 //  Created by Stephen Trusheim on 3/10/13.
 //
 
-#import "DreiFakeDataService.h"
+#import "DreiDebugDataService.h"
 
-@implementation DreiFakeDataService
+@implementation DreiDebugDataService
 
 NSMutableArray * timers;
 

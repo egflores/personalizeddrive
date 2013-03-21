@@ -6,7 +6,7 @@
 //
 
 #import "DreiDataService.h"
-#import "DreiPGNotification.h"
+#import "DreiCarCenter.h"
 #import "DreiBMWFormatter.h"
 
 @implementation DreiDataService
@@ -66,7 +66,7 @@
     [dictCopy release];
     
     [self._dataStore addObject:newDict];
-    [[DreiPGNotification instance] sendMessage:[DreiBMWFormatter formatDataEntryToString:newDict error:nil] toCallback:@"dataEntry"];
+    [[DreiCarCenter instance] sendMessage:[DreiBMWFormatter formatDataEntryToString:newDict error:nil] toCallback:@"dataEntry"];
     //NSLog(@"%@",newDict);
 }
 

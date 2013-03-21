@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 BMW Group. All rights reserved.
 //
 
-#import "DreiSendData.h"
+#import "DreiCarLogger.h"
 #import "DreiBMWFormatter.h"
 #import "DreiUploader.h"
-#import "DreiFakeDataService.h"
+#import "DreiDebugDataService.h"
 
-@implementation DreiSendData
+@implementation DreiCarLogger
 
 DreiDataService *d;
 DreiUploader * uploader;
@@ -21,7 +21,7 @@ DreiUploader * uploader;
  */
 - (id) initWithCDS:(IDCdsService *)cdsService {
     if(self == [super init]) {
-        d = [[DreiFakeDataService alloc] init];
+        d = [[DreiDebugDataService alloc] init];
         uploader = [[DreiUploader alloc]  init];
     }
     return self;

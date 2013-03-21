@@ -8,11 +8,6 @@
 
 #import "BMWTemplateView.h"
 #import "BMWViewProvider.h"
-#import "DreiFakeDataService.h"
-#import "DreiBMWFormatter.h"
-#import "DreiUploader.h"
-#import "DreiSendData.h"
-#import "DreiPGNotification.h"
 #import <BMWAppKit/BMWAppKit.h>
 
 @implementation BMWTemplateView

@@ -15,6 +15,6 @@
  * Intended for testing on laptops to ensure that the rest of the code is stable. It's a one-line code change
  * to change from FakeDataService to RealDataService.
  */
-@interface DreiFakeDataService : DreiDataService
+@interface DreiDebugDataService : DreiDataService
 
 @end

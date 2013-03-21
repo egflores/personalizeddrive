@@ -1,19 +1,21 @@
 //
-//  DreiPGNotification.m
+//  DreiCarCenter.m
 //  DreiAppPhoneGap
 //
 //  Created by Stephen Trusheim on 3/10/13.
 //
 //
 
-#import "DreiPGNotification.h"
-#import "DreiSendData.h"
+#import "DreiCarCenter.h"
+#import "DreiCarLogger.h"
 
-@implementation DreiPGNotification
+@implementation DreiCarCenter
 
-static DreiPGNotification *gInstance = NULL;
+# pragma mark Singleton constructor
 
-+ (DreiPGNotification *)instance {
+static DreiCarCenter *gInstance = NULL;
+
++ (DreiCarCenter *)instance {
     @synchronized(self)
     {
         if (gInstance == NULL) {
@@ -24,23 +26,30 @@ static DreiPGNotification *gInstance = NULL;
     return gInstance;
 }
 
+# pragma mark Instance methods
+
 NSString *subscribeCallback;
+
+-(id)init {
+    self = [super init];
+    return self;
+}
 
 -(BOOL)haveCDS {
     if (self.manager && self.manager.application && self.manager.application.cdsService) return true;
     return false;
 }
 
--(DreiSendData *)getDataService {
-    if (self.dataService == nil) {
+-(DreiCarLogger *)getCarLogger {
+    if (self.carLogger == nil) {
         if ([self haveCDS]) {
-            self.dataService = [[[DreiSendData alloc] initWithCDS:self.manager.application.cdsService] autorelease];
+            self.carLogger= [[[DreiCarLogger alloc] initWithCDS:self.manager.application.cdsService] autorelease];
         }
         else {
             NSLog(@"Cannot setup data service - no CDS");
         }
     }
-    return self.dataService;
+    return self.carLogger;
     
 }
 

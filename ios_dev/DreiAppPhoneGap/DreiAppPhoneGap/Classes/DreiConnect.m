@@ -7,29 +7,26 @@
 //
 
 #import "DreiConnect.h"
-#import "DreiPGNotification.h"
+#import "DreiCarCenter.h"
 #import "Cordova/CDV.h"
 
 @implementation DreiConnect
 
 - (void) pluginInitialize {
-    [DreiPGNotification instance].connectEndpoint = self;
+    [DreiCarCenter instance].connectEndpoint = self;
 }
 
 - (void)start:(CDVInvokedUrlCommand*)command
 {
-    [[[DreiPGNotification instance] getDataService] startCollection];
+    [[[DreiCarCenter instance] getCarLogger] startCollection];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-/**
- * TODO: Stop doesn't actually stop... this is an underlying problem in DreiDataService that I can't figure out.
- */
 - (void)stop:(CDVInvokedUrlCommand*)command
 {
-    [[[DreiPGNotification instance] getDataService] stopCollection];
+    [[[DreiCarCenter instance] getCarLogger] stopCollection];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -37,7 +34,7 @@
 
 - (void)upload:(CDVInvokedUrlCommand*)command
 {
-    [[[DreiPGNotification instance] getDataService] uploadData];
+    [[[DreiCarCenter instance] getCarLogger] uploadData];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
