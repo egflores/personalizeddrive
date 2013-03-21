@@ -59,6 +59,9 @@
 		5C84450616ED7B7B00B008C5 /* DreiBMWFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8444FE16ED7B7B00B008C5 /* DreiBMWFormatter.m */; };
 		5C84450716ED7B7B00B008C5 /* DreiUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C84450016ED7B7B00B008C5 /* DreiUploader.m */; };
 		5C84450A16ED7C1C00B008C5 /* manifest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C84450916ED7C1C00B008C5 /* manifest.plist */; };
+		721D3EC016FBCC2000D98CA5 /* startButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 721D3EBD16FBCC2000D98CA5 /* startButton.png */; };
+		721D3EC116FBCC2000D98CA5 /* stopButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 721D3EBE16FBCC2000D98CA5 /* stopButton.png */; };
+		721D3EC216FBCC2000D98CA5 /* uploadButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 721D3EBF16FBCC2000D98CA5 /* uploadButton.png */; };
 		72C2DDE516ED89F00013EEF5 /* DreiCarCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C2DDE416ED89F00013EEF5 /* DreiCarCenter.m */; };
 		72C2DDE816ED8AF30013EEF5 /* DreiConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C2DDE716ED8AF30013EEF5 /* DreiConnect.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
@@ -149,6 +152,9 @@
 		5C8444FF16ED7B7B00B008C5 /* DreiUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreiUploader.h; sourceTree = "<group>"; };
 		5C84450016ED7B7B00B008C5 /* DreiUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiUploader.m; sourceTree = "<group>"; };
 		5C84450916ED7C1C00B008C5 /* manifest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = manifest.plist; sourceTree = "<group>"; };
+		721D3EBD16FBCC2000D98CA5 /* startButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startButton.png; sourceTree = "<group>"; };
+		721D3EBE16FBCC2000D98CA5 /* stopButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopButton.png; sourceTree = "<group>"; };
+		721D3EBF16FBCC2000D98CA5 /* uploadButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uploadButton.png; sourceTree = "<group>"; };
 		72C2DDE316ED89F00013EEF5 /* DreiCarCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreiCarCenter.h; sourceTree = "<group>"; };
 		72C2DDE416ED89F00013EEF5 /* DreiCarCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiCarCenter.m; sourceTree = "<group>"; };
 		72C2DDE616ED8AF30013EEF5 /* DreiConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreiConnect.h; sourceTree = "<group>"; };
@@ -393,6 +399,9 @@
 		721D3EBC16FBC9A200D98CA5 /* Addtl Resources */ = {
 			isa = PBXGroup;
 			children = (
+				721D3EBD16FBCC2000D98CA5 /* startButton.png */,
+				721D3EBE16FBCC2000D98CA5 /* stopButton.png */,
+				721D3EBF16FBCC2000D98CA5 /* uploadButton.png */,
 				302D95F014D2391D003F00A1 /* MainViewController.xib */,
 				5C8444EE16ED7ABC00B008C5 /* bmwLogo.png */,
 				5C84450916ED7C1C00B008C5 /* manifest.plist */,
@@ -530,6 +539,9 @@
 				5C8444DB16ED760C00B008C5 /* BMWAppKitResources.bundle in Resources */,
 				5C8444F116ED7ABC00B008C5 /* bmwLogo.png in Resources */,
 				5C84450A16ED7C1C00B008C5 /* manifest.plist in Resources */,
+				721D3EC016FBCC2000D98CA5 /* startButton.png in Resources */,
+				721D3EC116FBCC2000D98CA5 /* stopButton.png in Resources */,
+				721D3EC216FBCC2000D98CA5 /* uploadButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,42 +16,41 @@
 {
     
     // Setup application itself
-    self.title = @"Template Title";
+    self.title = @"PersonalizedDrive";
     
-    IDLabel *label = [IDLabel label];
-    label.text = @"Template Label";
+    IDLabel *statusLabel = [IDLabel label];
+    statusLabel.text = @"No Drive Log";
+    statusLabel.isInfoLabel = true;
+    statusLabel.selectable = false;
     
-    IDButton *button1 = [IDButton button];
-    button1.text = @"Template Button";
-    button1.imageData = [self.application.imageBundle imageWithName:@"bmwLogo" type:@"png"];
-    [button1 setTarget:self selector:@selector(buttonPressed) forActionEvent:IDActionEventFocus];
-    
-    //    [self.application.imageBundle imageWithName:@"otherImage" type:@"png"];
-    
-    IDImage *image = [IDImage image];
-    image.imageData = [self.application.imageBundle imageWithData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bmw" ofType:@"jpg"]]];
-    image.position = CGPointMake(100, 150);
+    IDButton *toggleButton = [IDButton button];
+    toggleButton.text = @"Start Logging Drive";
+    toggleButton.imageData = [self.application.imageBundle imageWithName:@"startButton" type:@"png"];
+    [toggleButton setTarget:self selector:@selector(buttonPressed) forActionEvent:IDActionEventSelect];
     
     self.widgets = [NSArray arrayWithObjects:
-                    label,
-                    button1,
-                    image,
+                    statusLabel,
+                    toggleButton,
                     nil];
 }
 
-static int counter = 0;
+static NSString *nextAction = nil;
 
 - (void)buttonPressed
 {
-    if (counter % 2 == 0) {
-        [[self.widgets lastObject] setImageData:[self.application.imageBundle imageWithData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"scrat-bmw" ofType:@"jpg"]]]];
-    } else {
-        [[self.widgets lastObject] setImageData:[self.application.imageBundle imageWithName:@"bmw" type:@"jpg"]];
-        
+    if (nextAction == nil || [nextAction compare:@"start"] == 0) {
+        [[self.widgets lastObject] setImageData:[self.application.imageBundle imageWithName:@"stopButton" type:@"png"]];
+        [[self.widgets lastObject] setText:@"Stop Logging Drive"];
+        nextAction = @"stop";
+    } else if ([nextAction compare:@"stop"] == 0) {
+        [[self.widgets lastObject] setImageData:[self.application.imageBundle imageWithName:@"uploadButton" type:@"png"]];
+        [[self.widgets lastObject] setText:@"Upload Drive Log"];
+        nextAction = @"upload";
+    } else if ([nextAction compare:@"upload"] == 0) {
+        [[self.widgets lastObject] setImageData:[self.application.imageBundle imageWithName:@"uploadButton" type:@"png"]];
+        [[self.widgets lastObject] setText:@"Start Drive Log"];
+        nextAction = @"start";
     }
-    
-    
-    counter++;
 }
 
 @end
