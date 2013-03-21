@@ -34,22 +34,27 @@
                     nil];
 }
 
-static NSString *nextAction = nil;
+static NSString *status = nil;
 
 - (void)buttonPressed
 {
-    if (nextAction == nil || [nextAction compare:@"start"] == 0) {
+    if (status == nil || [status compare:@"noLog"] == 0) {
+        // stopped -> start log
         [[self.widgets lastObject] setImageData:[self.application.imageBundle imageWithName:@"stopButton" type:@"png"]];
         [[self.widgets lastObject] setText:@"Stop Logging Drive"];
-        nextAction = @"stop";
-    } else if ([nextAction compare:@"stop"] == 0) {
+        [[self.widgets objectAtIndex:0] setText:@"Logging..."];
+        status = @"logging";
+    } else if ([status compare:@"logging"] == 0) {
+        // logging -> stop log
         [[self.widgets lastObject] setImageData:[self.application.imageBundle imageWithName:@"uploadButton" type:@"png"]];
         [[self.widgets lastObject] setText:@"Upload Drive Log"];
-        nextAction = @"upload";
-    } else if ([nextAction compare:@"upload"] == 0) {
+        [[self.widgets objectAtIndex:0] setText:@"Collected drive log."];
+        status = @"saved";
+    } else if ([status compare:@"saved"] == 0) {
         [[self.widgets lastObject] setImageData:[self.application.imageBundle imageWithName:@"uploadButton" type:@"png"]];
         [[self.widgets lastObject] setText:@"Start Drive Log"];
-        nextAction = @"start";
+        [[self.widgets objectAtIndex:0] setText:@"Drive log saved."];
+        status = @"noLog";
     }
 }
 
