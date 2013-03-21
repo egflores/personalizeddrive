@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Testing Page Transition Plugin</title>
+		<meta name = "format-detection" content = "telephone=no"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+        <link rel="stylesheet" href="css/lib/backbone.responsiveCSS3transitions.min.css"/>
+        <script type="text/javascript" src="js/lib/underscore-min.js"></script>
+	    <script type="text/javascript" src="js/lib/jquery-1.8.2.min.js"></script> 
+	    <script type="text/javascript" src="js/lib/backbone-min.js"></script>
+	    <script type="text/javascript" src="js/lib/backbone.responsiveCSS3transitions.js"></script>
+	    <style>
+	    .my-container {
+	    	width:auto;
+	    	height: 300px;
+	    	background-color: rgba(100,100,100,.4);
+	    		width: 94%;
+			margin: 0 3%;
+	    }
+	    
+	    </style>
+	</head>
+
+	<body>
+		<div class="threeDTrans-outmost-page-container">
+			<div class="threeDTrans-page-container">
+
+				<!-- your container -->
+				<div class="my-container threeDTrans-page">
+
+				</div>
+
+			</div>
+		</div>
+
+		<script>
+			/* Example View */
+			var myBackboneView = Backbone.View.extend({
+				className: 'my-container',
+				render: function () {
+					this.$el.html('<div style="">PAGE 1</div><a href="#">Go home</a>');
+				}
+			});
+
+			var home = Backbone.View.extend({
+				className: 'my-container',
+				render: function () {
+					this.$el.html('<p>HOME</p><a href="#foobar">Go to new page!</a>');
+				}
+			});
+
+			var threeDRouter = backboneResponsiveCSS3Transitions.extend({
+				routes: {
+					"*default": "loadView",
+				},
+				loadView: function (viewFragment) {
+					if (viewFragment.match(/foobar/)) {
+						//alert("foo bar fuck yeah");
+						console.log("Should be viewing PAGE 1");
+						this.triggerTransition(myBackboneView, {"direction": "default"});
+					} else {
+						console.log("Should be viewing HOME");
+						//this.triggerTransition(myBackboneView);
+						this.triggerTransition(home, {"direction": "default"})
+					}
+				},
+				wrapElement: ".my-container",
+			});
+
+			var myRouter = new threeDRouter({"wrapElement": ".my-container",});
+
+			Backbone.history.start();
+
+		</script>
+	
+    </body>
+</html>
