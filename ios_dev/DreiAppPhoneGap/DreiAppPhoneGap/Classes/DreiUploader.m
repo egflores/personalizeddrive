@@ -53,7 +53,7 @@ NSURL * _endpoint;
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:postRequest delegate:self];
     
     if (!connection) {
-        NSLog("Error occurred!"); // TODO: pass back to NSError
+        NSLog(@"Error occurred!"); // TODO: pass back to NSError
     }
     
     if (connection) {
@@ -70,7 +70,7 @@ NSURL * _endpoint;
 
 -(void)formatAndPost:(NSArray *)carData toURL:(NSURL *)url error:(NSError *)error {
     NSData * carDataJson = [DreiBMWFormatter formatCarData:carData error:error];
-    [self postJSON:carDataJson toURL:url];
+    [self postJSON:carDataJson toURL:url error:error];
 }
 
 @end
