@@ -1,9 +1,10 @@
 //
-//  BMWManager.h
-//  TemplateName
+//  DreiBMWManager.h
+//  DreiFramework
 //
-//  Created by Paul Doersch on 9/19/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
+//  Modified from code (c) 2012 BMW Group (John Jessen)
 //
 
 #import <Foundation/Foundation.h>
@@ -23,7 +24,7 @@ enum BMWManagerStatus {
  * BMW App listening for a car
  * to connect to.
  */
-@interface BMWManager : NSObject
+@interface DreiBMWManager : NSObject
 @property(retain, nonatomic) IDApplication* application;
 
 - (BMWManagerStatus)status;

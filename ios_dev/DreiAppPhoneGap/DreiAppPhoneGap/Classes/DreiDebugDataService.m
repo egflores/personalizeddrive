@@ -1,13 +1,15 @@
 //
-//  DreiFakeDataService.m
-//  TemplateBMWApp
+//  DreiDebugDataService.m
+//  DreiFramework
 //
-//  Created by Stephen Trusheim on 3/10/13.
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
 //
 
-#import "DreiFakeDataService.h"
 
-@implementation DreiFakeDataService
+#import "DreiDebugDataService.h"
+
+@implementation DreiDebugDataService
 
 NSMutableArray * timers;
 
@@ -102,6 +104,10 @@ NSMutableArray * timers;
     NSNumber *rand_tanklevel = [NSNumber numberWithInt:(arc4random() % 90) + 10];
     [self._currentValues setValue:rand_tanklevel forKey:@"fuel_level"];
     [self._currentValues setValue:0 forKey:@"fuel_reserve"];
+}
+
+-(void)updateDataService:(IDCdsService *)cdsService {
+    // lol, data services? what's that.
 }
 
 @end

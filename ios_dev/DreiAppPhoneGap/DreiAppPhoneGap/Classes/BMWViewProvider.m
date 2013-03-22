@@ -18,7 +18,7 @@
 
 @synthesize mainView = _mainView;
 @synthesize viewArray = _viewArray;
-@synthesize templateView = _templateView;
+@synthesize pdView = _pdView;
 @synthesize multimediaInfo = _multimediaInfo;
 @synthesize statusBar = _statusBar;
 
@@ -26,11 +26,11 @@
 {
     if (self = [super init]) 
     {        
-        _templateView = [[BMWTemplateView view] retain];
+        _pdView = [[PDView view] retain];
         
-        _viewArray = [[NSArray alloc] initWithObjects:_templateView, nil];
+        _viewArray = [[NSArray alloc] initWithObjects:_pdView, nil];
         
-        _mainView = _templateView;
+        _mainView = _pdView;
     }
     return self;
 }
@@ -38,7 +38,7 @@
 -(void)dealloc
 {
     [_viewArray release];
-    [_templateView release];
+    [_pdView release];
     [_statusBar release];
     [_multimediaInfo release];
     [super dealloc];

@@ -1,17 +1,25 @@
 //
-//  BMWManager.m
-//  TemplateName
+//  DreiBMWManager.m
+//  DreiFramework
 //
-//  Created by Paul Doersch on 9/19/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
+//  Modified from code (c) 2012 BMW Group (John Jessen)
 //
 
-#import "BMWManager.h"
+/*
+ * This modification to the standard BMWManager sets up the DreiCarCenter correctly.
+ * This class is required to get CDS out of a BMW through the DreiCarCenter.
+ */
+
+
+#import "DreiBMWManager.h"
 #import "BMWViewProvider.h"
+#import "DreiCarCenter.h"
 
 NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged";
 
-@interface BMWManager () <IDApplicationDataSource, IDApplicationDelegate>
+@interface DreiBMWManager () <IDApplicationDataSource, IDApplicationDelegate>
 @property(retain, nonatomic) BMWViewProvider* viewProvider;
 
 
@@ -23,7 +31,7 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
 - (void)cleanUp;
 @end
 
-@implementation BMWManager
+@implementation DreiBMWManager
 @synthesize application = _application;
 @synthesize viewProvider = _viewProvider;
 
@@ -37,6 +45,7 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
         NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
         [nc addObserver:self selector:@selector(didConnectToBMW:) name:IDVehicleDidConnectNotification object:nil];
         [nc addObserver:self selector:@selector(didDisconnectFromBMW:) name:IDVehicleDidDisconnectNotification object:nil];
+        [DreiCarCenter instance].manager = self;
     }
     
     return self;
@@ -48,6 +57,8 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
     [[NSNotificationCenter defaultCenter] removeObserver:self name:IDVehicleDidDisconnectNotification object:nil];
     [_viewProvider release];
     [_application release];
+    [DreiCarCenter instance].manager = nil;
+    [[DreiCarCenter instance] updateCarDataService:nil];
     [super dealloc];
 }
 
@@ -115,6 +126,7 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
     [self setupApplication];
     [self.application startWithCompletionBlock:nil];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
+    [[DreiCarCenter instance] updateCarDataService:self.application.cdsService];
 
     // Create and attach your View Controller hierarchy
     
@@ -124,6 +136,7 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
 - (void)disconnect
 {
     [UIApplication sharedApplication].idleTimerDisabled = NO;
+    [[DreiCarCenter instance] updateCarDataService:nil];
 
     [self cleanUp];
     [self postUpdate];

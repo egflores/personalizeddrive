@@ -210,7 +210,6 @@
 		0867D691FE84028FC02AAC07 /* CordovaLib */ = {
 			isa = PBXGroup;
 			children = (
-				5C8444F316ED7B5500B008C5 /* Drei */,
 				8887FD101090FB43009987E8 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
@@ -257,13 +256,6 @@
 				AA747D9E0F9514B9006C5449 /* CordovaLib_Prefix.pch */,
 			);
 			name = "Other Sources";
-			sourceTree = "<group>";
-		};
-		5C8444F316ED7B5500B008C5 /* Drei */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Drei;
 			sourceTree = "<group>";
 		};
 		888700D710922F56009987E8 /* Commands */ = {
