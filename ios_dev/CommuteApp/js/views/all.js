@@ -12,6 +12,12 @@ $(document).ready(function () {
 	DreiApp.Views.Tracking = Backbone.View.extend({
 		template: _.template($('#tracking_template').html()),
 		className: 'my-container',
+		events: {
+			"click #back": "back"
+		},
+		back: function() {
+			window.location.hash = "home";
+		},
 		render: function () {
 			this.$el.html(this.template());
 		}
@@ -20,6 +26,12 @@ $(document).ready(function () {
 	DreiApp.Views.Logging = Backbone.View.extend({
 		template: _.template($('#logging_template').html()),
 		className: 'my-container',
+		events: {
+			"click #back": "back"
+		},
+		back: function() {
+			window.location.hash = "home";
+		},
 		render: function () {
 			this.$el.html(this.template());
 		}

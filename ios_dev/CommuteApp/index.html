@@ -105,6 +105,86 @@
 		</div>
 
 
+		<script type="text/template" id="tracking_template">
+			<!-- Part 1: Wrap all page content here -->
+		    <div id="wrap">
+
+		      <!-- Fixed navbar -->
+		      <div class="navbar navbar-fixed-top">
+		        <div class="navbar-inner">
+		          <div class="container">
+		          <div id="back">BACK</div>
+		            <a class="brand" style="float:none; text-align: center;" href="#">Commute Tracker</a>
+		          </div>
+		        </div>
+		      </div>
+			<div class="container" style="position:relative;">
+		    <div id="blurOverlay" class="blur"></div>
+		    <table id="car_stats" class="table table-bordered table-striped">
+		        <colgroup>
+		          <col class="span1">
+		          <col class="span7">
+		        </colgroup>
+		        <thead>
+		          <tr>
+		            <th>Statistic</th>
+		            <th>Value</th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		          <tr>
+		            <td>
+		              Fuel Level
+		            </td>
+		            <td id="fuel_level_value">43</td>
+		          </tr>
+		          <tr>
+		            <td>
+		              Fuel Range
+		            </td>
+		            <td id="fuel_range_value">345</td>
+		          </tr>
+		          <tr>
+		            <td>
+		              Fuel Reserve
+		            </td>
+		            <td id="fuel_reserve_value">no</td>
+		          </tr>
+		          <tr>
+		            <td>
+		              Head Lights
+		            </td>
+		            <td id="head_lights_value">no</td>
+		          </tr>
+		          <tr>
+		            <td>
+		              Odometer
+		            </td>
+		            <td id="odometer_value">1251</td>
+		          </tr>
+		          <tr>
+		            <td>
+		              Speed
+		            </td>
+		            <td id="speed_value">45</td>
+		          </tr>
+		        </tbody>
+		      </table>     
+	      <div id="push"></div>
+	    </div>
+
+	    <div id="footer" style="background-color: #fff">
+	      <div class="container">
+	        <a id="toggleTracking" class="btn btn-block btn-primary" href="#">Start Tracking</a>
+	        <a id="upload" class="btn btn-block" href="#">Upload</a>
+
+	      <div style="height: 15px"> <!-- spacing --></div>
+	      </div>
+	    </div>
+
+		</script>
+
+
 
 
 		<script type="text/template" id="tracking_template">
@@ -115,7 +195,8 @@
 		      <div class="navbar navbar-fixed-top">
 		        <div class="navbar-inner">
 		          <div class="container">
-		            <a class="brand" style="float:none; text-align: center;" href="#">Personalized Drive</a>
+		          <div id="back">BACK</div>
+		            <a class="brand" style="float:none; text-align: center;" href="#">Commute Tracker</a>
 		          </div>
 		        </div>
 		      </div>
@@ -201,6 +282,19 @@
 				padding-top: 10px;
 				display: block;
 			}
+			#back {
+				background-image: url("images/btn-back.png");
+				background-size: 35px;
+				background-repeat: no-repeat;
+				width: 35px;
+				font-size: 9px;
+				color: rgb(240, 240, 240);
+				line-height: 21px;
+				padding-left: 8px;
+				position: absolute;
+				margin-top: 9px;
+				left: 13px;
+			}
 		</style>
 		<script type="text/template" id="logging_template">
 			<!-- Part 1: Wrap all page content here -->
@@ -210,6 +304,7 @@
 		      <div class="navbar navbar-fixed-top">
 		        <div class="navbar-inner">
 		          <div class="container">
+		          	<div id="back">BACK</div>
 		            <a class="brand" style="float:none; text-align: center;" href="#">Logging</a>
 		          </div>
 		        </div>
