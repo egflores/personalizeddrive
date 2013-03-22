@@ -1,9 +1,12 @@
 //
-//  DreiRealDataService.m
-//  TemplateBMWApp
+//  DreiBMWDataService.m
+//  DreiFramework
 //
-//  Created by Stephen Trusheim on 3/8/13.
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
+//  Modified from code (c) 2012 BMW Group (John Jessen)
 //
+
 
 #import "DreiBMWDataService.h"
 #import <BMWAppKit/BMWAppKit.h>

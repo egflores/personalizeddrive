@@ -1,10 +1,11 @@
 //
 //  DreiUploader.h
-//  TemplateBMWApp
+//  DreiFramework
 //
-//  Created by Rowan Chakoumakos on 3/8/13.
-//  Copyright (c) 2013 BMW Group. All rights reserved.
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
 //
+
 
 #ifndef TemplateBMWApp_DreiUploader_h
 #define TemplateBMWApp_DreiUploader_h

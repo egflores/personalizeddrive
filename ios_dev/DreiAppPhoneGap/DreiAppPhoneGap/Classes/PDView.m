@@ -1,9 +1,10 @@
 //
-//  BMWGlympseVC.m
-//  TemplateName
+//  PDView.m
+//  PersonalizedDriveApp
 //
-//  Created by John Jessen on 6/5/12.
-//  Copyright (c) 2012 BMW Group. All rights reserved.
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
+//  Modified from code (c) 2012 BMW Group (John Jessen)
 //
 
 #import "PDView.h"

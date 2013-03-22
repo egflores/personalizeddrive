@@ -1,9 +1,9 @@
 //
 //  DreiCarCenter.h
-//  DreiAppPhoneGap
+//  DreiFramework
 //
-//  Created by Stephen Trusheim on 3/10/13.
-//
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
 //
 
 #import <Foundation/Foundation.h>
