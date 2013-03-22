@@ -1,43 +1,48 @@
 //
 //  DreiConnect.m
-//  DreiAppPhoneGap
+//  DreiFramework
 //
-//  Created by Stephen Trusheim on 3/10/13.
-//
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
 //
 
 #import "DreiConnect.h"
-#import "DreiPGNotification.h"
+#import "DreiCarCenter.h"
 #import "Cordova/CDV.h"
 
 @implementation DreiConnect
 
 - (void) pluginInitialize {
-    [DreiPGNotification instance].connectEndpoint = self;
+    [DreiCarCenter instance].connectEndpoint = self;
 }
 
-- (void)start:(CDVInvokedUrlCommand*)command
+- (void)startDriveLog:(CDVInvokedUrlCommand*)command
 {
-    [[[DreiPGNotification instance] getDataService] startCollection];
+    [[DreiCarCenter instance] driveLog_startCollection];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-/**
- * TODO: Stop doesn't actually stop... this is an underlying problem in DreiDataService that I can't figure out.
- */
-- (void)stop:(CDVInvokedUrlCommand*)command
+- (void)stopDriveLog:(CDVInvokedUrlCommand*)command
 {
-    [[[DreiPGNotification instance] getDataService] stopCollection];
+    [[DreiCarCenter instance] driveLog_stopCollection];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-- (void)upload:(CDVInvokedUrlCommand*)command
+- (void)uploadDriveLog:(CDVInvokedUrlCommand*)command
 {
-    [[[DreiPGNotification instance] getDataService] uploadData];
+    [[DreiCarCenter instance] driveLog_uploadDataRaw];
+    
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)clearDriveLog:(CDVInvokedUrlCommand*)command
+{
+    [[DreiCarCenter instance] driveLog_clearData];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -49,7 +54,6 @@
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback {
     NSString *newString = [NSString stringWithFormat:@"drei_callback_%@(%@);",callback,message];
     [self writeJavascript:newString];
-    NSLog(newString);
     //CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
     //[self.commandDelegate sendPluginResult:pluginResult callbackId:callback];
 }

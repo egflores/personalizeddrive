@@ -1,9 +1,11 @@
 //
 //  DreiDataService.h
-//  TemplateBMWApp
+//  DreiFramework
 //
-//  Created by Stephen Trusheim on 3/8/13.
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
 //
+
 
 #import <Foundation/Foundation.h>
 #import <BMWAppKit/BMWAppKit.h>
@@ -45,6 +47,11 @@
 
 /* Returns all the keys that will be in each returned NSDictionary. */
 -(NSArray *)getDataKeys;
+
+-(void)updateDataService:(IDCdsService *)cdsService;
+
+/* Deletes all data currently stored */
+-(void)clearData;
 
 
 @end

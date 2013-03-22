@@ -26,9 +26,9 @@
 //
 
 #import "AppDelegate.h"
-#import "BMWManager.h"
+#import "DreiBMWManager.h"
 #import "MainViewController.h"
-#import "DreiPGNotification.h"
+#import "DreiCarCenter.h"
 
 #import <Cordova/CDVPlugin.h>
 
@@ -68,9 +68,7 @@
     
     [[IDLogger defaultLogger] addAppender:self];
     
-    self.bmwManager = [[[BMWManager alloc] init] autorelease];
-    [DreiPGNotification instance].manager = self.bmwManager;
-
+    self.bmwManager = [[[DreiBMWManager alloc] init] autorelease];
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
 
@@ -78,7 +76,7 @@
     self.window.autoresizesSubviews = YES;
 
     self.viewController = [[[MainViewController alloc] init] autorelease];
-    self.viewController.useSplashScreen = YES;
+    //self.viewController.useSplashScreen = YES;
 
     // Set your app's start page by setting the <content src='foo.html' /> tag in config.xml.
     // If necessary, uncomment the line below to override it.
