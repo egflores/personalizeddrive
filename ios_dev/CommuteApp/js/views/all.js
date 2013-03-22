@@ -3,9 +3,10 @@ $().ns('DreiApp.Views');
 
 $(document).ready(function () {
 	DreiApp.Views.Home = Backbone.View.extend({
+		template: _.template($('#home_template').html()),
 		className: 'my-container',
 		render: function () {
-			this.$el.html('<p>HOME</p><a href="#foobar">Go to new page!</a>');
+			this.$el.html(this.template());
 		}
 	});
 
