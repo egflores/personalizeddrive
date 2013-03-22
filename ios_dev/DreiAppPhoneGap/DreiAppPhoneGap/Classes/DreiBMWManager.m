@@ -7,6 +7,11 @@
 //  Modified from code (c) 2012 BMW Group (John Jessen)
 //
 
+/*
+ * This modification to the standard BMWManager sets up the DreiCarCenter correctly.
+ * This class is required to get CDS out of a BMW through the DreiCarCenter.
+ */
+
 
 #import "DreiBMWManager.h"
 #import "BMWViewProvider.h"

@@ -11,7 +11,7 @@
 #import "DreiDataService.h"
 #import <BMWAppKit/BMWAppKit.h>
 
-/* The RealDataService grabs data from the BMW CDS API and posts it in ways compatible with the DreiDataService.
+/* The BMWDataService grabs data from the BMW CDS API and posts it in ways compatible with the DreiDataService.
  * You must initalize using initWithCDS - otherwise nothing will work.
  */
 @interface DreiBMWDataService : DreiDataService

@@ -10,7 +10,7 @@
 #import "DreiDataService.h"
 
 /*
- * The fake data service creates randomized data using the same methods as the real data service.
+ * The debug data service creates randomized data using the same methods as the real data service.
  * The random data intervals should match up pretty exactly with actual scenarios, but the data will make
  * pretty much no physical sense (e.g. the odometer is random within 1000,10000)
  * 

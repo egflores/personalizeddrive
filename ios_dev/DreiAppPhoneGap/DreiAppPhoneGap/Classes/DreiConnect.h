@@ -7,6 +7,12 @@
 //
 #import "Cordova/CDV.h"
 
+/**
+ * Interfaces with Cordova to allow the HTML UI to do app tasks.
+ *
+ * See callback docs for more information about how the sendMessage functionality works.
+ * essentially, always calls a Javascript function called drei_callback_[callback]([string message]).
+ */
 @interface DreiConnect : CDVPlugin
 
 -(void) startDriveLog:(CDVInvokedUrlCommand *)command;
