@@ -5,21 +5,23 @@ $(document).ready(function () {
 	DreiApp.Views.Home = Backbone.View.extend({
 		className: 'my-container',
 		render: function () {
-			this.$el.html('<div style="">HOME</div><a href="#">Go home</a>');
+			this.$el.html('<p>HOME</p><a href="#foobar">Go to new page!</a>');
 		}
 	});
 
 	DreiApp.Views.Tracking = Backbone.View.extend({
+		template: _.template($('#tracking_template').html()),
 		className: 'my-container',
 		render: function () {
-			this.$el.html('<p>TRACKING</p><a href="#foobar">Go to new page!</a>');
+			this.$el.html(this.template());
 		}
 	});
 
 	DreiApp.Views.Logging = Backbone.View.extend({
+		template: _.template($('#logging_template').html()),
 		className: 'my-container',
 		render: function () {
-			this.$el.html('<p>LOGGING</p><a href="#foobar">Go to new page!</a>');
+			this.$el.html(this.template());
 		}
 	});
 });
