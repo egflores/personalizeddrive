@@ -14,38 +14,47 @@
 
 - (void) pluginInitialize {
     [DreiCarCenter instance].connectEndpoint = self;
+    [DreiCarCenter debug:@"Linked DreiConnect" from:@"DreiConnect" jsonMessage:false];
 }
 
 - (void)startDriveLog:(CDVInvokedUrlCommand*)command
 {
-    [[DreiCarCenter instance] driveLog_startCollection];
+    BOOL success = [[DreiCarCenter instance] driveLog_startCollection];
     
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    CDVPluginResult* result = nil;
+    if (success) result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    else result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
 - (void)stopDriveLog:(CDVInvokedUrlCommand*)command
 {
-    [[DreiCarCenter instance] driveLog_stopCollection];
+    BOOL success = [[DreiCarCenter instance] driveLog_stopCollection];
     
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    CDVPluginResult* result = nil;
+    if (success) result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    else result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
 - (void)uploadDriveLog:(CDVInvokedUrlCommand*)command
 {
-    [[DreiCarCenter instance] driveLog_uploadDataRaw];
+    BOOL success = [[DreiCarCenter instance] driveLog_uploadDataRaw];
     
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    CDVPluginResult* result = nil;
+    if (success) result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    else result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
 - (void)clearDriveLog:(CDVInvokedUrlCommand*)command
 {
-    [[DreiCarCenter instance] driveLog_clearData];
+    BOOL success = [[DreiCarCenter instance] driveLog_clearData];
     
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    CDVPluginResult* result = nil;
+    if (success) result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    else result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback {

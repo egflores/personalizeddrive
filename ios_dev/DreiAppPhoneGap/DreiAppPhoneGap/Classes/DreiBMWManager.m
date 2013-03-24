@@ -46,6 +46,7 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
         [nc addObserver:self selector:@selector(didConnectToBMW:) name:IDVehicleDidConnectNotification object:nil];
         [nc addObserver:self selector:@selector(didDisconnectFromBMW:) name:IDVehicleDidDisconnectNotification object:nil];
         [DreiCarCenter instance].manager = self;
+        [DreiCarCenter debug:@"init" from:@"manager" jsonMessage:false];
     }
     
     return self;

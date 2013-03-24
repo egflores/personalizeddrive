@@ -106,40 +106,48 @@ DreiDataService *d;
     return d;
 }
 
-- (void) driveLog_uploadDataRaw {
+- (BOOL) driveLog_uploadDataRaw {
     NSLog(@"Send data to the server");
     DreiUploader *uploader = [[DreiUploader alloc] init];
-    [uploader formatAndPost:[[self getDDS] getData]
-                      toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/rawcardata/update"]
-                      error:nil
+    return [uploader formatAndPost:[[self getDDS] getData]
+                             toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/rawcardata/update"]
+                             error:nil
      ]; //TODO: Use manifest
 }
 
-- (void) driveLog_uploadCommuteLog {
+- (BOOL) driveLog_uploadCommuteLog {
     NSLog(@"Send data to the server");
     DreiUploader *uploader = [[DreiUploader alloc] init];
-    [uploader formatAndPost:[[self getDDS] getData]
-                      toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/commutelog/update"]
-                      error:nil
+    return [uploader formatAndPost:[[self getDDS] getData]
+                             toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/commutelog/update"]
+                             error:nil
      ]; //TODO: Use manifest
 }
 
-- (void) driveLog_clearData {
+- (BOOL) driveLog_clearData {
     [[self getDDS] clearData];
+    return true;
 }
 
-- (void) driveLog_startCollection {
+- (BOOL) driveLog_startCollection {
+    if (![self hasDataService]) {
+        [DreiCarCenter debug:@"Cannot start data collection" from:@"CarCenter" jsonMessage:false];
+        return false;
+    }
+    
     [[self getDDS] startCollection];
     [self updateCarLogging:true];
+    return true;
 }
 
-- (void) driveLog_stopCollection {
+- (BOOL) driveLog_stopCollection {
     [[self getDDS] stopCollection];
     [self updateCarLogging:false];
+    return true;
 }
 
-+(void) debug:(NSString *)message from:(NSString *)from {
-    [[self instance] sendDebugMessage:message fromComponent:from];
++(void) debug:(NSString *)message from:(NSString *)from jsonMessage:(BOOL)isJson {
+    [[self instance] sendDebugMessage:message fromComponent:from isJson:isJson];
     NSLog(@"(%@) %@", from, message);
 }
 

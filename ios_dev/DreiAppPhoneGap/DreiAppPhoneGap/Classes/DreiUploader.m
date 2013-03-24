@@ -42,7 +42,7 @@ NSURL * _endpoint;
  * more robust handling of errors.  Currently, this method
  * would require delegation instead of blocks.
  */
--(void)postJSON:(NSData *)json toURL:(NSURL *)url error:(NSError *)error {
+-(BOOL)postJSON:(NSData *)json toURL:(NSURL *)url error:(NSError *)error {
     NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:url];
     
     // Set the post to json
@@ -58,6 +58,7 @@ NSURL * _endpoint;
         //_receivedData = [[NSMutableData data] retain];
         NSLog( @"Connection Succeed");
         [[DreiCarCenter instance] sendMessage:@"success" toCallback:@"upload"];
+        return true;
     }
     else
     {
@@ -66,12 +67,13 @@ NSURL * _endpoint;
         [DreiCarCenter debug:[NSString stringWithFormat:@"Upload to endpoint failed: %@", @"Unknown"]
                         from:@"uploader"
                  jsonMessage:false];
+        return false;
     }
 }
 
--(void)formatAndPost:(NSArray *)carData toURL:(NSURL *)url error:(NSError *)error {
+-(BOOL)formatAndPost:(NSArray *)carData toURL:(NSURL *)url error:(NSError *)error {
     NSData * carDataJson = [DreiBMWFormatter formatCarData:carData error:error];
-    [self postJSON:carDataJson toURL:url error:error];
+    return [self postJSON:carDataJson toURL:url error:error];
 }
 
 @end
