@@ -86,9 +86,9 @@ static DreiCarCenter *gInstance = NULL;
 
 -(void)updateCarLogging:(BOOL)logging {
     if (logging) {
-        [self sendMessage:@"logOff" toCallback:@"carlogging"];
-    } else {
         [self sendMessage:@"logOn" toCallback:@"carlogging"];
+    } else {
+        [self sendMessage:@"logOff" toCallback:@"carlogging"];
 
     }
 }
