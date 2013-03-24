@@ -8,6 +8,7 @@
 
 #import "DreiUploader.h"
 #import "DreiBMWFormatter.h"
+#import "DreiCarCenter.h"
 
 @implementation DreiUploader
 
@@ -52,19 +53,19 @@ NSURL * _endpoint;
     
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:postRequest delegate:self];
     
-    if (!connection) {
-        NSLog(@"Error occurred!"); // TODO: pass back to NSError
-    }
-    
     if (connection) {
         // The connection was established.
         //_receivedData = [[NSMutableData data] retain];
         NSLog( @"Connection Succeed");
+        [[DreiCarCenter instance] sendMessage:@"success" toCallback:@"upload"];
     }
     else
     {
         // The download could not be made.
-        NSLog( @"Data could not be received from");
+        [[DreiCarCenter instance] sendMessage:@"fail" toCallback:@"upload"];
+        [DreiCarCenter debug:[NSString stringWithFormat:@"Upload to endpoint failed: %@", @"Unknown"]
+                        from:@"uploader"
+                 jsonMessage:false];
     }
 }
 

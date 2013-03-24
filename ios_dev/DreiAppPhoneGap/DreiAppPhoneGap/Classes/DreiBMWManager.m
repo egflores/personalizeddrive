@@ -126,6 +126,9 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
     [self setupApplication];
     [self.application startWithCompletionBlock:nil];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
+    [DreiCarCenter debug:@"Connected to CDS" from:@"manager" jsonMessage:false];
+    [DreiCarCenter debug:[NSString stringWithFormat:@"CDS update: %p", self.application.cdsService] from:@"manager" jsonMessage:false];
+
     [[DreiCarCenter instance] updateCarDataService:self.application.cdsService];
 
     // Create and attach your View Controller hierarchy
@@ -137,6 +140,8 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
 {
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     [[DreiCarCenter instance] updateCarDataService:nil];
+    
+    [DreiCarCenter debug:@"Disconnected from car" from:@"manager" jsonMessage:false];
 
     [self cleanUp];
     [self postUpdate];
@@ -144,6 +149,7 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
 
 - (void)cleanUp
 {
+    [DreiCarCenter debug:@"CleanUp" from:@"manager" jsonMessage:false];
     self.application = nil;
 }
 

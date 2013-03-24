@@ -55,6 +55,12 @@ static DreiCarCenter *gInstance = NULL;
     return true;
 }
 
+- (BOOL)sendDebugMessage:(NSString *)message fromComponent:(NSString *)component isJson:(BOOL)isJson {
+    if (self.connectEndpoint == NULL) return false;
+    [self.connectEndpoint sendDebugMessage:message fromComponent:component isJson:isJson];
+    return true;
+}
+
 # pragma mark Application endpoints
 
 -(void)updateCarConnectionStatus:(BOOL)carConnected {
@@ -132,8 +138,9 @@ DreiDataService *d;
     [self updateCarLogging:false];
 }
 
-+(void)logDebugMessage:(NSString *)message from:(NSString *)from {
-    // TODO
++(void) debug:(NSString *)message from:(NSString *)from {
+    [[self instance] sendDebugMessage:message fromComponent:from];
+    NSLog(@"(%@) %@", from, message);
 }
 
 

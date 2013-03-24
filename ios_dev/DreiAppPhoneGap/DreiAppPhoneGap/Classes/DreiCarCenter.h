@@ -44,6 +44,6 @@
 - (void) driveLog_clearData;
 
 /* Debug */
-+ (void) logDebugMessage:(NSString *)message from:(NSString *)from;
++ (void) debug:(NSString *)message from:(NSString *)from jsonMessage:(BOOL)isJson;
 
 @end
