@@ -54,7 +54,6 @@
     [self._timer invalidate];
     [self._timer release];
     self._timer = nil;
-    NSLog(@"Stopped collection");
 }
 
 -(NSArray *)getData {

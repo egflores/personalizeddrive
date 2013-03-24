@@ -107,7 +107,6 @@ DreiDataService *d;
 }
 
 - (BOOL) driveLog_uploadDataRaw {
-    NSLog(@"Send data to the server");
     DreiUploader *uploader = [[DreiUploader alloc] init];
     return [uploader formatAndPost:[[self getDDS] getData]
                              toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/rawcardata/update"]
@@ -116,7 +115,6 @@ DreiDataService *d;
 }
 
 - (BOOL) driveLog_uploadCommuteLog {
-    NSLog(@"Send data to the server");
     DreiUploader *uploader = [[DreiUploader alloc] init];
     return [uploader formatAndPost:[[self getDDS] getData]
                              toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/commutelog/update"]

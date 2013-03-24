@@ -44,9 +44,7 @@ static NSString *status = nil;
         // stopped -> start log
         BOOL complete = [[DreiCarCenter instance] driveLog_startCollection];
         if (complete) {
-            [[self.widgets lastObject] setImageData:[self.application.imageBundle imageWithName:@"stopButton" type:@"png"]];
-            [[self.widgets lastObject] setText:@"Stop Logging Drive"];
-            [[self.widgets objectAtIndex:0] setText:@"Logging..."];
+            [self setButtonState:@"logging"];
             status = @"logging";
         } else {
             [self errorLog:@"Could not start log"];
@@ -55,9 +53,7 @@ static NSString *status = nil;
         // logging -> stop log
         BOOL complete = [[DreiCarCenter instance] driveLog_stopCollection];
         if (complete) {
-            [[self.widgets lastObject] setImageData:[self.application.imageBundle imageWithName:@"uploadButton" type:@"png"]];
-            [[self.widgets lastObject] setText:@"Upload Drive Log"];
-            [[self.widgets objectAtIndex:0] setText:@"Collected drive log."];
+            [self setButtonState:@"stopped"];
             status = @"saved";
         } else {
             [self errorLog:@"Could not stop log"];
@@ -65,13 +61,24 @@ static NSString *status = nil;
     } else if ([status compare:@"saved"] == 0) {
         BOOL complete = [[DreiCarCenter instance] driveLog_uploadCommuteLog];
         if (complete) {
-            [[self.widgets lastObject] setImageData:[self.application.imageBundle imageWithName:@"uploadButton" type:@"png"]];
-            [[self.widgets lastObject] setText:@"Start Drive Log"];
-            [[self.widgets objectAtIndex:0] setText:@"Drive log saved."];
-        status = @"noLog";
+            [self setButtonState:@"noLog"];
+            status = @"noLog";
         } else {
             [self errorLog:@"Could not save log"];
         }
+    }
+}
+
+- (void)setButtonState:(NSString *) status {
+    if ([status compare:@"logging"] == 0) {
+        [[self.widgets lastObject] setText:@"Stop Logging Drive"];
+        [[self.widgets objectAtIndex:0] setText:@"Logging..."];
+    } else if ([status compare:@"stopped"] == 0) {
+        [[self.widgets lastObject] setText:@"Upload Drive Log"];
+        [[self.widgets objectAtIndex:0] setText:@"Collected drive log."];
+    } else if ([status compare:@"noLog"] == 0) {
+        [[self.widgets lastObject] setText:@"Start Drive Log"];
+        [[self.widgets objectAtIndex:0] setText:@"Drive log saved."];
     }
 }
 

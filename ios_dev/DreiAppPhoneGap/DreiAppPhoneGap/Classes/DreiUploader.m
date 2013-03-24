@@ -53,10 +53,11 @@ NSURL * _endpoint;
     
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:postRequest delegate:self];
     
+    // TODO: DOES THIS ACTUALLY WORK? IT WORKED WHEN I DIDNT HAVE INTERNET... SOMETHING ISNT RIGHT
     if (connection) {
         // The connection was established.
         //_receivedData = [[NSMutableData data] retain];
-        NSLog( @"Connection Succeed");
+        [DreiCarCenter debug:@"Connection succeeded - upload successful" from:@"uploader" jsonMessage:false];
         [[DreiCarCenter instance] sendMessage:@"success" toCallback:@"upload"];
         return true;
     }
