@@ -144,7 +144,7 @@ function makegauge(data, id, name, side) {
 
 		svg.append('text')
 			.text(value)
-			.attr('x', function() { return value > 100 ? 85: 94; })
+			.attr('x', function() { return value > 100 ? 85: 91; })
 			.attr('y', function() { return value > 100 ? 163: 167; })
 			.attr('fill', colorz[0])
 			.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
@@ -194,8 +194,8 @@ function makenumber(data, max, id, name) {
 	}
 
 	svg.append('text').text(data.toString())
-		.attr('x', function() { return data > 100 ? 20 : 55; })
-		.attr('y', 180)
+		.attr('x', function() { return data > 100 ? 20 : 50; })
+		.attr('y', 190)
 		.attr('fill', color(data))
 		.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
 		.style("font-weight", "bold")
