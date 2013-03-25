@@ -120,7 +120,8 @@
 			<div class="container" style="position:relative;">
 				<img class="carProfile" />
 				<div class="infoBox" style="padding-left: 10px;">
-					<h3 style="margin-top: 0px 5px 0px 0px; line-height:24.5px">Something cool</h3>
+					<h3 style="margin-top: 0px 5px 0px 0px; line-height:24.5px">Steve's BMW</h3>
+					<!-- ' hack for sublime -->
 					<div> Some more information </div>
 				</div>
 			</div>
@@ -129,9 +130,13 @@
 
 	    <div id="footer" style="background-color: #fff">
 	      <div class="container">
-	        <a id="linkTracking" class="btn btn-block btn-primary" href="#tracking">Track Commute</a>
-	        <a id="linkLogs" class="btn btn-block" href="#logging">View Raw Logs</a>
-
+	        <a id="linkTracking" class="btn btn-block btn-primary" href="#">Start Tracking Commute</a>
+	        <div class="well" style="margin-top: 20px;">
+		        <div style="text-align: center; color:rgb(248, 112, 5)"> DEBUG MODE </div>
+		        <a id="toggleTracking" class="btn btn-block" href="#tracking">View Live Car Data</a>
+		        <a id="linkLogs" class="btn btn-block" href="#logging">View Raw Logs</a>
+		        <a id="linkLogs" class="btn btn-block" href="#">Upload Data</a>
+	        </div>
 	      <div style="height: 15px"> <!-- spacing --></div>
 	      </div>
 	    </div>
@@ -139,7 +144,9 @@
 		</script>
 
 
-
+		<script type="text/template" id="log_template">
+			<li><strong><%= date %></strong> <div><%= context %>: <%= content %></div></li>
+		</script>
 
 		<script type="text/template" id="tracking_template">
 			<!-- Part 1: Wrap all page content here -->
@@ -211,8 +218,6 @@
 
 	    <div id="footer" style="background-color: #fff">
 	      <div class="container">
-	        <a id="toggleTracking" class="btn btn-block btn-primary" href="#">Start Tracking</a>
-	        <a id="upload" class="btn btn-block" href="#">Upload</a>
 
 	      <div style="height: 15px"> <!-- spacing --></div>
 	      </div>
@@ -274,9 +279,6 @@
 		      </div>
 			<div class="container" style="position:relative;">
 				<ul class="logging">
-					<li><strong>3:24:31PM: </strong> <div>WARNING: ALL IS FUCKED</div></li>
-					<li><strong>3:25:31PM: </strong> <div>WARNING: ALL IS FUCKED</div></li>
-					<li><strong>3:26:31PM: </strong> <div>WARNING: ALL IS FUCKED</div></li>
 				</ul>
 			</div>
 
@@ -300,7 +302,12 @@
 	    <script type="text/javascript" src="js/lib/backbone.responsiveCSS3transitions.js"></script>
 	    
 	    <script type="text/javascript" src="js/lib/backbone.responsiveCSS3transitions.js"></script>
+
+	    <script type="text/javascript" src="js/models/CommuteApp.js"></script>
+	    <script type="text/javascript" src="js/utilities.js"></script>
+	    <script type="text/javascript" src="js/app.js"></script>
 	    <script type="text/javascript" src="js/views/all.js"></script>
+	    <script type="text/javascript" src="js/callbacks.js"></script>
 	    <script type="text/javascript" src="js/router.js"></script>
     </body>
 </html>
