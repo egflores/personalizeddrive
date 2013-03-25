@@ -3,7 +3,7 @@
     <div class="accordion" id="accordion1">
         <div class="accordion-group">
             <div class="accordion-heading">
-                <a id="oillife-toggle" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#cOne">
+                <a id="mileage-toggle" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#cOne">
                 	Odometer
                 </a>
             </div>
@@ -24,7 +24,7 @@
         </div>
         <div class="accordion-group">
             <div class="accordion-heading">
-                <a id="mileage-toggle" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#cTwo">
+                <a id="oillife-toggle" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#cTwo">
                     Oil Status
                 </a>
             </div>
@@ -67,13 +67,8 @@
 		</div>
 	</div>
 	<div class="span8">
-		<div id="right-pane">
-		<div class="thumbnail">
-			<h2 style="text-align: center">Mileage Log</h2>
-			<div id="chart">
-				<svg style="height: 400px; min-width: 100px; min-height: 100px"></svg>
-			</div>
-		</div>
+		<div class="thumbnail" id="right-pane">
+            {% include 'carhealthrightpane.html' %}
 		</div>
 	</div>
 <!--
