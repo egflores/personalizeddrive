@@ -1,12 +1,16 @@
-
-function makechart(data, id) {
+function makechart(data, id, focus) {
 	nv.addGraph(function() {
 		var data = dashboard_data.car_data.data;
 
-		var chart = nv.models.lineChart()
-			.x(function(d) { return d[0] })
-			.y(function(d) { return d[1] }) //adjusting, 100% is 1.00, not 100 as it is in the data
-			.color(d3.scale.category10().range());
+		var chart;
+		if (focus === true) { 
+			chart = nv.models.lineWithFocusChart(); 
+		} else {
+			chart = nv.models.lineChart(); 
+		}
+		chart.x(function(d) { return d[0] })
+			 .y(function(d) { return d[1] }) //adjusting, 100% is 1.00, not 100 as it is in the data
+			 .color(d3.scale.category10().range());
 
 		chart.xAxis
 			.tickFormat(function(d) {
@@ -157,11 +161,10 @@ function makenumber(data, max, id, name) {
 		.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
 }
 
-makechart(dashboard_data.car_data.data, "chart");
+makechart(dashboard_data.car_data.data, "mileage-chart", true);
 makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut", "Fuel Level");
 makegauge(makegaugedata(507, 1000, "Miles"), "donut2", "Oil Life");
 makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut4 svg g", "Fuel Level");
 makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut5 svg g", "Fuel Range");
 makegauge(makegaugedata(13,54, "Columbs"), "donut3", "Battery");
 makenumber(dashboard_data.fuel_range, 400, "text0", "Fuel Range");
-
