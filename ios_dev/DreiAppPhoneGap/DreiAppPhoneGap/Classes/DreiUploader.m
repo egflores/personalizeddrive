@@ -8,6 +8,7 @@
 
 #import "DreiUploader.h"
 #import "DreiBMWFormatter.h"
+#import "DreiCarCenter.h"
 
 @implementation DreiUploader
 
@@ -41,7 +42,7 @@ NSURL * _endpoint;
  * more robust handling of errors.  Currently, this method
  * would require delegation instead of blocks.
  */
--(void)postJSON:(NSData *)json toURL:(NSURL *)url error:(NSError *)error {
+-(BOOL)postJSON:(NSData *)json toURL:(NSURL *)url error:(NSError *)error {
     NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:url];
     
     // Set the post to json
@@ -52,25 +53,28 @@ NSURL * _endpoint;
     
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:postRequest delegate:self];
     
-    if (!connection) {
-        NSLog(@"Error occurred!"); // TODO: pass back to NSError
-    }
-    
+    // TODO: DOES THIS ACTUALLY WORK? IT WORKED WHEN I DIDNT HAVE INTERNET... SOMETHING ISNT RIGHT
     if (connection) {
         // The connection was established.
         //_receivedData = [[NSMutableData data] retain];
-        NSLog( @"Connection Succeed");
+        [DreiCarCenter debug:@"Connection succeeded - upload successful" from:@"uploader" jsonMessage:false];
+        [[DreiCarCenter instance] sendMessage:@"success" toCallback:@"upload"];
+        return true;
     }
     else
     {
         // The download could not be made.
-        NSLog( @"Data could not be received from");
+        [[DreiCarCenter instance] sendMessage:@"fail" toCallback:@"upload"];
+        [DreiCarCenter debug:[NSString stringWithFormat:@"Upload to endpoint failed: %@", @"Unknown"]
+                        from:@"uploader"
+                 jsonMessage:false];
+        return false;
     }
 }
 
--(void)formatAndPost:(NSArray *)carData toURL:(NSURL *)url error:(NSError *)error {
+-(BOOL)formatAndPost:(NSArray *)carData toURL:(NSURL *)url error:(NSError *)error {
     NSData * carDataJson = [DreiBMWFormatter formatCarData:carData error:error];
-    [self postJSON:carDataJson toURL:url error:error];
+    return [self postJSON:carDataJson toURL:url error:error];
 }
 
 @end

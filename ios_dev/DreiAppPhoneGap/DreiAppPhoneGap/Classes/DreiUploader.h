@@ -13,8 +13,8 @@
 @interface DreiUploader : NSObject
 
 -(DreiUploader *)initWithEndPoint:(NSURL *)urlEndPoint;
--(void)postJSON:(NSData *)json toURL:(NSURL *)url error:(NSError *) error;
--(void)formatAndPost:(NSArray *)carData toURL:(NSURL *)url error:(NSError *)error;
+-(BOOL)postJSON:(NSData *)json toURL:(NSURL *)url error:(NSError *) error;
+-(BOOL)formatAndPost:(NSArray *)carData toURL:(NSURL *)url error:(NSError *)error;
 
 @end
 

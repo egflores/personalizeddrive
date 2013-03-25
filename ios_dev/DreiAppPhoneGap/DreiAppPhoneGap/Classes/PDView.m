@@ -10,6 +10,7 @@
 #import "PDView.h"
 #import "BMWViewProvider.h"
 #import <BMWAppKit/BMWAppKit.h>
+#import "DreiCarCenter.h"
 
 @implementation PDView
 
@@ -41,22 +42,48 @@ static NSString *status = nil;
 {
     if (status == nil || [status compare:@"noLog"] == 0) {
         // stopped -> start log
-        [[self.widgets lastObject] setImageData:[self.application.imageBundle imageWithName:@"stopButton" type:@"png"]];
-        [[self.widgets lastObject] setText:@"Stop Logging Drive"];
-        [[self.widgets objectAtIndex:0] setText:@"Logging..."];
-        status = @"logging";
+        BOOL complete = [[DreiCarCenter instance] driveLog_startCollection];
+        if (complete) {
+            [self setButtonState:@"logging"];
+            status = @"logging";
+        } else {
+            [self errorLog:@"Could not start log"];
+        }
     } else if ([status compare:@"logging"] == 0) {
         // logging -> stop log
-        [[self.widgets lastObject] setImageData:[self.application.imageBundle imageWithName:@"uploadButton" type:@"png"]];
+        BOOL complete = [[DreiCarCenter instance] driveLog_stopCollection];
+        if (complete) {
+            [self setButtonState:@"stopped"];
+            status = @"saved";
+        } else {
+            [self errorLog:@"Could not stop log"];
+        }
+    } else if ([status compare:@"saved"] == 0) {
+        BOOL complete = [[DreiCarCenter instance] driveLog_uploadCommuteLog];
+        if (complete) {
+            [self setButtonState:@"noLog"];
+            status = @"noLog";
+        } else {
+            [self errorLog:@"Could not save log"];
+        }
+    }
+}
+
+- (void)setButtonState:(NSString *) status {
+    if ([status compare:@"logging"] == 0) {
+        [[self.widgets lastObject] setText:@"Stop Logging Drive"];
+        [[self.widgets objectAtIndex:0] setText:@"Logging..."];
+    } else if ([status compare:@"stopped"] == 0) {
         [[self.widgets lastObject] setText:@"Upload Drive Log"];
         [[self.widgets objectAtIndex:0] setText:@"Collected drive log."];
-        status = @"saved";
-    } else if ([status compare:@"saved"] == 0) {
-        [[self.widgets lastObject] setImageData:[self.application.imageBundle imageWithName:@"uploadButton" type:@"png"]];
+    } else if ([status compare:@"noLog"] == 0) {
         [[self.widgets lastObject] setText:@"Start Drive Log"];
         [[self.widgets objectAtIndex:0] setText:@"Drive log saved."];
-        status = @"noLog";
     }
+}
+
+- (void) errorLog:(NSString *)message {
+    [[self.widgets objectAtIndex:0] setText:message];
 }
 
 @end
