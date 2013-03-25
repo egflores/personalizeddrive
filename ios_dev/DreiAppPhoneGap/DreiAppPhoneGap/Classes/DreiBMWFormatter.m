@@ -25,7 +25,6 @@
     for (NSDictionary * originalDataPoint in carData) {
         NSMutableDictionary * formattedDataPoint = [DreiBMWFormatter convertDataEntry:originalDataPoint error:error];
         [formattedCarData addObject:formattedDataPoint];
-        NSLog(@"%@", formattedCarData);
     }
     NSDictionary * dataToSend = [NSDictionary dictionaryWithObject:formattedCarData forKey:@"data"];
     return [NSJSONSerialization dataWithJSONObject:dataToSend

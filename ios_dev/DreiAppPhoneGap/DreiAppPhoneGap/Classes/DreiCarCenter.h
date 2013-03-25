@@ -37,13 +37,13 @@
 - (IDCdsService *)getDataService;
 
 /* Drive log */
-- (void) driveLog_uploadDataRaw;
-- (void) driveLog_uploadCommuteLog;
-- (void) driveLog_startCollection;
-- (void) driveLog_stopCollection;
-- (void) driveLog_clearData;
+- (BOOL) driveLog_uploadDataRaw;
+- (BOOL) driveLog_uploadCommuteLog;
+- (BOOL) driveLog_startCollection;
+- (BOOL) driveLog_stopCollection;
+- (BOOL) driveLog_clearData;
 
 /* Debug */
-+ (void) logDebugMessage:(NSString *)message from:(NSString *)from;
++ (void) debug:(NSString *)message from:(NSString *)from jsonMessage:(BOOL)isJson;
 
 @end
