@@ -54,74 +54,7 @@
 		{% include 'carhealthtab.html' %}
 	</div>
 	<div class="tab-pane" id="commute">
-        <h3>Your Past Commutes</h3>
-        <div class="accordion" id="accordion2">
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                        Commute on 3/12/13
-                    </a>
-                </div>
-                <div id="collapseOne" class="accordion-body collapse in">
-                    <div class="accordion-inner">
-                        <div style="float: left">
-                            <h4 style="margin-top: 0px;">Commute Summary</h4>
-                            <strong>Start:</strong> 1 Bayside Village Place, San Francisco, CA<br />
-                            <strong>End: </strong>Stanford University<br />
-                            <strong>Time: </strong>45 minutes<br />
-                            <strong>Average Speed: </strong>67 mph<br />
-                            <strong>Average MPG: </strong>25 mpg</br />
-                        </div>
-                        <div style="float: right; padding-bottom: 7px;">
-                            <iframe width="300" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=Bayside+Village+South+Beach+SFO,+Bayside+Village+South+Beach+SFO,+3+Bayside+Village+Pl,+San+Francisco,+CA+94107&amp;daddr=549+lasuen+mall,+stanford,+CA&amp;hl=en&amp;geocode=FTGNQAIdJnu0-CmXFFBXd4CFgDHmigY1_083JQ%3BFb0HOwId79m3-CnDtp9V0bqPgDET2Kq91Y6oVA&amp;sll=37.60444,-122.279205&amp;sspn=0.669101,1.454315&amp;t=m&amp;mra=pd&amp;ie=UTF8&amp;ll=37.640335,-122.283325&amp;spn=0.434981,0.552063&amp;z=9&amp;output=embed"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                        Commute on 3/11/13
-                    </a>
-                </div>
-                <div id="collapseTwo" class="accordion-body collapse">
-                    <div class="accordion-inner">
-                        <div style="float: left">
-                            <h4 style="margin-top: 0px;">Commute Summary</h4>
-                            <strong>Start:</strong> 1 Bayside Village Place, San Francisco, CA<br />
-                            <strong>End: </strong>Stanford University<br />
-                            <strong>Time: </strong>45 minutes<br />
-                            <strong>Average Speed: </strong>67 mph<br />
-                            <strong>Average MPG: </strong>25 mpg</br />
-                        </div>
-                        <div style="float: right; padding-bottom: 7px;">
-                            <iframe width="300" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=Bayside+Village+South+Beach+SFO,+Bayside+Village+South+Beach+SFO,+3+Bayside+Village+Pl,+San+Francisco,+CA+94107&amp;daddr=549+lasuen+mall,+stanford,+CA&amp;hl=en&amp;geocode=FTGNQAIdJnu0-CmXFFBXd4CFgDHmigY1_083JQ%3BFb0HOwId79m3-CnDtp9V0bqPgDET2Kq91Y6oVA&amp;sll=37.60444,-122.279205&amp;sspn=0.669101,1.454315&amp;t=m&amp;mra=pd&amp;ie=UTF8&amp;ll=37.640335,-122.283325&amp;spn=0.434981,0.552063&amp;z=9&amp;output=embed"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                        Commute on 3/10/13
-                    </a>
-                </div>
-                <div id="collapseThree" class="accordion-body collapse">
-                    <div class="accordion-inner">
-                        <div style="float: left">
-                            <h4 style="margin-top: 0px;">Commute Summary</h4>
-                            <strong>Start:</strong> 1 Bayside Village Place, San Francisco, CA<br />
-                            <strong>End: </strong>Stanford University<br />
-                            <strong>Time: </strong>45 minutes<br />
-                            <strong>Average Speed: </strong>67 mph<br />
-                            <strong>Average MPG: </strong>25 mpg</br />
-                        </div>
-                        <div style="float: right; padding-bottom: 7px;">
-                        </div>
-	                </div>
-				</div>
-			</div>
-		</div>
+        {%include 'commutetab.html' %}
 	</div>
 	<div class="tab-pane" id="carhealth">
 	</div>
