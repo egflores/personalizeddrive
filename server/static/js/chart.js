@@ -1,77 +1,31 @@
-nv.addGraph(function() {
-	var data = dashboard_data.car_data.data;
-    var chart = nv.models.lineChart()
-        .x(function(d) { return d[0] })
-        .y(function(d) { return d[1] }) //adjusting, 100% is 1.00, not 100 as it is in the data
-        .color(d3.scale.category10().range());
 
-    chart.xAxis
-        .tickFormat(function(d) {
-            // return d3.time.format("%Y-%m-%dT%H:%M:%S.%LZ")(d)
-            return d3.time.format('%x')(new Date(d * 1000))
-        });
-    
-    d3.select(".container").select('#chart svg')
-        .datum(data)
-        .transition().duration(500)
-        .call(chart);
-    
-    nv.utils.windowResize(chart.update);
-    
-    return chart;
-});
+function makechart(data, id) {
+	nv.addGraph(function() {
+		var data = dashboard_data.car_data.data;
 
-nv.addGraph(function() {
-	var data = dashboard_data.car_data.data;
+		var chart = nv.models.lineChart()
+			.x(function(d) { return d[0] })
+			.y(function(d) { return d[1] }) //adjusting, 100% is 1.00, not 100 as it is in the data
+			.color(d3.scale.category10().range());
 
-	var smallchart = nv.models.lineChart()
-		.x(function(d) { return d[0] })
-		.y(function(d) { return d[1] }) //adjusting, 100% is 1.00, not 100 as it is in the data
-		.color(d3.scale.category10().range());
+		chart.xAxis
+			.tickFormat(function(d) {
+			// return d3.time.format("%Y-%m-%dT%H:%M:%S.%LZ")(d)
+				return d3.time.format('%x')(new Date(d * 1000))
+			});
 
-	smallchart.xAxis
-		.tickFormat(function(d) {
-		// return d3.time.format("%Y-%m-%dT%H:%M:%S.%LZ")(d)
-			return d3.time.format('%x')(new Date(d * 1000))
-		});
+		d3.select(".container").select('#'+id+' svg')
+			.datum(data)
+			.transition().duration(500)
+			.call(chart);
 
-	d3.select(".container").select('#smallchart svg')
-		.datum(data)
-		.transition().duration(500)
-		.call(smallchart);
+		//d3.select(".container").select('#'+id+' svg').selectAll("text").style("font-size","10px");
 
-	d3.select(".container").select('#smallchart svg').selectAll("text").style("font-size","10px");
+		nv.utils.windowResize(chart.update);
 
-	nv.utils.windowResize(smallchart.update);
-
-	return smallchart;
-});
-
-nv.addGraph(function() {
-	var data = dashboard_data.car_data.data;
-
-	var chart2 = nv.models.lineChart()
-		.x(function(d) { return d[0] })
-		.y(function(d) { return d[1] }) //adjusting, 100% is 1.00, not 100 as it is in the data
-		.color(d3.scale.category10().range());
-
-	chart2.xAxis
-		.tickFormat(function(d) {
-		// return d3.time.format("%Y-%m-%dT%H:%M:%S.%LZ")(d)
-			return d3.time.format('%x')(new Date(d * 1000))
-		});
-
-	d3.select(".container").select('#chart2 svg')
-		.datum(data)
-		.transition().duration(500)
-		.call(chart2);
-
-	d3.select(".container").select('#chart2 svg').selectAll("text").style("font-size","10px");
-
-	nv.utils.windowResize(chart2.update);
-
-	return chart2;
-});
+		return chart;
+	});
+}
 
 
 /*
@@ -203,6 +157,7 @@ function makenumber(data, max, id, name) {
 		.style('text-shadow', "0px 1px 0px rgba(255, 255, 255, 0.5)");
 }
 
+makechart(dashboard_data.car_data.data, "chart");
 makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut", "Fuel Level");
 makegauge(makegaugedata(507, 1000, "Miles"), "donut2", "Oil Life");
 makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut4 svg g", "Fuel Level");
