@@ -55,6 +55,12 @@ static DreiCarCenter *gInstance = NULL;
     return true;
 }
 
+- (BOOL)sendDebugMessage:(NSString *)message fromComponent:(NSString *)component isJson:(BOOL)isJson {
+    if (self.connectEndpoint == NULL) return false;
+    [self.connectEndpoint sendDebugMessage:message fromComponent:component isJson:isJson];
+    return true;
+}
+
 # pragma mark Application endpoints
 
 -(void)updateCarConnectionStatus:(BOOL)carConnected {
@@ -80,9 +86,9 @@ static DreiCarCenter *gInstance = NULL;
 
 -(void)updateCarLogging:(BOOL)logging {
     if (logging) {
-        [self sendMessage:@"logOff" toCallback:@"carlogging"];
-    } else {
         [self sendMessage:@"logOn" toCallback:@"carlogging"];
+    } else {
+        [self sendMessage:@"logOff" toCallback:@"carlogging"];
 
     }
 }
@@ -100,40 +106,47 @@ DreiDataService *d;
     return d;
 }
 
-- (void) driveLog_uploadDataRaw {
-    NSLog(@"Send data to the server");
+- (BOOL) driveLog_uploadDataRaw {
     DreiUploader *uploader = [[DreiUploader alloc] init];
-    [uploader formatAndPost:[[self getDDS] getData]
-                      toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/rawcardata/update"]
-                      error:nil
+    return [uploader formatAndPost:[[self getDDS] getData]
+                             toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/rawcardata/update"]
+                             error:nil
      ]; //TODO: Use manifest
 }
 
-- (void) driveLog_uploadCommuteLog {
-    NSLog(@"Send data to the server");
+- (BOOL) driveLog_uploadCommuteLog {
     DreiUploader *uploader = [[DreiUploader alloc] init];
-    [uploader formatAndPost:[[self getDDS] getData]
-                      toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/commutelog/update"]
-                      error:nil
+    return [uploader formatAndPost:[[self getDDS] getData]
+                             toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/commutelog/update"]
+                             error:nil
      ]; //TODO: Use manifest
 }
 
-- (void) driveLog_clearData {
+- (BOOL) driveLog_clearData {
     [[self getDDS] clearData];
+    return true;
 }
 
-- (void) driveLog_startCollection {
+- (BOOL) driveLog_startCollection {
+    if (![self hasDataService]) {
+        [DreiCarCenter debug:@"Cannot start data collection" from:@"CarCenter" jsonMessage:false];
+        return false;
+    }
+    
     [[self getDDS] startCollection];
     [self updateCarLogging:true];
+    return true;
 }
 
-- (void) driveLog_stopCollection {
+- (BOOL) driveLog_stopCollection {
     [[self getDDS] stopCollection];
     [self updateCarLogging:false];
+    return true;
 }
 
-+(void)logDebugMessage:(NSString *)message from:(NSString *)from {
-    // TODO
++(void) debug:(NSString *)message from:(NSString *)from jsonMessage:(BOOL)isJson {
+    [[self instance] sendDebugMessage:message fromComponent:from isJson:isJson];
+    NSLog(@"(%@) %@", from, message);
 }
 
 

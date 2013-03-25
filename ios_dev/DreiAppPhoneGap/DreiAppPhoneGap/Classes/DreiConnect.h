@@ -21,6 +21,7 @@
 -(void) clearDriveLog:(CDVInvokedUrlCommand *)command;
 
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback;
+-(void) sendDebugMessage:(NSString *)message fromComponent:(NSString *)component isJson:(BOOL)isJson;
 
 
 @end

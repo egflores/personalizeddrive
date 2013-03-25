@@ -7,11 +7,9 @@ $(document).ready(function () {
 
 	DreiApp.Models.Log = Backbone.Model.extend({
 
-	        initialize: function (message) {
-	            this.set('context', message.context);
-	            this.set('content', message.content);
-	            var date = new Date();
-	            this.set('date', DreiApp.Utilities.formatDate(date));
+	        initialize: function (context, message) {
+	            this.set('context', context);
+	            this.set('message', message);
 	        },
 	});
 
@@ -25,25 +23,25 @@ $(document).ready(function () {
         },
 
         comparator: function(timeLapse) {
-         	return timeLapse.get('order');
+         return timeLapse.get('order');
         }
 
     });
 
+	//isTrackingCommute
+	//logs
 	DreiApp.Models.CommuteApp = Backbone.Model.extend({
 
-	        initialize: function (message) {
-	            this.logs = new DreiApp.Models.Logs();
+	        initialize: function () {
+	        	this.set('logs', new DreiApp.Models.Logs());
 	        },
 
 	        defaults: {
-	            logLevel: 0,
 	            isTrackingCommute: false,
-	            isConnectedToCar: false
 	        },
 
-	        log: function(message) {
-	        	this.logs.add(new DreiApp.Models.Log(message));
+	        uploadData: function() {
+	        	DreiApp.log
 	        }
 	});
 
