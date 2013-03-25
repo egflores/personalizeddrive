@@ -4,7 +4,7 @@
     {# <!-- //car_data: {{ car_data|tojson|safe }} -->#}
     <script type="text/javascript">
         var dashboard_data = {
-            car_data:  {{ car_data }},
+            car_data:  {{ car_data|tojson|safe }},
             tank_level: {{ tank_level }},
             fuel_range: {{ fuel_range }}
         }
@@ -20,7 +20,7 @@
 	</div>
 </div>
 <br />
-<div class="row" id="dashhud">
+<div class="row collapse in" id="dashhud">
 	<div class="span3">
 		<div id="donut2">
 			<svg height="300" width="300" viewBox="0 0 300 300" preserveAspectRatio="xMinYMax"></svg>
@@ -44,129 +44,14 @@
 </div>
 <a class="close" data-toggle="collapse" data-target="#dashhud" href="#" style="float: right">show/hide HUD</a>
 <ul class="nav nav-tabs" id="dashtab">
-	<li class="active"><a href="#overview" data-toggle="tab">Car Health</a></li>
+	<li class="active"><a href="#carhealth" data-toggle="tab">Car Health</a></li>
 	<li><a href="#commute" data-toggle="tab">Commute</a></li>
 	<li><a href="#carhealth" data-toggle="tab">Services</a></li>
 	<li><a href="#location" data-toggle="tab">Location</a></li>
 </ul>
 <div class="tab-content">
-	<div class="tab-pane active" id="overview">
-		<div class="row-fluid">
-			<div class="span4">
-            <div class="accordion" id="accordion2">
-                <div class="accordion-group">
-                    <div class="accordion-heading">
-                        <a id="oillife-toggle" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-							  <table class="table table-striped">  
-							   <tbody>  
-								<tr>
-								  <td><b>Oil Life</b></td>  
-								  <td>2% </td>  
-								  <td><b>REFILL NOW</b></td>  
-								</tr>  
-							   </tbody>  
-							 </table>  
-                        </a>
-                    </div>
-                    <div id="collapseOne" class="accordion-body collapse in">
-                        <div class="accordion-inner">
-                            <div style="float: left">
-                                <h4 style="margin-top: 0px;">Commute Summary</h4>
-                                <strong>Start:</strong> 1 Bayside Village Place, San Francisco, CA<br />
-                                <strong>End: </strong>Stanford University<br />
-                                <strong>Time: </strong>45 minutes<br />
-                                <strong>Average Speed: </strong>67 mph<br />
-                                <strong>Average MPG: </strong>25 mpg</br />
-                            </div>
-                            <div style="float: right; padding-bottom: 7px;">
-	                        </div>
-	                    </div>
-	                </div>
-                </div>
-                <div class="accordion-group">
-                    <div class="accordion-heading">
-                        <a id="mileage-toggle" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                            Commute on 3/11/13
-                        </a>
-                    </div>
-                    <div id="collapseTwo" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                            <div style="float: left">
-                                <h4 style="margin-top: 0px;">Commute Summary</h4>
-                                <strong>Start:</strong> 1 Bayside Village Place, San Francisco, CA<br />
-                                <strong>End: </strong>Stanford University<br />
-                                <strong>Time: </strong>45 minutes<br />
-                                <strong>Average Speed: </strong>67 mph<br />
-                                <strong>Average MPG: </strong>25 mpg</br />
-                            </div>
-                            <div style="float: right; padding-bottom: 7px;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-group">
-                    <div class="accordion-heading">
-                        <a class="accordion-toggle" id="fuel-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                            Commute on 3/10/13
-                        </a>
-                    </div>
-                    <div id="collapseThree" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                            <div style="float: left">
-                                <h4 style="margin-top: 0px;">Commute Summary</h4>
-                                <strong>Start:</strong> 1 Bayside Village Place, San Francisco, CA<br />
-                                <strong>End: </strong>Stanford University<br />
-                                <strong>Time: </strong>45 minutes<br />
-                                <strong>Average Speed: </strong>67 mph<br />
-                                <strong>Average MPG: </strong>25 mpg</br />
-                            </div>
-                            <div style="float: right; padding-bottom: 7px;">
-	                            </div>
-			                </div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="span8">
-				<div id="right-pane">
-				<div class="thumbnail">
-					<h2 style="text-align: center">Mileage Log</h2>
-					<div id="chart">
-						<svg style="height: 400px; min-width: 100px; min-height: 100px"></svg>
-					</div>
-				</div>
-				</div>
-			</div>
-<!--
-			<div class="span4">
-			  <h3 align="center">At a Glance</h3>
-			  <table class="table table-striped">  
-			   <tbody>  
-				<tr class="error">
-				  <td><b>Oil Life</b></td>  
-				  <td>2% </td>  
-				  <td><b>REFILL NOW</b></td>  
-				</tr>  
-				<tr>
-				  <td><b>Mileage</b></td>  
-				  <td>40,000</td>  
-				  <td>Young One</td>  
-				</tr>  
-				<tr>
-				  <td><b>Wiper Fluid</b></td>  
-				  <td>90%</td>  
-				  <td>Full</td>  
-				</tr>  
-				<tr>
-					<div id="smallchart">
-						<svg style="height:100px; min-width: 100px; min-height: 100px"></svg>
-					</div>
-				</tr>
-			   </tbody>  
-			 </table>  
-			</div>
-			-->
-		</div>
+	<div class="tab-pane active" id="carhealth">
+		{% include 'carhealthtab.html' %}
 	</div>
 	<div class="tab-pane" id="commute">
         <h3>Your Past Commutes</h3>
