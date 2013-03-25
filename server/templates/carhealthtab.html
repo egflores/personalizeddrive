@@ -1,103 +1,71 @@
 <div class="row-fluid">
 	<div class="span4">
-    <div class="accordion" id="accordion1">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a id="mileage-toggle" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#cOne">
-                	Odometer
-                </a>
-            </div>
-            <div id="cOne" class="accordion-body collapse in">
-                <div class="accordion-inner">
-                    <div style="float: left">
-                        <h4 style="margin-top: 0px;">Commute Summary</h4>
-                        <strong>Start:</strong> 1 Bayside Village Place, San Francisco, CA<br />
-                        <strong>End: </strong>Stanford University<br />
-                        <strong>Time: </strong>45 minutes<br />
-                        <strong>Average Speed: </strong>67 mph<br />
-                        <strong>Average MPG: </strong>25 mpg</br />
-                    </div>
-                    <div style="float: right; padding-bottom: 7px;">
+        <div class="accordion" id="accordion1">
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a id="mileage-toggle" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#cOne">
+                    	Odometer
+                    </a>
+                </div>
+                <div id="cOne" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+                        <div style="float: left">
+                            <strong>Total Distance:</strong>40,000 miles<br />
+                            <strong>Total Since:</strong> February 22nd, 2007<br />
+                            <strong>Trip A Distance: </strong>35 miles<br />
+                            <strong>Trip A Since: </strong>Today, 8:22 AM<br />
+                            <strong>Trip B Dist: </strong>656 minutes<br />
+                            <strong>Trip B Since: </strong>March 1st, 2013<br />
+                            <strong>Average Dist/Month: </strong>2220 miles<br />
+                            <strong>YTD Miles: </strong>1,200 miles<br />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a id="oillife-toggle" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#cTwo">
-                    Oil Status
-                </a>
-            </div>
-            <div id="cTwo" class="accordion-body collapse">
-                <div class="accordion-inner">
-                    <div style="float: left">
-                        <h4 style="margin-top: 0px;">Commute Summary</h4>
-                        <strong>Start:</strong> 1 Bayside Village Place, San Francisco, CA<br />
-                        <strong>End: </strong>Stanford University<br />
-                        <strong>Time: </strong>45 minutes<br />
-                        <strong>Average Speed: </strong>67 mph<br />
-                        <strong>Average MPG: </strong>25 mpg</br />
-                    </div>
-                    <div style="float: right; padding-bottom: 7px;">
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a id="oillife-toggle" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#cTwo">
+                        Oil Status
+                    </a>
+                </div>
+                <div id="cTwo" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <div style="float: left">
+                            <h4 style="margin-top: 0px;">Commute Summary</h4>
+                            <strong>Oil Amount: </strong>3.8 Quarts<br />
+                            <strong>Oil Type: </strong>Castrol GTX<br />
+                            <strong>Changed At: </strong>9 Minute Oil & Lube<br />
+                            <strong>Changed On: </strong>December 4th, 2012<br />
+                            <strong>Estimated Life: </strong>1120 miles<br />
+                            <strong>Life Percentage: </strong>56%<br />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a class="accordion-toggle" id="fuel-toggle" data-toggle="collapse" data-parent="#accordion1" href="#cThree">
-                    Battery Status
-                </a>
-            </div>
-            <div id="cThree" class="accordion-body collapse">
-                <div class="accordion-inner">
-                    <div style="float: left">
-                        <h4 style="margin-top: 0px;">Commute Summary</h4>
-                        <strong>Start:</strong> 1 Bayside Village Place, San Francisco, CA<br />
-                        <strong>End: </strong>Stanford University<br />
-                        <strong>Time: </strong>45 minutes<br />
-                        <strong>Average Speed: </strong>67 mph<br />
-                        <strong>Average MPG: </strong>25 mpg</br />
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle" id="fuel-toggle" data-toggle="collapse" data-parent="#accordion1" href="#cThree">
+                        Battery Status
+                    </a>
+                </div>
+                <div id="cThree" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <div style="float: left">
+                            <h4 style="margin-top: 0px;">Commute Summary</h4>
+                            <strong>Battery Type:</strong> 1 Bayside Village Place, San Francisco, CA<br />
+                            <strong>End: </strong>Stanford University<br />
+                            <strong>Time: </strong>45 minutes<br />
+                            <strong>Average Speed: </strong>67 mph<br />
+                            <strong>Average MPG: </strong>25 mpg</br />
+                        </div>
                     </div>
-                    <div style="float: right; padding-bottom: 7px;">
-                    </div>
-	                </div>
-				</div>
-			</div>
-		</div>
+    			</div>
+    		</div>
+    	</div>
 	</div>
 	<div class="span8">
 		<div class="thumbnail" id="right-pane">
             {% include 'carhealthrightpane.html' %}
 		</div>
 	</div>
-<!--
-	<div class="span4">
-	  <h3 align="center">At a Glance</h3>
-	  <table class="table table-striped">  
-	   <tbody>  
-		<tr class="error">
-		  <td><b>Oil Life</b></td>  
-		  <td>2% </td>  
-		  <td><b>REFILL NOW</b></td>  
-		</tr>  
-		<tr>
-		  <td><b>Mileage</b></td>  
-		  <td>40,000</td>  
-		  <td>Young One</td>  
-		</tr>  
-		<tr>
-		  <td><b>Wiper Fluid</b></td>  
-		  <td>90%</td>  
-		  <td>Full</td>  
-		</tr>  
-		<tr>
-			<div id="smallchart">
-				<svg style="height:100px; min-width: 100px; min-height: 100px"></svg>
-			</div>
-		</tr>
-	   </tbody>  
-	 </table>  
-	</div>
-	-->
 </div>
