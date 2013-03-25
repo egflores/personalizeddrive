@@ -79,6 +79,8 @@ def dashboard():
         ]
     }
     newest_data = rawdata[0]
+
+    commutes = Commute.select().where(Commute.car==car).order_by(Commute.timestamp.desc())
     return render_template('dashboard.html', car_data=car_data, 
             car=get_default_car(), tank_level=newest_data.tank_level, 
-            fuel_range=newest_data.fuel_range, name="one")
+            fuel_range=newest_data.fuel_range, name="one", commutes=commutes)
