@@ -4,7 +4,7 @@
     {# <!-- //car_data: {{ car_data|tojson|safe }} -->#}
     <script type="text/javascript">
         var dashboard_data = {
-            car_data:  {{ car_data }},
+            car_data:  {{ car_data|tojson|safe }},
             tank_level: {{ tank_level }},
             fuel_range: {{ fuel_range }}
         }
@@ -20,7 +20,7 @@
 	</div>
 </div>
 <br />
-<div class="row" id="dashhud">
+<div class="row collapse in" id="dashhud">
 	<div class="span3">
 		<div id="donut2">
 			<svg height="300" width="300" viewBox="0 0 300 300" preserveAspectRatio="xMinYMax"></svg>
@@ -57,7 +57,7 @@
                 <div class="accordion-group">
                     <div class="accordion-heading">
                         <a id="oillife-toggle" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-							  <table class="table table-striped">  
+							  <table class="table" style="margin-bottom: 0px">  
 							   <tbody>  
 								<tr>
 								  <td><b>Oil Life</b></td>  
@@ -121,7 +121,7 @@
                                 <strong>Average MPG: </strong>25 mpg</br />
                             </div>
                             <div style="float: right; padding-bottom: 7px;">
-	                            </div>
+                            </div>
 			                </div>
 						</div>
 					</div>
