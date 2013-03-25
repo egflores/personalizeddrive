@@ -20,6 +20,7 @@ $(document).ready(function () {
 	    if(minutes < 10) minutes = '0' + minutes;
 	    var ampm = d.getHours()/12 > 1 ? "PM" : "AM";
 	    var seconds = d.getSeconds();
+	    if(seconds < 10) seconds = '0' + seconds;
     	return (mon+"/"+date+"/"+year+" "+hour+":"+minutes+":"+seconds+" "+ampm);
 	};
 
