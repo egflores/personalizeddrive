@@ -9,7 +9,7 @@ function makescatter() {
    chart.yAxis.tickFormat(d3.format('.02f'))
  
    d3.select('#chart3 svg')
-       .datum(randomData(4,40))
+       .datum(randomData(1,15))
      .transition().duration(500)
        .call(chart);
  
@@ -32,14 +32,14 @@ function makescatter() {
  
    for (i = 0; i < groups; i++) {
      data.push({
-       key: 'Group ' + i,
+       key: 'Commutes ',
        values: []
      });
  
      for (j = 0; j < points; j++) {
        data[i].values.push({
-         x: random()
-       , y: random()
+         x: random() * 2 + i + 43 
+       , y: 38 - random() * (i - points/3) 
        , size: Math.random()
        //, shape: shapes[j % 6]
        });
