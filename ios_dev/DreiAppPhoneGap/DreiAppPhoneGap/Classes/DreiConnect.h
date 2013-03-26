@@ -1,20 +1,27 @@
 //
 //  DreiConnect.h
-//  DreiAppPhoneGap
+//  DreiFramework
 //
-//  Created by Stephen Trusheim on 3/10/13.
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
 //
-//
-
 #import "Cordova/CDV.h"
 
+/**
+ * Interfaces with Cordova to allow the HTML UI to do app tasks.
+ *
+ * See callback docs for more information about how the sendMessage functionality works.
+ * essentially, always calls a Javascript function called drei_callback_[callback]([string message]).
+ */
 @interface DreiConnect : CDVPlugin
 
--(void) start:(CDVInvokedUrlCommand *)command;
--(void) stop:(CDVInvokedUrlCommand *)command;
--(void) upload:(CDVInvokedUrlCommand *)command;
+-(void) startDriveLog:(CDVInvokedUrlCommand *)command;
+-(void) stopDriveLog:(CDVInvokedUrlCommand *)command;
+-(void) uploadDriveLog:(CDVInvokedUrlCommand *)command;
+-(void) clearDriveLog:(CDVInvokedUrlCommand *)command;
 
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback;
+-(void) sendDebugMessage:(NSString *)message fromComponent:(NSString *)component isJson:(BOOL)isJson;
 
 
 @end

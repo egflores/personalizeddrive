@@ -1,18 +1,20 @@
 //
-//  DreiRealDataService.h
-//  TemplateBMWApp
+//  DreiBMWDataService.h
+//  DreiFramework
 //
-//  Created by Stephen Trusheim on 3/8/13.
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
 //
+
 
 #import <Foundation/Foundation.h>
 #import "DreiDataService.h"
 #import <BMWAppKit/BMWAppKit.h>
 
-/* The RealDataService grabs data from the BMW CDS API and posts it in ways compatible with the DreiDataService.
+/* The BMWDataService grabs data from the BMW CDS API and posts it in ways compatible with the DreiDataService.
  * You must initalize using initWithCDS - otherwise nothing will work.
  */
-@interface DreiRealDataService : DreiDataService
+@interface DreiBMWDataService : DreiDataService
 
 @property (atomic,retain) IDCdsService * _cdsService;
 

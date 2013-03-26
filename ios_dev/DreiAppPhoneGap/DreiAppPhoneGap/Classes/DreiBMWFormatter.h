@@ -1,9 +1,9 @@
 //
 //  DreiBMWFormatter.h
-//  TemplateBMWApp
+//  DreiFramework
 //
-//  Created by Rowan Chakoumakos on 3/10/13.
-//  Copyright (c) 2013 BMW Group. All rights reserved.
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
 //
 
 #import <Foundation/Foundation.h>

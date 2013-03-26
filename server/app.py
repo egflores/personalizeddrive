@@ -1,23 +1,17 @@
-from flask import Flask, render_template
+from flask import Flask
 from flask_peewee.db import Database
+from werkzeug.contrib.fixers import ProxyFix
 
-DATABASE = {
-    'engine': 'peewee.MySQLDatabase',
-    'name': 'pd_test',
-    'user': 'pd_tester',
-    'passwd': 'Nuggets',
-    'host': 'bmw.stanford.edu'
-}
-DEBUG = True
-SECRET_KEY = 'StephenTrusheim'
+app = Flask(__name__) 
+app.config.from_object('config.Configuration') 
+try:
+    # tries to load config from an env variable
+    # that will override the settings declared in this file
+    # eventually, when we use chef or some deploy tool
+    # we shouldn't have to do this. 
+    app.config.from_envvar('PRODUCTION_SETTINGS')
+except:
+    pass
 
-app = Flask(__name__)
-app.config.from_object(__name__)
+app.wsgi_app = ProxyFix(app.wsgi_app) # makes app work on gunicorn
 db = Database(app)
-
-@app.route('/')
-def hello_world():
-    return render_template('index.html')
-
-if __name__ == '__main__':
-    app.run()

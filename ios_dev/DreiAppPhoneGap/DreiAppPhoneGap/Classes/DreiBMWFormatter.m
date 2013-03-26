@@ -1,10 +1,11 @@
 //
 //  DreiBMWFormatter.m
-//  TemplateBMWApp
+//  DreiFramework
 //
-//  Created by Rowan Chakoumakos on 3/10/13.
-//  Copyright (c) 2013 BMW Group. All rights reserved.
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
 //
+
 
 #import "DreiBMWFormatter.h"
 #import <BMWAppKit/BMWAppKit.h>
@@ -24,7 +25,6 @@
     for (NSDictionary * originalDataPoint in carData) {
         NSMutableDictionary * formattedDataPoint = [DreiBMWFormatter convertDataEntry:originalDataPoint error:error];
         [formattedCarData addObject:formattedDataPoint];
-        NSLog(@"%@", formattedCarData);
     }
     NSDictionary * dataToSend = [NSDictionary dictionaryWithObject:formattedCarData forKey:@"data"];
     return [NSJSONSerialization dataWithJSONObject:dataToSend

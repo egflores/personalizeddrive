@@ -1,55 +1,70 @@
 //
 //  DreiConnect.m
-//  DreiAppPhoneGap
+//  DreiFramework
 //
-//  Created by Stephen Trusheim on 3/10/13.
-//
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
 //
 
 #import "DreiConnect.h"
-#import "DreiPGNotification.h"
+#import "DreiCarCenter.h"
 #import "Cordova/CDV.h"
 
 @implementation DreiConnect
 
 - (void) pluginInitialize {
-    [DreiPGNotification instance].connectEndpoint = self;
+    [DreiCarCenter instance].connectEndpoint = self;
+    [DreiCarCenter debug:@"Linked DreiConnect" from:@"DreiConnect" jsonMessage:false];
 }
 
-- (void)start:(CDVInvokedUrlCommand*)command
+- (void)startDriveLog:(CDVInvokedUrlCommand*)command
 {
-    [[[DreiPGNotification instance] getDataService] startCollection];
+    BOOL success = [[DreiCarCenter instance] driveLog_startCollection];
     
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    CDVPluginResult* result = nil;
+    if (success) result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    else result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
-/**
- * TODO: Stop doesn't actually stop... this is an underlying problem in DreiDataService that I can't figure out.
- */
-- (void)stop:(CDVInvokedUrlCommand*)command
+- (void)stopDriveLog:(CDVInvokedUrlCommand*)command
 {
-    [[[DreiPGNotification instance] getDataService] stopCollection];
+    BOOL success = [[DreiCarCenter instance] driveLog_stopCollection];
     
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    CDVPluginResult* result = nil;
+    if (success) result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    else result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
-- (void)upload:(CDVInvokedUrlCommand*)command
+- (void)uploadDriveLog:(CDVInvokedUrlCommand*)command
 {
-    [[[DreiPGNotification instance] getDataService] uploadData];
+    BOOL success = [[DreiCarCenter instance] driveLog_uploadDataRaw];
     
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    CDVPluginResult* result = nil;
+    if (success) result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    else result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
-/*
- * TODO: Rowan, Javascript master, needs to look at this.
- */
+- (void)clearDriveLog:(CDVInvokedUrlCommand*)command
+{
+    BOOL success = [[DreiCarCenter instance] driveLog_clearData];
+    
+    CDVPluginResult* result = nil;
+    if (success) result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    else result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback {
-    NSString *newString = [NSString stringWithFormat:@"drei_callback_%@(%@);",callback,message];
+    NSString *newString = [NSString stringWithFormat:@"drei_callback_%@(\"%@\");",callback,message];
     [self writeJavascript:newString];
-    NSLog(newString);
+}
+
+-(void) sendDebugMessage:(NSString *)message fromComponent:(NSString *)component isJson:(BOOL)isJson {
+    NSString *newString = [NSString stringWithFormat:@"drei_callback_debug(\"%@\",\"%@\",%d);",component,message,isJson];
+    [self writeJavascript:newString];
     //CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
     //[self.commandDelegate sendPluginResult:pluginResult callbackId:callback];
 }

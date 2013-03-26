@@ -1,9 +1,11 @@
 //
 //  DreiDataService.h
-//  TemplateBMWApp
+//  DreiFramework
 //
-//  Created by Stephen Trusheim on 3/8/13.
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
 //
+
 
 #import <Foundation/Foundation.h>
 #import <BMWAppKit/BMWAppKit.h>
@@ -29,7 +31,6 @@
 @property (atomic, retain) NSMutableArray * _dataStore;
 @property (atomic,retain) NSMutableDictionary * _currentValues;
 @property (atomic,retain) NSTimer * _timer;
-@property (atomic) BOOL on; // HACK
 
 /* Sets all the data keys to "NODATA", the sentinel for when no data has come in. Call this to invalidate old data. */
 -(void)initCurrentValues:(NSArray *)keys;
@@ -45,6 +46,11 @@
 
 /* Returns all the keys that will be in each returned NSDictionary. */
 -(NSArray *)getDataKeys;
+
+-(void)updateDataService:(IDCdsService *)cdsService;
+
+/* Deletes all data currently stored */
+-(void)clearData;
 
 
 @end

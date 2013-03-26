@@ -30,7 +30,7 @@
 #import <Cordova/CDVViewController.h>
 
 @class ViewController;
-@class BMWManager;
+@class DreiBMWManager;
 
 @interface AppDelegate : NSObject <UIApplicationDelegate>{}
 
@@ -40,7 +40,7 @@
 // http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
 
 @property (nonatomic, strong) IBOutlet UIWindow* window;
-@property (nonatomic, retain) BMWManager *bmwManager;
+@property (nonatomic, retain) DreiBMWManager *bmwManager;
 @property (nonatomic, strong) IBOutlet CDVViewController* viewController;
 
 @end

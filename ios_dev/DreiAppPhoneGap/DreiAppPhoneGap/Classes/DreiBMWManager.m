@@ -1,17 +1,25 @@
 //
-//  BMWManager.m
-//  TemplateName
+//  DreiBMWManager.m
+//  DreiFramework
 //
-//  Created by Paul Doersch on 9/19/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by SU - BMW Drei
+//  Copyright (c) 2013 BMW Drei, per LICENSE
+//  Modified from code (c) 2012 BMW Group (John Jessen)
 //
 
-#import "BMWManager.h"
+/*
+ * This modification to the standard BMWManager sets up the DreiCarCenter correctly.
+ * This class is required to get CDS out of a BMW through the DreiCarCenter.
+ */
+
+
+#import "DreiBMWManager.h"
 #import "BMWViewProvider.h"
+#import "DreiCarCenter.h"
 
 NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged";
 
-@interface BMWManager () <IDApplicationDataSource, IDApplicationDelegate>
+@interface DreiBMWManager () <IDApplicationDataSource, IDApplicationDelegate>
 @property(retain, nonatomic) BMWViewProvider* viewProvider;
 
 
@@ -23,7 +31,7 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
 - (void)cleanUp;
 @end
 
-@implementation BMWManager
+@implementation DreiBMWManager
 @synthesize application = _application;
 @synthesize viewProvider = _viewProvider;
 
@@ -37,6 +45,8 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
         NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
         [nc addObserver:self selector:@selector(didConnectToBMW:) name:IDVehicleDidConnectNotification object:nil];
         [nc addObserver:self selector:@selector(didDisconnectFromBMW:) name:IDVehicleDidDisconnectNotification object:nil];
+        [DreiCarCenter instance].manager = self;
+        [DreiCarCenter debug:@"init" from:@"manager" jsonMessage:false];
     }
     
     return self;
@@ -48,6 +58,8 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
     [[NSNotificationCenter defaultCenter] removeObserver:self name:IDVehicleDidDisconnectNotification object:nil];
     [_viewProvider release];
     [_application release];
+    [DreiCarCenter instance].manager = nil;
+    [[DreiCarCenter instance] updateCarDataService:nil];
     [super dealloc];
 }
 
@@ -115,6 +127,11 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
     [self setupApplication];
     [self.application startWithCompletionBlock:nil];
     [UIApplication sharedApplication].idleTimerDisabled = YES;
+    [DreiCarCenter debug:@"Connected to car" from:@"manager" jsonMessage:false];
+    [DreiCarCenter debug:[NSString stringWithFormat:@"CDS update: %p", self.application.cdsService] from:@"manager" jsonMessage:false];
+
+    [[DreiCarCenter instance] updateCarDataService:self.application.cdsService];
+    [[DreiCarCenter instance] updateCarConnectionStatus:true];
 
     // Create and attach your View Controller hierarchy
     
@@ -124,6 +141,10 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
 - (void)disconnect
 {
     [UIApplication sharedApplication].idleTimerDisabled = NO;
+    [[DreiCarCenter instance] updateCarDataService:nil];
+    [[DreiCarCenter instance] updateCarConnectionStatus:false];
+    
+    [DreiCarCenter debug:@"Disconnected from car" from:@"manager" jsonMessage:false];
 
     [self cleanUp];
     [self postUpdate];
@@ -131,6 +152,7 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
 
 - (void)cleanUp
 {
+    [DreiCarCenter debug:@"CleanUp" from:@"manager" jsonMessage:false];
     self.application = nil;
 }
 
@@ -195,6 +217,10 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
  */
 - (void)applicationDidStart:(IDApplication *)application
 {
+    [DreiCarCenter debug:[NSString stringWithFormat:@"CDS update: %p", self.application.cdsService] from:@"manager" jsonMessage:false];
+    [[DreiCarCenter instance] updateCarDataService:self.application.cdsService];
+    [[DreiCarCenter instance] updateCarConnectionStatus:true];
+
     [self postUpdate];
 }
 
@@ -208,6 +234,8 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
 // TODO: Finish documentation on what an develper should/can do in case of an error?
 - (void)application:(IDApplication *)application didFailToStartWithError:(NSError *)error
 {
+    [DreiCarCenter debug:@"Failed to start" from:@"manager" jsonMessage:false];
+    [[DreiCarCenter instance] updateCarConnectionStatus:false];
     [self cleanUp];
     [self postUpdate];
 }
@@ -220,6 +248,9 @@ NSString* BMWManagerConnectionStateChanged = @"BMWManagerConnectionStateChanged"
  */
 - (void)applicationDidStop:(IDApplication *)application
 {
+    [[DreiCarCenter instance] updateCarConnectionStatus:false];
+    [[DreiCarCenter instance] updateCarDataService:nil];
+    [DreiCarCenter debug:@"Application stopped" from:@"manager" jsonMessage:false];
     [self cleanUp];
     [self postUpdate];
 }

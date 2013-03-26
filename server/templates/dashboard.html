@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block head %}
+    <link href="static/css/nv.d3.css" rel="stylesheet" type="text/css" />
+    {# <!-- //car_data: {{ car_data|tojson|safe }} -->#}
+    <script type="text/javascript">
+        var dashboard_data = {
+            car_data:  {{ car_data|tojson|safe }},
+            tank_level: {{ tank_level }},
+            fuel_range: {{ fuel_range }}
+        }
+    </script>
+{% endblock %}
+
+{% block container %}
+<br />
+<div class="span12">
+	<div class="alert alert-info">
+		<a class="close" data-dismiss="alert" href="#">&times;</a>
+			<h1>Fill up soon, Jay!</h1> <h3>You have 65 miles left on your tank. Cheapest Premium nearby is at the <a href="#">Willow</a> Station.</h3>
+	</div>
+</div>
+<br />
+<div class="row collapse in" id="dashhud">
+	<div class="span3">
+		<div id="donut2">
+			<svg height="300" width="300" viewBox="0 0 300 300" preserveAspectRatio="xMinYMax"></svg>
+		</div>
+	</div>
+	<div class="span3">
+		<div id="text0">
+			<svg height="300" width="300" viewBox="0 0 300 300" preserveAspectRatio="xMinYMax"></svg>
+		</div>
+	</div>
+	<div class="span3">
+		<div id="donut">
+			<svg height="300" width="300" viewBox="0 0 300 300" preserveAspectRatio="xMinYMax"></svg>
+		</div>
+	</div>
+	<div class="span3">
+		<div id="donut3">
+			<svg height="300" width="300" viewBox="0 0 300 300" preserveAspectRatio="xMinYMax"></svg>
+		</div>
+	</div>
+</div>
+<a class="close" data-toggle="collapse" data-target="#dashhud" href="#" style="float: right">show/hide HUD</a>
+<ul class="nav nav-tabs" id="dashtab">
+	<li class="active"><a href="#carhealth" data-toggle="tab">Car Health</a></li>
+	<li><a href="#commute" data-toggle="tab">Commute</a></li>
+	<li><a href="#carhealth" data-toggle="tab">Services</a></li>
+	<li><a href="#location" data-toggle="tab">Location</a></li>
+</ul>
+<div class="tab-content">
+	<div class="tab-pane active" id="carhealth">
+		{% include 'carhealthtab.html' %}
+	</div>
+	<div class="tab-pane" id="commute">
+        {%include 'commutetab.html' %}
+	</div>
+	<div class="tab-pane" id="carhealth">
+	</div>
+	<div class="tab-pane" id="location"></div>
+</div>
+{% endblock %}
+
+{% block script_includes %}
+    <script src="static/js/d3.v3.js" type="text/javascript"></script>
+    <script src="static/js/nv.d3.js" type="text/javascript"></script>
+    <script src="static/js/colorbrewer.js" type="text/javascript"></script>
+    <script src="static/js/chart.js" type="text/javascript"></script>
+    <script src="static/js/dashboard.js" type="text/javascript"></script>
+{% endblock %}

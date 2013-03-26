@@ -193,7 +193,7 @@
       app.initialize();
     </script>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/jquery-1.8.2.min.js"></script>
     <script>
 
       window.drei_callback_dataEntry = function(carData) {
@@ -205,13 +205,13 @@
         $("#speed_value").html(carData.speed);
       }
       window.drei_start = function(str, callback) {
-          cordova.exec(callback, function(err) { callback('Nothing to echo.'); }, "DreiConnect", "start", [str]);
+          cordova.exec(callback, function(err) { callback('Nothing to echo.'); }, "DreiConnect", "startDriveLog", [str]);
       };
       window.drei_stop = function(str, callback) {
-          cordova.exec(callback, function(err) { callback('Nothing to echo.'); }, "DreiConnect", "stop", []);
+          cordova.exec(callback, function(err) { callback('Nothing to echo.'); }, "DreiConnect", "stopDriveLog", []);
       };
       window.drei_subscribe = function(callback) {
-          cordova.exec(callback, function(err) { callback('Error on callback'); }, "DreiConnect", "upload", []);
+          cordova.exec(callback, function(err) { callback('Error on callback'); }, "DreiConnect", "uploadDriveLog", []);
       };
 
 

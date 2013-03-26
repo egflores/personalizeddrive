@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My BMW</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta charset="utf-8">
+
+        <!-- Bootstrap -->
+        <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="static/css/bootstrap-responsive.css" rel="stylesheet">
+
+        <!-- Our Custom CSS -->
+        <link href="static/css/base.css" rel="stylesheet">
+
+        {% block head %}{% endblock %}
+   </head>
+    <body>
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <a class="brand" href="#">My BMW</a>
+
+                <ul class="nav nav-tabs">
+				{% if name == "one" %}
+				<li class="active">
+				{% else %}
+				<li>
+				{% endif %}
+                    <a href="/">Dashboard</a></li>
+
+                {# commenting this out for now since we don't have any other pages
+				{% if name == "two" %}
+				<li class="active">
+				{% else %}
+				<li>
+				{% endif %}
+                    <a href="sample">Stupidity</a></li>
+
+				{% if name == "three" %}
+				<li class="active">
+				{% else %}
+				<li>
+				{% endif %}
+                    <a href="#">Three</a></li>
+
+				{% if name == "four" %}
+				<li class="active">
+				{% else %}
+				<li>
+				{% endif %}
+                    <a href="#">Four</a></li>
+#}
+
+			 </ul>
+
+                <ul class="nav pull-right">
+                    <li class="divider-vertical"></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          Mein BMW
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#car-profile-modal" data-toggle="modal">My Main Car</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="disabled"><a href="#"><b>Switch Cars</b></a></li>
+                            <li><a href="#">My 2nd Car</a></li>
+                            <li><a href="#">My 3rd Car</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+             <ul class="nav pull-right">
+				<li>
+                    <a href="#feedback-modal" data-toggle="modal">Leave us Feedback</a></li>
+            </ul>
+
+
+            </div>
+        </div>
+
+        <div class="container">
+            {% block container %} {% endblock %}
+        </div>
+
+        <div id="car-profile-modal" class="modal hide fade">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h3>&nbsp;</h3>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <img src="static/img/{{car.picture}}" />
+                </div>
+                <div class="modal-myfooter">
+                    <div>
+                        <h4>{{ car.name }}</h4>
+                        {{ car.year }} &middot; {{ car.model }} &middot; BMW of Mountain View
+                    </div> 
+                </div>
+            </div>
+        </div>     
+
+        <div id="feedback-modal" class="modal hide fade">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Leave Us Feedback!</h3>
+            </div>
+            <div class="modal-body">
+            <iframe src="https://docs.google.com/forms/d/13gsoYXILdzu8HBoMp5Fpp8xLYohFOUwJ-WnZ9tLa0hc/viewform?embedded=true" width="530" height="430" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+            </div>
+        </div>
+ 
+        <script src="static/js/jquery-1.9.1.js"></script>
+        <script src="static/js/bootstrap.min.js"></script>
+
+        {% block script_includes %} {% endblock %}
+    </body>
+</html>
