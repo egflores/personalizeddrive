@@ -20,10 +20,16 @@ class Car(db.Model):
 
 class Commute(db.Model):
     car = ForeignKeyField(Car, related_name="commutes", index=True)
-    trip_mpg = DoubleField()
-    trip_mileage = DoubleField()
-    duration = IntegerField()
-
+    timestamp = DateTimeField()
+    duration = IntegerField() # in minutes
+    ave_speed = DoubleField() # in mph
+    ave_mpg = DoubleField() # average mpg
+    tank_used = DoubleField() # number of gallons used
+    start_latitude = DoubleField(null=True) # Latitude at beginning of commute
+    start_longitude = DoubleField(null=True) # Longitude at beginning of commute
+    end_latitude = DoubleField(null=True) # Latitude at end commute 
+    end_longitude = DoubleField(null=True) # Longitude at end of commute
+    
 class CBSMessage(db.Model):
     car = ForeignKeyField(Car, related_name="cbs_messages", index=True)
     type = CharField()

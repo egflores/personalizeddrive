@@ -3,92 +3,44 @@
         <svg style="height: 400px; min-width: 100px; min-height: 100px"></svg>
     </div>
     <h3>Your Past Commutes</h3>
-    <div class="accordion" id="accordion2">
+    <div class="accordion" id="commute-tab-accordion">
+        {% set commute_count = 0 %}
+        {% for commute in commutes %}
+        {% set commute_tab_id = "commute-listing-%d" % commute_count %}
         <div class="accordion-group">
             <div class="accordion-heading">
                 <div class="accordion-toggle">
-                    <a href="#collapseOne" data-toggle="collapse" data-parent-"#accordion2"> Commute on 3/12/13</a>
+                    <a href="#{{ commute_tab_id }}" data-toggle="collapse" data-parent-"#commute-tab-accordion"> 
+                        Commute on {{ commute.timestamp.strftime('%B %d, %Y') }}
+                    </a>
                     <a style="float:right">Export Commute Log</a>
                 </div>
-             
-                <!--
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                    Commute on 3/12/13
-                </a>
-                -->
             </div>
-            <div id="collapseOne" class="accordion-body collapse in">
+            <div id="{{ commute_tab_id }}" class="accordion-body collapse {{ 'in' if commute == commutes[0] else '' }}">
                 <div class="accordion-inner">
                     <div class="commute-box-field">
-                       <div class="commute-box-number">45</div>
+                       <div class="commute-box-number">{{ commute.duration }}</div>
                         <div class="commute-box-label" class="commute-box-label">minutes</div>
                     </div>
                     <div class="commute-box-field">
-                       <div class="commute-box-number">53</div>
+                       <div class="commute-box-number">{{ commute.ave_speed }}</div>
                         <div class="commute-box-label" class="commute-box-label">mph</div>
                     </div>
                     <div class="commute-box-field">
-                       <div class="commute-box-number">33</div>
+                       <div class="commute-box-number">{{ commute.ave_mpg }}</div>
                         <div class="commute-box-label" class="commute-box-label">mpg</div>
                     </div>
                     <div class="commute-box-field">
-                       <div class="commute-box-number">2</div>
-                        <div class="commute-box-label" class="commute-box-label">gallons</div>
+                       <div class="commute-box-number">{{ commute.tank_used }}</div>
+                        <div class="commute-box-label" class="commute-box-label">gallons used</div>
                     </div>
                     <div style="float: right; padding-bottom: 7px;">
-                    <!--
-                        <div style="min-width: 300px; min-height: 150px; background-color: gray">&nbsp;</div>
-                        -->
-                        <iframe width="300" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=Bayside+Village+South+Beach+SFO,+Bayside+Village+South+Beach+SFO,+3+Bayside+Village+Pl,+San+Francisco,+CA+94107&amp;daddr=549+lasuen+mall,+stanford,+CA&amp;hl=en&amp;geocode=FTGNQAIdJnu0-CmXFFBXd4CFgDHmigY1_083JQ%3BFb0HOwId79m3-CnDtp9V0bqPgDET2Kq91Y6oVA&amp;sll=37.60444,-122.279205&amp;sspn=0.669101,1.454315&amp;t=m&amp;mra=pd&amp;ie=UTF8&amp;ll=37.640335,-122.283325&amp;spn=0.434981,0.552063&amp;z=9&amp;output=embed"></iframe> 
+                        <img width="300" height="150" src="static/img/google_map.png" />
                     </div>
                 </div>
             </div>
         </div>
-      <div class="accordion-group"> <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                    Commute on 3/11/13
-                </a>
-            </div>
-            <div id="collapseTwo" class="accordion-body collapse">
-                <div class="accordion-inner">
-                    <div style="float: left">
-                        <h4 style="margin-top: 0px;">Commute Summary</h4>
-                        <strong>Start:</strong> 1 Bayside Village Place, San Francisco, CA<br />
-                        <strong>End: </strong>Stanford University<br />
-                        <strong>Time: </strong>45 minutes<br />
-                        <strong>Average Speed: </strong>67 mph<br />
-                        <strong>Average MPG: </strong>25 mpg</br />
-                    </div>
-                    <div style="float: right; padding-bottom: 7px;">
-                        <iframe width="300" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=Bayside+Village+South+Beach+SFO,+Bayside+Village+South+Beach+SFO,+3+Bayside+Village+Pl,+San+Francisco,+CA+94107&amp;daddr=549+lasuen+mall,+stanford,+CA&amp;hl=en&amp;geocode=FTGNQAIdJnu0-CmXFFBXd4CFgDHmigY1_083JQ%3BFb0HOwId79m3-CnDtp9V0bqPgDET2Kq91Y6oVA&amp;sll=37.60444,-122.279205&amp;sspn=0.669101,1.454315&amp;t=m&amp;mra=pd&amp;ie=UTF8&amp;ll=37.640335,-122.283325&amp;spn=0.434981,0.552063&amp;z=9&amp;output=embed"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                    Commute on 3/10/13
-                </a>
-            </div>
-            <div id="collapseThree" class="accordion-body collapse">
-                <div class="accordion-inner">
-                    <div style="float: left">
-                        <h4 style="margin-top: 0px;">Commute Summary</h4>
-                        <strong>Start:</strong> 1 Bayside Village Place, San Francisco, CA<br />
-                        <strong>End: </strong>Stanford University<br />
-                        <strong>Time: </strong>45 minutes<br />
-                        <strong>Average Speed: </strong>67 mph<br />
-                        <strong>Average MPG: </strong>25 mpg</br />
-                    </div>
-                    <div style="float: right; padding-bottom: 7px;">
-                        <iframe width="300" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=Bayside+Village+South+Beach+SFO,+Bayside+Village+South+Beach+SFO,+3+Bayside+Village+Pl,+San+Francisco,+CA+94107&amp;daddr=549+lasuen+mall,+stanford,+CA&amp;hl=en&amp;geocode=FTGNQAIdJnu0-CmXFFBXd4CFgDHmigY1_083JQ%3BFb0HOwId79m3-CnDtp9V0bqPgDET2Kq91Y6oVA&amp;sll=37.60444,-122.279205&amp;sspn=0.669101,1.454315&amp;t=m&amp;mra=pd&amp;ie=UTF8&amp;ll=37.640335,-122.283325&amp;spn=0.434981,0.552063&amp;z=9&amp;output=embed"></iframe>
-                    </div>
-
-
-        </div>
+        {% set commute_count = commute_count + 1 %}
+        {% endfor %}
+    </div>
 </div>
-</div>
-</div>
-</div>
-
