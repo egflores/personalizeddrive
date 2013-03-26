@@ -24,6 +24,34 @@
 }
 
 .commute-box-field {
+    text-align: center;
+}
+
+.commute-box-field:nth-last-of-type(2) {
+    padding-bottom: 20px;
+}
+
+.commute-box-number {
+    font-size: 95px;
+    font-weight: bold;
+    color: rgb(49, 130, 189);
+    margin-top: 45px;
+}
+
+.commute-box-label {
+    font-size: 25px;;
+    color: rgb(109, 109, 109);
+    margin-top: 45px;
+}
+
+
+.accordion-heading {
+    background-color: rgba(200, 200, 200, 0.14);
+}
+
+/*
+
+.commute-box-field {
     float: left; 
     margin-left: 20px;
     margin-right: 20px;
@@ -44,6 +72,4 @@
     color: rgb(109, 109, 109);
 }
 
-.accordion-heading {
-    background-color: rgba(200, 200, 200, 0.14);
-}
+*/
