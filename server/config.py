@@ -10,3 +10,13 @@ class Configuration(object):
         }
     DEBUG = True 
     SECRET_KEY = 'StephenTrusheim'
+
+class LocalConfiguration(object):
+    DATABASE = {
+        'engine': 'peewee.MySQLDatabase',
+        'name': 'pd_test',
+        'user': 'root',
+        'passwd': 'root',
+        }
+    DEBUG = True 
+    SECRET_KEY = 'StephenTrusheim'
