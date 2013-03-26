@@ -18,6 +18,8 @@ $(document).ready(function () {
 			if(isTracking) {
 				DreiApp.Callbacks.drei_stop(function() {	
 					DreiApp.app.set("isTrackingCommute", !isTracking);
+					console.log("finished logging");
+					$("#nextCommute").removeClass('hidden');
 				}, function() {
 					console.log("Something went wrong trying to stop the log");
 				});
@@ -159,7 +161,6 @@ $(document).ready(function () {
 			window.location.hash = "home";
 		},
 		render: function () {
-			console.log(this.template());
 			this.$el.html(this.template());
 			$("#container").html(this.$el);
 			var that = this;

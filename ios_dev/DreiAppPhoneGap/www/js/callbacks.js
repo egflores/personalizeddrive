@@ -13,8 +13,8 @@ $(document).ready(function () {
     };
 
     drei_callback_dataEntry = function(carData) {
-        DreiApp.app.lastCarData = carData;
-        cb.proxy.trigger('dataEntry', carData);
+        DreiApp.app.lastCarData = JSON.parse(carData);
+        cb.proxy.trigger('dataEntry', DreiApp.app.lastCarData);
     };
 
     drei_callback_connection = function(message) {

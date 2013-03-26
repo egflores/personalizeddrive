@@ -27,6 +27,6 @@ $(document).ready(function () {
     });
 
     var myRouter = new threeDRouter({"wrapElement": ".my-container",});
-    window.location.hash = "home";
+
     Backbone.history.start();
 });
