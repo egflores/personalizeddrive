@@ -58,7 +58,8 @@
 }
 
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback {
-    NSString *newString = [NSString stringWithFormat:@"drei_callback_%@(\"%@\");",callback,message];
+    NSString *newString = [NSString stringWithFormat:@"drei_callback_%@('%@');",callback,message];
+    //NSLog(@"%@",newString);
     [self writeJavascript:newString];
 }
 

@@ -25,7 +25,7 @@ $(document).ready(function () {
         },
 
         comparator: function(timeLapse) {
-         	return timeLapse.get('order');
+         	return -timeLapse.get('order');
         }
 
     });
@@ -34,6 +34,14 @@ $(document).ready(function () {
 
 	        initialize: function (message) {
 	            this.logs = new DreiApp.Models.Logs();
+	            this.lastCarData = {
+					fuel_level: 10,
+					fuel_range: 3,
+					fuel_reserve: 8,
+					headlights: "on",
+					odometer: 3456,
+					speed: 100
+				};
 	        },
 
 	        defaults: {
