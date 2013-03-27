@@ -3,7 +3,6 @@ from flask_peewee.db import Database
 from werkzeug.contrib.fixers import ProxyFix
 
 app = Flask(__name__) 
-# app.config.from_object('config.Configuration') 
 app.config.from_object('config.LocalConfiguration') 
 try:
     # tries to load config from an env variable

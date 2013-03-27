@@ -1,4 +1,16 @@
-<h3>Your Commute History</h3>
+    <h3 align="center">Commute Selector Graph</h3>
+    <div class="row">
+        <div class="span1" align="right">
+            <h4 style="float:right">MPG</h4>
+        </div>
+        <div class="span11">
+            <div id="chart3">
+                <svg style="height: 400px; min-width: 100px; min-height: 100px"></svg>
+            </div>
+        </div>
+    </div>
+    <h4 align="right" style="margin-top: 0px">Average MPH</h4>
+    <h3>Your Past Commutes</h3>
 <div class="accordion" id="commute-tab-accordion">
     {% set commute_count = 0 %}
     {% for commute in commutes %}
