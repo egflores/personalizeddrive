@@ -31,6 +31,7 @@
 /* Data endpoints for applications */
 - (void)updateCarConnectionStatus:(BOOL)carConnected;
 - (void)updateCarDataService:(IDCdsService *)newDataService;
+- (void)setBMWUIEndpoint:(id)pdEndpointClass;
 
 /* Car data */
 - (BOOL)hasDataService;

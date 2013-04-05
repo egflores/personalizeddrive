@@ -34,6 +34,8 @@
                     statusLabel,
                     toggleButton,
                     nil];
+    
+    [[DreiCarCenter instance] setBMWUIEndpoint:self];
 }
 
 static NSString *status = nil;
@@ -79,6 +81,18 @@ static NSString *status = nil;
     } else if ([status compare:@"noLog"] == 0) {
         [[self.widgets lastObject] setText:@"Start Drive Log"];
         [[self.widgets objectAtIndex:0] setText:@"Drive log saved."];
+    }
+}
+
+- (void)externalLogUpdate:(NSString *) status {
+    if ([status compare:@"logOn"] == 0) {
+        [self setButtonState:@"logging"];
+    }
+    else if ([status compare:@"logOff"] == 0) {
+        [self setButtonState:@"stopped"];
+    }
+    else {
+        NSLog(@"Illegal external log update passed to PDView");
     }
 }
 
