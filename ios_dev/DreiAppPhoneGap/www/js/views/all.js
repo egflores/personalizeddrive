@@ -3,7 +3,7 @@ $().ns('DreiApp.Views');
 
 $(document).ready(function () {
 
-
+	var firstTime = true;
 
 	DreiApp.Views.Home = Backbone.View.extend({
 		template: _.template($('#home_template').html()),
@@ -19,7 +19,6 @@ $(document).ready(function () {
 				DreiApp.Callbacks.drei_stop(function() {	
 					DreiApp.app.set("isTrackingCommute", !isTracking);
 					console.log("finished logging");
-					$("#nextCommute").removeClass('hidden');
 				}, function() {
 					console.log("Something went wrong trying to stop the log");
 				});
@@ -51,11 +50,14 @@ $(document).ready(function () {
         	}
 		},
 
-		changeInTracking: function() {
+		changeInTracking: function(bleh, pageRender) {
 			if(!DreiApp.app.get("isTrackingCommute")) {
 	          $("#linkTracking").addClass('btn-primary');
 	          $("#linkTracking").removeClass('btn-warning');
 	          $("#linkTracking").html("Start Tracking Commute");
+	          if(!pageRender) {
+	          	$("#nextCommute").removeClass('hidden');
+	          }
 	        } else {
 	          $("#linkTracking").removeClass('btn-primary');
 	          $("#linkTracking").addClass('btn-warning');
@@ -65,11 +67,11 @@ $(document).ready(function () {
 		initialize: function() {
 			this.uploading = false;
 			this.setElement($("#container"));
-			this.listenTo(DreiApp.app, 'change', this.changeInTracking);
+			this.listenTo(DreiApp.app, 'change:isTrackingCommute', this.changeInTracking);
 		},
 		render: function () {
 			this.$el.html(this.template());
-			this.changeInTracking();
+			this.changeInTracking(false, true);
 		},
 		destroy: function() {
 		}
