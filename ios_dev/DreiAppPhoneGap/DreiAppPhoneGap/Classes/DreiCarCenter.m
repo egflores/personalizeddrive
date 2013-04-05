@@ -16,6 +16,7 @@
 # pragma mark Singleton constructor
 
 static DreiCarCenter *gInstance = NULL;
+id bmwUIEndpoint;
 
 + (DreiCarCenter *)instance {
     @synchronized(self)
@@ -87,10 +88,15 @@ static DreiCarCenter *gInstance = NULL;
 -(void)updateCarLogging:(BOOL)logging {
     if (logging) {
         [self sendMessage:@"logOn" toCallback:@"carlogging"];
+        [bmwUIEndpoint externalLogUpdate:@"logOn"];
     } else {
         [self sendMessage:@"logOff" toCallback:@"carlogging"];
-
+        [bmwUIEndpoint externalLogUpdate:@"logOff"];
     }
+}
+
+-(void)setBMWUIEndpoint:(id)pdEndpointClass {
+    bmwUIEndpoint = pdEndpointClass;
 }
 
 /* Car data log */
