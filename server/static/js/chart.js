@@ -175,6 +175,16 @@ function makegauge(data, id, name, side) {
 				.style('text-shadow', "0px 1px 0px rgba(0, 0, 0, 0.5)");
 		}
 
+			svg.append('text')
+				.text(data[0].values[0].label)
+				.attr('x', 140 - data[0].values[0].label.length*12/2)
+				.attr('y', 185)
+				.attr('fill', 'rgb(200,200,200)')
+				.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
+				.style("font-weight", "bold")
+				.style('font-size', "20px")
+				.style('text-shadow', "0px 1px 0px rgba(0, 0, 0, 0.5)");
+
 		nv.utils.windowResize(donut.update);
 
 		return donut;
