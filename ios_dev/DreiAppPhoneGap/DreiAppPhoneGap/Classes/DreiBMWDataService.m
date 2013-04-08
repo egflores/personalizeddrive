@@ -60,9 +60,9 @@
                        completionBlock:^(NSError *error) { [self completionBlock:error]; }
      ];
     
-    [self._cdsService bindProperty:CDSSensorsFuel
+    [self._cdsService bindProperty:CDSNavigationGPSPosition
                             target:self
-                          selector:@selector(handleFuelCallback:)
+                          selector:@selector(handlePositionCallback:)
                    completionBlock:^(NSError *error) { [self completionBlock:error]; }
      ];
 }
@@ -110,6 +110,10 @@
 
 - (void)handleEngineCallback: (NSDictionary *)data {
     [self._currentValues setValue:[data valueForKey:@"status"] forKey:@"engine_status"];
+}
+
+- (void)handlePositionCallback: (NSDictionary *)data {
+    // TODO: WSG84 stuff
 }
 
 // TODO: I never get this callback, so I'm not sure that this function will actually work.
