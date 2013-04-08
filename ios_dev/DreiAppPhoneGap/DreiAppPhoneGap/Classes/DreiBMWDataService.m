@@ -59,6 +59,12 @@
                               selector:@selector(handleFuelCallback:)
                        completionBlock:^(NSError *error) { [self completionBlock:error]; }
      ];
+    
+    [self._cdsService bindProperty:CDSSensorsFuel
+                            target:self
+                          selector:@selector(handleFuelCallback:)
+                   completionBlock:^(NSError *error) { [self completionBlock:error]; }
+     ];
 }
 
 - (void) unbindCDSCallbacks {

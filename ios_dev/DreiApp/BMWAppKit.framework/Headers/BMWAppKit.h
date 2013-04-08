@@ -16,6 +16,7 @@ extern "C" {
 #endif
 
 #import "CDSPropertyDefines.h"
+#import "CDSPropertyDefines_Internal.h"
 #import "IDApplication.h"
 #import "IDAudioService.h"
 #import "IDButton.h"
