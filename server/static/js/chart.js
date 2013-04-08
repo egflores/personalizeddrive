@@ -225,7 +225,7 @@ for (var i=arrlendf-2; i >= 0 ; --i) {
 
 makechart(dashboard_data.car_data.data, "mileage-chart", true);
 makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut", "Fuel Level");
-makegauge(makegaugedata(507, 1000, "Miles"), "donut2", "Oil Life");
+makegauge(makegaugedata(900, 1000, "Miles"), "donut2", "Oil Life");
 makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut4 svg g", "Fuel Level");
 makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut5 svg g", "Fuel Range");
 makegauge(makegaugedata(13,54, "Columbs"), "donut3", "Battery");
