@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block head %}
-    <link href="static/css/nv.d3.css" rel="stylesheet" type="text/css" />
-    {# <!-- //car_data: {{ car_data|tojson|safe }} -->#}
+    <link href="{{ url_for('static', filename='css/nv.d3.css') }}" rel="stylesheet" type="text/css" media="screen">
+ 
     <script type="text/javascript">
         var dashboard_data = {
             car_data:  {{ car_data|tojson|safe }},
@@ -63,9 +63,9 @@
 {% endblock %}
 
 {% block script_includes %}
-    <script src="static/js/d3.v3.js" type="text/javascript"></script>
-    <script src="static/js/nv.d3.js" type="text/javascript"></script>
-    <script src="static/js/colorbrewer.js" type="text/javascript"></script>
-    <script src="static/js/chart.js" type="text/javascript"></script>
-    <script src="static/js/dashboard.js" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/d3.v3.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/nv.d3.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/colorbrewer.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 {% endblock %}
