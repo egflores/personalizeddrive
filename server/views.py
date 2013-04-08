@@ -13,6 +13,9 @@ def post_rawdata():
          
     data = request.json['data']
     num_successful = 0
+    vehicle = Car.get(id=data[0]['car_id'])
+    ts = datetime.fromtimestamp(data[0]['timestamp'])
+    commute_id = Commute.create(car=vehicle, timestamp = ts, duration = 0, ave_speed = 0, ave_mpg = 0, tank_used=0.0)
     for rawdata in data:
         try:
             c = Car.get(id=rawdata['car_id'])
@@ -23,6 +26,7 @@ def post_rawdata():
             except RawData.DoesNotExist:
                 r = RawData()
                 r.car = c
+                r.commute = commute_id
                 r.update_time = timestamp
             r.tank_level = rawdata['fuel_level']
             r.fuel_range = rawdata['fuel_range'] 
@@ -30,10 +34,20 @@ def post_rawdata():
             r.odometer = rawdata['odometer']
             r.headlights = rawdata['headlights']
             r.speed = rawdata['speed']
+            r.latitude = rawdata['gps_lat']
+            r.longitude = rawdata['gps_long']
             r.save()
             num_successful += 1
         except:
             pass
+    commute = rawdata.select().where(RawData.commute=commute_id).order_by(RawData.update_time.desc())
+    
+    #update commute
+    commute_id.duration
+    cummute_id.ave_speed
+    cummute_id.ave_mpg
+    cummute_id.tank_used
+    commute_id.save()
     return jsonify({'success': num_successful})        
 
 def get_default_car():
