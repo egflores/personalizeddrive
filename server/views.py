@@ -41,12 +41,16 @@ def post_rawdata():
         except:
             pass
     commute = rawdata.select().where(RawData.commute=commute_id).order_by(RawData.update_time.desc())
-    
-    #update commute
-    commute_id.duration
-    cummute_id.ave_speed
-    cummute_id.ave_mpg
-    cummute_id.tank_used
+    count = len(commute)
+    duration = commute[count - 1].update_time - commute[0].update_time
+    duration = duration.total_seconds() / 60
+    commute_id.duration = duration
+    speed = 0.0
+    for data in commute:
+        speed += data.speed
+    commute_id.ave_speed = speed / count
+    commute_id.tank_used = commute[0].fuel_reserve - commute[count - 1].fuel_reserve
+    commute_id.ave_mpg = (commute[count - 1].odometer - commute[0].odometer) / commute_id.tank_used
     commute_id.save()
     return jsonify({'success': num_successful})        
 
