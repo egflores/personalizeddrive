@@ -113,20 +113,23 @@ DreiDataService *d;
 }
 
 - (BOOL) driveLog_uploadDataRaw {
+    [DreiCarCenter debug:@"Data upload started" from:@"CarCenter" jsonMessage:false];
     DreiUploader *uploader = [[DreiUploader alloc] init];
     return [uploader formatAndPost:[[self getDDS] getData]
                              toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/rawcardata/update"]
                              error:nil
      ]; //TODO: Use manifest
-}
+    [DreiCarCenter debug:@"Data uploaded" from:@"CarCenter" jsonMessage:false];
 
+}
+/*
 - (BOOL) driveLog_uploadCommuteLog {
     DreiUploader *uploader = [[DreiUploader alloc] init];
     return [uploader formatAndPost:[[self getDDS] getData]
                              toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/commutelog/update"]
                              error:nil
      ]; //TODO: Use manifest
-}
+}*/
 
 - (BOOL) driveLog_clearData {
     [[self getDDS] clearData];
@@ -141,12 +144,16 @@ DreiDataService *d;
     
     [[self getDDS] startCollection];
     [self updateCarLogging:true];
+    [DreiCarCenter debug:@"Car logging started" from:@"CarCenter" jsonMessage:false];
+
     return true;
 }
 
 - (BOOL) driveLog_stopCollection {
     [[self getDDS] stopCollection];
     [self updateCarLogging:false];
+    [DreiCarCenter debug:@"Car logging stopped" from:@"CarCenter" jsonMessage:false];
+
     return true;
 }
 
