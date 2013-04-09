@@ -40,6 +40,14 @@ $(document).ready(function () {
 		        $("#linkUpload").html("Uploading....");
 		        //window.drei_subscribe(function(echoValue) {  });
 		        var that = this;
+                
+                // ROWAN: TODO HERE - FIX THIS CODE TO ACTUALLY WORK
+                DreiApp.Callbacks.drei_upload(function() {
+                    // wat
+                    console.log("finished upload");
+                }, function() {
+                    console.log("error upload");
+                });
 		        setTimeout(function() {
 		            that.uploading = false;
 		            $("#linkUpload").removeClass('btn-success');

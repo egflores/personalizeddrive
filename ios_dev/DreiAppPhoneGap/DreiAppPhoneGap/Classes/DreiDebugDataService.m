@@ -59,6 +59,13 @@ NSMutableArray * timers;
                                                                  repeats:true] autorelease];
     [timers addObject:fuel_timer];
     
+    NSTimer * pos_timer = [[NSTimer scheduledTimerWithTimeInterval:10.0
+                                                             target:self
+                                                           selector:@selector(handlePositionCallback)
+                                                           userInfo:nil
+                                                            repeats:true] autorelease];
+    [timers addObject:pos_timer];
+    
     // call all the timers now
     for (NSTimer * timer in timers) {
         [timer fire];
@@ -92,6 +99,18 @@ NSMutableArray * timers;
     int lowerBound = 0; int upperBound = 3;
     NSNumber *rand = [NSNumber numberWithInt:lowerBound + arc4random() % (upperBound - lowerBound)];
     [self._currentValues setValue:rand forKey:@"engine_status"];
+}
+
+// latitude and longitude are close to stanford
+- (void)handlePositionCallback {
+    int lowerBound = 37; int upperBound = 40;
+    int lowerLongBound = -128; int upperLongBound = -122;
+    NSNumber *randLat = [NSNumber numberWithInt:lowerBound + arc4random() % (upperBound - lowerBound)];
+    NSNumber *randLong = [NSNumber numberWithInt:lowerBound + arc4random() % (upperLongBound - lowerLongBound)];
+    
+    [self._currentValues setValue:randLat forKey:@"latitude"];
+    [self._currentValues setValue:randLong forKey:@"longitude"];
+
 }
 
 // fuel range from 10-400 miles

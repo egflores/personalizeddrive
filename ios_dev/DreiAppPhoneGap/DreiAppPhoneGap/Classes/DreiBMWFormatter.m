@@ -81,6 +81,10 @@
     }
     
     formattedDataPoint[@"timestamp"] = originalDataPoint[@"time"];
+    
+    formattedDataPoint[@"gps_lat"] = originalDataPoint[@"latitude"];
+    formattedDataPoint[@"gps_long"] = originalDataPoint[@"longitude"];
+
     return formattedDataPoint;
 }
 
