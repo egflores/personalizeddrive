@@ -36,23 +36,30 @@ $(document).ready(function () {
 		upload: function(e) {
 	        if(!this.uploading) {
 		        this.uploading = true;
-		        $("#linkUpload").addClass('btn-success');
-		        $("#linkUpload").html("Uploading....");
-		        //window.drei_subscribe(function(echoValue) {  });
+		        $("#linkUpload").addClass('btn-info');
+		        $("#linkUpload").html("Trying to upload....");
 		        var that = this;
-                
-                // ROWAN: TODO HERE - FIX THIS CODE TO ACTUALLY WORK
+
                 DreiApp.Callbacks.drei_upload(function() {
-                    // wat
-                    console.log("finished upload");
+                    that.uploading = false;
+                    $("#linkUpload").removeClass('btn-info');
+                    $("#linkUpload").addClass('btn-success');
+                    $("#linkUpload").html("Upload Successful!!!");
+		           	setTimeout(function() {
+		           		$("#linkUpload").removeClass('btn-success');
+		            	$("#linkUpload").html("Upload Data to Server");
+		       		 }, 1000);
                 }, function() {
-                    console.log("error upload");
+                	$("#linkUpload").html("Upload Failed.");
+                	$("#linkUpload").removeClass('btn-info');
+                    $("#linkUpload").addClass('btn-danger');
+
+                	setTimeout(function() {
+		           		$("#linkUpload").removeClass('btn-danger');
+		            	$("#linkUpload").html("Upload Data to Server");
+		       		 }, 1000);
                 });
-		        setTimeout(function() {
-		            that.uploading = false;
-		            $("#linkUpload").removeClass('btn-success');
-		            $("#linkUpload").html("Upload Data to Server");
-		        }, 1000);
+
 	        	e.stopImmediatePropagation();
 	            e.preventDefault();
         	}
