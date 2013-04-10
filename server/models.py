@@ -54,6 +54,7 @@ class RawData(db.Model):
 
     # foreign key to car table
     car = ForeignKeyField(Car, related_name="raw_data", index=True)
+    commute = ForeignKeyField(Commute, related_name="raw_data", index=True)
     
     # update time (when this data was calculated)
     update_time = DateTimeField(index=True) 
@@ -84,3 +85,6 @@ class RawData(db.Model):
     # current status of the Engine
     engine_status = CharField(null=True, 
             choices=[(c, c) for c in ENGINE_STATUS_ENUM])
+    
+    latitude = DoubleField()
+    longitude = DoubleField()
