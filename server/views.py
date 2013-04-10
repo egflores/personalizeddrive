@@ -40,7 +40,7 @@ def post_rawdata():
             num_successful += 1
         except:
             pass
-    commute = rawdata.select().where(RawData.commute=commute_id).order_by(RawData.update_time.desc())
+    commute = rawdata.select().where(RawData.commute_id==commute_id).order_by(RawData.update_time.desc())
     count = len(commute)
     duration = commute[count - 1].update_time - commute[0].update_time
     duration = duration.total_seconds() / 60
