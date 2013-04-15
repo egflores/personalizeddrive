@@ -8,7 +8,9 @@
 
 #import "DreiCarCenter.h"
 #import "DreiDataService.h"
+#import "DreiBMWDataService.h"
 #import "DreiDebugDataService.h"
+
 #import "DreiUploader.h"
 
 @implementation DreiCarCenter
@@ -77,7 +79,11 @@ id bmwUIEndpoint;
 }
 
 -(void)updateCarDataService:(IDCdsService *)newDataService {
-    [[self getDDS] updateDataService:newDataService];
+    if ([self getDDS] != nil) {
+        [[self getDDS] stopCollection];
+        [[self getDDS] updateDataService:newDataService];
+    }
+    
     if (newDataService != nil) {
         [self sendMessage:@"hasDataService" toCallback:@"connection"];
     } else {
@@ -106,7 +112,7 @@ DreiDataService *d;
 /* Only in here because we needed a singleton to handle grabbing the logger */
 -(DreiDataService *)getDDS {
     if (d == nil) {
-        d = [[[DreiDebugDataService alloc] init] autorelease];
+        d = [[[DreiBMWDataService alloc] initWithCDS:[self getDataService]] retain];
     }
     
     return d;
