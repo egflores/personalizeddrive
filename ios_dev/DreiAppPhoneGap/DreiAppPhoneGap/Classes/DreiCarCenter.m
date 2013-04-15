@@ -12,6 +12,7 @@
 #import "DreiDebugDataService.h"
 
 #import "DreiUploader.h"
+#import <DreiDataService/DreiDataService.h>
 
 @implementation DreiCarCenter
 
@@ -35,6 +36,10 @@ id bmwUIEndpoint;
 
 -(id)init {
     self = [super init];
+    [TestClass Test];
+    [TestClass Test];
+    [TestClass Test];
+
     return self;
 }
 
