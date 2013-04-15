@@ -58,13 +58,18 @@
                                 target:self
                               selector:@selector(handleFuelCallback:)
                        completionBlock:^(NSError *error) { [self completionBlock:error]; }
-     ];
-    
+     ];/*
+    [self._cdsService bindProperty:CDSEngineRPMSpeed
+                            target:self
+                          selector:@selector(handleFuelCallback:)
+                   completionBlock:^(NSError *error) { [self completionBlock:error]; }
+     ];*/
+   /*
     [self._cdsService bindProperty:CDSNavigationGPSPosition
                             target:self
                           selector:@selector(handlePositionCallback:)
                    completionBlock:^(NSError *error) { [self completionBlock:error]; }
-     ];
+     ];*/
 }
 
 - (void) unbindCDSCallbacks {
