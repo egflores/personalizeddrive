@@ -7,10 +7,6 @@
 //
 
 #import "DreiCarCenter.h"
-#import "DreiDataService.h"
-#import "DreiBMWDataService.h"
-#import "DreiDebugDataService.h"
-
 #import "DreiUploader.h"
 #import <DreiDataService/DreiDataService.h>
 
@@ -36,10 +32,6 @@ id bmwUIEndpoint;
 
 -(id)init {
     self = [super init];
-    [TestClass Test];
-    [TestClass Test];
-    [TestClass Test];
-
     return self;
 }
 
@@ -112,12 +104,12 @@ id bmwUIEndpoint;
 
 /* Car data log */
 
-DreiDataService *d;
+DreiSynchDataProvider *d;
 
 /* Only in here because we needed a singleton to handle grabbing the logger */
--(DreiDataService *)getDDS {
+-(DreiSynchDataProvider *)getDDS {
     if (d == nil) {
-        d = [[[DreiBMWDataService alloc] initWithCDS:[self getDataService]] retain];
+        d = [[[DreiSynchDataProvider_BMW alloc] initWithCDS:[self getDataService]] retain];
     }
     
     return d;
