@@ -28,9 +28,16 @@ bool hasStarted = false;
                                    currentReachabilityStatus];
     
     if(currentStatus == ReachableViaWWAN) { // 3G
-        NSLog(@"3G");
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        BOOL uploadOn3g = [defaults boolForKey:@"uploadOn3g"];
+        if(uploadOn3g) {
+            NSLog(@"3G - should upload");
+        } else {
+            NSLog(@"3G - don't upload");
+        }
+        
     } else if(currentStatus == ReachableViaWiFi) { //wifi
-        NSLog(@"Wifi");
+        NSLog(@"wifi - should upload");
     } else if(currentStatus == NotReachable) { // no connection currently possible
         NSLog(@"No connection");
     }
