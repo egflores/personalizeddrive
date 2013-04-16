@@ -33,5 +33,9 @@ $(document).ready(function () {
 
 	$('#commuteTog').click(function () {
 		makescatter();
-		});
+	});
+
+	$('#export').click(function () {
+		alert('It\'s exported, ok? Just Believe me.');
+	});
 });
