@@ -4,6 +4,7 @@ from datetime import datetime
 from flask import render_template, request, abort, jsonify
 
 from app import app
+from auth import auth
 from models import *
 
 @app.route('/1.0/rawcardata/update', methods=['POST'])
@@ -40,8 +41,8 @@ def post_rawdata():
             num_successful += 1
         except:
             pass
-    commute = rawdata.select().where(RawData.commute==commute_id).order_by(RawData.update_time.desc())
-    count = len(commute)
+    commute = RawData.select().where(RawData.commute==commute_id).order_by(RawData.update_time.desc())
+    count = commute.count()
     duration = commute[count - 1].update_time - commute[0].update_time
     duration = duration.total_seconds() / 60
     commute_id.duration = duration
@@ -59,25 +60,8 @@ def get_default_car():
     c = Car.get(user=u)
     return c
 
-@app.route('/sample')
-def home():
-    values = []
-    for row in CarData.select():
-        values.append([int(row.time.strftime("%s")), row.mileage])
-
-    sample_data = {
-        'data': [
-            {
-                'key': 'Mileage',
-                'values': values
-            }
-        ]
-    }
-    car_data = json.dumps(sample_data)
-    return render_template('sample.html', car_data=car_data, 
-            car=get_default_car(), name="two")
-
 @app.route('/')
+@auth.login_required
 def dashboard():
     values = []
     car = get_default_car()

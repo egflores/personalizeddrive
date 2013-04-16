@@ -1,5 +1,6 @@
 from flask_peewee.auth import BaseUser
 from peewee import *
+from passlib.hash import bcrypt
 
 from app import db
 
@@ -9,6 +10,12 @@ class User(db.Model, BaseUser):
     email = CharField()
     admin = BooleanField()
     active = BooleanField(default=False)
+
+    def set_password(self, password):
+        self.password = bcrypt.encrypt(password)
+
+    def check_password(self, password):
+        return bcrypt.verify(password, self.password)
 
 class Car(db.Model):
     user = ForeignKeyField(User, related_name="cars", index=True)
