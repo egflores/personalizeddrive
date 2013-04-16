@@ -8,7 +8,7 @@
 
 
 #import "DreiSmartSend.h"
-
+#import "Reachability.h"
 
 @implementation DreiSmartSend
 
@@ -24,7 +24,16 @@ bool hasStarted = false;
 }
 
 -(void)tryUpload {
-
+    NetworkStatus currentStatus = [[Reachability reachabilityForInternetConnection]
+                                   currentReachabilityStatus];
+    
+    if(currentStatus == ReachableViaWWAN) { // 3G
+        NSLog(@"3G");
+    } else if(currentStatus == ReachableViaWiFi) { //wifi
+        NSLog(@"Wifi");
+    } else if(currentStatus == NotReachable) { // no connection currently possible
+        NSLog(@"No connection");
+    }
     
 }
 
