@@ -1,5 +1,4 @@
 import json
-import pickle
 
 from datetime import datetime
 from flask import render_template, request, abort, jsonify
@@ -14,9 +13,6 @@ def post_rawdata():
         abort(415) # invalid content type
          
     data = request.json['data']
-    file_name = str(datetime.utcnow())
-    f = open(file_name, 'w')
-    pickle.dump(data, f)
     num_successful = 0
     vehicle = Car.get(id=data[0]['car_id'])
     ts = datetime.fromtimestamp(data[0]['timestamp'])
