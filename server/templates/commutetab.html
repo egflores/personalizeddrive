@@ -1,7 +1,7 @@
     <h3 align="center">Commute Selector Graph</h3>
     <div class="row">
         <div class="span1" align="right">
-            <h4 style="float:right">MPG</h4>
+            <h4 id="ylabel" style="float:right">MPG</h4>
         </div>
         <div class="span11">
             <div id="chart3">
@@ -9,7 +9,29 @@
             </div>
         </div>
     </div>
-    <h4 align="right" style="margin-top: 0px">Average MPH</h4>
+    <h4 id="xlabel" align="right" style="margin-top: 0px">Average MPH</h4>
+    <div class="row" align="center">
+    <div class="span6" align="right">
+            <h4>X-Axis</h4>
+		  <select id="xaxis">
+	         <option>Cumulative MPG</option>
+	         <option>Average MPH</option>
+	         <option>Total Gas Use</option>
+	         <option>Total Time</option>
+	         <option>Date</option>
+	       </select>
+    </div>
+    <div class="span6" align="left">
+            <h4>Y-Axis</h4>
+		  <select id="yaxis">
+	         <option>Cumulative MPG</option>
+	         <option>Average MPH</option>
+	         <option>Total Gas Use</option>
+	         <option>Total Time</option>
+	         <option>Date</option>
+	       </select>
+     </div>
+     </div>
     <h3>Your Past Commutes</h3>
 <div class="accordion" id="commute-tab-accordion">
     {% set commute_count = 0 %}

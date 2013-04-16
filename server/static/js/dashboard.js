@@ -38,4 +38,14 @@ $(document).ready(function () {
 	$('#export').click(function () {
 		alert('It\'s exported, ok? Just Believe me.');
 	});
+
+	$('#yaxis').change(function () {
+		$('#ylabel').html($('#yaxis').val());
+		makescatter();
+	});
+
+	$('#xaxis').change(function () {
+		$('#xlabel').html($('#xaxis').val());
+		makescatter();
+	});
 });
