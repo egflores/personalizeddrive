@@ -41,6 +41,7 @@
 		30A0434914DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434614DC770100060A13 /* Localizable.strings */; };
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
+		5C23A37D171D320B004021F4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5C23A37C171D320B004021F4 /* Settings.bundle */; };
 		5C8444DA16ED760C00B008C5 /* BMWAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8444D216ED760C00B008C5 /* BMWAppKit.framework */; };
 		5C8444DB16ED760C00B008C5 /* BMWAppKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5C8444D316ED760C00B008C5 /* BMWAppKitResources.bundle */; };
 		5C8444DC16ED760C00B008C5 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8444D416ED760C00B008C5 /* ExternalAccessory.framework */; };
@@ -125,6 +126,7 @@
 		30E5649113A7FCAF007403D8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* DreiAppPhoneGap-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DreiAppPhoneGap-Prefix.pch"; sourceTree = "<group>"; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		5C23A37C171D320B004021F4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		5C8444D216ED760C00B008C5 /* BMWAppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BMWAppKit.framework; path = ../DreiApp/BMWAppKit.framework; sourceTree = SOURCE_ROOT; };
 		5C8444D316ED760C00B008C5 /* BMWAppKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BMWAppKitResources.bundle; sourceTree = "<group>"; };
 		5C8444D416ED760C00B008C5 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ExternalAccessory.framework; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5C23A37C171D320B004021F4 /* Settings.bundle */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
 				301BF56E109A69640062928A /* www */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
@@ -542,6 +545,7 @@
 				721D3EC016FBCC2000D98CA5 /* startButton.png in Resources */,
 				721D3EC116FBCC2000D98CA5 /* stopButton.png in Resources */,
 				721D3EC216FBCC2000D98CA5 /* uploadButton.png in Resources */,
+				5C23A37D171D320B004021F4 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
