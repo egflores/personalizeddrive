@@ -12,6 +12,7 @@
 #import "DreiDebugDataService.h"
 
 #import "DreiUploader.h"
+#import "DreiSmartSend.h"
 
 @implementation DreiCarCenter
 
@@ -19,6 +20,7 @@
 
 static DreiCarCenter *gInstance = NULL;
 id bmwUIEndpoint;
+DreiSmartSend * smartSend;
 
 + (DreiCarCenter *)instance {
     @synchronized(self)
@@ -35,6 +37,9 @@ id bmwUIEndpoint;
 
 -(id)init {
     self = [super init];
+    /* @trusheim you should probably check out where this should go */
+    smartSend = [[DreiSmartSend alloc] init];
+    [smartSend start];
     return self;
 }
 
