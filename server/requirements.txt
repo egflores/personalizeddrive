@@ -7,7 +7,9 @@ flask-peewee==0.6.3
 gunicorn==0.17.2
 iso8601==0.1.4
 mechanize==0.2.5
+passlib==1.6.1
 peewee==2.0.7
+py-bcrypt==0.3
 requests==1.1.0
 wsgiref==0.1.2
 wtf-peewee==0.2.0
