@@ -175,6 +175,16 @@ function makegauge(data, id, name, side) {
 				.style('text-shadow', "0px 1px 0px rgba(0, 0, 0, 0.5)");
 		}
 
+		svg.append('text')
+			.text(data[0].values[0].label)
+			.attr('x', 130 - data[0].values[0].label.length*7/2)
+			.attr('y', 187)
+			.attr('fill', 'rgb(200,200,200)')
+			.style("font-family", "\"Helvetica Neue\",Helvetica,Arial,sans-serif")
+			.style("font-weight", "bold")
+			.style('font-size', (24/Math.pow(data[0].values[0].label.length,.2))+"px")
+			.style('text-shadow', "0px 1px 0px rgba(0, 0, 0, 0.5)");
+
 		nv.utils.windowResize(donut.update);
 
 		return donut;
@@ -224,9 +234,9 @@ for (var i=arrlendf-2; i >= 0 ; --i) {
 }
 
 makechart(dashboard_data.car_data.data, "mileage-chart", true);
-makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut", "Fuel Level");
+makegauge(makegaugedata(dashboard_data.tank_level,100, "%"), "donut", "Fuel Level");
 makegauge(makegaugedata(900, 1000, "Miles"), "donut2", "Oil Life");
-makegauge(makegaugedata(dashboard_data.tank_level,100, "Percent"), "donut4 svg g", "Fuel Level");
+makegauge(makegaugedata(dashboard_data.tank_level,100, "%"), "donut4 svg g", "Fuel Level");
 makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut5 svg g", "Fuel Range");
-makegauge(makegaugedata(13,54, "Columbs"), "donut3", "Battery");
+makegauge(makegaugedata(13,54, "%"), "donut3", "Battery");
 makenumber(dashboard_data.fuel_range, 400, "text0", "Fuel Range");
