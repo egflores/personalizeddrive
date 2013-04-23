@@ -144,6 +144,14 @@ function makegauge(data, id, name, side) {
 	var colorz = getcolors(value, data[0].values[1].value + value);
 
 	nv.addGraph(function() {
+	   var svg = d3.select("#"+id+" svg");
+	   svg.remove();
+        svg = d3.select("#"+id).append("svg:svg")
+		.attr('viewBox','0 0 300 300')
+		.attr('preserveAspectRatio','xMinYMax')
+		.style('height', '300')
+		.style('width', '300');
+
 	   var donut = nv.models.pieChart()
 		  .x(function(d) { return d.label })
 		  .y(function(d) { return d.value })
@@ -152,7 +160,6 @@ function makegauge(data, id, name, side) {
 		  .donut(true)
 		  .color(colorz);
 
-		var svg = d3.select("#"+id+" svg");
 
 		svg
 		    .datum(data)
@@ -207,6 +214,12 @@ function makenumber(data, max, id, name) {
 		.range(["#CF002D","#E6CE67","#55CF75"]);
 
 	var svg = d3.select("#"+id+" svg");
+	svg.remove();
+	svg = d3.select("#"+id).append("svg:svg")
+		.attr('viewBox','0 0 300 300')
+		.attr('preserveAspectRatio','xMinYMax')
+		.style('height', '300')
+		.style('width', '300');
 
 	if (name != null) {
 		svg.append('text')
