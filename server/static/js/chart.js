@@ -1,4 +1,7 @@
 function makescatter(isdate) {
+ var svg = d3.select('#chart3 svg');
+ svg.remove();
+ d3.select('#chart3').append('svg:svg').style('height','400px');
  nv.addGraph(function() {
    var chart = nv.models.scatterChart()
                  .showDistX(true)
