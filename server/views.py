@@ -1,7 +1,7 @@
 import json
 
 from datetime import datetime
-from flask import render_template, request, abort, jsonify
+from flask import render_template, request, abort, jsonify, redirect, url_for
 
 from app import app
 from auth import auth
@@ -24,40 +24,63 @@ def post_rawdata():
             r = None
             try:
                 r = RawData.get(car=c, update_time=timestamp)
+                print(r)
             except RawData.DoesNotExist:
                 r = RawData()
                 r.car = c
-                r.commute = commute_id
                 r.update_time = timestamp
+            r.commute = commute_id
             r.tank_level = rawdata['fuel_level']
             r.fuel_range = rawdata['fuel_range'] 
-            r.fuel_reserve = rawdata['fuel_reserve']
+            #r.fuel_reserve = rawdata['fuel_reserve']
             r.odometer = rawdata['odometer']
             r.headlights = rawdata['headlights']
             r.speed = rawdata['speed']
-            r.latitude = rawdata['gps_lat']
-            r.longitude = rawdata['gps_long']
+            #r.latitude = rawdata['gps_lat']
+            #r.longitude = rawdata['gps_long']
             r.save()
             num_successful += 1
         except:
             pass
-    commute = RawData.select().where(RawData.commute==commute_id).order_by(RawData.update_time.desc())
+    commute = RawData.select().where(RawData.commute==commute_id).order_by(RawData.update_time.asc())
     count = commute.count()
+    print(count)
     duration = commute[count - 1].update_time - commute[0].update_time
+    print(duration)
     duration = duration.total_seconds() / 60
+    print(duration)
     commute_id.duration = duration
     speed = 0.0
     for data in commute:
         speed += data.speed
     commute_id.ave_speed = speed / count
-    commute_id.tank_used = commute[0].fuel_reserve - commute[count - 1].fuel_reserve
-    commute_id.ave_mpg = (commute[count - 1].odometer - commute[0].odometer) / commute_id.tank_used
+    #commute_id.tank_used = commute[0].fuel_reserve - commute[count - 1].fuel_reserve
+    #commute_id.ave_mpg = (commute[count - 1].odometer - commute[0].odometer) / commute_id.tank_used
     commute_id.save()
     return jsonify({'success': num_successful})        
 
+@app.route('/accounts/signup/', methods=['GET', 'POST'])
+def sign_up():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        pwd = request.form['password']
+        confirm_pwd = request.form['password']
+        if (pwd != confirm_pwd):
+            render_template('auth/signup.html')
+        else:
+            u = User(username=username, password='', email=email, 
+                    admin=False, active=True)
+            u.set_password(pwd)
+            u.save()
+            auth.login_user(u)
+            return redirect(url_for('dashboard'))
+    else:
+        return render_template('/auth/signup.html')
+
 def get_default_car():
-    u = User.get(username='Jay')
-    c = Car.get(user=u)
+    u = auth.get_logged_in_user()
+    c = Car.get(id=1)
     return c
 
 @app.route('/')
