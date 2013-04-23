@@ -48,6 +48,7 @@ bool hasStarted = false;
         NSLog(@"Should upload the data");
         //if upload success
         //Set the timer interval to now be 20 minutes
+        // @rowanc - does this code work? No actual uploading?
         [uploadTimer invalidate];
         uploadTimer = [NSTimer scheduledTimerWithTimeInterval:INTERVAL_AFTER_UPLOAD target:self selector:@selector(tryUpload) userInfo:nil repeats:YES];
         

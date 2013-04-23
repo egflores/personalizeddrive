@@ -7,11 +7,8 @@
 //
 
 #import "DreiCarCenter.h"
-#import "DreiDataService.h"
-#import "DreiBMWDataService.h"
-#import "DreiDebugDataService.h"
-
 #import "DreiUploader.h"
+#import <DreiDataService/DreiDataService.h>
 #import "DreiSmartSend.h"
 
 @implementation DreiCarCenter
@@ -86,7 +83,7 @@ DreiSmartSend * smartSend;
 -(void)updateCarDataService:(IDCdsService *)newDataService {
     if ([self getDDS] != nil) {
         [[self getDDS] stopCollection];
-        [[self getDDS] updateDataService:newDataService];
+        [[self getDDS] updateCDS:newDataService];
     }
     
     if (newDataService != nil) {
@@ -112,12 +109,12 @@ DreiSmartSend * smartSend;
 
 /* Car data log */
 
-DreiDataService *d;
+DreiSynchDataProvider *d;
 
 /* Only in here because we needed a singleton to handle grabbing the logger */
--(DreiDataService *)getDDS {
+-(DreiSynchDataProvider *)getDDS {
     if (d == nil) {
-        d = [[[DreiBMWDataService alloc] initWithCDS:[self getDataService]] retain];
+        d = [[[DreiSynchDataProvider_BMW alloc] initWithCDS:[self getDataService]] retain];
     }
     
     return d;
