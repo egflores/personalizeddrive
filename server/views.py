@@ -1,7 +1,7 @@
 import json
 
 from datetime import datetime
-from flask import render_template, request, abort, jsonify
+from flask import render_template, request, abort, jsonify, redirect, url_for
 
 from app import app
 from auth import auth
@@ -55,9 +55,28 @@ def post_rawdata():
     commute_id.save()
     return jsonify({'success': num_successful})        
 
+@app.route('/accounts/signup/', methods=['GET', 'POST'])
+def sign_up():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        pwd = request.form['password']
+        confirm_pwd = request.form['password']
+        if (pwd != confirm_pwd):
+            render_template('auth/signup.html')
+        else:
+            u = User(username=username, password='', email=email, 
+                    admin=False, active=True)
+            u.set_password(pwd)
+            u.save()
+            auth.login_user(u)
+            return redirect(url_for('dashboard'))
+    else:
+        return render_template('/auth/signup.html')
+
 def get_default_car():
-    u = User.get(username='Jay')
-    c = Car.get(user=u)
+    u = auth.get_logged_in_user()
+    c = Car.get(id=1)
     return c
 
 @app.route('/')
