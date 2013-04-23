@@ -18,38 +18,16 @@
             <div class="navbar-inner">
                 <a class="brand" href="#">My BMW</a>
 
+            {% if user %}
                 <ul class="nav nav-tabs">
-				{% if name == "one" %}
-				<li class="active">
-				{% else %}
-				<li>
-				{% endif %}
-                    <a href="/">Dashboard</a></li>
-
-                {# commenting this out for now since we don't have any other pages
-				{% if name == "two" %}
-				<li class="active">
-				{% else %}
-				<li>
-				{% endif %}
-                    <a href="sample">Stupidity</a></li>
-
-				{% if name == "three" %}
-				<li class="active">
-				{% else %}
-				<li>
-				{% endif %}
-                    <a href="#">Three</a></li>
-
-				{% if name == "four" %}
-				<li class="active">
-				{% else %}
-				<li>
-				{% endif %}
-                    <a href="#">Four</a></li>
-#}
-
-			 </ul>
+                    {% if name == "one" %}
+                    <li class="active">
+                    {% else %}
+                    <li>
+                    {% endif %}
+                        <a href="/">Dashboard</a>
+                    </li>
+			    </ul>
 
                 <ul class="nav pull-right">
                     <li class="divider-vertical"></li>
@@ -66,9 +44,18 @@
                             <li class="disabled"><a href="#"><b>Switch Cars</b></a></li>
                             <li><a href="#">My 2nd Car</a></li>
                             <li><a href="#">My 3rd Car</a></li>
+                            <li class="divider"></li>
+                            <li class="disabled"><a href="#"><b>Dash Theme</b></a></li>
+                            <li><a href="#" id="skin">Moria</a></li>
+                            <li><a href="#" id="skin1">Rohan</a></li>
+                            <li><a href="#" id="skin2">Helms Deep</a></li>
+                            <li><a href="#" id="skin3">Brandywine</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/accounts/logout">Logout</a></li> 
                         </ul>
                     </li>
                 </ul>
+            {% endif %}
 
              <ul class="nav pull-right">
 				<li>
@@ -83,6 +70,7 @@
             {% block container %} {% endblock %}
         </div>
 
+        {% if user %}
         <div id="car-profile-modal" class="modal hide fade">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
@@ -102,6 +90,7 @@
                 </div>
             </div>
         </div>     
+        {% endif %}
 
         <div id="feedback-modal" class="modal hide fade">
             <div class="modal-header">

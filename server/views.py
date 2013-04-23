@@ -1,9 +1,10 @@
 import json
 
 from datetime import datetime
-from flask import render_template, request, abort, jsonify
+from flask import render_template, request, abort, jsonify, redirect, url_for
 
 from app import app
+from auth import auth
 from models import *
 
 @app.route('/1.0/rawcardata/update', methods=['POST'])
@@ -40,8 +41,8 @@ def post_rawdata():
             num_successful += 1
         except:
             pass
-    commute = rawdata.select().where(RawData.commute==commute_id).order_by(RawData.update_time.desc())
-    count = len(commute)
+    commute = RawData.select().where(RawData.commute==commute_id).order_by(RawData.update_time.desc())
+    count = commute.count()
     duration = commute[count - 1].update_time - commute[0].update_time
     duration = duration.total_seconds() / 60
     commute_id.duration = duration
@@ -54,30 +55,32 @@ def post_rawdata():
     commute_id.save()
     return jsonify({'success': num_successful})        
 
+@app.route('/accounts/signup/', methods=['GET', 'POST'])
+def sign_up():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        pwd = request.form['password']
+        confirm_pwd = request.form['password']
+        if (pwd != confirm_pwd):
+            render_template('auth/signup.html')
+        else:
+            u = User(username=username, password='', email=email, 
+                    admin=False, active=True)
+            u.set_password(pwd)
+            u.save()
+            auth.login_user(u)
+            return redirect(url_for('dashboard'))
+    else:
+        return render_template('/auth/signup.html')
+
 def get_default_car():
-    u = User.get(username='Jay')
-    c = Car.get(user=u)
+    u = auth.get_logged_in_user()
+    c = Car.get(id=1)
     return c
 
-@app.route('/sample')
-def home():
-    values = []
-    for row in CarData.select():
-        values.append([int(row.time.strftime("%s")), row.mileage])
-
-    sample_data = {
-        'data': [
-            {
-                'key': 'Mileage',
-                'values': values
-            }
-        ]
-    }
-    car_data = json.dumps(sample_data)
-    return render_template('sample.html', car_data=car_data, 
-            car=get_default_car(), name="two")
-
 @app.route('/')
+@auth.login_required
 def dashboard():
     values = []
     car = get_default_car()
