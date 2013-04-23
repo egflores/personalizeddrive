@@ -78,7 +78,7 @@ id bmwUIEndpoint;
 -(void)updateCarDataService:(IDCdsService *)newDataService {
     if ([self getDDS] != nil) {
         [[self getDDS] stopCollection];
-        [[self getDDS] updateDataService:newDataService];
+        [[self getDDS] updateCDS:newDataService];
     }
     
     if (newDataService != nil) {
