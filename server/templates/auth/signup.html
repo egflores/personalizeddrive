@@ -1,0 +1,38 @@
+{% extends "pd_base.html" %}
+
+{% block container %}
+<h2>Sign Up</h2>
+<div class="row" style="padding-top: 30px">
+    <div class="span12">
+        <form method="post" action="">
+            <div class="clearfix">
+                <label>Username</label>
+                <div class-"input">
+                    <input class="span6" id="username" name="username" type="text" />
+                </div>
+            </div>
+            <div class="clearfix">
+                <label>Email</label>
+                <div class-"input">
+                    <input class="span6" id="email" name="email" type="text" />
+                </div>
+            </div>
+             <div class="clearfix">
+                <label>Password</label>
+                <div class-"input">
+                    <input class="span6" id="password" name="password" type="password" />
+                </div>
+            </div>
+             <div class="clearfix">
+                <label>Confirm Password</label>
+                <div class-"input">
+                    <input class="span6" id="confirm_password" name="confirm_password" type="password" />
+                </div>
+            </div>
+            <div class="actions">
+                <button class="btn btn-primary" type="submit">Sign Up</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
