@@ -8,8 +8,11 @@
 
 #import "DreiCarCenter.h"
 #import "DreiDataService.h"
+#import "DreiBMWDataService.h"
 #import "DreiDebugDataService.h"
+
 #import "DreiUploader.h"
+#import "DreiSmartSend.h"
 
 @implementation DreiCarCenter
 
@@ -17,6 +20,7 @@
 
 static DreiCarCenter *gInstance = NULL;
 id bmwUIEndpoint;
+DreiSmartSend * smartSend;
 
 + (DreiCarCenter *)instance {
     @synchronized(self)
@@ -33,6 +37,9 @@ id bmwUIEndpoint;
 
 -(id)init {
     self = [super init];
+    /* @trusheim you should probably check out where this should go */
+    smartSend = [[DreiSmartSend alloc] init];
+    [smartSend start];
     return self;
 }
 
@@ -77,7 +84,11 @@ id bmwUIEndpoint;
 }
 
 -(void)updateCarDataService:(IDCdsService *)newDataService {
-    [[self getDDS] updateDataService:newDataService];
+    if ([self getDDS] != nil) {
+        [[self getDDS] stopCollection];
+        [[self getDDS] updateDataService:newDataService];
+    }
+    
     if (newDataService != nil) {
         [self sendMessage:@"hasDataService" toCallback:@"connection"];
     } else {
@@ -106,27 +117,30 @@ DreiDataService *d;
 /* Only in here because we needed a singleton to handle grabbing the logger */
 -(DreiDataService *)getDDS {
     if (d == nil) {
-        d = [[[DreiDebugDataService alloc] init] autorelease];
+        d = [[[DreiBMWDataService alloc] initWithCDS:[self getDataService]] retain];
     }
     
     return d;
 }
 
 - (BOOL) driveLog_uploadDataRaw {
+    [DreiCarCenter debug:@"Data upload started" from:@"CarCenter" jsonMessage:false];
     DreiUploader *uploader = [[DreiUploader alloc] init];
     return [uploader formatAndPost:[[self getDDS] getData]
                              toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/rawcardata/update"]
                              error:nil
      ]; //TODO: Use manifest
-}
+    [DreiCarCenter debug:@"Data uploaded" from:@"CarCenter" jsonMessage:false];
 
+}
+/*
 - (BOOL) driveLog_uploadCommuteLog {
     DreiUploader *uploader = [[DreiUploader alloc] init];
     return [uploader formatAndPost:[[self getDDS] getData]
                              toURL:[NSURL URLWithString:@"http://bmw.stanford.edu/1.0/commutelog/update"]
                              error:nil
      ]; //TODO: Use manifest
-}
+}*/
 
 - (BOOL) driveLog_clearData {
     [[self getDDS] clearData];
@@ -141,12 +155,16 @@ DreiDataService *d;
     
     [[self getDDS] startCollection];
     [self updateCarLogging:true];
+    [DreiCarCenter debug:@"Car logging started" from:@"CarCenter" jsonMessage:false];
+
     return true;
 }
 
 - (BOOL) driveLog_stopCollection {
     [[self getDDS] stopCollection];
     [self updateCarLogging:false];
+    [DreiCarCenter debug:@"Car logging stopped" from:@"CarCenter" jsonMessage:false];
+
     return true;
 }
 

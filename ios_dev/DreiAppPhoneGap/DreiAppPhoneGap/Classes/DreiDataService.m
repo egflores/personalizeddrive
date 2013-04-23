@@ -31,7 +31,8 @@
  */
 -(NSArray *)getDataKeys {
     return [[NSArray alloc]
-            initWithObjects:@"headlights", @"speedActual", @"odometer",@"engine_status",@"fuel_range",@"fuel_level",@"fuel_reserve",nil
+            initWithObjects:@"headlights", @"speedActual", @"odometer",@"engine_status",@"fuel_range",@"fuel_level",@"fuel_reserve",
+            @"latitude", @"longitude",@"rpm",nil
             ];
 }
 
@@ -70,6 +71,7 @@
     [[DreiCarCenter instance] sendMessage:[DreiBMWFormatter formatDataEntryToString:newDict error:nil] toCallback:@"dataEntry"];
     // TODO: Replace with a delegate function to the CarCenter
     //NSLog(@"%@",newDict);
+    [DreiCarCenter debug:[NSString stringWithFormat:@"%@", [newDict valueForKey:@"speedActual"]] from:@"data" jsonMessage:false];
 }
 
 -(void)clearData {

@@ -41,6 +41,9 @@
 		30A0434914DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434614DC770100060A13 /* Localizable.strings */; };
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
+		5C23A37D171D320B004021F4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5C23A37C171D320B004021F4 /* Settings.bundle */; };
+		5C23A384171D3615004021F4 /* DreiSmartSend.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C23A383171D3615004021F4 /* DreiSmartSend.m */; };
+		5C23A389171D3D12004021F4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C23A386171D3D11004021F4 /* Reachability.m */; };
 		5C8444DA16ED760C00B008C5 /* BMWAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8444D216ED760C00B008C5 /* BMWAppKit.framework */; };
 		5C8444DB16ED760C00B008C5 /* BMWAppKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5C8444D316ED760C00B008C5 /* BMWAppKitResources.bundle */; };
 		5C8444DC16ED760C00B008C5 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8444D416ED760C00B008C5 /* ExternalAccessory.framework */; };
@@ -125,6 +128,11 @@
 		30E5649113A7FCAF007403D8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* DreiAppPhoneGap-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DreiAppPhoneGap-Prefix.pch"; sourceTree = "<group>"; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		5C23A37C171D320B004021F4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		5C23A37E171D35CE004021F4 /* DreiSmartSend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DreiSmartSend.h; sourceTree = "<group>"; };
+		5C23A383171D3615004021F4 /* DreiSmartSend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiSmartSend.m; sourceTree = "<group>"; };
+		5C23A385171D3D10004021F4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		5C23A386171D3D11004021F4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		5C8444D216ED760C00B008C5 /* BMWAppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BMWAppKit.framework; path = ../DreiApp/BMWAppKit.framework; sourceTree = SOURCE_ROOT; };
 		5C8444D316ED760C00B008C5 /* BMWAppKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BMWAppKitResources.bundle; sourceTree = "<group>"; };
 		5C8444D416ED760C00B008C5 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ExternalAccessory.framework; sourceTree = "<group>"; };
@@ -201,6 +209,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5C23A385171D3D10004021F4 /* Reachability.h */,
+				5C23A386171D3D11004021F4 /* Reachability.m */,
 				5C8444F516ED7B6F00B008C5 /* Drei */,
 				5C8444E216ED783900B008C5 /* PersonalizedDrive */,
 			);
@@ -235,6 +245,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5C23A37C171D320B004021F4 /* Settings.bundle */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
 				301BF56E109A69640062928A /* www */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
@@ -430,6 +441,8 @@
 				5C8444FE16ED7B7B00B008C5 /* DreiBMWFormatter.m */,
 				5C8444FF16ED7B7B00B008C5 /* DreiUploader.h */,
 				5C84450016ED7B7B00B008C5 /* DreiUploader.m */,
+				5C23A37E171D35CE004021F4 /* DreiSmartSend.h */,
+				5C23A383171D3615004021F4 /* DreiSmartSend.m */,
 			);
 			name = "Upload Helpers";
 			sourceTree = "<group>";
@@ -542,6 +555,7 @@
 				721D3EC016FBCC2000D98CA5 /* startButton.png in Resources */,
 				721D3EC116FBCC2000D98CA5 /* stopButton.png in Resources */,
 				721D3EC216FBCC2000D98CA5 /* uploadButton.png in Resources */,
+				5C23A37D171D320B004021F4 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +596,8 @@
 				5C84450716ED7B7B00B008C5 /* DreiUploader.m in Sources */,
 				72C2DDE516ED89F00013EEF5 /* DreiCarCenter.m in Sources */,
 				72C2DDE816ED8AF30013EEF5 /* DreiConnect.m in Sources */,
+				5C23A384171D3615004021F4 /* DreiSmartSend.m in Sources */,
+				5C23A389171D3D12004021F4 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,7 +650,8 @@
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = armv7;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -652,13 +669,15 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = DreiAppPhoneGap;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = armv7;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -674,6 +693,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = DreiAppPhoneGap;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};

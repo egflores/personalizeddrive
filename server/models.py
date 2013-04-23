@@ -1,5 +1,6 @@
 from flask_peewee.auth import BaseUser
 from peewee import *
+from passlib.hash import bcrypt
 
 from app import db
 
@@ -9,6 +10,12 @@ class User(db.Model, BaseUser):
     email = CharField()
     admin = BooleanField()
     active = BooleanField(default=False)
+
+    def set_password(self, password):
+        self.password = bcrypt.encrypt(password)
+
+    def check_password(self, password):
+        return bcrypt.verify(password, self.password)
 
 class Car(db.Model):
     user = ForeignKeyField(User, related_name="cars", index=True)
@@ -54,6 +61,7 @@ class RawData(db.Model):
 
     # foreign key to car table
     car = ForeignKeyField(Car, related_name="raw_data", index=True)
+    commute = ForeignKeyField(Commute, related_name="raw_data", index=True)
     
     # update time (when this data was calculated)
     update_time = DateTimeField(index=True) 
@@ -84,3 +92,6 @@ class RawData(db.Model):
     # current status of the Engine
     engine_status = CharField(null=True, 
             choices=[(c, c) for c in ENGINE_STATUS_ENUM])
+    
+    latitude = DoubleField()
+    longitude = DoubleField()
