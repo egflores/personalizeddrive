@@ -1,12 +1,18 @@
-function makescatter() {
+function makescatter(isdate) {
  nv.addGraph(function() {
    var chart = nv.models.scatterChart()
                  .showDistX(true)
                  .showDistY(true)
                  .color(d3.scale.category10().range());
  
-   chart.xAxis.tickFormat(d3.format('.02f'))
-   chart.yAxis.tickFormat(d3.format('.02f'))
+   if (isdate) {
+   	chart.xAxis.tickFormat(function(d) {
+	   // return d3.time.format("%Y-%m-%dT%H:%M:%S.%LZ")(d)
+	   return d3.time.format('%x')(new Date(d * 1000))
+	   });
+   } else {
+   	chart.xAxis.tickFormat(d3.format('.02f'))
+   }
  
    d3.select('#chart3 svg')
        .datum(randomData(1,15))
@@ -124,9 +130,9 @@ function makegaugedata(num, max, name) {
   ];
 }
 
+var color1 = [colorbrewer.Reds[3].reverse(), colorbrewer.Blues[3].reverse(), colorbrewer.Greens[3].reverse()];
+var colors = color1;
 function getcolors(value, max) {
-	var colors = [colorbrewer.Reds[3].reverse(), colorbrewer.Blues[3].reverse(), colorbrewer.Greens[3].reverse()];
-
 	return colors[Math.floor(value / (max / 3))];
 }
 

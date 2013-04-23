@@ -46,6 +46,48 @@ $(document).ready(function () {
 
 	$('#xaxis').change(function () {
 		$('#xlabel').html($('#xaxis').val());
-		makescatter();
+		makescatter(($('#xaxis').val())==='Date');
+	});
+
+	$('#skin').click(function () {
+		colors = [colorbrewer.Dark2[3], colorbrewer.Dark2[3], colorbrewer.Dark2[3]];
+		makegauge(makegaugedata(dashboard_data.tank_level,100, "%"), "donut", "Fuel Level");
+		makegauge(makegaugedata(900, 1000, "Miles"), "donut2", "Oil Life");
+		makegauge(makegaugedata(dashboard_data.tank_level,100, "%"), "donut4 svg g", "Fuel Level");
+		makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut5 svg g", "Fuel Range");
+		makegauge(makegaugedata(13,54, "%"), "donut3", "Battery");
+		makenumber(dashboard_data.fuel_range, 400, "text0", "Fuel Range");
+	});
+
+	$('#skin1').click(function () {
+		var oranges = colorbrewer.Oranges[3].slice(0).reverse();
+		colors = [oranges, oranges, oranges];
+		makegauge(makegaugedata(dashboard_data.tank_level,100, "%"), "donut", "Fuel Level");
+		makegauge(makegaugedata(900, 1000, "Miles"), "donut2", "Oil Life");
+		makegauge(makegaugedata(dashboard_data.tank_level,100, "%"), "donut4 svg g", "Fuel Level");
+		makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut5 svg g", "Fuel Range");
+		makegauge(makegaugedata(13,54, "%"), "donut3", "Battery");
+		makenumber(dashboard_data.fuel_range, 400, "text0", "Fuel Range");
+	});
+
+	$('#skin2').click(function () {
+		colors = [colorbrewer.RdYlGn[3], colorbrewer.RdYlGn[3], colorbrewer.RdYlGn[3]];
+		makegauge(makegaugedata(dashboard_data.tank_level,100, "%"), "donut", "Fuel Level");
+		makegauge(makegaugedata(900, 1000, "Miles"), "donut2", "Oil Life");
+		makegauge(makegaugedata(dashboard_data.tank_level,100, "%"), "donut4 svg g", "Fuel Level");
+		makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut5 svg g", "Fuel Range");
+		makegauge(makegaugedata(13,54, "%"), "donut3", "Battery");
+		makenumber(dashboard_data.fuel_range, 400, "text0", "Fuel Range");
+	});
+
+	$('#skin3').click(function () {
+		var kuler = colorbrewer.YlGnBu[3].slice(0).reverse();
+		colors = [kuler, kuler, kuler]; 
+		makegauge(makegaugedata(dashboard_data.tank_level,100, "%"), "donut", "Fuel Level");
+		makegauge(makegaugedata(900, 1000, "Miles"), "donut2", "Oil Life");
+		makegauge(makegaugedata(dashboard_data.tank_level,100, "%"), "donut4 svg g", "Fuel Level");
+		makegauge(makegaugedata(dashboard_data.fuel_range, 1000, "Miles"), "donut5 svg g", "Fuel Range");
+		makegauge(makegaugedata(13,54, "%"), "donut3", "Battery");
+		makenumber(dashboard_data.fuel_range, 400, "text0", "Fuel Range");
 	});
 });
