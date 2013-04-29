@@ -16,6 +16,15 @@ class User(db.Model, BaseUser):
 
     def check_password(self, password):
         return bcrypt.verify(password, self.password)
+        
+    def hash_password(self, password):
+        return bcrypt.encrypt(password)
+        
+    def hash_user(self):
+        return bcrypt.encrypt(self.username + self.password)
+        
+    def verify_hash(self, hash):
+        return hash == self.hash_user();
 
 class Car(db.Model):
     user = ForeignKeyField(User, related_name="cars", index=True)
