@@ -7,6 +7,17 @@ from app import app
 from auth import auth
 from models import *
 
+@app.route('/login', methods=['POST'])
+def auth_login():
+    if request.headers['Content-Type'] != 'application/json':
+        abort(415) # invalid content type
+    
+    data = request.json['login']
+    user = User.get(User.username==data[0]['username'])
+    if user.check_password(user.hash_password(data[0]['password'])):
+        return jsonify({'token': user.hash_user()})
+    return jsonify({'token': None})
+    
 @app.route('/1.0/rawcardata/update', methods=['POST'])
 def post_rawdata():
     if request.headers['Content-Type'] != 'application/json':
@@ -24,7 +35,6 @@ def post_rawdata():
             r = None
             try:
                 r = RawData.get(car=c, update_time=timestamp)
-                print(r)
             except RawData.DoesNotExist:
                 r = RawData()
                 r.car = c
@@ -44,11 +54,8 @@ def post_rawdata():
             pass
     commute = RawData.select().where(RawData.commute==commute_id).order_by(RawData.update_time.asc())
     count = commute.count()
-    print(count)
     duration = commute[count - 1].update_time - commute[0].update_time
-    print(duration)
     duration = duration.total_seconds() / 60
-    print(duration)
     commute_id.duration = duration
     speed = 0.0
     for data in commute:
@@ -58,6 +65,23 @@ def post_rawdata():
     #commute_id.ave_mpg = (commute[count - 1].odometer - commute[0].odometer) / commute_id.tank_used
     commute_id.save()
     return jsonify({'success': num_successful})        
+
+@app.route('/1.0/drivelogs', methods=['GET'])
+def get_drivelogs():
+    # TODO - verify auth
+
+    car = get_default_car() 
+    commutes = Commute.select().where(Commute.car==car).order_by(Commute.timestamp.desc())
+    commute_data = []
+    for c in commutes:
+        commute_data.append({
+            'timestamp': c.timestamp.isoformat(),
+            'duration': c.duration,
+            'ave_speed': c.ave_speed,
+            'ave_mpg': c.ave_mpg,
+            'tank_used': c.tank_used,
+        })
+    return jsonify({'drive_logs': commute_data})
 
 @app.route('/accounts/signup/', methods=['GET', 'POST'])
 def sign_up():
