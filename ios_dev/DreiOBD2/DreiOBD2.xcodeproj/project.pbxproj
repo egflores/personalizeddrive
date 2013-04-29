@@ -42,6 +42,7 @@
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
+		5C7F1E48172E6B2100DE224E /* libOBD2Kit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F1E47172E6B2100DE224E /* libOBD2Kit.a */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 /* End PBXBuildFile section */
@@ -73,7 +74,7 @@
 		1F766FE013BBADB100FB74C0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = "CordovaLib/CordovaLib.xcodeproj"; sourceTree = "<group>"; };
+		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
 		301BF5B4109A6A2B0062928A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		301BF5B6109A6A2B0062928A /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
@@ -104,6 +105,26 @@
 		30FC414816E50CA1004E6F35 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* DreiOBD2-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DreiOBD2-Prefix.pch"; sourceTree = "<group>"; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		5C7F1E31172E6B2100DE224E /* FLSimScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSimScanTool.h; sourceTree = "<group>"; };
+		5C7F1E33172E6B2100DE224E /* ELM327.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELM327.h; sourceTree = "<group>"; };
+		5C7F1E34172E6B2100DE224E /* ELM327Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELM327Command.h; sourceTree = "<group>"; };
+		5C7F1E35172E6B2100DE224E /* ELM327ResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELM327ResponseParser.h; sourceTree = "<group>"; };
+		5C7F1E37172E6B2100DE224E /* GoLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoLink.h; sourceTree = "<group>"; };
+		5C7F1E38172E6B2100DE224E /* GoLinkCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoLinkCommand.h; sourceTree = "<group>"; };
+		5C7F1E39172E6B2100DE224E /* GoLinkResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoLinkResponseParser.h; sourceTree = "<group>"; };
+		5C7F1E3A172E6B2100DE224E /* FLEAController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEAController.h; sourceTree = "<group>"; };
+		5C7F1E3B172E6B2100DE224E /* FLEAScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEAScanTool.h; sourceTree = "<group>"; };
+		5C7F1E3C172E6B2100DE224E /* FLECUSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLECUSensor.h; sourceTree = "<group>"; };
+		5C7F1E3D172E6B2100DE224E /* FLScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLScanTool.h; sourceTree = "<group>"; };
+		5C7F1E3E172E6B2100DE224E /* FLScanToolCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLScanToolCommand.h; sourceTree = "<group>"; };
+		5C7F1E3F172E6B2100DE224E /* FLScanToolController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLScanToolController.h; sourceTree = "<group>"; };
+		5C7F1E40172E6B2100DE224E /* FLScanToolResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLScanToolResponse.h; sourceTree = "<group>"; };
+		5C7F1E41172E6B2100DE224E /* FLScanToolResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLScanToolResponseParser.h; sourceTree = "<group>"; };
+		5C7F1E42172E6B2100DE224E /* FLWifiScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLWifiScanTool.h; sourceTree = "<group>"; };
+		5C7F1E44172E6B2100DE224E /* Base64Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Extensions.h; sourceTree = "<group>"; };
+		5C7F1E45172E6B2100DE224E /* FLLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLLogging.h; sourceTree = "<group>"; };
+		5C7F1E46172E6B2100DE224E /* NSStreamAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStreamAdditions.h; sourceTree = "<group>"; };
+		5C7F1E47172E6B2100DE224E /* libOBD2Kit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOBD2Kit.a; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* DreiOBD2-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "DreiOBD2-Info.plist"; path = "../DreiOBD2-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = DreiOBD2/config.xml; sourceTree = "<group>"; };
@@ -130,6 +151,7 @@
 				301BF5C5109A6A2B0062928A /* SystemConfiguration.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */,
+				5C7F1E48172E6B2100DE224E /* libOBD2Kit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +207,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				5C7F1E2D172E6B2100DE224E /* lib */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -292,6 +315,81 @@
 				30A0434614DC770100060A13 /* Localizable.strings */,
 			);
 			path = se.lproj;
+			sourceTree = "<group>";
+		};
+		5C7F1E2D172E6B2100DE224E /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				5C7F1E2E172E6B2100DE224E /* include */,
+				5C7F1E47172E6B2100DE224E /* libOBD2Kit.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		5C7F1E2E172E6B2100DE224E /* include */ = {
+			isa = PBXGroup;
+			children = (
+				5C7F1E2F172E6B2100DE224E /* device_drivers */,
+				5C7F1E3A172E6B2100DE224E /* FLEAController.h */,
+				5C7F1E3B172E6B2100DE224E /* FLEAScanTool.h */,
+				5C7F1E3C172E6B2100DE224E /* FLECUSensor.h */,
+				5C7F1E3D172E6B2100DE224E /* FLScanTool.h */,
+				5C7F1E3E172E6B2100DE224E /* FLScanToolCommand.h */,
+				5C7F1E3F172E6B2100DE224E /* FLScanToolController.h */,
+				5C7F1E40172E6B2100DE224E /* FLScanToolResponse.h */,
+				5C7F1E41172E6B2100DE224E /* FLScanToolResponseParser.h */,
+				5C7F1E42172E6B2100DE224E /* FLWifiScanTool.h */,
+				5C7F1E43172E6B2100DE224E /* Utils */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		5C7F1E2F172E6B2100DE224E /* device_drivers */ = {
+			isa = PBXGroup;
+			children = (
+				5C7F1E30172E6B2100DE224E /* ecusim */,
+				5C7F1E32172E6B2100DE224E /* elm327 */,
+				5C7F1E36172E6B2100DE224E /* gl1 */,
+			);
+			path = device_drivers;
+			sourceTree = "<group>";
+		};
+		5C7F1E30172E6B2100DE224E /* ecusim */ = {
+			isa = PBXGroup;
+			children = (
+				5C7F1E31172E6B2100DE224E /* FLSimScanTool.h */,
+			);
+			path = ecusim;
+			sourceTree = "<group>";
+		};
+		5C7F1E32172E6B2100DE224E /* elm327 */ = {
+			isa = PBXGroup;
+			children = (
+				5C7F1E33172E6B2100DE224E /* ELM327.h */,
+				5C7F1E34172E6B2100DE224E /* ELM327Command.h */,
+				5C7F1E35172E6B2100DE224E /* ELM327ResponseParser.h */,
+			);
+			path = elm327;
+			sourceTree = "<group>";
+		};
+		5C7F1E36172E6B2100DE224E /* gl1 */ = {
+			isa = PBXGroup;
+			children = (
+				5C7F1E37172E6B2100DE224E /* GoLink.h */,
+				5C7F1E38172E6B2100DE224E /* GoLinkCommand.h */,
+				5C7F1E39172E6B2100DE224E /* GoLinkResponseParser.h */,
+			);
+			path = gl1;
+			sourceTree = "<group>";
+		};
+		5C7F1E43172E6B2100DE224E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5C7F1E44172E6B2100DE224E /* Base64Extensions.h */,
+				5C7F1E45172E6B2100DE224E /* FLLogging.h */,
+				5C7F1E46172E6B2100DE224E /* NSStreamAdditions.h */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,7 +567,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -479,6 +577,10 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "DreiOBD2/DreiOBD2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/lib\"",
+				);
 				PRODUCT_NAME = DreiOBD2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -488,7 +590,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DreiOBD2/DreiOBD2-Prefix.pch";
@@ -496,6 +598,10 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "DreiOBD2/DreiOBD2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/lib\"",
+				);
 				PRODUCT_NAME = DreiOBD2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
