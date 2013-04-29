@@ -540,6 +540,7 @@
 				5CAD43B416ED5FB400CAE484 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7BC5D9F515C7435900D0E845 /* Build configuration list for PBXProject "TemplateBMWApp" */ = {
 			isa = XCConfigurationList;
