@@ -20,6 +20,12 @@
 		29AB090D12F8A8660073262E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29AB090C12F8A8660073262E /* CFNetwork.framework */; };
 		29AB090F12F8A8660073262E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29AB090E12F8A8660073262E /* CoreFoundation.framework */; };
 		29AB091112F8A8660073262E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29AB091012F8A8660073262E /* CoreLocation.framework */; };
+		72B98FE1172E5889009BA7F4 /* DreiSynchDataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 72B98FDF172E5889009BA7F4 /* DreiSynchDataProvider.h */; };
+		72B98FE2172E5889009BA7F4 /* DreiSynchDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B98FE0172E5889009BA7F4 /* DreiSynchDataProvider.m */; };
+		72B98FE5172E5B9E009BA7F4 /* DreiSynchDataProvider_OBD2.h in Headers */ = {isa = PBXBuildFile; fileRef = 72B98FE3172E5B9E009BA7F4 /* DreiSynchDataProvider_OBD2.h */; };
+		72B98FE6172E5B9E009BA7F4 /* DreiSynchDataProvider_OBD2.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B98FE4172E5B9E009BA7F4 /* DreiSynchDataProvider_OBD2.m */; };
+		72B98FE9172E67F6009BA7F4 /* DataPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 72B98FE7172E67F6009BA7F4 /* DataPoint.h */; };
+		72B98FEA172E67F6009BA7F4 /* DataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B98FE8172E67F6009BA7F4 /* DataPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +63,12 @@
 		29AB091012F8A8660073262E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* BasicScan_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicScan_Prefix.pch; sourceTree = "<group>"; };
+		72B98FDF172E5889009BA7F4 /* DreiSynchDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreiSynchDataProvider.h; sourceTree = "<group>"; };
+		72B98FE0172E5889009BA7F4 /* DreiSynchDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiSynchDataProvider.m; sourceTree = "<group>"; };
+		72B98FE3172E5B9E009BA7F4 /* DreiSynchDataProvider_OBD2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreiSynchDataProvider_OBD2.h; sourceTree = "<group>"; };
+		72B98FE4172E5B9E009BA7F4 /* DreiSynchDataProvider_OBD2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiSynchDataProvider_OBD2.m; sourceTree = "<group>"; };
+		72B98FE7172E67F6009BA7F4 /* DataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPoint.h; sourceTree = "<group>"; };
+		72B98FE8172E67F6009BA7F4 /* DataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPoint.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* BasicScan-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BasicScan-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +98,12 @@
 				1D3623250D0F684500981E51 /* BasicScanAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* BasicScanViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* BasicScanViewController.m */,
+				72B98FDF172E5889009BA7F4 /* DreiSynchDataProvider.h */,
+				72B98FE0172E5889009BA7F4 /* DreiSynchDataProvider.m */,
+				72B98FE3172E5B9E009BA7F4 /* DreiSynchDataProvider_OBD2.h */,
+				72B98FE4172E5B9E009BA7F4 /* DreiSynchDataProvider_OBD2.m */,
+				72B98FE7172E67F6009BA7F4 /* DataPoint.h */,
+				72B98FE8172E67F6009BA7F4 /* DataPoint.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -159,6 +177,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72B98FE1172E5889009BA7F4 /* DreiSynchDataProvider.h in Headers */,
+				72B98FE5172E5B9E009BA7F4 /* DreiSynchDataProvider_OBD2.h in Headers */,
+				72B98FE9172E67F6009BA7F4 /* DataPoint.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +265,9 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* BasicScanAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* BasicScanViewController.m in Sources */,
+				72B98FE2172E5889009BA7F4 /* DreiSynchDataProvider.m in Sources */,
+				72B98FE6172E5B9E009BA7F4 /* DreiSynchDataProvider_OBD2.m in Sources */,
+				72B98FEA172E67F6009BA7F4 /* DataPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
