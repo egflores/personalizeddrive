@@ -117,13 +117,19 @@ def dashboard():
     if rawdata.count() == 0:
         return "Invalid Car"
 
-    values = [(int(r.update_time.strftime("%s")), r.odometer) for r in rawdata]
+    odoms = [(int(r.update_time.strftime("%s")), r.odometer) for r in rawdata]
+    speeds = [(int(r.update_time.strftime("%s")), r.speed) for r in rawdata]
+    fuels = [(int(r.update_time.strftime("%s")), r.tank_level) for r in rawdata]
 
     car_data = {
         'data': [
             {
-                'key': 'Mileage',
-                'values': values
+                'key': 'Fuel Level',
+                'values': fuels
+            },
+		  {
+			'key': 'Speed',
+			'values': speeds
             }
         ]
     }
