@@ -26,6 +26,8 @@
 //
 
 #import "MainViewController.h"
+#import "FLLogging.h"
+#import "FLECUSensor.h"
 
 @implementation MainViewController
 
