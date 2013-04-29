@@ -68,20 +68,25 @@ def post_rawdata():
 
 @app.route('/1.0/drivelogs', methods=['GET'])
 def get_drivelogs():
-    # TODO - verify auth
+    if request.headers['Content-Type'] != 'application/json':
+        abort(415) # invalid content type
 
-    car = get_default_car() 
-    commutes = Commute.select().where(Commute.car==car).order_by(Commute.timestamp.desc())
-    commute_data = []
-    for c in commutes:
-        commute_data.append({
-            'timestamp': c.timestamp.isoformat(),
-            'duration': c.duration,
-            'ave_speed': c.ave_speed,
-            'ave_mpg': c.ave_mpg,
-            'tank_used': c.tank_used,
-        })
-    return jsonify({'drive_logs': commute_data})
+    data = request.json['token']    
+    user = User.get(User.username==data[0]['username'])
+    if user.verify_hash(data[0][token])
+        car = get_default_car() 
+        commutes = Commute.select().where(Commute.car==car).order_by(Commute.timestamp.desc())
+        commute_data = []
+        for c in commutes:
+            commute_data.append({
+                'timestamp': c.timestamp.isoformat(),
+                'duration': c.duration,
+                'ave_speed': c.ave_speed,
+                'ave_mpg': c.ave_mpg,
+                'tank_used': c.tank_used,
+            })
+        return jsonify({'drive_logs': commute_data})
+    return jsonify({'error': 'invalid token'})
 
 @app.route('/accounts/signup/', methods=['GET', 'POST'])
 def sign_up():
