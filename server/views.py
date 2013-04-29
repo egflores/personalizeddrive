@@ -59,6 +59,23 @@ def post_rawdata():
     commute_id.save()
     return jsonify({'success': num_successful})        
 
+@app.route('/1.0/drivelogs', methods=['GET'])
+def get_drivelogs():
+    # TODO - verify auth
+
+    car = get_default_car() 
+    commutes = Commute.select().where(Commute.car==car).order_by(Commute.timestamp.desc())
+    commute_data = []
+    for c in commutes:
+        commute_data.append({
+            'timestamp': c.timestamp.isoformat(),
+            'duration': c.duration,
+            'ave_speed': c.ave_speed,
+            'ave_mpg': c.ave_mpg,
+            'tank_used': c.tank_used,
+        })
+    return jsonify({'drive_logs': commute_data})
+
 @app.route('/accounts/signup/', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
