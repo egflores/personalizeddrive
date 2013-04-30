@@ -1,42 +1,384 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
-        <script type="text/javascript" src="cordova-2.7.0rc1.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
+	    <meta charset="utf-8">
+	    <title>Personalized Drive | App</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <meta name="format-detection" content="telephone=no" />
+	    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+	    <!-- CSS -->
+	    <link href="css/lib/bootstrap.css" rel="stylesheet">
+	    <style type="text/css">
+
+	      /* Sticky footer styles
+	      -------------------------------------------------- */
+
+	      html,
+	      body {
+	        height: 100%;
+	        /* The html and body elements cannot have any padding or margin. */
+	      }
+
+	      a {-webkit-touch-callout: none;}
+			body {
+				-webkit-tap-highlight-color:rgba(0,0,0,0);
+				-webkit-user-select: none;
+				/* -webkit-transform: translate3d(0,0,0); */
+			}
+
+	      /* Wrapper for page content to push down footer */
+	      #wrap {
+	        min-height: 100%;
+	        height: auto !important;
+	        height: 100%;
+	        /* Negative indent footer by it's height */
+	        margin: 0 auto -110px;
+	      }
+
+	      /* Set the fixed height of the footer here */
+	      #push,
+	      #footer {
+	        height: 11px;
+	      }
+	      #footer {
+	        background-color: #f5f5f5;
+	      }
+
+	      /* Lastly, apply responsive CSS fixes as necessary */
+	      @media (max-width: 767px) {
+	        #footer {
+	          margin-left: -20px;
+	          margin-right: -20px;
+	          padding-left: 20px;
+	          padding-right: 20px;
+	        }
+	      }
+
+
+
+	      /* Custom page CSS
+	      -------------------------------------------------- */
+	      /* Not required for template or sticky footer method. */
+
+	      #wrap > .container {
+	        padding-top: 20px;
+	      }
+	      .container .credit {
+	        margin: 20px 0;
+	      }
+
+	      code {
+	        font-size: 80%;
+	      }
+
+	      #blueOverlay {
+	        display: none;
+	      }
+	      .blur {
+	        width: 100%;
+	        height: 260px;
+	        position: absolute;
+	        background-color: white;
+	        opacity: .8;
+	      }
+
+	      #arrow {
+	        width: 280px;
+	        height: 260px;
+	        position: absolute;
+	        display: block;
+	        margin: 5px auto;
+	        vertical-align: middle;
+	        margin-right: 3px;
+	        font-size: 73px;
+	        color: rgba(4, 0, 112, 0.77);
+	      }
+
+	    </style>
+	    <link href="css/lib/bootstrap-responsive.css" rel="stylesheet">
+	    <link rel="stylesheet" href="css/lib/backbone.responsiveCSS3transitions.min.css"/>
+	</head>
+
+	<body>
+
+
+
+		<div id="container">
+		</div>
+
+		<style>
+			#nextCommute {
+				position: absolute;
+				border-radius: 5px;
+				border-style:solid;
+				border-color: rgb(196, 196, 196);
+				border-width: 1px;
+				margin: 5px auto;
+				padding-top: 0px;
+				padding-left: 5px;
+				margin-top: 13px;
+			}
+			.commute-box-number {
+				font-size: 20px;
+				font-weight: bold;
+				color: rgb(49, 130, 189);
+				margin-top: 5px;
+			}
+
+.commute-box-label {
+font-size: 12px;
+color: rgb(109, 109, 109);
+margin-top: 0px;
+}
+.commute-box {
+	text-align: center;
+	float: left;
+	margin-left: 35px;
+}
+.hidden {
+	visibility: hidden;
+}
+
+		</style>
+		<script type="text/template" id="home_template">
+			<!-- Part 1: Wrap all page content here -->
+		    <div id="wrap">
+
+		      <!-- Fixed navbar -->
+		      <div class="navbar navbar-fixed-top">
+		        <div class="navbar-inner">
+		          <div class="container" style="margin-top: 0px; padding-top: 0px">
+		            <a class="brand" style="float:none; text-align: center;" href="#">Personalized Drive</a>
+		          </div>
+		        </div>
+		      </div>
+			<div class="container" style="position:relative;">
+				<img class="carProfile" src="images/car_1.jpg" />
+				<div class="infoBox" style="padding-left: 10px;">
+					<h5 style="padding: 0px; margin: 0px 5px 0px 0px; line-height:24.5px; top: -6px;
+position: relative;">Steve's BMW</h5>
+					<!-- ' hack for sublime -->
+					<div style="font-size: 10px; margin:0px; padding:0px; line-height:8px;"></div>
+					<div>Oil Life:</strong> <strong>507</strong> </div>
+					<div>Fuel Range: <strong>287</strong> </div>
+					<div>Fuel Level: <strong>21</strong> </div>
+				</div>
+			</div>
+			<div id="nextCommute" class="container hidden" style="padding-top:0px">
+<div class="row-fluid">
+                    <div class="commute-box" style="margin-left: 0px;">
+                        <div class="commute-box-number">1</div>
+                        <div class="commute-box-label">minutes</div>
+                    </div>
+                    <div class="commute-box">
+                        <div class="commute-box-number">23</div>
+                        <div class="commute-box-label">mph</div>
+                    </div>
+                    <div class="commute-box">
+                        <div class="commute-box-number">30</div>
+                        <div class="commute-box-label">mpg</div>
+                    </div>
+                    <div class="commute-box">
+                        <div class="commute-box-number">.3</div>
+                        <div class="commute-box-label">gallons used</div>
+                    </div>
+			</div>
+	      
+	    </div>
+<div style="height:55px"></div>
+	    <div id="footer" style="background-color: #fff">
+	      <div class="container" style="margin-top: 15px;">
+	        <a id="linkTracking" class="btn btn-block btn-primary" href="#">Start Tracking Commute</a>
+	        <div class="well" style="margin-top: 7px;">
+		        <div style="text-align: center; color:rgb(248, 112, 5)"> DEBUG MODE </div>
+		        <a id="toggleTracking" class="btn btn-block" href="#tracking">View Live Car Data</a>
+		        <a id="linkLogs" class="btn btn-block" href="#logging">View Raw Logs</a>
+		        <a id="linkUpload" class="btn btn-block" href="#">Upload Data to Server</a>
+	        </div>
+	      <div style="height: 15px"> <!-- spacing --></div>
+	      </div>
+	    </div>
+
+		</script>
+
+
+		<script type="text/template" id="log_template">
+			<li><strong><%= date %></strong> <div><%= context %>: <%= content %></div></li>
+		</script>
+
+		<script type="text/template" id="tracking_template">
+			<!-- Part 1: Wrap all page content here -->
+		    <div id="wrap">
+
+		      <!-- Fixed navbar -->
+		      <div class="navbar navbar-fixed-top">
+		        <div class="navbar-inner">
+		          <div class="container">
+		          <a href="#home" style="width: 100px;
+height: 43px;
+display: block;
+position: absolute;"><div id="back">BACK</div></a>
+		            <a class="brand" style="float:none; text-align: center;" href="#">Commute Tracker</a>
+		          </div>
+		        </div>
+		      </div>
+			<div class="container" style="position:relative;">
+		    <div id="blurOverlay" class="<% if(!isTracking) { %>blur <%  } %>"></div>
+			<div id="trackingBox">
+			</div>  
+	      <div id="push"></div>
+	    </div>
+
+	    <div id="footer" style="background-color: #fff">
+	      <div class="container">
+
+	      <div style="height: 15px"> <!-- spacing --></div>
+	      </div>
+	    </div>
+
+		</script>
+		<script type="text/template" id="trackingBox_template">
+				    <table id="car_stats" class="table table-bordered table-striped">
+		        <colgroup>
+		          <col class="span1">
+		          <col class="span7">
+		        </colgroup>
+		        <thead>
+		          <tr>
+		            <th>Statistic</th>
+		            <th>Value</th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		          <tr>
+		            <td>
+		              Fuel Level
+		            </td>
+		            <td id="fuel_level_value"><%= fuel_level %></td>
+		          </tr>
+		          <tr>
+		            <td>
+		              Fuel Range
+		            </td>
+		            <td id="fuel_range_value"><%= fuel_range %></td>
+		          </tr>
+		          <tr>
+		            <td>
+		              Fuel Reserve
+		            </td>
+		            <td id="fuel_reserve_value"><%= fuel_reserve %></td>
+		          </tr>
+		          <tr>
+		            <td>
+		              Head Lights
+		            </td>
+		            <td id="head_lights_value"><%= headlights %></td>
+		          </tr>
+		          <tr>
+		            <td>
+		              Odometer
+		            </td>
+		            <td id="odometer_value"><%= odometer %></td>
+		          </tr>
+		          <tr>
+		            <td>
+		              Speed
+		            </td>
+		            <td id="speed_value"><%= speed %></td>
+		          </tr>
+		        </tbody>
+		      </table>   
+		</script>
+		<style>
+			.logging {
+				list-style: none;
+				line-height: 12px;
+				font-size: 10px;
+				color: rgb(10,10,10);
+			}
+			.logging li div {
+				line-height: 8px;
+				font-size: 12px;
+				font: courier;
+			}
+			.logging li strong {
+				font-size: 10px;
+				padding-top: 10px;
+				display: block;
+			}
+			#back {
+				background-image: url("images/btn-back.png");
+				background-size: 35px;
+				background-repeat: no-repeat;
+				width: 35px;
+				font-size: 9px;
+				color: rgb(240, 240, 240);
+				line-height: 21px;
+				padding-left: 8px;
+				position: absolute;
+				margin-top: 11px;
+				left: 13px;
+			}
+			.carProfile {
+				width: 90px;
+				height: 90px;
+				background-color: #3e3e3e;
+				float: left;
+			}
+			.infoBox {
+				float: left;
+			}
+		</style>
+		<script type="text/template" id="logging_template">
+		    <div id="wrap">
+
+		      <!-- Fixed navbar -->
+		      <div class="navbar navbar-fixed-top">
+		        <div class="navbar-inner">
+		          <div class="container">
+		          	<a href="#home" style="width: 100px;
+height: 43px;
+display: block;
+position: absolute;"><div id="back">BACK</div></a>
+		            <a class="brand" style="float:none; text-align: center;" href="#">Logging</a>
+		          </div>
+		        </div>
+		      </div>
+			<div class="container" style="position:relative;">
+				<ul class="logging">
+				</ul>
+			</div>
+
+		</script>
+		<script type="text/javascript" src="cordova-2.7.0rc1.js"></script>
+		<script type="text/javascript" src="js/lib/underscore-min.js"></script>
+	    <script type="text/javascript" src="js/lib/jquery-1.8.2.min.js"></script> 
+
+	    <script>
+	    	document.addEventListener('deviceready', function() {
+	    		window.location.hash = "home";
+	    	}, false);
+        	// Namespacing Plugin for JQuery
+			(function( $ ){
+			  	$.fn.ns = function(namespace){
+				    return namespace.split('.').reduce(function(holder, name){
+				        holder[name] = holder[name] || {};
+				        return holder[name];
+				    }, window);
+				};
+			})( jQuery );
+		</script>
+	    <script type="text/javascript" src="js/lib/backbone-min.js"></script>
+	    <script type="text/javascript" src="js/lib/backbone.responsiveCSS3transitions.js"></script>
+	    
+	    <script type="text/javascript" src="js/lib/backbone.responsiveCSS3transitions.js"></script>
+
+	    <script type="text/javascript" src="js/models/CommuteApp.js"></script>
+	    <script type="text/javascript" src="js/utilities.js"></script>
+	    <script type="text/javascript" src="js/app.js"></script>
+	    <script type="text/javascript" src="js/callbacks.js"></script>
+	    <script type="text/javascript" src="js/views/all.js"></script>
+	    <script type="text/javascript" src="js/router.js"></script>
     </body>
 </html>
