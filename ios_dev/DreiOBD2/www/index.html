@@ -17,21 +17,28 @@
 	        <h1>Personalized Drive</h1>
 	    </div>
 
-		<div class="container-fluid">
-			<div class="row-fluid">
-					HI
-			</div>
+		<div id="drive-logs" data-role="collapsible-set" data-theme="c" data-content-theme="d">
 		</div>
 
 		<div data-role="footer" data-position="fixed">	
 	        <div data-role="navbar">
 	    		    <ul>
-	                <li><a href="#">Drive Logs</a></li>
-	                <li><a href="#" class="ui-btn-active">Track</a></li>
+	                <li><a href="#" class="ui-btn-active">Drive Logs</a></li>
+	                <li><a href="#">Track</a></li>
 	                <li><a href="#">Settings</a></li>
 	    		    </ul>
 	        </div><!-- /navbar --> 
 	    </div>
+
+	    <script type="text/template" id ="drive-log-template">
+	    	<div data-role="collapsible">
+		    	<h3>Drive on <%- timestamp %></h3>
+		    	<div>Duration: <%- duration %></div>
+		    	<div>Ave Speed: <%- ave_speed %></div>
+		    	<div>Ave MPG: <%- ave_mpg %></div>
+		    	<div>Tank Used: <%- tank_used %></div>
+			</div>
+	    </script>
 
 		<script type="text/javascript" src="cordova-2.7.0rc1.js"></script>
 		<script type="text/javascript" src="js/lib/jquery-2.0.0.min.js"></script>
@@ -54,6 +61,7 @@
 		</script>
 
 		<script type="text/javascript" src="js/router.js"></script>
+		<script type="text/javascript" src="js/drivelogs.js"></script>
 	    <script type="text/javascript" src="js/callbacks.js"></script>
     </body>
 </html>
