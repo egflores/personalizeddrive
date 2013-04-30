@@ -13,10 +13,15 @@ $(document).ready(function () {
     };
 
     drei_callback_dataEntry = function(carData) {
-        DreiApp.app.lastCarData = JSON.parse(carData);
-        cb.proxy.trigger('dataEntry', DreiApp.app.lastCarData);
+        alert(carData);
+        alert(JSON.parse(carData));
+        //DreiApp.app.lastCarData = JSON.parse(carData);
+        //TESTING OBDII
+        //END TESTING OBDII
+        //cb.proxy.trigger('dataEntry', DreiApp.app.lastCarData);
     };
 
+    /*
     drei_callback_connection = function(message) {
         DreiApp.app.set('isConnectedToCar', message=="connected");
     };
@@ -30,7 +35,7 @@ $(document).ready(function () {
             //TODO: message = pretty print json
         }
         DreiApp.app.log({context: component, content: message})
-    };
+    };*/
 
     cb.drei_start = function(callback, errorCallback) {
         cordova.exec(callback, function() {
@@ -45,14 +50,14 @@ $(document).ready(function () {
                                        console.log("Error in stopDriveLog");
                                     }, "DreiConnect", "stopDriveLog", []);
     };
-    
-    cb.drei_upload = function(callback, errorCallback) {
-          cordova.exec(callback, function() {
-                                       errorCallback();
-                                       console.log("Error in uploadDriveLog");
-                                }, "DreiConnect", "uploadDriveLog", []);
-    };
-
+    /* Not implemented
+        cb.drei_upload = function(callback, errorCallback) {
+              cordova.exec(callback, function() {
+                                           errorCallback();
+                                           console.log("Error in uploadDriveLog");
+                                    }, "DreiConnect", "uploadDriveLog", []);
+        };
+    */
 /* TODO: they might use this to do using a headunit
     drei_callback_carlogging = function(message) {
         DreiApp.app.set('isTrackingCommute', message=="logOn");
