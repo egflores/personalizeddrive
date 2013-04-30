@@ -28,6 +28,7 @@
 #import "MainViewController.h"
 #import "FLLogging.h"
 #import "FLECUSensor.h"
+#import "DreiCarCenter.h"
 
 @implementation MainViewController
 
@@ -76,6 +77,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[DreiCarCenter instance] driveLog_startCollection];
     // Do any additional setup after loading the view from its nib.
 }
 
