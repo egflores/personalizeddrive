@@ -123,12 +123,18 @@ static DreiCarCenter *gInstance = NULL;
 }
 
 -(void) driveLog_updateData:(NSDictionary *)dataPoint {
-    [[self connectEndpoint] sendMessage:dataPoint toCallback:@"test"];
+    [[self connectEndpoint] sendMessage:[[NSString alloc] initWithData:[DreiCarCenter formatDataEntry:dataPoint error:nil] encoding:NSUTF8StringEncoding] toCallback:@"dataEntry"];
 }
 
 +(void) debug:(NSString *)message from:(NSString *)from jsonMessage:(BOOL)isJson {
     [[self instance] sendDebugMessage:message fromComponent:from isJson:isJson];
     NSLog(@"(%@) %@", from, message);
+}
+
++ (NSData *)formatDataEntry:(NSDictionary *)originalDataPoint error:(NSError *)error {
+    return [NSJSONSerialization dataWithJSONObject:originalDataPoint
+                                           options:0
+                                             error:&error];
 }
 
 

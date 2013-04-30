@@ -152,9 +152,11 @@
 
 - (NSMutableDictionary *) processDataPoint:(NSMutableDictionary *)data {
     
+    return data;
+    
     // get the MAF and then delete it (not used in the returned DP)
     DataPoint *mass_air_flow = [data objectForKey:@"mass_air_flow"];
-    [data delete:@"mass_air_flow"];
+    [data removeObjectForKey:@"mass_air_flow"];
     
     // calculate instant MPG
     DataPoint *mph = [data objectForKey:@"vehicle_speed"];
@@ -165,7 +167,7 @@
     
     // calculate relative distance (TODO)
     DataPoint *d_cleared = [data objectForKey:@"d_cleared"];
-    [data delete:@"d_cleared"];
+    [data removeObjectForKey:@"d_cleared"];
     
     return data;
     }
