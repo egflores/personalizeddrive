@@ -12,43 +12,76 @@
 
 	<body>
 
-	    <div data-role="page">
-	        <div data-role="header">
-	        <h1>Personalized Drive</h1>
+	<!-- The Templates -->
+    <script type="text/template" id="DriveHistoryTemplate">
+	    <div data-role="header">
+	        <h1>Driving History</h1>
 	    </div>
 
-		<div id="drive-logs" data-role="collapsible-set" data-theme="c" data-content-theme="d">
-		</div>
+	    <div id="container">
+	   	</div>
+	</script>
 
-		<div data-role="footer" data-position="fixed">	
+	<script type="text/template" id="TrackTemplate">
+	    <div data-role="header">
+	        <h1>Track a Drive</h1>
+	    </div>
+
+	    <div id="container">
+	   	</div>
+	</script>
+
+	<script type="text/template" id="SettingsTemplate">
+	    <div data-role="header">
+	        <h1>Settings</h1>
+	    </div>
+
+	    <div id="container">
+	   	</div>
+	</script>
+
+	<script type="text/template" id ="drive-log-template">
+    	<div data-role="collapsible">
+	    	<h3>Drive on <%- timestamp %></h3>
+	    	<div>Duration: <%- duration %></div>
+	    	<div>Ave Speed: <%- ave_speed %></div>
+	    	<div>Ave MPG: <%- ave_mpg %></div>
+	    	<div>Tank Used: <%- tank_used %></div>
+		</div>
+    </script>
+
+    <script type="text/template" id="navigation-template">
+    	<div id="nav-bottom" data-role="footer" data-position="fixed">	
 	        <div data-role="navbar">
 	    		    <ul>
-	                <li><a href="#" class="ui-btn-active">Drive Logs</a></li>
-	                <li><a href="#">Track</a></li>
-	                <li><a href="#">Settings</a></li>
+	                <li id="nav-drivehistory"><a href="#drivehistory" data-role="button" 				<% if (activePage === 0) { %>
+											class="ui-btn-active"
+										 <% } %>
+					>Drive History</a></li>
+	                <li id="nav-track"><a href="#track" 
+	                			<% if (activePage === 1) { %>
+											class="ui-btn-active"
+										 <% } %>
+	                data-role="button">Track</a></li>
+	                <li id="nav-settings"><a href="#settings" 
+	                			<% if (activePage === 2) { %>
+											class="ui-btn-active"
+										 <% } %>
+	                data-role="button">Settings</a></li>
 	    		    </ul>
 	        </div><!-- /navbar --> 
 	    </div>
+    </script>
 
-	    <script type="text/template" id ="drive-log-template">
-	    	<div data-role="collapsible">
-		    	<h3>Drive on <%- timestamp %></h3>
-		    	<div>Duration: <%- duration %></div>
-		    	<div>Ave Speed: <%- ave_speed %></div>
-		    	<div>Ave MPG: <%- ave_mpg %></div>
-		    	<div>Tank Used: <%- tank_used %></div>
-			</div>
-	    </script>
 
 		<script type="text/javascript" src="cordova-2.7.0rc1.js"></script>
 		<script type="text/javascript" src="js/lib/jquery-2.0.0.min.js"></script>
 		<script type="text/javascript" src="js/lib/underscore-min.js"></script>
 		<script type="text/javascript" src="js/lib/backbone-min.js"></script>
 		<script type="text/javascript" src="js/lib/jquery.mobile-1.3.1.min.js"></script>
+		<script type="text/javascript" src="js/config-jqm.js"></script>
+	    
 	    <script>
-	    	document.addEventListener('deviceready', function() {
-	    		window.location.hash = "home";
-	    	}, false);
         	// Namespacing Plugin for JQuery
 			(function( $ ){
 			  	$.fn.ns = function(namespace){
@@ -60,8 +93,17 @@
 			})( jQuery );
 		</script>
 
+		<script type="text/javascript" src="js/views.js"></script>
 		<script type="text/javascript" src="js/router.js"></script>
 		<script type="text/javascript" src="js/drivelogs.js"></script>
 	    <script type="text/javascript" src="js/callbacks.js"></script>
+	    <script>
+	    	$(document).ready(function() {
+	    	//document.addEventListener('deviceready', function() {
+	    		Backbone.history.start();
+	    		window.location.hash = "track";
+	    	//}, false);
+			});
+		</script>
     </body>
 </html>
