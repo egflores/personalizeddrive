@@ -11,10 +11,13 @@ $(document).ready(function () {
             content: content
         });
     };
-
+    drei_callback_connectionStatus = function(status) {
+        $("#status").html(status);
+    } 
     drei_callback_dataEntry = function(carData) {
-        alert(carData);
-        alert(JSON.parse(carData));
+        
+        $("#speed").html(carData.values.rpm);
+        $("#rpm").html(carData.values.vehicle_speed);
         //DreiApp.app.lastCarData = JSON.parse(carData);
         //TESTING OBDII
         //END TESTING OBDII
