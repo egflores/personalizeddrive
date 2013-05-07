@@ -7,9 +7,9 @@
 //
 
 #import "DreiSynchDataProvider_OBD2.h"
-#import "DataPoint.h"
 #import "FLLogging.h"
 #import "FLECUSensor.h"
+#import "DreiCarCenter.h"
 
 @implementation DreiSynchDataProvider_OBD2
 
@@ -49,22 +49,28 @@
 
 - (void)scanDidStart:(FLScanTool*)scanTool {
 	FLINFO(@"STARTED SCAN")
+    [[DreiCarCenter instance] updateConnectionStatus:@"scanning"];
 }
 
 - (void)scanDidPause:(FLScanTool*)scanTool {
 	FLINFO(@"PAUSED SCAN")
+    [[DreiCarCenter instance] updateConnectionStatus:@"initializing"];
 }
 
 - (void)scanDidCancel:(FLScanTool*)scanTool {
 	FLINFO(@"CANCELLED SCAN")
+    [[DreiCarCenter instance] updateConnectionStatus:@"initializing"];
+
 }
 
 - (void)scanToolDidConnect:(FLScanTool*)scanTool {
 	FLINFO(@"SCANTOOL CONNECTED")
+    [[DreiCarCenter instance] updateConnectionStatus:@"connected"];
 }
 
 - (void)scanToolDidDisconnect:(FLScanTool*)scanTool {
 	FLINFO(@"SCANTOOL DISCONNECTED")
+    [[DreiCarCenter instance] updateConnectionStatus:@"disconnected"];
 }
 
 
@@ -85,6 +91,7 @@
 - (void)scanTool:(FLScanTool*)scanTool didReceiveError:(NSError*)error {
 	FLINFO(@"DID RECEIVE ERROR")
 	FLNSERROR(error)
+    [[DreiCarCenter instance] updateConnectionStatus:@"error"];
 }
 
 - (void)scanTool:(FLScanTool*)scanTool didSendCommand:(FLScanToolCommand*)command {
@@ -95,6 +102,8 @@
 	FLINFO(@"SCANTOOL INITIALIZATION FAILURE")
 	FLDEBUG(@"scanTool.scanToolState: %@", scanTool.scanToolState)
 	FLDEBUG(@"scanTool.supportedSensors count: %d", [scanTool.supportedSensors count])
+    [[DreiCarCenter instance] updateConnectionStatus:@"error"];
+
 }
 
 
@@ -105,17 +114,16 @@
 	
 	[self._scanTool setSensorScanTargets:[NSArray arrayWithObjects:
                                           [NSNumber numberWithInt:0x0C], // Engine RPM
-                                          [NSNumber numberWithInt:0x0D], // Vehicle speed
-                                          [NSNumber numberWithInt:0x2F], // Fuel level
-                                          [NSNumber numberWithInt:0x5E], // Engine fuel rate
-                                          [NSNumber numberWithInt:0x66], // mass air flow, for instant MPG
-                                          [NSNumber numberWithInt:0x31], // distance since codes cleared. for relative dist
+                                          //[NSNumber numberWithInt:0x0D], // Vehicle speed
+                                          //[NSNumber numberWithInt:0x2F], // Fuel level -- FLKit alt code
+                                          //[NSNumber numberWithInt:0x0A], // Engine fuel pressure - FLKit code
+                                          //[NSNumber numberWithInt:0x10], // mass air flow, for instant MPG -- THIS CODE FROM FLKit
+                                          [NSNumber numberWithInt:0x31], // distance since codes cleared. for relative dist - FLKit code
 									 nil]];
 }
 
 
 - (void)scanTool:(FLScanTool*)scanTool didReceiveResponse:(NSArray*)responses {
-	FLINFO(@"DID RECEIVE RESPONSE")
 	
 	FLECUSensor* sensor	= nil;
 	
@@ -123,10 +131,20 @@
 		
 		sensor = [FLECUSensor sensorForPID:response.pid];
 		[sensor setCurrentResponse:response];
-		
-        DataPoint *dp = [[DataPoint alloc] init];
-        dp.data = [sensor valueForMeasurement1:NO];
-        dp.unitStr = [sensor imperialUnitString];
+        
+        [DreiCarCenter debug:[NSString stringWithFormat:@"Received Response %p val %@",response.pid, [sensor valueForMeasurement1:NO]] from:@"OBD2" jsonMessage:false];
+        
+        if ([sensor valueForMeasurement1:NO] == nil) {
+            return;
+        }
+
+        NSMutableDictionary *dp = [[NSMutableDictionary alloc] init];
+        [dp setObject:[sensor valueForMeasurement1:NO] forKey:@"data"];
+        if ([sensor imperialUnitString] != nil) {
+            [dp setObject:[sensor imperialUnitString] forKey:@"unit"];
+        } else {
+            [dp setObject:@"none" forKey:@"unit"];
+        }
         
 		if (response.pid == 0x0C) {
 			[self._currentValues setObject:dp forKey:@"rpm"];
@@ -147,7 +165,6 @@
             [self._currentValues setObject:dp forKey:@"d_cleared"];
         }
 	}
-	
 }
 
 - (NSMutableDictionary *) processDataPoint:(NSMutableDictionary *)data {
@@ -155,18 +172,18 @@
     return data;
     
     // get the MAF and then delete it (not used in the returned DP)
-    DataPoint *mass_air_flow = [data objectForKey:@"mass_air_flow"];
+    NSMutableDictionary *mass_air_flow = [data objectForKey:@"mass_air_flow"];
     [data removeObjectForKey:@"mass_air_flow"];
     
     // calculate instant MPG
-    DataPoint *mph = [data objectForKey:@"vehicle_speed"];
-    DataPoint *mpg = [[DataPoint alloc] init];
-    mpg.data = [NSNumber numberWithDouble: [DreiSynchDataProvider_OBD2 calcInstantMPG:[mph.data doubleValue] airFlow:[mass_air_flow.data doubleValue]]];
-    mpg.unitStr = @"miles/gal";
+    NSMutableDictionary *mph = [data objectForKey:@"vehicle_speed"];
+    NSMutableDictionary *mpg = [[NSMutableDictionary alloc] init];
+    [mpg setObject:[NSNumber numberWithDouble: [DreiSynchDataProvider_OBD2 calcInstantMPG:[[mph objectForKey:@"data"] doubleValue] airFlow:[[mass_air_flow objectForKey:@"data"] doubleValue]]] forKey:@"data"];
+    [mpg setObject:@"miles/gal" forKey:@"unit"];
     [data setObject:mpg forKey:@"instant_mpg"];
     
     // calculate relative distance (TODO)
-    DataPoint *d_cleared = [data objectForKey:@"d_cleared"];
+    NSMutableDictionary *d_cleared = [data objectForKey:@"d_cleared"];
     [data removeObjectForKey:@"d_cleared"];
     
     return data;

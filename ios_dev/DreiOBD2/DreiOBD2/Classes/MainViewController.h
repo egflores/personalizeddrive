@@ -28,6 +28,8 @@
 #import <Cordova/CDVViewController.h>
 #import <Cordova/CDVCommandDelegateImpl.h>
 #import <Cordova/CDVCommandQueue.h>
+#undef VERBOSE_DEBUG
+
 
 @interface MainViewController : CDVViewController
 

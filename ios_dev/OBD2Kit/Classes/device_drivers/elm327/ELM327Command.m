@@ -133,7 +133,7 @@ NSString *const kELM327SetDeviceIdentifier			= @"AT @3";
 
 - (NSData*) data {
 	[_command appendString:kCarriageReturn];
-	FLDEBUG(@"Flushing command: %@", _command)
+	//FLDEBUG(@"Flushing command: %@", _command)
 	return [_command dataUsingEncoding:NSASCIIStringEncoding];
 }
 

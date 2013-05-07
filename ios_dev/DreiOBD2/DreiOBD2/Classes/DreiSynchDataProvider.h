@@ -50,6 +50,8 @@
 /* Returns the latest data that we got */
 -(NSDictionary *)getLatestData;
 
+-(NSDictionary *)getStatistics;
+
 /* internal - normalize data and compute computable values, remove values that shouldn't be there */
 - (NSMutableDictionary *) processDataPoint:(NSMutableDictionary *)data;
 @end

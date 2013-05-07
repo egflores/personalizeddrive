@@ -160,7 +160,7 @@
 
 
 - (void)scanTool:(FLScanTool*)scanTool didReceiveResponse:(NSArray*)responses {
-	FLINFO(@"DID RECEIVE RESPONSE")
+	NSLog(@"DID RECEIVE RESPONSE");
 	[responses retain];	
 	
 	FLECUSensor* sensor	=	nil;

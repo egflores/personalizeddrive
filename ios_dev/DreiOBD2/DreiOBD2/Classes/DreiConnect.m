@@ -31,8 +31,9 @@
 {
     BOOL success = [[DreiCarCenter instance] driveLog_stopCollection];
     
+    NSString * statistics = [[DreiCarCenter instance] driveLog_getStatisticsJSON];
     CDVPluginResult* result = nil;
-    if (success) result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    if (success) result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:statistics];
     else result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
@@ -59,9 +60,18 @@
 }
 
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback {
-    NSString *newString = [NSString stringWithFormat:@"drei_callback_%@('%@');",callback,message];
-    //NSLog(@"%@",newString);
-    [self writeJavascript:newString];
+    return [self sendMessage:message toCallback:callback isJson:FALSE];
+}
+
+-(void) sendMessage:(NSString *)message toCallback:(NSString *)callback isJson:(BOOL)isJson {
+    NSString *jsString;
+    if (!isJson) {
+        jsString = [NSString stringWithFormat:@"drei_callback_%@('%@');",callback,message];
+    } else {
+        jsString = [NSString stringWithFormat:@"drei_callback_%@(%@);",callback,message];
+    }
+    //NSLog(@"%@",jsString);
+    [self writeJavascript:jsString];
 }
 
 -(void) sendDebugMessage:(NSString *)message fromComponent:(NSString *)component isJson:(BOOL)isJson {
