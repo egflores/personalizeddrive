@@ -30,6 +30,7 @@
 /* Data endpoints for applications */
 - (BOOL)hasDataService;
 - (DreiSynchDataProvider *)getDataService;
+- (void)updateConnectionStatus:(NSString *) status;
 
 /* Drive log */
 /*- (BOOL) driveLog_uploadDataRaw;
@@ -38,6 +39,7 @@
 - (BOOL) driveLog_stopCollection;
 - (BOOL) driveLog_clearData;
 - (void) driveLog_updateData:(NSDictionary *)dataPoint;
+- (NSString *)driveLog_getStatisticsJSON;
 
 /* Debug */
 + (void) debug:(NSString *)message from:(NSString *)from jsonMessage:(BOOL)isJson;
