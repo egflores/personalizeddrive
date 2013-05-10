@@ -75,12 +75,18 @@
 		5C74E012173CA2AC007053AE /* NSStreamAdditions.h in Resources */ = {isa = PBXBuildFile; fileRef = 5C74E00C173CA2AB007053AE /* NSStreamAdditions.h */; };
 		5C74E018173CA574007053AE /* MyLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E015173CA573007053AE /* MyLogInViewController.m */; };
 		5C74E019173CA574007053AE /* MySignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E017173CA573007053AE /* MySignUpViewController.m */; };
+		5C74E031173CC1FF007053AE /* MPCJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E024173CC1FF007053AE /* MPCJSONDataSerializer.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5C74E032173CC1FF007053AE /* MPCJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E026173CC1FF007053AE /* MPCJSONSerializer.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5C74E033173CC1FF007053AE /* MPCSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E028173CC1FF007053AE /* MPCSerializedJSONData.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5C74E034173CC1FF007053AE /* NSData+MPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E02B173CC1FF007053AE /* NSData+MPBase64.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5C74E035173CC1FF007053AE /* ODIN.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E02E173CC1FF007053AE /* ODIN.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5C74E036173CC1FF007053AE /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E030173CC1FF007053AE /* Mixpanel.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5C74E03A173CC555007053AE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C74E039173CC555007053AE /* CoreTelephony.framework */; };
 		7235F313172F821600CBCC17 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7235F312172F821600CBCC17 /* ExternalAccessory.framework */; };
 		7235F31F172F831A00CBCC17 /* DreiCarCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7235F318172F831A00CBCC17 /* DreiCarCenter.m */; };
 		7235F320172F831A00CBCC17 /* DreiConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 7235F31A172F831A00CBCC17 /* DreiConnect.m */; };
 		7235F321172F831A00CBCC17 /* DreiSynchDataProvider_OBD2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7235F31C172F831A00CBCC17 /* DreiSynchDataProvider_OBD2.m */; };
 		7235F322172F831A00CBCC17 /* DreiSynchDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7235F31E172F831A00CBCC17 /* DreiSynchDataProvider.m */; };
-		7235F326172F851E00CBCC17 /* DataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7235F325172F851E00CBCC17 /* DataPoint.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 /* End PBXBuildFile section */
@@ -162,29 +168,42 @@
 		5C74DF93173C9E16007053AE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5C74DF95173C9EC5007053AE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5C74DFBB173CA0A4007053AE /* OBD2Kit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OBD2Kit.xcodeproj; path = ../OBD2Kit/OBD2Kit.xcodeproj; sourceTree = "<group>"; };
-		5C74DFC2173CA28D007053AE /* FLWifiScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLWifiScanTool.h; path = Classes/FLWifiScanTool.h; sourceTree = "<group>"; };
-		5C74DFC5173CA28D007053AE /* FLEAController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLEAController.h; path = Classes/FLEAController.h; sourceTree = "<group>"; };
-		5C74DFC7173CA28D007053AE /* FLEAScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLEAScanTool.h; path = Classes/FLEAScanTool.h; sourceTree = "<group>"; };
-		5C74DFCA173CA28D007053AE /* FLSimScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = FLSimScanTool.h; sourceTree = "<group>"; };
-		5C74DFCD173CA28D007053AE /* ELM327.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = ELM327.h; sourceTree = "<group>"; };
-		5C74DFCF173CA28D007053AE /* ELM327Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = ELM327Command.h; sourceTree = "<group>"; };
-		5C74DFD1173CA28D007053AE /* ELM327ResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = ELM327ResponseParser.h; sourceTree = "<group>"; };
-		5C74DFD4173CA28D007053AE /* GoLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = GoLink.h; sourceTree = "<group>"; };
-		5C74DFD6173CA28D007053AE /* GoLinkCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = GoLinkCommand.h; sourceTree = "<group>"; };
-		5C74DFD8173CA28D007053AE /* GoLinkResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = GoLinkResponseParser.h; sourceTree = "<group>"; };
-		5C74DFDC173CA28D007053AE /* FLScanToolController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLScanToolController.h; path = Classes/FLScanToolController.h; sourceTree = "<group>"; };
-		5C74DFDE173CA28D007053AE /* FLScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLScanTool.h; path = Classes/FLScanTool.h; sourceTree = "<group>"; };
-		5C74DFE0173CA28D007053AE /* FLScanToolCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLScanToolCommand.h; path = Classes/FLScanToolCommand.h; sourceTree = "<group>"; };
-		5C74DFE2173CA28D007053AE /* FLScanToolResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLScanToolResponse.h; path = Classes/FLScanToolResponse.h; sourceTree = "<group>"; };
-		5C74DFE4173CA28D007053AE /* FLScanToolResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLScanToolResponseParser.h; path = Classes/FLScanToolResponseParser.h; sourceTree = "<group>"; };
-		5C74DFE6173CA28D007053AE /* FLECUSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLECUSensor.h; path = Classes/FLECUSensor.h; sourceTree = "<group>"; };
-		5C74E009173CA2AB007053AE /* Base64Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = Base64Extensions.h; sourceTree = "<group>"; };
-		5C74E00B173CA2AB007053AE /* FLLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = FLLogging.h; sourceTree = "<group>"; };
-		5C74E00C173CA2AB007053AE /* NSStreamAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = NSStreamAdditions.h; sourceTree = "<group>"; };
+		5C74DFC2173CA28D007053AE /* FLWifiScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLWifiScanTool.h; path = Classes/FLWifiScanTool.h; sourceTree = "<group>"; };
+		5C74DFC5173CA28D007053AE /* FLEAController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLEAController.h; path = Classes/FLEAController.h; sourceTree = "<group>"; };
+		5C74DFC7173CA28D007053AE /* FLEAScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLEAScanTool.h; path = Classes/FLEAScanTool.h; sourceTree = "<group>"; };
+		5C74DFCA173CA28D007053AE /* FLSimScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSimScanTool.h; sourceTree = "<group>"; };
+		5C74DFCD173CA28D007053AE /* ELM327.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELM327.h; sourceTree = "<group>"; };
+		5C74DFCF173CA28D007053AE /* ELM327Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELM327Command.h; sourceTree = "<group>"; };
+		5C74DFD1173CA28D007053AE /* ELM327ResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELM327ResponseParser.h; sourceTree = "<group>"; };
+		5C74DFD4173CA28D007053AE /* GoLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoLink.h; sourceTree = "<group>"; };
+		5C74DFD6173CA28D007053AE /* GoLinkCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoLinkCommand.h; sourceTree = "<group>"; };
+		5C74DFD8173CA28D007053AE /* GoLinkResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoLinkResponseParser.h; sourceTree = "<group>"; };
+		5C74DFDC173CA28D007053AE /* FLScanToolController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLScanToolController.h; path = Classes/FLScanToolController.h; sourceTree = "<group>"; };
+		5C74DFDE173CA28D007053AE /* FLScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLScanTool.h; path = Classes/FLScanTool.h; sourceTree = "<group>"; };
+		5C74DFE0173CA28D007053AE /* FLScanToolCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLScanToolCommand.h; path = Classes/FLScanToolCommand.h; sourceTree = "<group>"; };
+		5C74DFE2173CA28D007053AE /* FLScanToolResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLScanToolResponse.h; path = Classes/FLScanToolResponse.h; sourceTree = "<group>"; };
+		5C74DFE4173CA28D007053AE /* FLScanToolResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLScanToolResponseParser.h; path = Classes/FLScanToolResponseParser.h; sourceTree = "<group>"; };
+		5C74DFE6173CA28D007053AE /* FLECUSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLECUSensor.h; path = Classes/FLECUSensor.h; sourceTree = "<group>"; };
+		5C74E009173CA2AB007053AE /* Base64Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Extensions.h; sourceTree = "<group>"; };
+		5C74E00B173CA2AB007053AE /* FLLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLLogging.h; sourceTree = "<group>"; };
+		5C74E00C173CA2AB007053AE /* NSStreamAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStreamAdditions.h; sourceTree = "<group>"; };
 		5C74E014173CA573007053AE /* MyLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLogInViewController.h; sourceTree = "<group>"; };
 		5C74E015173CA573007053AE /* MyLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLogInViewController.m; sourceTree = "<group>"; };
 		5C74E016173CA573007053AE /* MySignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySignUpViewController.h; sourceTree = "<group>"; };
 		5C74E017173CA573007053AE /* MySignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySignUpViewController.m; sourceTree = "<group>"; };
+		5C74E023173CC1FF007053AE /* MPCJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONDataSerializer.h; sourceTree = "<group>"; };
+		5C74E024173CC1FF007053AE /* MPCJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCJSONDataSerializer.m; sourceTree = "<group>"; };
+		5C74E025173CC1FF007053AE /* MPCJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONSerializer.h; sourceTree = "<group>"; };
+		5C74E026173CC1FF007053AE /* MPCJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCJSONSerializer.m; sourceTree = "<group>"; };
+		5C74E027173CC1FF007053AE /* MPCSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCSerializedJSONData.h; sourceTree = "<group>"; };
+		5C74E028173CC1FF007053AE /* MPCSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCSerializedJSONData.m; sourceTree = "<group>"; };
+		5C74E02A173CC1FF007053AE /* NSData+MPBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MPBase64.h"; sourceTree = "<group>"; };
+		5C74E02B173CC1FF007053AE /* NSData+MPBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MPBase64.m"; sourceTree = "<group>"; };
+		5C74E02D173CC1FF007053AE /* ODIN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODIN.h; sourceTree = "<group>"; };
+		5C74E02E173CC1FF007053AE /* ODIN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODIN.m; sourceTree = "<group>"; };
+		5C74E02F173CC1FF007053AE /* Mixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
+		5C74E030173CC1FF007053AE /* Mixpanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixpanel.m; sourceTree = "<group>"; };
+		5C74E039173CC555007053AE /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		7235F312172F821600CBCC17 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		7235F317172F831A00CBCC17 /* DreiCarCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreiCarCenter.h; sourceTree = "<group>"; };
 		7235F318172F831A00CBCC17 /* DreiCarCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiCarCenter.m; sourceTree = "<group>"; };
@@ -194,8 +213,6 @@
 		7235F31C172F831A00CBCC17 /* DreiSynchDataProvider_OBD2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiSynchDataProvider_OBD2.m; sourceTree = "<group>"; };
 		7235F31D172F831A00CBCC17 /* DreiSynchDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreiSynchDataProvider.h; sourceTree = "<group>"; };
 		7235F31E172F831A00CBCC17 /* DreiSynchDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiSynchDataProvider.m; sourceTree = "<group>"; };
-		7235F324172F851D00CBCC17 /* DataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPoint.h; sourceTree = "<group>"; };
-		7235F325172F851E00CBCC17 /* DataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPoint.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* DreiOBD2-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "DreiOBD2-Info.plist"; path = "../DreiOBD2-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = DreiOBD2/config.xml; sourceTree = "<group>"; };
@@ -206,6 +223,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C74E03A173CC555007053AE /* CoreTelephony.framework in Frameworks */,
 				5C74DFC1173CA0BF007053AE /* libOBD2Kit.a in Frameworks */,
 				5C74DF96173C9EC5007053AE /* Security.framework in Frameworks */,
 				5C74DF94173C9E16007053AE /* StoreKit.framework in Frameworks */,
@@ -242,8 +260,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7235F324172F851D00CBCC17 /* DataPoint.h */,
-				7235F325172F851E00CBCC17 /* DataPoint.m */,
 				7235F317172F831A00CBCC17 /* DreiCarCenter.h */,
 				7235F318172F831A00CBCC17 /* DreiCarCenter.m */,
 				7235F319172F831A00CBCC17 /* DreiConnect.h */,
@@ -293,7 +309,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				5C74DF95173C9EC5007053AE /* Security.framework */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
 				301BF56E109A69640062928A /* www */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
@@ -305,6 +320,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				5C74DFE8173CA28D007053AE /* Classes */,
+				5C74E020173CC1FF007053AE /* Mixpanel */,
 				5C74E00E173CA2AB007053AE /* Utils */,
 				5C74DFBB173CA0A4007053AE /* OBD2Kit.xcodeproj */,
 			);
@@ -340,6 +356,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5C74E039173CC555007053AE /* CoreTelephony.framework */,
+				5C74DF95173C9EC5007053AE /* Security.framework */,
 				301BF5C2109A6A2B0062928A /* QuartzCore.framework */,
 				5C74DF8D173C9D55007053AE /* FacebookSDKResources.bundle */,
 				5C74DF8B173C9D4F007053AE /* FacebookSDK.framework */,
@@ -527,6 +545,57 @@
 			path = ../OBD2Kit/Classes/Utils;
 			sourceTree = "<group>";
 		};
+		5C74E020173CC1FF007053AE /* Mixpanel */ = {
+			isa = PBXGroup;
+			children = (
+				5C74E021173CC1FF007053AE /* Library */,
+				5C74E02F173CC1FF007053AE /* Mixpanel.h */,
+				5C74E030173CC1FF007053AE /* Mixpanel.m */,
+			);
+			path = Mixpanel;
+			sourceTree = "<group>";
+		};
+		5C74E021173CC1FF007053AE /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				5C74E022173CC1FF007053AE /* JSON */,
+				5C74E029173CC1FF007053AE /* NSData_Base64 */,
+				5C74E02C173CC1FF007053AE /* ODIN */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		5C74E022173CC1FF007053AE /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				5C74E023173CC1FF007053AE /* MPCJSONDataSerializer.h */,
+				5C74E024173CC1FF007053AE /* MPCJSONDataSerializer.m */,
+				5C74E025173CC1FF007053AE /* MPCJSONSerializer.h */,
+				5C74E026173CC1FF007053AE /* MPCJSONSerializer.m */,
+				5C74E027173CC1FF007053AE /* MPCSerializedJSONData.h */,
+				5C74E028173CC1FF007053AE /* MPCSerializedJSONData.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		5C74E029173CC1FF007053AE /* NSData_Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				5C74E02A173CC1FF007053AE /* NSData+MPBase64.h */,
+				5C74E02B173CC1FF007053AE /* NSData+MPBase64.m */,
+			);
+			path = NSData_Base64;
+			sourceTree = "<group>";
+		};
+		5C74E02C173CC1FF007053AE /* ODIN */ = {
+			isa = PBXGroup;
+			children = (
+				5C74E02D173CC1FF007053AE /* ODIN.h */,
+				5C74E02E173CC1FF007053AE /* ODIN.m */,
+			);
+			path = ODIN;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -685,9 +754,14 @@
 				7235F320172F831A00CBCC17 /* DreiConnect.m in Sources */,
 				7235F321172F831A00CBCC17 /* DreiSynchDataProvider_OBD2.m in Sources */,
 				7235F322172F831A00CBCC17 /* DreiSynchDataProvider.m in Sources */,
-				7235F326172F851E00CBCC17 /* DataPoint.m in Sources */,
 				5C74E018173CA574007053AE /* MyLogInViewController.m in Sources */,
 				5C74E019173CA574007053AE /* MySignUpViewController.m in Sources */,
+				5C74E031173CC1FF007053AE /* MPCJSONDataSerializer.m in Sources */,
+				5C74E032173CC1FF007053AE /* MPCJSONSerializer.m in Sources */,
+				5C74E033173CC1FF007053AE /* MPCSerializedJSONData.m in Sources */,
+				5C74E034173CC1FF007053AE /* NSData+MPBase64.m in Sources */,
+				5C74E035173CC1FF007053AE /* ODIN.m in Sources */,
+				5C74E036173CC1FF007053AE /* Mixpanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,6 +822,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DreiOBD2/DreiOBD2-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "MIXPANEL_DEBUG=1";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "DreiOBD2/DreiOBD2-Info.plist";
@@ -771,6 +846,7 @@
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DreiOBD2/DreiOBD2-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "MIXPANEL_DEBUG=1";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "DreiOBD2/DreiOBD2-Info.plist";

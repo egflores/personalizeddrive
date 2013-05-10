@@ -29,6 +29,7 @@
 #import "DreiCarCenter.h"
 #import "MyLogInViewController.h"
 #import "MySignUpViewController.h"
+#import "Mixpanel.h"
 
 @implementation MainViewController
 
@@ -82,6 +83,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    
     // Check if user is logged in
     if (![PFUser currentUser]) {
         // Customize the Log In View Controller
@@ -97,7 +99,14 @@
         
         // Present Log In View Controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
+    } else {
+        Mixpanel *mixpanel = [Mixpanel sharedInstanceWithToken:@"f43921742f2cfaf7b57b9b044ac793a3"];
+        [mixpanel identify:[PFUser currentUser].email];
+        [mixpanel track:@"LoggedIn"];
+        NSLog(@"Recording the user");
+        NSLog(@"%@", [PFUser currentUser].email);
     }
+    
 }
 
 - (void)viewDidLoad
@@ -135,6 +144,11 @@
 
 // Sent to the delegate when a PFUser is logged in.
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel identify:user.email];
+    NSLog(@"Recording the user");
+    NSLog(@"%@", [PFUser currentUser].email);
+    [mixpanel track:@"LoggedIn"];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
