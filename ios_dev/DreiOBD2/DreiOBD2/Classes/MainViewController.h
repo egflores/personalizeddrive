@@ -30,8 +30,11 @@
 #import <Cordova/CDVCommandQueue.h>
 #undef VERBOSE_DEBUG
 
+#import <Parse/Parse.h>
 
-@interface MainViewController : CDVViewController
+@interface MainViewController : CDVViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+
+- (IBAction)logOutButtonTapAction:(id)sender;
 
 @end
 
