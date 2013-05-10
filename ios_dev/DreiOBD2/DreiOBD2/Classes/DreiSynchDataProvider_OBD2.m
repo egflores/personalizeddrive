@@ -114,11 +114,11 @@
 	
 	[self._scanTool setSensorScanTargets:[NSArray arrayWithObjects:
                                           [NSNumber numberWithInt:0x0C], // Engine RPM
-                                          //[NSNumber numberWithInt:0x0D], // Vehicle speed
+                                          [NSNumber numberWithInt:0x0D], // Vehicle speed
                                           //[NSNumber numberWithInt:0x2F], // Fuel level -- FLKit alt code
                                           //[NSNumber numberWithInt:0x0A], // Engine fuel pressure - FLKit code
                                           //[NSNumber numberWithInt:0x10], // mass air flow, for instant MPG -- THIS CODE FROM FLKit
-                                          [NSNumber numberWithInt:0x31], // distance since codes cleared. for relative dist - FLKit code
+                                          //[NSNumber numberWithInt:0x31], // distance since codes cleared. for relative dist - FLKit code
 									 nil]];
 }
 

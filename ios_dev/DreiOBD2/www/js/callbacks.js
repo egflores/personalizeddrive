@@ -6,18 +6,35 @@ $(document).ready(function () {
     _.extend(cb.proxy , Backbone.Events);
 
     drei_callback_debug = function(context, content) {
-        DreiApp.app.log({
-            context: context,
-            content: content
-        });
     };
     drei_callback_connectionStatus = function(status) {
         $("#status").html(status);
-    } 
+    }
     drei_callback_dataEntry = function(carData) {
-        
-        $("#speed").html(carData.values.rpm);
-        $("#rpm").html(carData.values.vehicle_speed);
+                 //alert(carData);
+                  if (carData == null) {
+                    return;
+                  }
+                  lol = JSON.parse(carData)
+                  //alert(.rpm.data)
+                  $("#speed").html(lol.vehicle_speed.data);
+                  $("#rpm").html(lol.rpm.data);
+                  //DreiApp.app.lastCarData = JSON.parse(carData);
+                  //TESTING OBDII
+                  //END TESTING OBDII
+                  //cb.proxy.trigger('dataEntry', DreiApp.app.lastCarData);
+                  };
+                  
+    drei_callback_driveLog = function(carData) {
+                  //alert(carData);
+                  //if (carData == null) {
+                  //
+                  //return;
+                  //}
+                  
+                  //alert(JSON.parse(carData).rpm.data);
+                  //$("#speed").html(carData.rpm.data);
+                  //$("#rpm").html(carData.vehicle_speed.data);
         //DreiApp.app.lastCarData = JSON.parse(carData);
         //TESTING OBDII
         //END TESTING OBDII
