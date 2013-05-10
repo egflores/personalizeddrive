@@ -78,6 +78,14 @@
         self.viewController = [[[MainViewController alloc] init] autorelease];
 #endif
     self.viewController.useSplashScreen = YES;
+    
+    [Parse setApplicationId:@"tLBrJ7ySzwP3xIEP0mb2anvEt2Rb3u7ZeaiqIFc2" clientKey:@"cdowZJzZOepmQM1xz7DJt4QQ8i0oEWCKVTABpe6w"];
+    
+    // Set default ACLs
+    PFACL *defaultACL = [PFACL ACL];
+    [defaultACL setPublicReadAccess:YES];
+    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+
 
     // Set your app's start page by setting the <content src='foo.html' /> tag in config.xml.
     // If necessary, uncomment the line below to override it.
