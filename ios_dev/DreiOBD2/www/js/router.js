@@ -6,6 +6,7 @@ $(document).ready(function() {
 	DreiApp.Router = Backbone.Router.extend({
  
 	    routes:{
+	    	"": "track",
 	        "track":"track",
 	        "drivehistory":"driveHistory",
 	        "settings":"settings"
@@ -33,4 +34,5 @@ $(document).ready(function() {
 	});
 
 	DreiApp.router = new DreiApp.Router();
+	Backbone.history.start();
 });
