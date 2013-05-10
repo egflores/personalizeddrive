@@ -58,6 +58,15 @@
     self._synchTimer = nil;
 }
 
+-(NSDictionary *)getStatistics {
+    NSNumber *distance = [NSNumber numberWithFloat:10.0];
+    NSNumber *mpg = [NSNumber numberWithFloat:32.0];
+    NSNumber *time = [NSNumber numberWithFloat:15.0];
+
+    NSDictionary *response = [NSDictionary dictionaryWithObjectsAndKeys: distance, @"distance", mpg, @"mpg", time, @"time", nil];
+    return response;
+}
+
 -(NSArray *)getAllData {
     return self._dataStore;
 }
