@@ -6,18 +6,33 @@ $(document).ready(function () {
     _.extend(cb.proxy , Backbone.Events);
 
     drei_callback_debug = function(context, content) {
-        DreiApp.app.log({
-            context: context,
-            content: content
-        });
     };
     drei_callback_connectionStatus = function(status) {
         $("#status").html(status);
-    } 
+    }
+                  
     drei_callback_dataEntry = function(carData) {
-        
-        $("#speed").html(carData.values.rpm);
-        $("#rpm").html(carData.values.vehicle_speed);
+                  if (!carData) {
+                    return;
+                  }
+                  $("#speed").html(carData.vehicle_speed);
+                  $("#rpm").html(carData.rpm);
+                  $("#instant_mpg").html(carData.instant_mpg);
+                  //TESTING OBDII
+                  //END TESTING OBDII
+                  //cb.proxy.trigger('dataEntry', DreiApp.app.lastCarData);
+                  };
+                  
+    drei_callback_driveLog = function(carData) {
+                  //alert(carData);
+                  //if (carData == null) {
+                  //
+                  //return;
+                  //}
+                  
+                  //alert(JSON.parse(carData).rpm.data);
+                  //$("#speed").html(carData.rpm.data);
+                  //$("#rpm").html(carData.vehicle_speed.data);
         //DreiApp.app.lastCarData = JSON.parse(carData);
         //TESTING OBDII
         //END TESTING OBDII
@@ -52,6 +67,13 @@ $(document).ready(function () {
                                        errorCallback();
                                        console.log("Error in stopDriveLog");
                                     }, "DreiConnect", "stopDriveLog", []);
+    };
+
+    cb.drei_logout = function(callback, errorCallback) {
+        cordova.exec(callback, function() {
+                                   errorCallback();
+                                   console.log("Error in startDriveLog");
+                               }, "DreiConnect", "logout", []);
     };
     /* Not implemented
         cb.drei_upload = function(callback, errorCallback) {

@@ -26,9 +26,10 @@
 //
 
 #import "MainViewController.h"
-#import "FLLogging.h"
-#import "FLECUSensor.h"
 #import "DreiCarCenter.h"
+#import "MyLogInViewController.h"
+#import "MySignUpViewController.h"
+#import "Mixpanel.h"
 
 @implementation MainViewController
 
@@ -72,12 +73,53 @@
     // you can do so here.
 
     [super viewWillAppear:animated];
+    if ([PFUser currentUser]) {
+        NSLog(@"Logged in");
+    } else {
+        NSLog(@"Not logged in");
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self checkLoginStatus];
+}
+
+-(void) checkLoginStatus
+{
+    MainViewController *mainViewController = (MainViewController *)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    
+    
+    // Check if user is logged in
+    if (![PFUser currentUser]) {
+        // Customize the Log In View Controller
+        MyLogInViewController *logInViewController = [[MyLogInViewController alloc] init];
+        logInViewController.delegate = mainViewController;
+        logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton;
+        
+        // Customize the Sign Up View Controller
+        MySignUpViewController *signUpViewController = [[MySignUpViewController alloc] init];
+        signUpViewController.delegate = mainViewController;
+        signUpViewController.fields = PFSignUpFieldsDefault | PFSignUpFieldsAdditional;
+        logInViewController.signUpController = signUpViewController;
+        
+        // Present Log In View Controller
+        [self presentViewController:logInViewController animated:YES completion:NULL];
+    } else {
+        Mixpanel *mixpanel = [Mixpanel sharedInstanceWithToken:@"f43921742f2cfaf7b57b9b044ac793a3"];
+        [mixpanel identify:[PFUser currentUser].email];
+        [mixpanel track:@"LoggedIn"];
+        NSLog(@"Recording the user");
+        NSLog(@"%@", [PFUser currentUser].email);
+    }
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[DreiCarCenter instance] driveLog_startCollection];
+    
+    //[[DreiCarCenter instance] driveLog_startCollection];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -93,6 +135,83 @@
     // Return YES for supported orientations
     return [super shouldAutorotateToInterfaceOrientation:interfaceOrientation];
 }
+
+#pragma mark - PFLogInViewControllerDelegate
+
+// Sent to the delegate to determine whether the log in request should be submitted to the server.
+- (BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password {
+    if (username && password && username.length && password.length) {
+        return YES;
+    }
+    
+    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Make sure you fill out all of the information!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+    return NO;
+}
+
+// Sent to the delegate when a PFUser is logged in.
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel identify:user.email];
+    NSLog(@"Recording the user");
+    NSLog(@"%@", [PFUser currentUser].email);
+    [mixpanel track:@"LoggedIn"];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+// Sent to the delegate when the log in attempt fails.
+- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
+    NSLog(@"Failed to log in...");
+}
+
+// Sent to the delegate when the log in screen is dismissed.
+- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+#pragma mark - PFSignUpViewControllerDelegate
+
+// Sent to the delegate to determine whether the sign up request should be submitted to the server.
+- (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
+    BOOL informationComplete = YES;
+    for (id key in info) {
+        NSString *field = [info objectForKey:key];
+        if (!field || field.length == 0) {
+            informationComplete = NO;
+            break;
+        }
+    }
+    
+    if (!informationComplete) {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Make sure you fill out all of the information!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+    }
+    
+    return informationComplete;
+}
+
+// Sent to the delegate when a PFUser is signed up.
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+// Sent to the delegate when the sign up attempt fails.
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
+    NSLog(@"Failed to sign up...");
+}
+
+// Sent to the delegate when the sign up screen is dismissed.
+- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
+    NSLog(@"User dismissed the signUpViewController");
+}
+
+
+#pragma mark - ()
+
+- (IBAction)logOutButtonTapAction:(id)sender {
+    [PFUser logOut];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 /* Comment out the block below to over-ride */
 

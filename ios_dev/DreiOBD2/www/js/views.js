@@ -2,72 +2,74 @@ $().ns('DreiApp.Views');
 
 
 $(document).ready(function () {
-    var Navigation = Backbone.View.extend({
 
-        template:_.template($('#navigation-template').html()),
-
-        initialize: function() {
-            this.activePage = 1;
-        },
-
-        events: {
-            "click #nav-drivehistory": "changeDriveHistory",
-            "click #nav-track": "changeTrack",
-            "click #nav-settings": "settings"
-        },
-
-        changeDriveHistory: function() {
-            this.activePage = 0;
-            window.location.hash="drivehistory";
-        },
-
-        changeTrack: function() {
-            this.activePage = 1;
-            window.location.hash="track";
-        },
-
-        changeSettings: function() {
-            this.activePage = 2;
-            window.location.hash="settings";
-        },
-
-        render:function (eventName) {
-            $(this.el).html(this.template({"activePage": this.activePage}));
-            return this;
-        }
+    DreiApp.Views.MainView = Backbone.View.extend({
+        transition: "fade"
     });
 
-    var nav = new Navigation();
 
-    DreiApp.Views.DriveHistory = Backbone.View.extend({
+    DreiApp.Views.DriveHistory = DreiApp.Views.MainView.extend({
 
         template:_.template($('#DriveHistoryTemplate').html()),
 
         render:function (eventName) {
             $(this.el).html(this.template());
-            $(".ui-page").append(nav.render().el);
             return this;
         }
     });
 
-    DreiApp.Views.Track = Backbone.View.extend({
+    DreiApp.Views.Track = DreiApp.Views.MainView.extend({
 
         template:_.template($('#TrackTemplate').html()),
 
         render:function (eventName) {
             $(this.el).html(this.template());
-            $(".ui-page").append(nav.render().el);
             return this;
         }
     });
 
-    DreiApp.Views.Settings = Backbone.View.extend({
+    DreiApp.Views.ActiveTracking = DreiApp.Views.MainView.extend({
 
-        template:_.template($('#SettingsTemplate').html()),
+        transition: "slideup",
+
+        template:_.template($('#ActiveTrackingTemplate').html()),
 
         render:function (eventName) {
             $(this.el).html(this.template());
-            $(".ui-page").append(nav.render().el);
+            return this;
+        }
+    });
+
+    DreiApp.Views.Onboarding = DreiApp.Views.MainView.extend({
+
+        transition: "slideup",
+
+        template:_.template($('#OnboardingTemplate').html()),
+
+        render:function (eventName) {
+            $(this.el).html(this.template());
+            return this;
+        }
+    });
+
+    DreiApp.Views.Settings = DreiApp.Views.MainView.extend({
+
+        template:_.template($('#SettingsTemplate').html()),
+
+        events: {
+            "click .logout": "logout"
+        },
+
+        logout: function(e) {
+            DreiApp.Callbacks.drei_logout(function() {
+                window.location.hash = "track";
+            }, function() {});
+            e.stopPropagation();
+            e.preventDefault();
+        },
+        
+        render:function (eventName) {
+            $(this.el).html(this.template());
             return this;
         }
     });

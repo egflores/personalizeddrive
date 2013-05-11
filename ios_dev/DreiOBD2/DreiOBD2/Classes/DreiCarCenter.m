@@ -34,6 +34,7 @@ static DreiCarCenter *gInstance = NULL;
     /* @trusheim you should probably check out where this should go */
     //smartSend = [[DreiSmartSend alloc] init];
     //[smartSend start];
+    [self getDataService]; // forces creation of the object
     return self;
 }
 
@@ -49,6 +50,10 @@ static DreiCarCenter *gInstance = NULL;
         self.dataService = [[DreiSynchDataProvider_OBD2 alloc] init];
     }
     return self.dataService;
+}
+
+- (void)updateConnectionStatus:(NSString *)status {
+    [self sendMessage:status toCallback:@"connectionStatus"];
 }
 
 -(BOOL)hasConnectEndpoint {
@@ -67,12 +72,13 @@ static DreiCarCenter *gInstance = NULL;
     return true;
 }
 
--(void)updateCarLogging:(BOOL)logging {
+-(void)updateDriveLogStatus:(BOOL)logging {
+    [DreiCarCenter debug:[NSString stringWithFormat:@"Update logging: %d", logging] from:@"LogUpdate" jsonMessage:false];
     if (logging) {
-        [self sendMessage:@"logOn" toCallback:@"carlogging"];
+        [self sendMessage:@"on" toCallback:@"driveLog"];
         //[bmwUIEndpoint externalLogUpdate:@"logOn"];
     } else {
-        [self sendMessage:@"logOff" toCallback:@"carlogging"];
+        [self sendMessage:@"off" toCallback:@"driveLog"];
         //[bmwUIEndpoint externalLogUpdate:@"logOff"];
     }
 }
@@ -102,13 +108,12 @@ static DreiCarCenter *gInstance = NULL;
 }*/
 
 - (BOOL) driveLog_clearData {
-    [[self getDataService] clearStoredData];
+    //[[self getDataService] clearStoredData];
     return true;
 }
 
 - (BOOL) driveLog_startCollection {
     [[self getDataService] startCollection];
-    [self updateCarLogging:true];
     [DreiCarCenter debug:@"Car logging started" from:@"CarCenter" jsonMessage:false];
 
     return true;
@@ -116,14 +121,32 @@ static DreiCarCenter *gInstance = NULL;
 
 - (BOOL) driveLog_stopCollection {
     [[self getDataService] stopCollection];
-    [self updateCarLogging:false];
     [DreiCarCenter debug:@"Car logging stopped" from:@"CarCenter" jsonMessage:false];
 
     return true;
 }
 
+- (NSString *)driveLog_getStatisticsJSON {
+    DL_Entry *entry = [[self getDataService] getEntry];
+    return [self driveLog_getStatisticsJSON:entry];
+}
+
+- (NSString *)driveLog_getStatisticsJSON:(DL_Entry *)entry {
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[entry toDict]
+                                                   options:0
+                                                     error:nil];
+    NSString *jsonString = [[NSString alloc]
+                            initWithData:data
+                            encoding:NSUTF8StringEncoding];
+    return jsonString;
+    
+}
+
 -(void) driveLog_updateData:(NSDictionary *)dataPoint {
-    [[self connectEndpoint] sendMessage:[[NSString alloc] initWithData:[DreiCarCenter formatDataEntry:dataPoint error:nil] encoding:NSUTF8StringEncoding] toCallback:@"dataEntry"];
+    NSString *jsonData = [[NSString alloc]
+                          initWithData:[DreiCarCenter formatDataEntry:dataPoint error:nil]
+                          encoding:NSUTF8StringEncoding];
+    [[self connectEndpoint] sendMessage:jsonData toCallback:@"dataEntry" isJson:TRUE];
 }
 
 +(void) debug:(NSString *)message from:(NSString *)from jsonMessage:(BOOL)isJson {
