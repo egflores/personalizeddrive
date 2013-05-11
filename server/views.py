@@ -16,21 +16,23 @@ def auth_login():
     user = User.get(User.username==data[0]['username'])
     if user.check_password(user.hash_password(data[0]['password'])):
         return jsonify({'token': user.hash_user()})
-    return jsonify({'token': None})
+    return jsonify({'user': data[0]['username'], 'token':''})
     
-@app.route('/1.0/rawcardata/update', methods=['POST'])
+@app.route('/2.0/rawcardata/update', methods=['POST'])
 def post_rawdata():
     if request.headers['Content-Type'] != 'application/json':
         abort(415) # invalid content type
          
-    data = request.json['data']
+    data = request.json['values']
+    user_id = request.json['user_id']
+    car_id = request.json['car_id']
     num_successful = 0
-    vehicle = Car.get(id=data[0]['car_id'])
+    vehicle = Car.get(id=car_id)
     ts = datetime.fromtimestamp(data[0]['timestamp'])
     commute_id = Commute.create(car=vehicle, timestamp = ts, duration = 0, ave_speed = 0, ave_mpg = 0, tank_used=0.0)
     for rawdata in data:
         try:
-            c = Car.get(id=rawdata['car_id'])
+            c = vehicle
             timestamp = datetime.fromtimestamp(rawdata['timestamp'])
             r = None
             try:
@@ -41,13 +43,13 @@ def post_rawdata():
                 r.update_time = timestamp
             r.commute = commute_id
             r.tank_level = rawdata['fuel_level']
-            r.fuel_range = rawdata['fuel_range'] 
-            #r.fuel_reserve = rawdata['fuel_reserve']
-            r.odometer = rawdata['odometer']
-            r.headlights = rawdata['headlights']
-            r.speed = rawdata['speed']
-            #r.latitude = rawdata['gps_lat']
-            #r.longitude = rawdata['gps_long']
+            r.speed = rawdata['vehicle_speed']
+            r.latitude = rawdata['gps_latitude']
+            r.longitude = rawdata['gps_longitude']
+            # need to add relative distance
+            # need to add engine fuel rate
+            # need to rpm
+            # need to add instant mpg
             r.save()
             num_successful += 1
         except:
@@ -60,13 +62,13 @@ def post_rawdata():
     speed = 0.0
     for data in commute:
         speed += data.speed
+        #need to add instant speed to get ave_mpg
     commute_id.ave_speed = speed / count
-    #commute_id.tank_used = commute[0].fuel_reserve - commute[count - 1].fuel_reserve
-    #commute_id.ave_mpg = (commute[count - 1].odometer - commute[0].odometer) / commute_id.tank_used
+    #commute_id.tank_used = first fuel level - last fuel level
     commute_id.save()
     return jsonify({'success': num_successful})        
 
-@app.route('/1.0/drivelogs', methods=['GET'])
+@app.route('/2.0/drivelogs', methods=['GET'])
 def get_drivelogs():
     if request.headers['Content-Type'] != 'application/json':
         abort(415) # invalid content type
