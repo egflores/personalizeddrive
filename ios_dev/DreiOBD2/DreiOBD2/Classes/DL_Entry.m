@@ -30,40 +30,57 @@
 }
 
 -(void)calcStatistics:(NSArray *)dataPoints {
-    double running_avg_mpg = 0;
-    double running_total_distance = 0;
-    double curr_max_speed = 0;
-    double running_avg_speed = 0;
-    double num_points = 0;
     
     if (!dataPoints || [dataPoints count] == 0) {
         return;
     }
-    
-    for (DL_DataPoint *dp in dataPoints) {
-        num_points += 1;
-        running_avg_mpg += dp.mpg; // TODO: THIS IS NOT A THING - @brycecr
-        running_total_distance += 0; // TODO: MAKE DISTANCE A THING @brycecr
-        if (dp.kph > curr_max_speed) curr_max_speed = dp.kph;
-        running_avg_speed += dp.kph;
+
+    int count = [dataPoints count];
+
+    double est_gallons_used = 0.0;
+    double est_miles_traveled = 0.0;
+    double curr_max_speed = 0.0;
+
+    for (int i=0; i < count-1; ++i) {
+	   DL_DataPoint* obj1 = [dataPoints objectAtIndex:i];
+	   DL_DataPoint* obj2 = [dataPoints objectAtIndex:(i+1)];
+
+        double inst_mpg_avg = (obj1.mpg+obj2.mpg) / 2.0;
+        double inst_speed_avg = (obj2.kph + obj2.kph) / 2.0f;
+
+        if (obj2.kph > curr_max_speed) curr_max_speed = obj2.kph;
+
+	   double del_time = [obj2.timestamp timeIntervalSince1970] - [obj1.timestamp timeIntervalSince1970];
+
+        est_gallons_used += del_time * inst_mpg_avg;
+        est_miles_traveled += del_time * inst_speed_avg;
     }
-    
-    running_avg_speed /= num_points;
-    running_avg_mpg /= num_points;
-    
-    self.total_distance = -1; // @brycecr - GPS to distance?
-    
-    // total time = timestamp of end - timestamp of start
-    DL_DataPoint *firstPoint = [dataPoints objectAtIndex:0];
+
     DL_DataPoint *lastPoint = [dataPoints lastObject];
+    DL_DataPoint *firstPoint = [dataPoints objectAtIndex:0];
     self.total_time = [lastPoint.timestamp timeIntervalSince1970] - [firstPoint.timestamp timeIntervalSince1970];
-    
-    self.average_mpg = running_avg_mpg;
-    self.average_speed = running_avg_speed;
-    self.max_speed = curr_max_speed;
-    self.total_distance = running_total_distance;
-    self.num_points = num_points;
-    
+    self.average_speed = est_miles_traveled / self.total_time;
+    self.average_mpg = est_miles_traveled / est_gallons_used;
+    self.total_distance = est_miles_traveled;
+    self.num_points = count;
+
+/*
+	//this Code assumes each call to calcStatistics gives exatly one new data point
+    //might be useful in the future
+    int count = [dataPoint count];
+    DL_DataPoint *lastPoint = [dataPoints lastObject];
+    DL_DataPoint *penultPoint = [dataPoints objectAtIndex:(count-1)];
+    double del_time = [lastPoint.timestamp timeIntervalSince1970] - [penultPoint.timestamp timeIntervalSince1970];
+
+    self.average_mpg = (self.average_mpg*self.total_time + del_time*lastPoint.mpg) / (self.total_time+del_time);
+    if (lastPoint.kph > self.max_speed) {
+	    self.max_speed = lastPoint.kph;
+    }
+    self.average_speed = (self.average_mpg*self.total_time + del_time*lastPoint.mpg) / (self.total_time+del_time);
+    self.total_time = self.total_time + del_time;
+    self.num_points += 1;
+*/
+
 }
 
 +(NSString *)parseClassName {
