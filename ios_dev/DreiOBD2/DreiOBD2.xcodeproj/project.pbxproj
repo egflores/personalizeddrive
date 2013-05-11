@@ -75,6 +75,13 @@
 		5C74E012173CA2AC007053AE /* NSStreamAdditions.h in Resources */ = {isa = PBXBuildFile; fileRef = 5C74E00C173CA2AB007053AE /* NSStreamAdditions.h */; };
 		5C74E018173CA574007053AE /* MyLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E015173CA573007053AE /* MyLogInViewController.m */; };
 		5C74E019173CA574007053AE /* MySignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E017173CA573007053AE /* MySignUpViewController.m */; };
+		5C74E031173CC1FF007053AE /* MPCJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E024173CC1FF007053AE /* MPCJSONDataSerializer.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5C74E032173CC1FF007053AE /* MPCJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E026173CC1FF007053AE /* MPCJSONSerializer.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5C74E033173CC1FF007053AE /* MPCSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E028173CC1FF007053AE /* MPCSerializedJSONData.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5C74E034173CC1FF007053AE /* NSData+MPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E02B173CC1FF007053AE /* NSData+MPBase64.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5C74E035173CC1FF007053AE /* ODIN.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E02E173CC1FF007053AE /* ODIN.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5C74E036173CC1FF007053AE /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E030173CC1FF007053AE /* Mixpanel.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5C74E03A173CC555007053AE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C74E039173CC555007053AE /* CoreTelephony.framework */; };
 		7235F313172F821600CBCC17 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7235F312172F821600CBCC17 /* ExternalAccessory.framework */; };
 		7235F31F172F831A00CBCC17 /* DreiCarCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7235F318172F831A00CBCC17 /* DreiCarCenter.m */; };
 		7235F320172F831A00CBCC17 /* DreiConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 7235F31A172F831A00CBCC17 /* DreiConnect.m */; };
@@ -184,6 +191,19 @@
 		5C74E015173CA573007053AE /* MyLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLogInViewController.m; sourceTree = "<group>"; };
 		5C74E016173CA573007053AE /* MySignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySignUpViewController.h; sourceTree = "<group>"; };
 		5C74E017173CA573007053AE /* MySignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySignUpViewController.m; sourceTree = "<group>"; };
+		5C74E023173CC1FF007053AE /* MPCJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONDataSerializer.h; sourceTree = "<group>"; };
+		5C74E024173CC1FF007053AE /* MPCJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCJSONDataSerializer.m; sourceTree = "<group>"; };
+		5C74E025173CC1FF007053AE /* MPCJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONSerializer.h; sourceTree = "<group>"; };
+		5C74E026173CC1FF007053AE /* MPCJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCJSONSerializer.m; sourceTree = "<group>"; };
+		5C74E027173CC1FF007053AE /* MPCSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCSerializedJSONData.h; sourceTree = "<group>"; };
+		5C74E028173CC1FF007053AE /* MPCSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCSerializedJSONData.m; sourceTree = "<group>"; };
+		5C74E02A173CC1FF007053AE /* NSData+MPBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MPBase64.h"; sourceTree = "<group>"; };
+		5C74E02B173CC1FF007053AE /* NSData+MPBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MPBase64.m"; sourceTree = "<group>"; };
+		5C74E02D173CC1FF007053AE /* ODIN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODIN.h; sourceTree = "<group>"; };
+		5C74E02E173CC1FF007053AE /* ODIN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODIN.m; sourceTree = "<group>"; };
+		5C74E02F173CC1FF007053AE /* Mixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
+		5C74E030173CC1FF007053AE /* Mixpanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixpanel.m; sourceTree = "<group>"; };
+		5C74E039173CC555007053AE /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		7235F312172F821600CBCC17 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		7235F317172F831A00CBCC17 /* DreiCarCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreiCarCenter.h; sourceTree = "<group>"; };
 		7235F318172F831A00CBCC17 /* DreiCarCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiCarCenter.m; sourceTree = "<group>"; };
@@ -203,6 +223,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C74E03A173CC555007053AE /* CoreTelephony.framework in Frameworks */,
 				5C74DFC1173CA0BF007053AE /* libOBD2Kit.a in Frameworks */,
 				5C74DF96173C9EC5007053AE /* Security.framework in Frameworks */,
 				5C74DF94173C9E16007053AE /* StoreKit.framework in Frameworks */,
@@ -288,7 +309,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				5C74DF95173C9EC5007053AE /* Security.framework */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
 				301BF56E109A69640062928A /* www */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
@@ -300,6 +320,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				5C74DFE8173CA28D007053AE /* Classes */,
+				5C74E020173CC1FF007053AE /* Mixpanel */,
 				5C74E00E173CA2AB007053AE /* Utils */,
 				5C74DFBB173CA0A4007053AE /* OBD2Kit.xcodeproj */,
 			);
@@ -335,6 +356,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5C74E039173CC555007053AE /* CoreTelephony.framework */,
+				5C74DF95173C9EC5007053AE /* Security.framework */,
 				301BF5C2109A6A2B0062928A /* QuartzCore.framework */,
 				5C74DF8D173C9D55007053AE /* FacebookSDKResources.bundle */,
 				5C74DF8B173C9D4F007053AE /* FacebookSDK.framework */,
@@ -522,6 +545,57 @@
 			path = ../OBD2Kit/Classes/Utils;
 			sourceTree = "<group>";
 		};
+		5C74E020173CC1FF007053AE /* Mixpanel */ = {
+			isa = PBXGroup;
+			children = (
+				5C74E021173CC1FF007053AE /* Library */,
+				5C74E02F173CC1FF007053AE /* Mixpanel.h */,
+				5C74E030173CC1FF007053AE /* Mixpanel.m */,
+			);
+			path = Mixpanel;
+			sourceTree = "<group>";
+		};
+		5C74E021173CC1FF007053AE /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				5C74E022173CC1FF007053AE /* JSON */,
+				5C74E029173CC1FF007053AE /* NSData_Base64 */,
+				5C74E02C173CC1FF007053AE /* ODIN */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		5C74E022173CC1FF007053AE /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				5C74E023173CC1FF007053AE /* MPCJSONDataSerializer.h */,
+				5C74E024173CC1FF007053AE /* MPCJSONDataSerializer.m */,
+				5C74E025173CC1FF007053AE /* MPCJSONSerializer.h */,
+				5C74E026173CC1FF007053AE /* MPCJSONSerializer.m */,
+				5C74E027173CC1FF007053AE /* MPCSerializedJSONData.h */,
+				5C74E028173CC1FF007053AE /* MPCSerializedJSONData.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		5C74E029173CC1FF007053AE /* NSData_Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				5C74E02A173CC1FF007053AE /* NSData+MPBase64.h */,
+				5C74E02B173CC1FF007053AE /* NSData+MPBase64.m */,
+			);
+			path = NSData_Base64;
+			sourceTree = "<group>";
+		};
+		5C74E02C173CC1FF007053AE /* ODIN */ = {
+			isa = PBXGroup;
+			children = (
+				5C74E02D173CC1FF007053AE /* ODIN.h */,
+				5C74E02E173CC1FF007053AE /* ODIN.m */,
+			);
+			path = ODIN;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -682,6 +756,12 @@
 				7235F322172F831A00CBCC17 /* DreiSynchDataProvider.m in Sources */,
 				5C74E018173CA574007053AE /* MyLogInViewController.m in Sources */,
 				5C74E019173CA574007053AE /* MySignUpViewController.m in Sources */,
+				5C74E031173CC1FF007053AE /* MPCJSONDataSerializer.m in Sources */,
+				5C74E032173CC1FF007053AE /* MPCJSONSerializer.m in Sources */,
+				5C74E033173CC1FF007053AE /* MPCSerializedJSONData.m in Sources */,
+				5C74E034173CC1FF007053AE /* NSData+MPBase64.m in Sources */,
+				5C74E035173CC1FF007053AE /* ODIN.m in Sources */,
+				5C74E036173CC1FF007053AE /* Mixpanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,6 +822,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DreiOBD2/DreiOBD2-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "MIXPANEL_DEBUG=1";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "DreiOBD2/DreiOBD2-Info.plist";
@@ -765,6 +846,7 @@
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DreiOBD2/DreiOBD2-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "MIXPANEL_DEBUG=1";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "DreiOBD2/DreiOBD2-Info.plist";
