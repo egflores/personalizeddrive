@@ -24,21 +24,23 @@
 				padding-bottom: 50px;
 			}
 			.commute-box-number {
-				font-size: 32px;
+				font-size: 100px;
 				font-weight: bold;
 				color: rgb(49, 130, 189);
 				margin-top: 5px;
 			}
 
 			.commute-box-label {
-			font-size: 12px;
-			color: rgb(109, 109, 109);
+			font-size: 50px;
+			font-weight: bold;
+			color: rgb(169, 169, 169);
 			margin-top: 0px;
+			text-align: right;
 			}
 			.commute-box {
-				text-align: center;
 			
 				padding-top: 50px;
+				margin-bottom: 50px;
 			}
 			.ui-page {
 		        -webkit-backface-visibility: hidden;
@@ -163,19 +165,35 @@
 
 	<script type="text/template" id="ActiveTrackingTemplate">
 	    <div id="container">
-	    		        <div id="nextCommute" class="container hidden" style="padding-top:0px">
-<div class="row-fluid">
+				<h1 style="color:rgb(199,199,199); text-align:center;"> Tracking... </h1>
+	    		        <div id="nextCommute" class="container hidden" style="padding-top:0px; margin-top:0px;">
+    				<div class="progress progress-striped active">
+    					<div class="bar" style="width: 100%;"></div>
+    				</div>
+				   <div class="row-fluid">
                     <div class="commute-box" style="margin-left: 0px;">
-                        <div id="speed" class="commute-box-number"></div>
-                        <div class="commute-box-label">Speed</div>
+					<div class="span6">
+                             <div class="commute-box-label">Speed</div>
+                         </div>
+					<div class="span6">
+                        	    <div id="speed" class="commute-box-number">86</div>
+                         </div>
                     </div>
-                    <div class="commute-box">
-                        <div id="rpm" class="commute-box-number"></div>
-                        <div class="commute-box-label">RPM</div>
+                    <div class="commute-box" style="margin-left: 0px;">
+					<div class="span6">
+                             <div class="commute-box-label">RPM</div>
+                         </div>
+					<div class="span6">
+                        	    <div id="rpm" class="commute-box-number">44</div>
+                         </div>
                     </div>
-                    <div class="commute-box">
-                        <div id="instant_mpg" class="commute-box-number"></div>
-                        <div class="commute-box-label">MPG</div>
+                    <div class="commute-box" style="margin-left: 0px;">
+					<div class="span6">
+                             <div class="commute-box-label">MPG</div>
+                         </div>
+					<div class="span6">
+                        	    <div id="instant_mpg" class="commute-box-number">44</div>
+                         </div>
                     </div>
 			</div>
 
