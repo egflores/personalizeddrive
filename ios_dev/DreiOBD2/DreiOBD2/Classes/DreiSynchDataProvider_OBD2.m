@@ -22,12 +22,9 @@
         self._scanTool.useLocation= YES;
         self._scanTool.delegate	= self;
         
-        if(self._scanTool.isWifiScanTool ) {
-            // These are the settings for the PLX Kiwi WiFI, your Scan Tool may
-            // require different.
-            [self._scanTool setHost:@"192.168.0.10"];
-            [self._scanTool setPort:35000];
-        }
+        // Settings for our OBD2 devices
+        [self._scanTool setHost:@"192.168.0.10"];
+        [self._scanTool setPort:35000];
     }
     return self;
 }
@@ -38,12 +35,7 @@
 }
 
 -(void) stopCollection {
-    if(self._scanTool.isWifiScanTool) {
-		[self._scanTool cancelScan];
-	}
-	
-	self._scanTool.sensorScanTargets = nil;
-	self._scanTool.delegate	= nil;
+    [self._scanTool cancelScan];
 }
 
 
@@ -149,7 +141,7 @@
 		}
         else if (response.pid == 0x10) {
             [self._currentValues setObject:dp forKey:@"mass_air_flow"];
-            NSLog(@"MAF: %f",[dp doubleValue]);
+            //NSLog(@"MAF: %f",[dp doubleValue]);
         }
 	}
 }
@@ -163,7 +155,7 @@
     // calculate instant MPG
     NSNumber *mph = [data objectForKey:@"vehicle_speed"];
     NSNumber *mpg = [NSNumber numberWithDouble: [DreiSynchDataProvider_OBD2 calcInstantMPG:[mph doubleValue] airFlow:[mass_air_flow doubleValue]]]; 
-    NSLog(@"MPG: %f", [mpg doubleValue]);
+    //NSLog(@"MPG: %f", [mpg doubleValue]);
     [data setObject:mpg forKey:@"instant_mpg"];
     
     CLLocation *loc = [self._scanTool currentLocation];
@@ -176,14 +168,14 @@
     }
 
 /* Adopted straight from FLECU code... no idea how it works or what these magic constants are */
-+(double) calcInstantMPG:(double) mph airFlow:(double) maf {
++(double) calcInstantMPG:(double) kph airFlow:(double) maf {
     
-	if(mph > 255) {
-		mph = 255;
+	if(kph > 255) {
+		kph = 255;
 	}
     
-	if(mph < 0) {
-		mph = 0;
+	if(kph < 0) {
+		kph = 0;
 	}
     
     
@@ -191,7 +183,7 @@
 		maf = 0.1;
 	}
 	
-	return ((14.7 * 6.17 * 454.0 * mph * 0.621371) / (3600.0 * maf));
+	return ((14.7 * 6.17 * 454.0 * kph * 0.621371) / (3600.0 * maf));
 }
 
 @end

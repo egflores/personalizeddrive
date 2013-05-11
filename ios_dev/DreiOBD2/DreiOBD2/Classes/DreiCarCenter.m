@@ -34,6 +34,7 @@ static DreiCarCenter *gInstance = NULL;
     /* @trusheim you should probably check out where this should go */
     //smartSend = [[DreiSmartSend alloc] init];
     //[smartSend start];
+    [self getDataService]; // forces creation of the object
     return self;
 }
 
