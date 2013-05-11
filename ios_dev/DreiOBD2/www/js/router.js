@@ -9,6 +9,8 @@ $(document).ready(function() {
 	    	"": "track",
 	        "track":"track",
 	        "drivehistory":"driveHistory",
+	        "onboarding":"onboarding",
+	        "activetracking":"activeTracking",
 	        "settings":"settings"
 	    },
 	 
@@ -19,6 +21,14 @@ $(document).ready(function() {
 	    track:function () {
 	        this.changePage(new dv.Track());
 	    },
+
+	    activeTracking:function () {
+	        this.changePage(new dv.ActiveTracking());
+	    },
+
+	   	onboarding:function () {
+	        this.changePage(new dv.Onboarding());
+	    },
 	 
 	    settings:function () {
 	        this.changePage(new dv.Settings());
@@ -28,7 +38,10 @@ $(document).ready(function() {
 	        $(page.el).attr('data-role', 'page');
 	        page.render();
 	        $('body').append($(page.el));
-	        $.mobile.changePage($(page.el), {changeHash:false});
+	        $.mobile.changePage($(page.el), {
+	        	changeHash:false,
+	        	transition: page.transition,
+	        });
 	    }
  
 	});
