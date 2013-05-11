@@ -21,16 +21,6 @@
     
     [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo.png"]]];
     
-    // Remove text shadow
-    CALayer *layer = self.logInView.usernameField.layer;
-    layer.shadowOpacity = 0.0f;
-    layer = self.logInView.passwordField.layer;
-    layer.shadowOpacity = 0.0f;
-    
-    // Set field text color
-    [self.logInView.usernameField setTextColor:[UIColor colorWithRed:135.0f/255.0f green:118.0f/255.0f blue:92.0f/255.0f alpha:1.0]];
-    [self.logInView.passwordField setTextColor:[UIColor colorWithRed:135.0f/255.0f green:118.0f/255.0f blue:92.0f/255.0f alpha:1.0]];
-    
 }
 
 - (void)viewDidLayoutSubviews {

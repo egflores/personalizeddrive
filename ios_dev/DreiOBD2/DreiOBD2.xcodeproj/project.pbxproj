@@ -80,7 +80,6 @@
 		7235F320172F831A00CBCC17 /* DreiConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 7235F31A172F831A00CBCC17 /* DreiConnect.m */; };
 		7235F321172F831A00CBCC17 /* DreiSynchDataProvider_OBD2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7235F31C172F831A00CBCC17 /* DreiSynchDataProvider_OBD2.m */; };
 		7235F322172F831A00CBCC17 /* DreiSynchDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7235F31E172F831A00CBCC17 /* DreiSynchDataProvider.m */; };
-		7235F326172F851E00CBCC17 /* DataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7235F325172F851E00CBCC17 /* DataPoint.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 /* End PBXBuildFile section */
@@ -162,25 +161,25 @@
 		5C74DF93173C9E16007053AE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5C74DF95173C9EC5007053AE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5C74DFBB173CA0A4007053AE /* OBD2Kit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OBD2Kit.xcodeproj; path = ../OBD2Kit/OBD2Kit.xcodeproj; sourceTree = "<group>"; };
-		5C74DFC2173CA28D007053AE /* FLWifiScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLWifiScanTool.h; path = Classes/FLWifiScanTool.h; sourceTree = "<group>"; };
-		5C74DFC5173CA28D007053AE /* FLEAController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLEAController.h; path = Classes/FLEAController.h; sourceTree = "<group>"; };
-		5C74DFC7173CA28D007053AE /* FLEAScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLEAScanTool.h; path = Classes/FLEAScanTool.h; sourceTree = "<group>"; };
-		5C74DFCA173CA28D007053AE /* FLSimScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = FLSimScanTool.h; sourceTree = "<group>"; };
-		5C74DFCD173CA28D007053AE /* ELM327.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = ELM327.h; sourceTree = "<group>"; };
-		5C74DFCF173CA28D007053AE /* ELM327Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = ELM327Command.h; sourceTree = "<group>"; };
-		5C74DFD1173CA28D007053AE /* ELM327ResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = ELM327ResponseParser.h; sourceTree = "<group>"; };
-		5C74DFD4173CA28D007053AE /* GoLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = GoLink.h; sourceTree = "<group>"; };
-		5C74DFD6173CA28D007053AE /* GoLinkCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = GoLinkCommand.h; sourceTree = "<group>"; };
-		5C74DFD8173CA28D007053AE /* GoLinkResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = GoLinkResponseParser.h; sourceTree = "<group>"; };
-		5C74DFDC173CA28D007053AE /* FLScanToolController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLScanToolController.h; path = Classes/FLScanToolController.h; sourceTree = "<group>"; };
-		5C74DFDE173CA28D007053AE /* FLScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLScanTool.h; path = Classes/FLScanTool.h; sourceTree = "<group>"; };
-		5C74DFE0173CA28D007053AE /* FLScanToolCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLScanToolCommand.h; path = Classes/FLScanToolCommand.h; sourceTree = "<group>"; };
-		5C74DFE2173CA28D007053AE /* FLScanToolResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLScanToolResponse.h; path = Classes/FLScanToolResponse.h; sourceTree = "<group>"; };
-		5C74DFE4173CA28D007053AE /* FLScanToolResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLScanToolResponseParser.h; path = Classes/FLScanToolResponseParser.h; sourceTree = "<group>"; };
-		5C74DFE6173CA28D007053AE /* FLECUSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = FLECUSensor.h; path = Classes/FLECUSensor.h; sourceTree = "<group>"; };
-		5C74E009173CA2AB007053AE /* Base64Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = Base64Extensions.h; sourceTree = "<group>"; };
-		5C74E00B173CA2AB007053AE /* FLLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = FLLogging.h; sourceTree = "<group>"; };
-		5C74E00C173CA2AB007053AE /* NSStreamAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = NSStreamAdditions.h; sourceTree = "<group>"; };
+		5C74DFC2173CA28D007053AE /* FLWifiScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLWifiScanTool.h; path = Classes/FLWifiScanTool.h; sourceTree = "<group>"; };
+		5C74DFC5173CA28D007053AE /* FLEAController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLEAController.h; path = Classes/FLEAController.h; sourceTree = "<group>"; };
+		5C74DFC7173CA28D007053AE /* FLEAScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLEAScanTool.h; path = Classes/FLEAScanTool.h; sourceTree = "<group>"; };
+		5C74DFCA173CA28D007053AE /* FLSimScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSimScanTool.h; sourceTree = "<group>"; };
+		5C74DFCD173CA28D007053AE /* ELM327.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELM327.h; sourceTree = "<group>"; };
+		5C74DFCF173CA28D007053AE /* ELM327Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELM327Command.h; sourceTree = "<group>"; };
+		5C74DFD1173CA28D007053AE /* ELM327ResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELM327ResponseParser.h; sourceTree = "<group>"; };
+		5C74DFD4173CA28D007053AE /* GoLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoLink.h; sourceTree = "<group>"; };
+		5C74DFD6173CA28D007053AE /* GoLinkCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoLinkCommand.h; sourceTree = "<group>"; };
+		5C74DFD8173CA28D007053AE /* GoLinkResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoLinkResponseParser.h; sourceTree = "<group>"; };
+		5C74DFDC173CA28D007053AE /* FLScanToolController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLScanToolController.h; path = Classes/FLScanToolController.h; sourceTree = "<group>"; };
+		5C74DFDE173CA28D007053AE /* FLScanTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLScanTool.h; path = Classes/FLScanTool.h; sourceTree = "<group>"; };
+		5C74DFE0173CA28D007053AE /* FLScanToolCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLScanToolCommand.h; path = Classes/FLScanToolCommand.h; sourceTree = "<group>"; };
+		5C74DFE2173CA28D007053AE /* FLScanToolResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLScanToolResponse.h; path = Classes/FLScanToolResponse.h; sourceTree = "<group>"; };
+		5C74DFE4173CA28D007053AE /* FLScanToolResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLScanToolResponseParser.h; path = Classes/FLScanToolResponseParser.h; sourceTree = "<group>"; };
+		5C74DFE6173CA28D007053AE /* FLECUSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLECUSensor.h; path = Classes/FLECUSensor.h; sourceTree = "<group>"; };
+		5C74E009173CA2AB007053AE /* Base64Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Extensions.h; sourceTree = "<group>"; };
+		5C74E00B173CA2AB007053AE /* FLLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLLogging.h; sourceTree = "<group>"; };
+		5C74E00C173CA2AB007053AE /* NSStreamAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStreamAdditions.h; sourceTree = "<group>"; };
 		5C74E014173CA573007053AE /* MyLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLogInViewController.h; sourceTree = "<group>"; };
 		5C74E015173CA573007053AE /* MyLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLogInViewController.m; sourceTree = "<group>"; };
 		5C74E016173CA573007053AE /* MySignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySignUpViewController.h; sourceTree = "<group>"; };
@@ -194,8 +193,6 @@
 		7235F31C172F831A00CBCC17 /* DreiSynchDataProvider_OBD2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiSynchDataProvider_OBD2.m; sourceTree = "<group>"; };
 		7235F31D172F831A00CBCC17 /* DreiSynchDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreiSynchDataProvider.h; sourceTree = "<group>"; };
 		7235F31E172F831A00CBCC17 /* DreiSynchDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiSynchDataProvider.m; sourceTree = "<group>"; };
-		7235F324172F851D00CBCC17 /* DataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPoint.h; sourceTree = "<group>"; };
-		7235F325172F851E00CBCC17 /* DataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPoint.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* DreiOBD2-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "DreiOBD2-Info.plist"; path = "../DreiOBD2-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = DreiOBD2/config.xml; sourceTree = "<group>"; };
@@ -242,8 +239,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7235F324172F851D00CBCC17 /* DataPoint.h */,
-				7235F325172F851E00CBCC17 /* DataPoint.m */,
 				7235F317172F831A00CBCC17 /* DreiCarCenter.h */,
 				7235F318172F831A00CBCC17 /* DreiCarCenter.m */,
 				7235F319172F831A00CBCC17 /* DreiConnect.h */,
@@ -685,7 +680,6 @@
 				7235F320172F831A00CBCC17 /* DreiConnect.m in Sources */,
 				7235F321172F831A00CBCC17 /* DreiSynchDataProvider_OBD2.m in Sources */,
 				7235F322172F831A00CBCC17 /* DreiSynchDataProvider.m in Sources */,
-				7235F326172F851E00CBCC17 /* DataPoint.m in Sources */,
 				5C74E018173CA574007053AE /* MyLogInViewController.m in Sources */,
 				5C74E019173CA574007053AE /* MySignUpViewController.m in Sources */,
 			);

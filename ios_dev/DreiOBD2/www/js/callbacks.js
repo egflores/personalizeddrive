@@ -70,6 +70,13 @@ $(document).ready(function () {
                                        console.log("Error in stopDriveLog");
                                     }, "DreiConnect", "stopDriveLog", []);
     };
+
+    cb.drei_logout = function(callback, errorCallback) {
+        cordova.exec(callback, function() {
+                                   errorCallback();
+                                   console.log("Error in startDriveLog");
+                               }, "DreiConnect", "logout", []);
+    };
     /* Not implemented
         cb.drei_upload = function(callback, errorCallback) {
               cordova.exec(callback, function() {
