@@ -39,6 +39,8 @@
 
     double est_gallons_used = 0.0;
     double est_miles_traveled = 0.0;
+    double curr_max_speed = 0.0;
+
     for (int i=0; i < count-1; ++i) {
 	   DL_DataPoint* obj1 = [dataPoints objectAtIndex:i];
 	   DL_DataPoint* obj2 = [dataPoints objectAtIndex:(i+1)];
