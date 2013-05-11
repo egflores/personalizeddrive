@@ -35,6 +35,7 @@
 @interface MainViewController : CDVViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 - (IBAction)logOutButtonTapAction:(id)sender;
+- (void)checkLoginStatus;
 
 @end
 
