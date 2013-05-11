@@ -77,6 +77,7 @@
             [NSNumber numberWithDouble:self.total_distance], @"total_distance",
             [NSNumber numberWithDouble:self.total_time], @"total_time",
             [NSNumber numberWithDouble:self.max_speed], @"max_speed",
+            [NSNumber numberWithDouble:[self.startTime timeIntervalSince1970]],@"start_time",
             nil];
 }
 @end
