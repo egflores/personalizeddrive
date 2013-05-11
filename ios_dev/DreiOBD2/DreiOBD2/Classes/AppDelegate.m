@@ -29,7 +29,7 @@
 #import "MainViewController.h"
 #import "DL_DataPoint.h"
 #import "DL_Entry.h"
-
+#import "Mixpanel.h"
 #import <Cordova/CDVPlugin.h>
 
 @implementation AppDelegate
@@ -68,6 +68,8 @@
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    
+    
 
 #if __has_feature(objc_arc)
         self.window = [[UIWindow alloc] initWithFrame:screenBounds];
@@ -84,7 +86,7 @@
     self.viewController.useSplashScreen = YES;
     
     [Parse setApplicationId:@"tLBrJ7ySzwP3xIEP0mb2anvEt2Rb3u7ZeaiqIFc2" clientKey:@"cdowZJzZOepmQM1xz7DJt4QQ8i0oEWCKVTABpe6w"];
-    
+    [Mixpanel sharedInstanceWithToken:@"f43921742f2cfaf7b57b9b044ac793a3"];
     // Set default ACLs
     PFACL *defaultACL = [PFACL ACL];
     [defaultACL setPublicReadAccess:YES];
