@@ -63,22 +63,33 @@
 	    </div>
 
 	    <div id="container">
+			<ul id="drive-history-entries" data-role="listview" data-divider-theme="d" class="ui-listview">
+				<li data-role="list-divider" role="heading" >
+					Summary
+				</li>
+			</ul>
 	   	</div>
-	   	    	<div id="nav-bottom" data-role="footer" data-position="fixed" data-id="drei-navbar">	
-	        <div data-role="navbar">
-	    		    <ul>
-	                <li id="nav-drivehistory"><a href="#drivehistory" data-role="button" 		
-											class="ui-btn-active ui-state-persist"
-							
-					>Drive History</a></li>
-	                <li id="nav-track"><a href="#track" 
-	                			
-	                data-role="button">Track</a></li>
-	                <li id="nav-settings"><a href="#settings" 
-	                			
-	                data-role="button">Settings</a></li>
-	    		    </ul>
-	        </div><!-- /navbar --> 
+
+   		<div id="nav-bottom" data-role="footer" data-position="fixed" data-id="drei-navbar">	
+        	<div data-role="navbar">
+    		    <ul>
+                	<li id="nav-drivehistory">
+                		<a href="#drivehistory" data-role="button" class="ui-btn-active ui-state-persist">
+                			Drive History
+                		</a>
+                	</li>
+                	<li id="nav-track">
+                		<a href="#track" data-role="button">
+                			Track
+                		</a>
+                	</li>
+                	<li id="nav-settings">
+                		<a href="#settings" data-role="button">
+                			Settings
+                		</a>
+                	</li>
+    		    </ul>
+        	</div>
 	    </div>
 	</script>
 
@@ -180,25 +191,32 @@
 	    <div style="position:fixed; top: 0; height: 50px; overflow: hidden; background-color:#fff; z-index: 100; width: 100%">
 	   	<a style="width: 100px;" onclick="DreiApp.Callbacks.drei_stop()" class="btn btn-block btn-danger" href="#" style="color:#fff">Cancel</a>
 	   	</div>
-	   	<div style="
-   padding-top: 65px;">
+	   	<div style="padding-top: 65px;">
 	   		HOLY FUCK SOMEONE PLEASE FILL THIS IN WITH ONBOARDING.
 	   		<ol>
 		   		 <li>It should fucking scroll.</li>
 		   		 <li>It should have images of the iphone like from the gdoc.</li>
-		   		 <li>Make the top bar not scroll.  It's fixed div and shouldn't be that hard.</li>
-		   		 <li>Please don't make it look like ass.</li>
+		   		 <li>Make the top bar not scroll.  Its fixed div and shouldnt be that hard.</li>
+		   		 <li>Please dont make it look like ass.</li>
 	   		</ol>
 	   	</div>
 	   	</div>
 	</script>
 
+   <script type="text/template" id="drive-history-entry-view">
+    	<p>
+    		<%- timestamp.getDate() %>/<%- timestamp.getMonth() %>/<%- timestamp.getFullYear() %>
+    	</p>
+    	<h3><%- duration %> minutes</h3>
+    	<h3><%- ave_mpg %> mpg</h3>
+    	<h3><%- ave_mph %> mph</h3>
+    </script>
 
 	<script type="text/template" id ="drive-log-template">
     	<div data-role="collapsible">
 	    	<h3>Drive on <%- timestamp %></h3>
 	    	<div>Duration: <%- duration %></div>
-	    	<div>Ave Speed: <%- ave_speed %></div>
+	    	<div>Ave Speed: <%- ave_mph %></div>
 	    	<div>Ave MPG: <%- ave_mpg %></div>
 	    	<div>Tank Used: <%- tank_used %></div>
 		</div>
@@ -253,10 +271,11 @@
 			});
 		</script>
 
+		<script type="text/javascript" src="js/storage.js"></script>
 		<script type="text/javascript" src="js/views.js"></script>
-		<script type="text/javascript" src="js/router.js"></script>
-		<script type="text/javascript" src="js/drivelogs.js"></script>
+		<script type="text/javascript" src="js/drive_history.js"></script>
 	    <script type="text/javascript" src="js/callbacks.js"></script>
+	    <script type="text/javascript" src="js/router.js"></script>
 	    <script>
 	    	(function( $ ){
 		    	//Initialization Status
