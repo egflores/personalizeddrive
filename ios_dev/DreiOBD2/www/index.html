@@ -205,11 +205,11 @@
 
    <script type="text/template" id="drive-history-entry-view">
     	<p>
-    		<%- timestamp.getDate() %>/<%- timestamp.getMonth() %>/<%- timestamp.getFullYear() %>
+    		<%- start_time.getDate() %>/<%- start_time.getMonth() %>/<%- start_time.getFullYear() %>
     	</p>
-    	<h3><%- duration %> minutes</h3>
-    	<h3><%- ave_mpg %> mpg</h3>
-    	<h3><%- ave_mph %> mph</h3>
+    	<h3><%- total_time %> minutes</h3>
+    	<h3><%- average_mpg %> mpg</h3>
+    	<h3><%- average_speed %> mph</h3>
     </script>
 
 	<script type="text/template" id ="drive-log-template">
@@ -269,9 +269,9 @@
 			$(function() {
 			    FastClick.attach(document.body);
 			});
+          
 		</script>
 
-		<script type="text/javascript" src="js/storage.js"></script>
 		<script type="text/javascript" src="js/views.js"></script>
 		<script type="text/javascript" src="js/drive_history.js"></script>
 	    <script type="text/javascript" src="js/callbacks.js"></script>
