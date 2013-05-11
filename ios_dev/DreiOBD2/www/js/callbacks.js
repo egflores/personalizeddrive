@@ -10,16 +10,14 @@ $(document).ready(function () {
     drei_callback_connectionStatus = function(status) {
         $("#status").html(status);
     }
+                  
     drei_callback_dataEntry = function(carData) {
-                 //alert(carData);
-                  if (carData == null) {
+                  if (!carData) {
                     return;
                   }
-                  lol = JSON.parse(carData)
-                  //alert(.rpm.data)
-                  $("#speed").html(lol.vehicle_speed.data);
-                  $("#rpm").html(lol.rpm.data);
-                  //DreiApp.app.lastCarData = JSON.parse(carData);
+                  $("#speed").html(carData.vehicle_speed);
+                  $("#rpm").html(carData.rpm);
+                  $("#instant_mpg").html(carData.instant_mpg);
                   //TESTING OBDII
                   //END TESTING OBDII
                   //cb.proxy.trigger('dataEntry', DreiApp.app.lastCarData);

@@ -270,7 +270,7 @@
 	FLTRACE_ENTRY
 	@try {
 		NSInteger readLength = [_inputStream read:&_readBuf[_readBufLength] maxLength:(sizeof(_readBuf) - _readBufLength)];
-        NSLog(@"R IN (%d) \"%s\"", readLength, (char*)_readBuf);
+        //NSLog(@"R IN (%d) \"%s\"", readLength, (char*)_readBuf);
 		FLDEBUG(@"_readBufLength = %d", _readBufLength)
 		
 		if (readLength != -1) {
@@ -286,7 +286,7 @@
 			_readBufLength			-= 3;
 			
 			char* asciistr			= (char*)_readBuf;
-			NSLog(@"RC: %s", asciistr);
+			//NSLog(@"RC: %s", asciistr);
 			
 			if(ELM_ERROR(asciistr)) {
 				FLERROR(@"Error response from ELM327 (state=%d): %s", _initState, asciistr)
@@ -350,7 +350,7 @@
 			_readBufLength			-= 3;
 			
 			char* asciistr			= (char*)_readBuf;
-			NSLog(@"V IN: %s", asciistr);
+			//NSLog(@"V IN: %s", asciistr);
 			
 			if(ELM_ERROR(asciistr)) {
 				FLERROR(@"Error response from ELM327 (state=%d): %s", _initState, asciistr)

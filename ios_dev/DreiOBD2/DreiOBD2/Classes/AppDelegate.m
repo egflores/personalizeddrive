@@ -27,8 +27,9 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "DL_DataPoint.h"
+#import "DL_Entry.h"
 #import "Mixpanel.h"
-
 #import <Cordova/CDVPlugin.h>
 
 @implementation AppDelegate
@@ -41,6 +42,8 @@
      *  -jm
      **/
     NSHTTPCookieStorage* cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    [DL_DataPoint registerSubclass];
+    [DL_Entry registerSubclass];
 
     [cookieStorage setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
 

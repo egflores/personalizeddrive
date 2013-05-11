@@ -98,4 +98,11 @@
     //[self.commandDelegate sendPluginResult:pluginResult callbackId:callback];
 }
 
+// dummy to ensure that DreiConnect links as soon as possible
+- (void)init:(CDVInvokedUrlCommand*)command
+{
+    CDVPluginResult*  result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
 @end
