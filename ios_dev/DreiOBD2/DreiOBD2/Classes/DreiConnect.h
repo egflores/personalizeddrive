@@ -19,6 +19,7 @@
 -(void) stopDriveLog:(CDVInvokedUrlCommand *)command;
 -(void) uploadDriveLog:(CDVInvokedUrlCommand *)command;
 -(void) clearDriveLog:(CDVInvokedUrlCommand *)command;
+-(void) logout:(CDVInvokedUrlCommand *)command;
 
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback;
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback isJson:(BOOL)isJson;

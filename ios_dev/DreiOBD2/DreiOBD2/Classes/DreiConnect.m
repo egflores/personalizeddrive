@@ -9,6 +9,9 @@
 #import "DreiConnect.h"
 #import "DreiCarCenter.h"
 #import "Cordova/CDV.h"
+#import "MainViewController.h"
+#import <Parse/Parse.h>
+#import <UIKit/UIKit.h>
 
 @implementation DreiConnect
 
@@ -56,6 +59,20 @@
     CDVPluginResult* result = nil;
     if (success) result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     else result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
+- (void)logout:(CDVInvokedUrlCommand*)command
+{
+    [PFUser logOut];
+    CDVPluginResult* result = nil;
+    if ([PFUser currentUser] == nil) {
+        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"{success: 1}"];
+        MainViewController *mainViewController = (MainViewController *)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+        [mainViewController checkLoginStatus];
+    } else {
+        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    }
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
