@@ -26,6 +26,8 @@ $(document).ready(function() {
 		},
 		render: function() {
 			this.$el.html('');
+			var that = this;
+			
 			_.each(this.model.models, function(driveLog) {
 				$(this.el).append(new namespace.DriveLogView({
 					model: driveLog

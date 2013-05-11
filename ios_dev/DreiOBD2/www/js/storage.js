@@ -61,33 +61,5 @@ $(document).ready(function() {
 	}
 
 	db.transaction(createDB, errorCB, successCB);
-
-/*
-	var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-
-	function populateDB(tx) {
-	     tx.executeSql('DROP TABLE IF EXISTS DEMO');
-	     tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id INTEGER not null primary key autoincrement, data)');
-	     // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
-	     // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
-	}
-
-
-	
-	function queryDB(tx) {
-		tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
-	}
-
-	function querySuccess(tx, results) {
-		for (var i = 0; i < results.rows.length; i += 1) {
-			var row = results.rows.item(i);
-			alert(row.id);
-			alert(row.data)
-		}
-	};
-
-	db.transaction(populateDB, errorCB, successCB);
-	db.transaction(queryDB, errorCB);
-	*/
 	
 });

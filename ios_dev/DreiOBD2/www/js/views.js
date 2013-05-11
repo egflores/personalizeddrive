@@ -8,6 +8,7 @@ $(document).ready(function () {
     });
 
 
+/*
     DreiApp.Views.DriveHistory = DreiApp.Views.MainView.extend({
 
         template:_.template($('#DriveHistoryTemplate').html()),
@@ -16,7 +17,7 @@ $(document).ready(function () {
             $(this.el).html(this.template());
             return this;
         }
-    });
+    }); */
 
     DreiApp.Views.Track = DreiApp.Views.MainView.extend({
 

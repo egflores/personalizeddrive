@@ -218,12 +218,12 @@ $(document).ready(function() {
 	};
 
 	// TODO remove
-	/*
+	
 	for (var i = 0; i < data.drive_logs.length; i += 1) {
 		var curr = data.drive_logs[i];
 		DreiApp.Storage.insertEntry(curr.timestamp, curr.duration, curr.ave_speed, curr.ave_mpg);
 	}
-	*/
+
 
 	var DriveHistoryEntry = Backbone.Model.extend({
 		initialize: function() {
@@ -246,26 +246,27 @@ $(document).ready(function() {
 
 	DreiApp.Views.DriveHistory = Backbone.View.extend({
 
-		template: _.template($("#drive-history-view").html()),
+		template: _.template($("#DriveHistoryTemplate").html()),
 
-		initialize: function() {
-			this.setElement($("#container"));
-			this.driveLogs = new DriveHistoryCollection(data.drive_logs);
-		},
 
 		render: function() {
 			this.$el.html(this.template());
-			this.driveLogs.each(function(log) {
-				var view = new DriveHistoryEntryView({
-					model: log
-				});
-				var d = log.get('timestamp');
-				this.$("#drive-history-entries").append(view.render().el);
-			}, this);
-			this.$el.trigger('create');
+			var that = this;
+			DreiApp.Storage.getEntries(function(results) {
+				that.driveLogs = new DriveHistoryCollection(results);
+				var i = 0;
+				that.driveLogs.each(function(log) {
+					console.log(i);
+					i += 1;
+					var view = new DriveHistoryEntryView({
+						model: log
+					});
+					this.$("#drive-history-entries").append(view.render().el);
+				}, that);
+				that.$el.trigger('create');
+			});
+
 		}
 	});
 
-	var v = new DreiApp.Views.DriveHistory();
-	v.render();
 });
