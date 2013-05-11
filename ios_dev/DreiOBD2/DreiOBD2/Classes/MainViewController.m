@@ -104,7 +104,7 @@
 {
     [super viewDidLoad];
     
-    [[DreiCarCenter instance] driveLog_startCollection];
+    //[[DreiCarCenter instance] driveLog_startCollection];
     // Do any additional setup after loading the view from its nib.
 }
 

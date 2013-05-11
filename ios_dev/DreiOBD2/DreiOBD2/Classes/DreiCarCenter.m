@@ -142,7 +142,7 @@ static DreiCarCenter *gInstance = NULL;
     NSString *jsonData = [[NSString alloc]
                           initWithData:[DreiCarCenter formatDataEntry:dataPoint error:nil]
                           encoding:NSUTF8StringEncoding];
-    [[self connectEndpoint] sendMessage:jsonData toCallback:@"dataEntry"];
+    [[self connectEndpoint] sendMessage:jsonData toCallback:@"dataEntry" isJson:TRUE];
 }
 
 +(void) debug:(NSString *)message from:(NSString *)from jsonMessage:(BOOL)isJson {
