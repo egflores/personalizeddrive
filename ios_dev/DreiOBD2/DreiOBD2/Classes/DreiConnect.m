@@ -105,4 +105,28 @@
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
+- (void)getDriveLogs:(CDVInvokedUrlCommand*)command
+{
+
+    PFQuery *query = [PFQuery queryWithClassName:@"DL_Entry"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSString *json = [[NSString alloc] initWithData:
+                                                   [NSJSONSerialization dataWithJSONObject:objects
+                                                         options:0
+                                                           error:nil]
+                                                                        encoding:NSUTF8StringEncoding
+                                                   ];
+            CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:json];
+            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+            // The find succeeded.
+        } else {
+            NSLog(@"Error getting objects: %@ %@", error, [error userInfo]);
+            CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+        }
+    }];
+}
+
 @end
