@@ -82,18 +82,24 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self checkLoginStatus];
+}
+
+-(void) checkLoginStatus
+{
+    MainViewController *mainViewController = (MainViewController *)[[[UIApplication sharedApplication] keyWindow] rootViewController];
     
     
     // Check if user is logged in
     if (![PFUser currentUser]) {
         // Customize the Log In View Controller
         MyLogInViewController *logInViewController = [[MyLogInViewController alloc] init];
-        logInViewController.delegate = self;
+        logInViewController.delegate = mainViewController;
         logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton;
         
         // Customize the Sign Up View Controller
         MySignUpViewController *signUpViewController = [[MySignUpViewController alloc] init];
-        signUpViewController.delegate = self;
+        signUpViewController.delegate = mainViewController;
         signUpViewController.fields = PFSignUpFieldsDefault | PFSignUpFieldsAdditional;
         logInViewController.signUpController = signUpViewController;
         
