@@ -75,6 +75,13 @@ $(document).ready(function () {
                                    console.log("Error in startDriveLog");
                                }, "DreiConnect", "logout", []);
     };
+
+    cb.drei_get_drive_logs = function(callback, errorCallback) {
+        cordova.exec(callback, function() {
+                           errorCallback();
+                           console.log("Error in startDriveLog");
+                       }, "DreiConnect", "getDriveLogs", []);
+    };
     /* Not implemented
         cb.drei_upload = function(callback, errorCallback) {
               cordova.exec(callback, function() {
