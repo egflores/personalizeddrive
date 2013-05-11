@@ -30,24 +30,18 @@
 }
 
 -(void)calcStatistics:(NSArray *)dataPoints {
-    double running_avg_mpg = 0;
-    double running_total_distance = 0;
-    double curr_max_speed = 0;
-    double running_avg_speed = 0;
-    double num_points = 0;
     
     if (!dataPoints || [dataPoints count] == 0) {
         return;
     }
 
-    int count = [dataPoint count];
+    int count = [dataPoints count];
 
     double est_gallons_used = 0.0;
     double est_miles_traveled = 0.0;
-    double curr_max_speed = 0.0;
-    for (int i=0; i < num_data_points-1; ++i) {
-	   DL_DataPoint obj1 = [dataPoints objectAtIndex:i];
-	   DL_DataPoint obj2 = [dataPoints objectAtIndex:(i+1)];
+    for (int i=0; i < count-1; ++i) {
+	   DL_DataPoint* obj1 = [dataPoints objectAtIndex:i];
+	   DL_DataPoint* obj2 = [dataPoints objectAtIndex:(i+1)];
 
         double inst_mpg_avg = (obj1.mpg+obj2.mpg) / 2.0;
         double inst_speed_avg = (obj2.kph + obj2.kph) / 2.0f;
@@ -60,6 +54,8 @@
         est_miles_traveled += del_time * inst_speed_avg;
     }
 
+    DL_DataPoint *lastPoint = [dataPoints lastObject];
+    DL_DataPoint *firstPoint = [dataPoints objectAtIndex:0];
     self.total_time = [lastPoint.timestamp timeIntervalSince1970] - [firstPoint.timestamp timeIntervalSince1970];
     self.average_speed = est_miles_traveled / self.total_time;
     self.average_mpg = est_miles_traveled / est_gallons_used;
