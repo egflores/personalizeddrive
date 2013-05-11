@@ -40,6 +40,9 @@
 - (BOOL) driveLog_clearData;
 - (void) driveLog_updateData:(NSDictionary *)dataPoint;
 - (NSString *)driveLog_getStatisticsJSON;
+- (NSString *)driveLog_getStatisticsJSON:(DL_Entry *)entry;
+- (void)updateDriveLogStatus:(BOOL)logging;
+
 
 /* Debug */
 + (void) debug:(NSString *)message from:(NSString *)from jsonMessage:(BOOL)isJson;

@@ -87,7 +87,7 @@
     NSString *cmd = [[NSString alloc]
      initWithData:[command data]
      encoding:NSUTF8StringEncoding];
-    NSLog(@"CMD OUT: %@", cmd);
+    //NSLog(@"CMD OUT: %@", cmd);
 	//FLTRACE_ENTRY
 	if (!_cachedWriteData) {
         _cachedWriteData = [[NSMutableData alloc] init];
