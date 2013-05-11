@@ -20,6 +20,9 @@
 -(void) uploadDriveLog:(CDVInvokedUrlCommand *)command;
 -(void) clearDriveLog:(CDVInvokedUrlCommand *)command;
 
+// to ensure that this loads
+-(void) init:(CDVInvokedUrlCommand *)command;
+
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback;
 -(void) sendMessage:(NSString *)message toCallback:(NSString *)callback isJson:(BOOL)isJson;
 -(void) sendDebugMessage:(NSString *)message fromComponent:(NSString *)component isJson:(BOOL)isJson;

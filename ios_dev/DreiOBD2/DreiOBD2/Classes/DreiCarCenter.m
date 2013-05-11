@@ -73,6 +73,7 @@ static DreiCarCenter *gInstance = NULL;
 }
 
 -(void)updateDriveLogStatus:(BOOL)logging {
+    [DreiCarCenter debug:[NSString stringWithFormat:@"Update logging: %d", logging] from:@"LogUpdate" jsonMessage:false];
     if (logging) {
         [self sendMessage:@"on" toCallback:@"driveLog"];
         //[bmwUIEndpoint externalLogUpdate:@"logOn"];
@@ -107,13 +108,12 @@ static DreiCarCenter *gInstance = NULL;
 }*/
 
 - (BOOL) driveLog_clearData {
-    [[self getDataService] clearStoredData];
+    //[[self getDataService] clearStoredData];
     return true;
 }
 
 - (BOOL) driveLog_startCollection {
     [[self getDataService] startCollection];
-    [self updateDriveLogStatus:true];
     [DreiCarCenter debug:@"Car logging started" from:@"CarCenter" jsonMessage:false];
 
     return true;
@@ -121,15 +121,18 @@ static DreiCarCenter *gInstance = NULL;
 
 - (BOOL) driveLog_stopCollection {
     [[self getDataService] stopCollection];
-    [self updateDriveLogStatus:false];
     [DreiCarCenter debug:@"Car logging stopped" from:@"CarCenter" jsonMessage:false];
 
     return true;
 }
 
 - (NSString *)driveLog_getStatisticsJSON {
-    NSDictionary *stats = [[self getDataService] getStatistics];
-    NSData *data = [NSJSONSerialization dataWithJSONObject:stats
+    DL_Entry *entry = [[self getDataService] getEntry];
+    return [self driveLog_getStatisticsJSON:entry];
+}
+
+- (NSString *)driveLog_getStatisticsJSON:(DL_Entry *)entry {
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[entry toDict]
                                                    options:0
                                                      error:nil];
     NSString *jsonString = [[NSString alloc]

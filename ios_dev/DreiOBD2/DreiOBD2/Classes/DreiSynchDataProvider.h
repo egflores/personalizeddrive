@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DL_DataPoint.h"
+#import "DL_Entry.h"
 
 /* The DreiSynchDataProvider takes the asynchronous CDS API and makes it deliver consistent, predictable data at regular, time-stamped intervals. The main benefit / reason for this framework is two-fold: 1. make us able to have constant data logging over the API, and 2. to allow us to make fake data when we're simulating.
  *
@@ -24,16 +26,14 @@
 
 @interface DreiSynchDataProvider : NSObject
 
-@property (atomic, retain) NSMutableArray * _dataStore;
-@property (atomic,retain) NSMutableDictionary * _currentValues;
+@property (atomic, retain) NSMutableArray * _saveCache;
+@property DL_DataPoint * _currentPoint;
+@property DL_DataPoint * _lastPoint;
+@property DL_Entry * _entry;
 @property (atomic,retain) NSTimer * _synchTimer;
 @property (atomic) float interval;
+@property BOOL in_collection;
 
-/* Sets all the data keys to "NODATA", the sentinel for when no data has come in. Call this to invalidate old data. */
--(void)initData:(NSArray *)keys;
-
-/* Returns all the keys that will be in each returned NSDictionary. */
--(NSArray *)getDataKeys;
 
 /* Starts data collection (logs to _dataStore) */
 -(void)startCollection;
@@ -41,17 +41,6 @@
 /* Stops data collection */
 -(void)stopCollection;
 
-/* Returns _dataStore - call this instead of using the value directly for forward compatibility. */
--(NSArray *)getAllData;
+-(DL_Entry *)getEntry;
 
-/* Deletes all data currently stored */
--(void)clearStoredData;
-
-/* Returns the latest data that we got */
--(NSDictionary *)getLatestData;
-
--(NSDictionary *)getStatistics;
-
-/* internal - normalize data and compute computable values, remove values that shouldn't be there */
-- (NSMutableDictionary *) processDataPoint:(NSMutableDictionary *)data;
 @end

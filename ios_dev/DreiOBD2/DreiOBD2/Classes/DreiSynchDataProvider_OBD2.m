@@ -35,6 +35,7 @@
 }
 
 -(void) stopCollection {
+    [super stopCollection];
     [self._scanTool cancelScan];
 }
 
@@ -134,56 +135,24 @@
         dp = [sensor valueForMeasurement1:YES];
         
 		if (response.pid == 0x0C) {
-			[self._currentValues setObject:dp forKey:@"rpm"];
+            self._currentPoint.rpm = [dp doubleValue];
 		}
 		else if (response.pid == 0x0D) {
-			[self._currentValues setObject:dp forKey:@"vehicle_speed"];
+            self._currentPoint.kph = [dp doubleValue];
 		}
         else if (response.pid == 0x10) {
-            [self._currentValues setObject:dp forKey:@"mass_air_flow"];
+            self._currentPoint.maf = [dp doubleValue];
             //NSLog(@"MAF: %f",[dp doubleValue]);
         }
 	}
+    
 }
 
-- (NSMutableDictionary *) processDataPoint:(NSMutableDictionary *)data {
-    // need to check if a new data point actually came in
-    // get the MAF and then delete it (not used in the returned DP)
-    NSNumber *mass_air_flow = [data objectForKey:@"mass_air_flow"];
-    [data removeObjectForKey:@"mass_air_flow"];
-    
-    // calculate instant MPG
-    NSNumber *mph = [data objectForKey:@"vehicle_speed"];
-    NSNumber *mpg = [NSNumber numberWithDouble: [DreiSynchDataProvider_OBD2 calcInstantMPG:[mph doubleValue] airFlow:[mass_air_flow doubleValue]]]; 
-    //NSLog(@"MPG: %f", [mpg doubleValue]);
-    [data setObject:mpg forKey:@"instant_mpg"];
-    
+- (void) processCurrentPoint {
     CLLocation *loc = [self._scanTool currentLocation];
-
-    [data setObject:[NSNumber numberWithDouble:loc.coordinate.latitude] forKey:@"gps_latitude"];
-    [data setObject:[NSNumber numberWithDouble:loc.coordinate.longitude] forKey:@"gps_longitude"];
     
-    
-    return data;
-    }
-
-/* Adopted straight from FLECU code... no idea how it works or what these magic constants are */
-+(double) calcInstantMPG:(double) kph airFlow:(double) maf {
-    
-	if(kph > 255) {
-		kph = 255;
-	}
-    
-	if(kph < 0) {
-		kph = 0;
-	}
-    
-    
-	if(maf <= 0) {
-		maf = 0.1;
-	}
-	
-	return ((14.7 * 6.17 * 454.0 * kph * 0.621371) / (3600.0 * maf));
+    self._currentPoint.gps_lat = loc.coordinate.latitude;
+    self._currentPoint.gps_long = loc.coordinate.longitude;
 }
 
 @end
