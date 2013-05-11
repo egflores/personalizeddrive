@@ -112,12 +112,17 @@
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
+            NSMutableArray * dictObjects = [[NSMutableArray alloc] initWithCapacity:[objects count]];
+            for (int i = 0; i < [objects count]; ++i) {
+                [dictObjects insertObject:[[objects objectAtIndex:i] toDict] atIndex:i];
+            }
             NSString *json = [[NSString alloc] initWithData:
-                                                   [NSJSONSerialization dataWithJSONObject:objects
+                                                   [NSJSONSerialization dataWithJSONObject:dictObjects
                                                          options:0
                                                            error:nil]
                                                                         encoding:NSUTF8StringEncoding
                                                    ];
+
             CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:json];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
             // The find succeeded.

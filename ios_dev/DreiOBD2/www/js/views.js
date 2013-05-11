@@ -7,17 +7,6 @@ $(document).ready(function () {
         transition: "fade"
     });
 
-
-    DreiApp.Views.DriveHistory = DreiApp.Views.MainView.extend({
-
-        template:_.template($('#DriveHistoryTemplate').html()),
-
-        render:function (eventName) {
-            $(this.el).html(this.template());
-            return this;
-        }
-    });
-
     DreiApp.Views.Track = DreiApp.Views.MainView.extend({
 
         template:_.template($('#TrackTemplate').html()),

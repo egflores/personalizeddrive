@@ -21,24 +21,26 @@
 				margin: 50px auto 0 auto;
 				padding-top: 0px;
 				width: 300px;
-				padding-bottom: 50px;
+				padding-bottom: 10px;
 			}
 			.commute-box-number {
-				font-size: 32px;
+				font-size: 100px;
 				font-weight: bold;
 				color: rgb(49, 130, 189);
 				margin-top: 5px;
 			}
 
 			.commute-box-label {
-			font-size: 12px;
-			color: rgb(109, 109, 109);
+			font-size: 50px;
+			font-weight: bold;
+			color: rgb(169, 169, 169);
 			margin-top: 0px;
+			text-align: right;
 			}
 			.commute-box {
-				text-align: center;
 			
 				padding-top: 50px;
+				margin-bottom: 50px;
 			}
 			.ui-page {
 		        -webkit-backface-visibility: hidden;
@@ -63,22 +65,33 @@
 	    </div>
 
 	    <div id="container">
+			<ul id="drive-history-entries" data-role="listview" data-divider-theme="d" class="ui-listview">
+				<li data-role="list-divider" role="heading" >
+					Summary
+				</li>
+			</ul>
 	   	</div>
-	   	    	<div id="nav-bottom" data-role="footer" data-position="fixed" data-id="drei-navbar">	
-	        <div data-role="navbar">
-	    		    <ul>
-	                <li id="nav-drivehistory"><a href="#drivehistory" data-role="button" 		
-											class="ui-btn-active ui-state-persist"
-							
-					>Drive History</a></li>
-	                <li id="nav-track"><a href="#track" 
-	                			
-	                data-role="button">Track</a></li>
-	                <li id="nav-settings"><a href="#settings" 
-	                			
-	                data-role="button">Settings</a></li>
-	    		    </ul>
-	        </div><!-- /navbar --> 
+
+   		<div id="nav-bottom" data-role="footer" data-position="fixed" data-id="drei-navbar">	
+        	<div data-role="navbar">
+    		    <ul>
+                	<li id="nav-drivehistory">
+                		<a href="#drivehistory" data-role="button" class="ui-btn-active ui-state-persist">
+                			Drive History
+                		</a>
+                	</li>
+                	<li id="nav-track">
+                		<a href="#track" data-role="button">
+                			Track
+                		</a>
+                	</li>
+                	<li id="nav-settings">
+                		<a href="#settings" data-role="button">
+                			Settings
+                		</a>
+                	</li>
+    		    </ul>
+        	</div>
 	    </div>
 	</script>
 
@@ -176,19 +189,35 @@
 
 	<script type="text/template" id="ActiveTrackingTemplate">
 	    <div id="container">
-	    		        <div id="nextCommute" class="container hidden" style="padding-top:0px">
-<div class="row-fluid">
+				<h1 style="color:rgb(199,199,199); text-align:center;"> Tracking... </h1>
+	    		        <div id="nextCommute" class="container hidden" style="padding-top:0px; margin-top:0px;">
+    				<div class="progress progress-striped active">
+    					<div class="bar" style="width: 100%;"></div>
+    				</div>
+				   <div class="row-fluid">
                     <div class="commute-box" style="margin-left: 0px;">
-                        <div id="speed" class="commute-box-number"></div>
-                        <div class="commute-box-label">Speed</div>
+					<div class="span6">
+                             <div class="commute-box-label">Speed</div>
+                         </div>
+					<div class="span6">
+                        	    <div id="speed" class="commute-box-number">86</div>
+                         </div>
                     </div>
-                    <div class="commute-box">
-                        <div id="rpm" class="commute-box-number"></div>
-                        <div class="commute-box-label">RPM</div>
+                    <div class="commute-box" style="margin-left: 0px;">
+					<div class="span6">
+                             <div class="commute-box-label">RPM</div>
+                         </div>
+					<div class="span6">
+                        	    <div id="rpm" class="commute-box-number">44</div>
+                         </div>
                     </div>
-                    <div class="commute-box">
-                        <div id="instant_mpg" class="commute-box-number"></div>
-                        <div class="commute-box-label">MPG</div>
+                    <div class="commute-box" style="margin-left: 0px;">
+					<div class="span6">
+                             <div class="commute-box-label">MPG</div>
+                         </div>
+					<div class="span6">
+                        	    <div id="instant_mpg" class="commute-box-number">44</div>
+                         </div>
                     </div>
 			</div>
 
@@ -204,25 +233,32 @@
 	    <div style="position:fixed; top: 0; height: 50px; overflow: hidden; background-color:#fff; z-index: 100; width: 100%">
 	   	<a style="width: 100px;" class="btn btn-block btn-danger" href="#" style="color:#fff">Cancel</a>
 	   	</div>
-	   	<div style="
-   padding-top: 65px;">
+	   	<div style="padding-top: 65px;">
 	   		HOLY FUCK SOMEONE PLEASE FILL THIS IN WITH ONBOARDING.
 	   		<ol>
 		   		 <li>It should fucking scroll.</li>
 		   		 <li>It should have images of the iphone like from the gdoc.</li>
-		   		 <li>Make the top bar not scroll.  It's fixed div and shouldn't be that hard.</li>
-		   		 <li>Please don't make it look like ass.</li>
+		   		 <li>Make the top bar not scroll.  Its fixed div and shouldnt be that hard.</li>
+		   		 <li>Please dont make it look like ass.</li>
 	   		</ol>
 	   	</div>
 	   	</div>
 	</script>
 
+   <script type="text/template" id="drive-history-entry-view">
+    	<p>
+    		<%- start_time.getDate() %>/<%- start_time.getMonth() %>/<%- start_time.getFullYear() %>
+    	</p>
+    	<h3><%- total_time %> minutes</h3>
+    	<h3><%- average_mpg %> mpg</h3>
+    	<h3><%- average_speed %> mph</h3>
+    </script>
 
 	<script type="text/template" id ="drive-log-template">
     	<div data-role="collapsible">
 	    	<h3>Drive on <%- timestamp %></h3>
 	    	<div>Duration: <%- duration %></div>
-	    	<div>Ave Speed: <%- ave_speed %></div>
+	    	<div>Ave Speed: <%- ave_mph %></div>
 	    	<div>Ave MPG: <%- ave_mpg %></div>
 	    	<div>Tank Used: <%- tank_used %></div>
 		</div>
@@ -275,12 +311,13 @@
 			$(function() {
 			    FastClick.attach(document.body);
 			});
+          
 		</script>
 
 		<script type="text/javascript" src="js/views.js"></script>
-		<script type="text/javascript" src="js/router.js"></script>
-		<script type="text/javascript" src="js/drivelogs.js"></script>
+		<script type="text/javascript" src="js/drive_history.js"></script>
 	    <script type="text/javascript" src="js/callbacks.js"></script>
+	    <script type="text/javascript" src="js/router.js"></script>
 	    <script>
 	    	(function( $ ){
 		    	//Initialization Status
