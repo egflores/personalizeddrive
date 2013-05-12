@@ -28,6 +28,23 @@ $(document).ready(function() {
 		render: function() {
 			this.$el.html(this.template());
 			var that = this;
+			/*
+			jsonResults = [
+				{
+					start_time: 0,
+					total_time: 0,
+					average_mpg: 0,
+					average_speed: 0
+				}
+			]
+			that.driveLogs = new DriveHistoryCollection(jsonResults);
+			that.driveLogs.each(function(log) {
+				var view = new DriveHistoryEntryView({
+						model: log
+					});
+				that.$("#drive-history-entries").append(view.render().el);
+			}); */
+
 
 			DreiApp.Callbacks.drei_get_drive_logs(function(results) {
 				jsonResults = JSON.parse(results);
@@ -40,6 +57,9 @@ $(document).ready(function() {
 				});
 				that.$("#drive-history-entries").listview("refresh");
 			}, function() {}); 
+			
+			return this;
+
 		}
 	});
 

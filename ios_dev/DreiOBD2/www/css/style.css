@@ -1,0 +1,22 @@
+.drive-history-info .ui-block-a {
+	text-align: left;
+}
+.drive-history-info .ui-block-b {
+	text-align: center;
+}
+
+.drive-history-info .ui-block-c {
+	text-align: right;
+}
+
+.drive-history-info .drive-history-stat {
+	display: inline-block;
+	text-align: center;
+}
+
+.drive-history-info .drive-history-num {
+	font-size: 55px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+
+}
