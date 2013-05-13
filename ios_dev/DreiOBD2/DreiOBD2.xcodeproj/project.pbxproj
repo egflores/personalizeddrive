@@ -158,6 +158,22 @@
 		30FC414816E50CA1004E6F35 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* DreiOBD2-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DreiOBD2-Prefix.pch"; sourceTree = "<group>"; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		5C309A3C1741889300CD409E /* Base64Extensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base64Extensions.h; sourceTree = "<group>"; };
+		5C309A3E1741889800CD409E /* FLLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLLogging.h; sourceTree = "<group>"; };
+		5C309A401741889F00CD409E /* NSStreamAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStreamAdditions.h; sourceTree = "<group>"; };
+		5C309A42174188A500CD409E /* FLWifiScanTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLWifiScanTool.h; sourceTree = "<group>"; };
+		5C309A44174188AB00CD409E /* FLEAController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLEAController.h; sourceTree = "<group>"; };
+		5C309A46174188AE00CD409E /* FLEAScanTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLEAScanTool.h; sourceTree = "<group>"; };
+		5C309A48174188B300CD409E /* FLScanToolController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLScanToolController.h; sourceTree = "<group>"; };
+		5C309A4A174188B600CD409E /* FLScanTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLScanTool.h; sourceTree = "<group>"; };
+		5C309A4C174188BD00CD409E /* FLScanToolCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLScanToolCommand.h; sourceTree = "<group>"; };
+		5C309A4E174188CD00CD409E /* FLScanToolResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLScanToolResponse.h; sourceTree = "<group>"; };
+		5C309A50174188D600CD409E /* FLScanToolResponseParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLScanToolResponseParser.h; sourceTree = "<group>"; };
+		5C309A52174188D900CD409E /* FLECUSensor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLECUSensor.h; sourceTree = "<group>"; };
+		5C309A54174188E200CD409E /* FLSimScanTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLSimScanTool.h; sourceTree = "<group>"; };
+		5C309A56174188E400CD409E /* ELM327.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELM327.h; sourceTree = "<group>"; };
+		5C309A58174188E700CD409E /* ELM327Command.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELM327Command.h; sourceTree = "<group>"; };
+		5C309A5A174188EA00CD409E /* ELM327ResponseParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELM327ResponseParser.h; sourceTree = "<group>"; };
 		5C74DF7E173C65D5007053AE /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		5C74DF82173C9AC1007053AE /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		5C74DF84173C9CA0007053AE /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -319,6 +335,22 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5C309A5A174188EA00CD409E /* ELM327ResponseParser.h */,
+				5C309A58174188E700CD409E /* ELM327Command.h */,
+				5C309A56174188E400CD409E /* ELM327.h */,
+				5C309A54174188E200CD409E /* FLSimScanTool.h */,
+				5C309A52174188D900CD409E /* FLECUSensor.h */,
+				5C309A50174188D600CD409E /* FLScanToolResponseParser.h */,
+				5C309A4E174188CD00CD409E /* FLScanToolResponse.h */,
+				5C309A4C174188BD00CD409E /* FLScanToolCommand.h */,
+				5C309A4A174188B600CD409E /* FLScanTool.h */,
+				5C309A48174188B300CD409E /* FLScanToolController.h */,
+				5C309A46174188AE00CD409E /* FLEAScanTool.h */,
+				5C309A44174188AB00CD409E /* FLEAController.h */,
+				5C309A42174188A500CD409E /* FLWifiScanTool.h */,
+				5C309A401741889F00CD409E /* NSStreamAdditions.h */,
+				5C309A3E1741889800CD409E /* FLLogging.h */,
+				5C309A3C1741889300CD409E /* Base64Extensions.h */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
 				301BF56E109A69640062928A /* www */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
@@ -828,6 +860,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rowan Chakoumakos";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)\"";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -845,6 +878,8 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = DreiOBD2;
+				PROVISIONING_PROFILE = "AD0607B6-9CC6-4238-988F-4565F104DE08";
+				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -854,6 +889,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rowan Chakoumakos";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -869,6 +905,8 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = DreiOBD2;
+				PROVISIONING_PROFILE = "AD0607B6-9CC6-4238-988F-4565F104DE08";
+				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
