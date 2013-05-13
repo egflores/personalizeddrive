@@ -34,6 +34,7 @@
     self._lastPoint = [[DL_DataPoint alloc] init];
     self._currentPoint = [[DL_DataPoint alloc] init];
     self._entry = [[DL_Entry alloc] init];
+    self._entry.startTime = [NSDate dateWithTimeIntervalSinceNow:0];
     self._saveCache = [[NSMutableArray alloc] init];
     
     self._currentPoint.entry = self._entry;
@@ -72,7 +73,8 @@
     [self._saveCache addObject:self._currentPoint]; // save in the cache for now
     self._lastPoint = self._currentPoint;
     self._currentPoint = [[DL_DataPoint alloc] initFromPoint:self._lastPoint];
-    
+ 
+    NSLog(@"Passing shit up");
     [[DreiCarCenter instance] driveLog_updateData:[self._lastPoint toDict]];
 }
 
