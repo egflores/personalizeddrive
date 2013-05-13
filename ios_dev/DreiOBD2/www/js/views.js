@@ -8,12 +8,19 @@ $(document).ready(function () {
     });
 
     DreiApp.Views.Track = DreiApp.Views.MainView.extend({
+        events: {
+            'touchmove': 'disableVerticalScroll'
+        },
+                                                        
+        template: _.template($('#TrackTemplate').html()),
 
-        template:_.template($('#TrackTemplate').html()),
-
-        render:function (eventName) {
+        render: function (eventName) {
             $(this.el).html(this.template());
             return this;
+        },
+
+        disableVerticalScroll: function(e) {
+            e.preventDefault();
         }
     });
 

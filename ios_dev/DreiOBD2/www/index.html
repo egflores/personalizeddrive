@@ -102,37 +102,51 @@
 	    </div>
 
 	    <div id="container" style="margin: 10px; text-align:center;">
-	    		<h4>SOME KIND FUN TITLE</h4>
-	    		<div><p>BIG TEXT BLOG OR PICTURES OR SOMETHING ESPOUSES HOW AND Why YOU SHOULD BE TRACKINGY OUR COMMUTE</p></div>
-	    		<div style="height: 30px"></div>
-	        	<div style="margin: 0 auto; width: 250px; text-align: center;" class="onboarding-info">
-	   			<div id="status" class="well" style="width: 200px; margin: 10px auto; text-align: center">Status</div>
-	          <a href="#onboarding">Having problems connecting?</a>
-	          <div>
+            <h3>Track Your Drives!</h3>
+            <div id="track-drive-message">
+                <p>
+                    Start tracking your drives to learn what your true MPG is, how long you're spending on your commute, and how fast you're driving.
+                </p>
+            </div>
+            <div style="height: 20px"></div>
+            <div style="margin: 0 auto; width: 250px; text-align: center;" class="onboarding-info">
+                <!-- <div id="status" class="well" style="width: 200px; margin: 10px auto; text-align: center">
+                    Status
+                </div> -->
+                <a href="#onboarding">
+                    Having problems connecting?
+                </a>
 
-	          </div>
-	          	    	<div style="width: 200px; margin: 50px auto 25px auto">
-	       <a onclick="DreiApp.Callbacks.drei_start()" class="btn btn-block btn-primary" href="#activetracking" style="color:#fff">Start Tracking Commute</a>
-	       </div>
-	   	</div>
-
-	       </div>
-	   	    	<div id="nav-bottom" data-role="footer" data-position="fixed" data-id="drei-navbar">	
+                <div style="width: 200px; margin: 50px auto 25px auto">
+                    <a onclick="DreiApp.Callbacks.drei_start()" class="btn btn-block btn-primary" href="#activetracking" style="color:#fff">
+                        Start Tracking Commute
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="nav-bottom" data-role="footer" data-position="fixed" data-id="drei-navbar">
 	        <div data-role="navbar">
-	    		    <ul>
-	                <li id="nav-drivehistory"><a href="#drivehistory" data-role="button" 		
-					>Drive History</a></li>
-	                <li id="nav-track"><a href="#track" 
-	                		
-											class="ui-btn-active ui-state-persist"
-										
-	                data-role="button">Track</a></li>
-	                <li id="nav-settings"><a href="#settings" 
-	
-	                data-role="button">Settings</a></li>
-	    		    </ul>
+                <ul>
+	                <li id="nav-drivehistory">
+                        <a href="#drivehistory" data-role="button">
+                            Drive History
+                        </a>
+                    </li>
+	                <li id="nav-track">
+                        <a href="#track" class="ui-btn-active ui-state-persist" data-role="button">
+                            Track
+                        </a>
+                    </li>
+	                <li id="nav-settings">
+                        <a href="#settings" data-role="button">
+                            Settings
+                        </a>
+                    </li>
+                </ul>
 	        </div><!-- /navbar --> 
 	    </div>
+        
 	</script>
 
 	<script type="text/template" id="SettingsTemplate">
@@ -252,20 +266,20 @@
     	</p>
     	<div class="ui-grid-b drive-history-info">
 			<div class="ui-block-a">
-				<div class="drive-history-stat">
-					<div class="drive-history-num">
-						<%- Math.round(total_time) %>
-					</div>
-					<h3>minutes</h3>
-				</div>
+                <div class="drive-history-stat">
+                    <div class="drive-history-num">
+                        <%- Math.round(average_mpg) %>
+                    </div>
+                    <h3>mpg</h3>
+                </div>
 			</div>
 			<div class="ui-block-b" >
-				<div class="drive-history-stat">
-					<div class="drive-history-num">
-						<%- Math.round(average_mpg) %>
-					</div>
-					<h3>mpg</h3>
-				</div>
+                <div class="drive-history-stat">
+                    <div class="drive-history-num">
+                        <%- Math.round(total_time) %>
+                    </div>
+                    <h3>minutes</h3>
+                </div>
 			</div>
 			<div class="ui-block-c">
 				<div class="drive-history-stat">
@@ -335,6 +349,8 @@
 			$(function() {
 			    FastClick.attach(document.body);
 			});
+            
+            
           
 		</script>
 
