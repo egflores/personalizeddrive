@@ -132,7 +132,8 @@ static DreiCarCenter *gInstance = NULL;
 }
 
 - (NSString *)driveLog_getStatisticsJSON:(DL_Entry *)entry {
-    NSData *data = [NSJSONSerialization dataWithJSONObject:[entry toDict]
+    NSDictionary *dictData = [entry toDict];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dictData
                                                    options:0
                                                      error:nil];
     NSString *jsonString = [[NSString alloc]

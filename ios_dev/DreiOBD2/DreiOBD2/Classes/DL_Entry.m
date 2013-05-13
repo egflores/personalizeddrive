@@ -55,6 +55,8 @@
         est_gallons_used += del_time * inst_mpg_avg;
         est_miles_traveled += del_time * inst_speed_avg;
     }
+    
+    if (est_gallons_used == 0) est_gallons_used = 0.001;
 
     DL_DataPoint *lastPoint = [dataPoints lastObject];
     DL_DataPoint *firstPoint = [dataPoints objectAtIndex:0];
