@@ -12,6 +12,7 @@
 #import "MainViewController.h"
 #import <Parse/Parse.h>
 #import <UIKit/UIKit.h>
+#import "Mixpanel.h"
 
 @implementation DreiConnect
 
@@ -22,6 +23,7 @@
 
 - (void)startDriveLog:(CDVInvokedUrlCommand*)command
 {
+    [[Mixpanel sharedInstance] track:@"Started Drive Log"];
     BOOL success = [[DreiCarCenter instance] driveLog_startCollection];
     
     CDVPluginResult* result = nil;
@@ -32,6 +34,7 @@
 
 - (void)stopDriveLog:(CDVInvokedUrlCommand*)command
 {
+    [[Mixpanel sharedInstance] track:@"Stopped Drive Log"];
     BOOL success = [[DreiCarCenter instance] driveLog_stopCollection];
     
     NSString * statistics = [[DreiCarCenter instance] driveLog_getStatisticsJSON];
@@ -44,6 +47,7 @@
 - (void)uploadDriveLog:(CDVInvokedUrlCommand*)command
 {
     //BOOL success = [[DreiCarCenter instance] driveLog_uploadDataRaw];
+    [[Mixpanel sharedInstance] track:@"Upload Drive Log"];
     BOOL success = true;
     
     CDVPluginResult* result = nil;
@@ -54,6 +58,7 @@
 
 - (void)clearDriveLog:(CDVInvokedUrlCommand*)command
 {
+    [[Mixpanel sharedInstance] track:@"Clear Drive Log"];
     BOOL success = [[DreiCarCenter instance] driveLog_clearData];
     
     CDVPluginResult* result = nil;
@@ -64,6 +69,7 @@
 
 - (void)logout:(CDVInvokedUrlCommand*)command
 {
+    [[Mixpanel sharedInstance] track:@"Logout"];
     [PFUser logOut];
     CDVPluginResult* result = nil;
     if ([PFUser currentUser] == nil) {
@@ -107,7 +113,7 @@
 
 - (void)getDriveLogs:(CDVInvokedUrlCommand*)command
 {
-
+    [[Mixpanel sharedInstance] track:@"Requested Drive Logs"];
     PFQuery *query = [PFQuery queryWithClassName:@"DL_Entry"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

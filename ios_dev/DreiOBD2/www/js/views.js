@@ -4,7 +4,7 @@ $().ns('DreiApp.Views');
 $(document).ready(function () {
 
     DreiApp.Views.MainView = Backbone.View.extend({
-        transition: "fade"
+        transition: "none"
     });
 
     DreiApp.Views.Track = DreiApp.Views.MainView.extend({
@@ -13,6 +13,7 @@ $(document).ready(function () {
 
         render:function (eventName) {
             $(this.el).html(this.template());
+            mixpanel.track("Navigated to Track Page"); 
             return this;
         }
     });
@@ -25,6 +26,7 @@ $(document).ready(function () {
 
         render:function (eventName) {
             $(this.el).html(this.template());
+            mixpanel.track("Navigated to Active Tracking Page");
             return this;
         }
     });
@@ -37,6 +39,7 @@ $(document).ready(function () {
 
         render:function (eventName) {
             $(this.el).html(this.template());
+            mixpanel.track("Viewed Onboarding");
             return this;
         }
     });
@@ -59,6 +62,7 @@ $(document).ready(function () {
         
         render:function (eventName) {
             $(this.el).html(this.template());
+            mixpanel.track("Viewed Settings");
             return this;
         }
     });
