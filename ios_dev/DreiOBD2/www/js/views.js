@@ -8,13 +8,20 @@ $(document).ready(function () {
     });
 
     DreiApp.Views.Track = DreiApp.Views.MainView.extend({
+        events: {
+            'touchmove': 'disableVerticalScroll'
+        },
+                                                        
+        template: _.template($('#TrackTemplate').html()),
 
-        template:_.template($('#TrackTemplate').html()),
-
-        render:function (eventName) {
+        render: function (eventName) {
             $(this.el).html(this.template());
             mixpanel.track("Navigated to Track Page"); 
             return this;
+        },
+
+        disableVerticalScroll: function(e) {
+            e.preventDefault();
         }
     });
 
@@ -27,19 +34,6 @@ $(document).ready(function () {
         render:function (eventName) {
             $(this.el).html(this.template());
             mixpanel.track("Navigated to Active Tracking Page");
-            return this;
-        }
-    });
-
-    DreiApp.Views.Onboarding = DreiApp.Views.MainView.extend({
-
-        transition: "slideup",
-
-        template:_.template($('#OnboardingTemplate').html()),
-
-        render:function (eventName) {
-            $(this.el).html(this.template());
-            mixpanel.track("Viewed Onboarding");
             return this;
         }
     });

@@ -20,3 +20,11 @@
 	padding-bottom: 10px;
 
 }
+
+#track-drive-message {
+    text-align: justify;
+}
+
+.setup-message {
+	text-align: justify;
+}
