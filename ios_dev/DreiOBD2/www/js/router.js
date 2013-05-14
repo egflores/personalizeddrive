@@ -6,31 +6,35 @@ $(document).ready(function() {
 	DreiApp.Router = Backbone.Router.extend({
  
 	    routes:{
-	    	"": "initialScreen",
+	    	"": "track",
 	        "track":"track",
 	        "drivehistory":"driveHistory",
 	        "setup/:page":"setup",
 	        "activetracking":"activeTracking",
 	        "settings":"settings"
 	    },
-
-	    initialScreen: function() {
-	    	if (window.localStorage.getItem("AcceptedEULA") === "true") {
-	    		this.track();
-	    	} else {
-	    		this.setup();
-	    	}
-	    },
 	 
 	    driveHistory: function() {
+	    	if (!this.acceptedEula()) {
+	    		this.setup();
+	    		return;
+	    	}
 	        this.changePage(new dv.DriveHistory());
 	    },
 	 
 	    track: function() {
+	    	if (!this.acceptedEula()) {
+	    		this.setup();
+	    		return;
+	    	}
 	        this.changePage(new dv.Track());
 	    },
 
 	    activeTracking: function() {
+	    	if (!this.acceptedEula()) {
+	    		this.setup();
+	    		return;
+	    	}
 	        this.changePage(new dv.ActiveTracking());
 	    },
 
@@ -47,6 +51,10 @@ $(document).ready(function() {
 	    },
 	 
 	    settings: function() {
+	    	if (!this.acceptedEula()) {
+	    		this.setup();
+	    		return;
+	    	}
 	        this.changePage(new dv.Settings());
 	    },
 	 
@@ -58,6 +66,10 @@ $(document).ready(function() {
 	        	changeHash:false,
 	        	transition: page.transition,
 	        });
+	    },
+
+	    acceptedEula: function() {
+	    	return (window.localStorage.getItem("AcceptedEULA") === "true");
 	    }
  
 	});
