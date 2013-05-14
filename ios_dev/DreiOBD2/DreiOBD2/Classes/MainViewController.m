@@ -73,11 +73,6 @@
     // you can do so here.
 
     [super viewWillAppear:animated];
-    if ([PFUser currentUser]) {
-        NSLog(@"Logged in");
-    } else {
-        NSLog(@"Not logged in");
-    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -105,12 +100,6 @@
         
         // Present Log In View Controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
-    } else {
-        Mixpanel *mixpanel = [Mixpanel sharedInstanceWithToken:@"f43921742f2cfaf7b57b9b044ac793a3"];
-        [mixpanel identify:[PFUser currentUser].email];
-        [mixpanel track:@"LoggedIn"];
-        NSLog(@"Recording the user");
-        NSLog(@"%@", [PFUser currentUser].email);
     }
     
 }
@@ -151,15 +140,16 @@
 // Sent to the delegate when a PFUser is logged in.
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel identify:user.email];
+    [mixpanel identify:user.username];
     NSLog(@"Recording the user");
     NSLog(@"%@", [PFUser currentUser].email);
-    [mixpanel track:@"LoggedIn"];
+    [mixpanel track:@"Logged In"];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 // Sent to the delegate when the log in attempt fails.
 - (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
+    [[Mixpanel sharedInstance] track:@"Failed login attempt"];
     NSLog(@"Failed to log in...");
 }
 
@@ -191,11 +181,16 @@
 
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [[Mixpanel sharedInstance] track:@"Signed up"];
+     Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel identify:user.username];
+    [mixpanel.people set:@"$email" to:user.email];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 // Sent to the delegate when the sign up attempt fails.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
+    [[Mixpanel sharedInstance] track:@"Failed to Signup"];
     NSLog(@"Failed to sign up...");
 }
 
@@ -208,6 +203,7 @@
 #pragma mark - ()
 
 - (IBAction)logOutButtonTapAction:(id)sender {
+    [[Mixpanel sharedInstance] track:@"Logged Out"];
     [PFUser logOut];
     [self.navigationController popViewControllerAnimated:YES];
 }

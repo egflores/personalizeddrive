@@ -55,11 +55,19 @@ $(document).ready(function () {
         DreiApp.app.log({context: component, content: message})
     };*/
 
+    var firstTime = true;
+    var start = new Date();
     cb.drei_start = function(callback, errorCallback) {
         cordova.exec(callback, function() {
                                    errorCallback();
                                    console.log("Error in startDriveLog");
                                }, "DreiConnect", "startDriveLog", []);
+        if(firstTime) {
+          var end = new Date();
+          var secondsOpen = Math.floor((end - start) / 1000);
+          mixpanel.track("Time Since Start", {"seconds": secondsOpen}); 
+          firstTime = false;
+        }
     };
     
     cb.drei_stop = function(callback, errorCallback) {

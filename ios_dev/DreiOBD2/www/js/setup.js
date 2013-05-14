@@ -6,6 +6,7 @@ $(document).ready(function () {
         template:_.template($('#SetupTemplate1').html()),
 
         render: function(eventName) {
+            mixpanel.track("Viewed Setup Screen 1");
             $(this.el).html(this.template());
             return this;
         }
@@ -18,6 +19,7 @@ $(document).ready(function () {
         template:_.template($('#SetupTemplate2').html()),
 
         render: function(eventName) {
+            mixpanel.track("Viewed Setup Screen 2");
             $(this.el).html(this.template());
             return this;
         }
@@ -30,6 +32,7 @@ $(document).ready(function () {
         template:_.template($('#SetupTemplate3').html()),
 
         render: function(eventName) {
+            mixpanel.track("Viewed Setup Screen 3");
             $(this.el).html(this.template());
             return this;
         }
@@ -41,6 +44,7 @@ $(document).ready(function () {
         template:_.template($('#SetupTemplate4').html()),
 
         render: function(eventName) {
+            mixpanel.track("Viewed Setup Screen 4");
             $(this.el).html(this.template());
             return this;
         }
