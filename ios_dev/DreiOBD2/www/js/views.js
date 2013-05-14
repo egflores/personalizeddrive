@@ -36,18 +36,6 @@ $(document).ready(function () {
         }
     });
 
-    DreiApp.Views.Onboarding = DreiApp.Views.MainView.extend({
-
-        transition: "slideup",
-
-        template:_.template($('#OnboardingTemplate').html()),
-
-        render:function (eventName) {
-            $(this.el).html(this.template());
-            return this;
-        }
-    });
-
     DreiApp.Views.Settings = DreiApp.Views.MainView.extend({
 
         template:_.template($('#SettingsTemplate').html()),

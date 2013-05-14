@@ -113,7 +113,7 @@
                 <!-- <div id="status" class="well" style="width: 200px; margin: 10px auto; text-align: center">
                     Status
                 </div> -->
-                <a href="#onboarding">
+                <a href="#setup/1">
                     Having problems connecting?
                 </a>
 
@@ -243,22 +243,104 @@
 	   	</div>
 	</script>
 
-	<script type="text/template" id="OnboardingTemplate">
-	    <div id="container">
-	    <div style="position:fixed; top: 0; height: 50px; overflow: hidden; background-color:#fff; z-index: 100; width: 100%">
-	   	<a style="width: 100px;" class="btn btn-block btn-danger" href="#" style="color:#fff">Cancel</a>
-	   	</div>
-	   	<div style="padding-top: 65px;">
-	   		HOLY FUCK SOMEONE PLEASE FILL THIS IN WITH ONBOARDING.
-	   		<ol>
-		   		 <li>It should fucking scroll.</li>
-		   		 <li>It should have images of the iphone like from the gdoc.</li>
-		   		 <li>Make the top bar not scroll.  Its fixed div and shouldnt be that hard.</li>
-		   		 <li>Please dont make it look like ass.</li>
-	   		</ol>
-	   	</div>
-	   	</div>
+	<script type="text/template" id="SetupTemplate1">
+		<div data-position="fixed" data-id="drei-topnave" data-role="header">
+			<h1>Setup</h1>
+		</div>
+
+	    <div id="container" style="margin: 10px; text-align:center;">
+            <h3>Welcome!</h3>
+            <div class="setup-message">
+                <p>
+                	Personalized Drive will help you drive smarter. Start tracking your drives to learn what your true MPG is, how long you're spending on your commute, and how fast you're driving.
+                </p>
+                <p>
+                	We are now going to get your car setup and ready to use the app. Let's get started! <!-- ' -->
+                </p>
+            </div>
+            <div style="height: 50px"></div>
+            <div style="margin: 0 auto; width: 250px; text-align: center;" class="onboarding-info">
+
+                <div style="width: 100%; margin: 50px auto 25px auto">
+                    <a class="btn btn-block btn-primary" href="#setup/2" style="color:#fff">
+                        Next
+                    </a>
+                </div>
+            </div>
+        </div>
 	</script>
+
+	<script type="text/template" id="SetupTemplate2">
+		<div data-position="fixed" data-id="drei-topnave" data-role="header">
+			<h1>Step 1</h1>
+		</div>
+
+	    <div id="container" style="margin: 10px; text-align:center;">
+            <div class="setup-message">
+                <p>
+                	Plug the device into your car's ODB port. The ODB port is the same port your mechanic uses to diagnose the health of your car. The port is normally located under yout steering wheel. Once you have plugged in the device, turn on your car. <!-- ' -->
+                </p>
+            </div>
+            <div style="margin: 0 auto; width: 250px; text-align: center;" class="onboarding-info">
+
+                <div style="width: 100%; margin: 50px auto 25px auto">
+                    <a class="btn btn-block btn-primary" href="#setup/3" style="color:#fff">
+                        Next
+                    </a>
+                </div>
+            </div>
+        </div>
+	</script>	
+
+
+	<script type="text/template" id="SetupTemplate3">
+		<div data-position="fixed" data-id="drei-topnave" data-role="header">
+			<h1>Step 2</h1>
+		</div>
+
+	    <div id="container" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; text-align:center;">
+            <div class="setup-message">
+                <p>
+                	Go to the Settings app on your phone, and connect to the WiFi network called "WiFIOBD." When you are done connecting, the network will be highlighted blue, as shown below. After you finish connecting, come back to this app! 
+                </p>
+                <img src="img/wifi_example.jpg" />
+            </div>
+            <div style="margin: 0 auto; width: 250px; text-align: center;" class="onboarding-info">
+
+                <div style="width: 100%; margin: 50px auto 25px auto">
+                    <a class="btn btn-block btn-primary" href="#setup/4" style="color:#fff">
+                        Next
+                    </a>
+                </div>
+            </div>
+        </div>
+	</script>	
+
+	<script type="text/template" id="SetupTemplate4">
+		<div data-position="fixed" data-id="drei-topnave" data-role="header">
+			<h1>Step 3</h1>
+		</div>
+
+	    <div id="container" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; text-align:center;">
+            <div class="setup-message">
+                <p>
+                	All right, we're ready to go! <!-- ' -->
+                </p>
+                <p> Just a few things to note. Please don't use this app while you're driving. Turn it on before you start driving, and close it when you're done with your drive. We are not liable for any damage you, your car, or anyone in your car may incur while you you use our software. <!-- ' -->
+                </p>
+                <p> If you agre to these conditions, click "I Agree" below and we can get started!
+                <p>
+            </div>
+            <div style="margin: 0 auto; width: 250px; text-align: center;" class="onboarding-info">
+
+                <div style="width: 100%; margin: 50px auto 25px auto">
+                    <a class="btn btn-block btn-primary" href="" style="color:#fff" onCLick="window.localStorage.setItem('AcceptedEULA', true);">
+                        I agree
+                    </a>
+                </div>
+            </div>
+        </div>
+	</script>	
 
    <script type="text/template" id="drive-history-entry-view">
     	<p>
@@ -290,16 +372,6 @@
 				</div>
 			</div>
 		</div><!-- /grid-b -->
-    </script>
-
-	<script type="text/template" id ="drive-log-template">
-    	<div data-role="collapsible">
-	    	<h3>Drive on <%- timestamp %></h3>
-	    	<div>Duration: <%- duration %></div>
-	    	<div>Ave Speed: <%- ave_mph %></div>
-	    	<div>Ave MPG: <%- ave_mpg %></div>
-	    	<div>Tank Used: <%- tank_used %></div>
-		</div>
     </script>
 
     <script type="text/template" id="navigation-template">
@@ -350,12 +422,11 @@
 			    FastClick.attach(document.body);
 			});
             
-            
-          
 		</script>
 
 		<script type="text/javascript" src="js/views.js"></script>
 		<script type="text/javascript" src="js/drive_history.js"></script>
+		<script type="text/javascript" src="js/onboarding.js"></script>
 	    <script type="text/javascript" src="js/callbacks.js"></script>
 	    <script type="text/javascript" src="js/router.js"></script>
 	    <script>
