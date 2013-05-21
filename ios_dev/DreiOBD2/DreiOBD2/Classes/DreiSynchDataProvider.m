@@ -74,7 +74,6 @@
     self._lastPoint = self._currentPoint;
     self._currentPoint = [[DL_DataPoint alloc] initFromPoint:self._lastPoint];
  
-    NSLog(@"Passing shit up");
     [[DreiCarCenter instance] driveLog_updateData:[self._lastPoint toDict]];
 }
 

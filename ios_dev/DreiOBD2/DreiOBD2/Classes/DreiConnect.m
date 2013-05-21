@@ -107,6 +107,7 @@
 // dummy to ensure that DreiConnect links as soon as possible
 - (void)init:(CDVInvokedUrlCommand*)command
 {
+    NSLog(@"Init Called *********************************************");
     CDVPluginResult*  result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
@@ -116,19 +117,20 @@
     [[Mixpanel sharedInstance] track:@"Requested Drive Logs"];
     PFQuery *query = [PFQuery queryWithClassName:@"DL_Entry"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    [query whereKey:@"total_time" greaterThan:[NSNumber numberWithInt:0]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSMutableArray * dictObjects = [[NSMutableArray alloc] initWithCapacity:[objects count]];
             for (int i = 0; i < [objects count]; ++i) {
-                [dictObjects insertObject:[[objects objectAtIndex:i] toDict] atIndex:i];
+                [dictObjects insertObject:[[objects objectAtIndex:i] toDict:true] atIndex:i];
             }
             NSString *json = [[NSString alloc] initWithData:
-                                                   [NSJSONSerialization dataWithJSONObject:dictObjects
-                                                         options:0
-                                                           error:nil]
-                                                                        encoding:NSUTF8StringEncoding
-                                                   ];
-
+                              [NSJSONSerialization dataWithJSONObject:dictObjects
+                                                              options:0
+                                                                error:nil]
+                                                   encoding:NSUTF8StringEncoding
+                              ];
+            
             CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:json];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
             // The find succeeded.
