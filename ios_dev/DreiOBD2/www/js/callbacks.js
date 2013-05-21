@@ -15,7 +15,7 @@ $(document).ready(function () {
                   if (!carData) {
                     return;
                   }
-                  $("#speed").html(carData.vehicle_speed);
+                  $("#speed").html(carData.vehicle_speed * 0.621371);
                   $("#rpm").html(carData.rpm);
                   $("#instant_mpg").html(carData.instant_mpg);
                   //TESTING OBDII
