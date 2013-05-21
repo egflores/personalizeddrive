@@ -94,6 +94,12 @@ $(document).ready(function () {
     cb.drei_init = function() {
                   cordova.exec(function() {}, function() {}, "DreiConnect", "init", []);
     };
+    cb.drei_send_feedback = function(callback, errorCallback, feedback) {
+        cordova.exec(callback, function() {
+                   errorCallback();
+                   console.log("Error in sendFeedback");
+                   }, "DreiConnect", "sendFeedback", [feedback]);
+    };
     /* Not implemented
         cb.drei_upload = function(callback, errorCallback) {
               cordova.exec(callback, function() {

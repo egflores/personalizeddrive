@@ -20,6 +20,7 @@
 -(void) uploadDriveLog:(CDVInvokedUrlCommand *)command;
 -(void) clearDriveLog:(CDVInvokedUrlCommand *)command;
 -(void) logout:(CDVInvokedUrlCommand *)command;
+-(void) sendFeedback:(CDVInvokedUrlCommand *)command;
 
 // to ensure that this loads
 -(void) init:(CDVInvokedUrlCommand *)command;

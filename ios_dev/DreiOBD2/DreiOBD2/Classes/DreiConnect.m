@@ -141,4 +141,20 @@
     }];
 }
 
+- (void)sendFeedback:(CDVInvokedUrlCommand *)command
+{
+    [[Mixpanel sharedInstance] track:@"Sent Feedback"];
+    CDVPluginResult* pluginResult = nil;
+    NSString* feedback = [command.arguments objectAtIndex:0];
+    if (feedback != nil) {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        PFObject *gameScore = [PFObject objectWithClassName:@"Feedback"];
+        [gameScore setObject:feedback forKey:@"feedback"];
+        [gameScore saveInBackground];
+    } else {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Arg was null"];
+    }
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 @end
