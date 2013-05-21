@@ -25,7 +25,6 @@
 
 -(id)init {
     self = [super init];
-    //self.user = [PFUser currentUser];
     return self;
 }
 
@@ -89,14 +88,27 @@
     return @"DL_Entry";
 }
 
-- (NSDictionary *) toDict {
-    return [NSDictionary dictionaryWithObjectsAndKeys:
+-(NSDictionary *) toDict {
+    return [self toDict:false];
+}
+
+- (NSDictionary *) toDict:(BOOL)forDisplay {
+    NSLog(@"Outputting date %@ now %@", self.startTime, [NSNumber numberWithDouble:[self.startTime timeIntervalSince1970]]);
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"MM/dd/yyyy"];
+    NSString *dateStr = [df stringFromDate:self.startTime];
+    NSMutableDictionary *d = [NSMutableDictionary dictionaryWithObjectsAndKeys:
             [NSNumber numberWithDouble:self.average_mpg], @"average_mpg",
             [NSNumber numberWithDouble:self.average_speed], @"average_speed",
             [NSNumber numberWithDouble:self.total_distance], @"total_distance",
             [NSNumber numberWithDouble:self.total_time], @"total_time",
             [NSNumber numberWithDouble:self.max_speed], @"max_speed",
-            [NSNumber numberWithDouble:[self.startTime timeIntervalSince1970]],@"start_time",
+            [NSNumber numberWithInt:lround([self.startTime timeIntervalSince1970])],@"start_time",
             nil];
+    if (forDisplay) {
+        [d setValue:dateStr forKey:@"start_date_yymmdd"];
+    }
+    
+    return d;
 }
 @end
