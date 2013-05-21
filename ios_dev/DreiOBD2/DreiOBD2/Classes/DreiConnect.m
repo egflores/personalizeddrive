@@ -107,6 +107,7 @@
 // dummy to ensure that DreiConnect links as soon as possible
 - (void)init:(CDVInvokedUrlCommand*)command
 {
+    NSLog(@"Init Called *********************************************");
     CDVPluginResult*  result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }

@@ -90,6 +90,10 @@ $(document).ready(function () {
                            console.log("Error in startDriveLog");
                        }, "DreiConnect", "getDriveLogs", []);
     };
+                  
+    cb.drei_init = function() {
+                  cordova.exec(function() {}, function() {}, "DreiConnect", "init", []);
+    };
     /* Not implemented
         cb.drei_upload = function(callback, errorCallback) {
               cordova.exec(callback, function() {
