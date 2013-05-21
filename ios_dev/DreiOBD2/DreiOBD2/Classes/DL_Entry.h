@@ -24,6 +24,7 @@
 -(id)init;
 
 -(NSDictionary *)toDict;
+-(NSDictionary *)toDict:(BOOL)forDisplay;
 
 +(NSString *)parseClassName;
 
