@@ -8,7 +8,6 @@
 	    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 	    <meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	    <link href="css/bootstrap.css" rel="stylesheet">
 	    <link rel="stylesheet" type="text/css" href="css/lib/jquery.mobile-1.3.1.min.css">
 	    <link rel="stylesheet" type="text/css" href="css/style.css">
 	    <style>
@@ -46,17 +45,13 @@
 				padding-top: 40px;
 				margin-bottom: 40px;
 			}
-			.ui-page {
-		        -webkit-backface-visibility: hidden;
-		    } 
 
 			a:hover{text-decoration:none;}
 			a {-webkit-touch-callout: none;}
 			body {
 				-webkit-tap-highlight-color:rgba(0,0,0,0);
 				-webkit-user-select: none;
-				/* -webkit-transform: translate3d(0,0,0); */
-			}
+			} 
 		</style>
 		<script type="text/javascript">
 		    (function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");
@@ -125,18 +120,12 @@
                 </p>
             </div>
             <div style="height: 20px"></div>
-            <div style="margin: 0 auto; width: 250px; text-align: center;" class="onboarding-info">
-                <!-- <div id="status" class="well" style="width: 200px; margin: 10px auto; text-align: center">
-                    Status
-                </div> -->
-                <a href="#setup/1">
+            <div class="onboarding-info">
+                <div>
+                <a onclick="DreiApp.Callbacks.drei_start()" href="#activetracking" data-role="button" data-theme="b">Start Tracking Commute</a>
+				<a href="#setup/1" data-role="button" data-icon="gear" data-role="footer">
                     Having problems connecting?
                 </a>
-
-                <div style="width: 200px; margin: 50px auto 25px auto">
-                    <a onclick="DreiApp.Callbacks.drei_start()" class="btn btn-block btn-primary" href="#activetracking" style="color:#fff">
-                        Start Tracking Commute
-                    </a>
                 </div>
             </div>
         </div>
@@ -257,15 +246,9 @@
                 	We are now going to get your car set up and ready to use the app. Let's get started! <!-- ' -->
                 </p>
             </div>
-            <div style="height: 50px"></div>
-            <div style="margin: 0 auto; width: 250px; text-align: center;" class="onboarding-info">
-
-                <div style="width: 100%; margin: 50px auto 25px auto">
-                    <a class="btn btn-block btn-primary" href="#setup/2" style="color:#fff">
-                        Next
-                    </a>
-                </div>
-            </div>
+			<a href="#setup/2" data-role="button" data-theme="b">
+				Next
+            </a>
         </div>
 	</script>
 
@@ -281,17 +264,12 @@
                 	Plug the device into your car's ODB port. The ODB port is the same port your mechanic uses to diagnose the health of your car.
                 </p>
                 <p>
-                    The OBD port is normally located under your steering wheel in your driver's side footwell. Once you have plugged in the device, turn on your car. <!-- ' -->
+                    The OBD port is normally located under your steering wheel in your driver's side footwell. Once you have plugged in the device, turn on your car. 
                 </p>
             </div>
-            <div style="margin: 0 auto; width: 250px; text-align: center;" class="onboarding-info">
-
-                <div style="width: 100%; margin: 50px auto 25px auto">
-                    <a class="btn btn-block btn-primary" href="#setup/3" style="color:#fff">
-                        Next
-                    </a>
-                </div>
-            </div>
+            <a href="#setup/3" data-role="button" data-theme="b">
+				Next
+            </a>
         </div>
 	</script>	
 
@@ -306,20 +284,13 @@
             <div class="setup-message">
                 <p>
                 	<strong>Go to your phone's settings and connect to the WiFi network called &quot;WiFiOBD&quot;.</strong>
-                </p>
-                <p>
                     When you are done connecting, the network will be highlighted blue, as shown below. After you finish connecting, come back here! (You'll only have to do this once.)
                 </p>
-                <img src="img/wifi_example.jpg" />
+                <img src="img/wifi_example.jpg" width="100%"/>
             </div>
-            <div style="margin: 0 auto; width: 250px; text-align: center;" class="onboarding-info">
-
-                <div style="width: 100%; margin: 50px auto 25px auto">
-                    <a class="btn btn-block btn-primary" href="#setup/4" style="color:#fff">
-                        Next
-                    </a>
-                </div>
-            </div>
+			<a href="#setup/4" data-role="button" data-theme="b">
+				Next
+            </a>
         </div>
 	</script>	
 
@@ -334,19 +305,14 @@
                 <p>
                 	<strong>Alright, we're ready to go!</strong> <!-- ' -->
                 </p>
-                <p> Just a few things to note. Please don't look at the app while you're driving. Turn it on before you start driving, and close it when you're done with your drive. We are not liable for any damage you, your car, or anyone in your car may incur while you you use our software. <!-- ' -->
+                <p> Just a few things to note. Please don't look at the app while you're driving. Turn it on before you start driving, and close it when you're done with your drive. We are not liable for any damage you, your car, or anyone in your car may incur while you you use our software.
                 </p>
                 <p> If you agree to these conditions, click "I Agree" below and we can get started!
                 <p>
             </div>
-            <div style="margin: 0 auto; width: 250px; text-align: center;" class="onboarding-info">
-
-                <div style="width: 100%; margin: 50px auto 25px auto">
-                    <a class="btn btn-block btn-primary" href="" style="color:#fff" onCLick="window.localStorage.setItem('AcceptedEULA', true);">
-                        I agree
-                    </a>
-                </div>
-            </div>
+            <a href="" data-role="button" data-theme="b" onCLick="window.localStorage.setItem('AcceptedEULA', true);">
+				I Agree
+            </a>
         </div>
 	</script>	
 
