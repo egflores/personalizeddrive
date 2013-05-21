@@ -24,24 +24,27 @@
 				width: 300px;
 				padding-bottom: 10px;
 			}
+			
 			.commute-box-number {
 				font-size: 12px;
 				font-weight: bold;
 				color: rgb(49, 130, 189);
 				margin-top: 5px;
+				text-align: left;
 			}
 
 			.commute-box-label {
-			font-size: 50px;
-			font-weight: bold;
-			color: rgb(169, 169, 169);
-			margin-top: 0px;
-			text-align: right;
+				font-size: 20px;
+				font-weight: bold;
+				color: rgb(169, 169, 169);
+				margin-top: 0px;
+				text-align: center;
+				line-height: 30px;
 			}
 			.commute-box {
 			
-				padding-top: 50px;
-				margin-bottom: 50px;
+				padding-top: 40px;
+				margin-bottom: 40px;
 			}
 			.ui-page {
 		        -webkit-backface-visibility: hidden;
@@ -452,12 +455,9 @@
 	    <script type="text/javascript" src="js/callbacks.js"></script>
 	    <script type="text/javascript" src="js/router.js"></script>
 	    <script>
-            /* @rowanc - this doesn't ever call the alert... want to take a look? */
-	    	$(document).ready(function( $ ){
+	    	$(function() {
 		    	//Initialization Status
 		    	DreiApp.Callbacks.drei_init();
-                              alert("Init");
-
 		    });
 	    </script>
     </body>
