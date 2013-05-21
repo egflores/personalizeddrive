@@ -166,57 +166,40 @@
 	</script>
 
 	<script type="text/template" id="SettingsTemplate">
-	    <div data-position="fixed" data-id="drei-topnave" data-role="header">
-	        <h1>Settings</h1>
-	    </div>
+		    <div data-position="fixed" data-id="drei-topnave" data-role="header">
+		        <h1>Settings</h1>
+		    </div>
 
-	    <div id="container">
-	    	    <div style="margin-top: 50px; width: 150px; margin: 50px auto">
-		       <a style="color: #fff" class="logout btn btn-block btn-primary" href="">Log out</a>
-		       </div>
-		    <div style="margin-top: 25px; width: 300px; margin: 50px auto; text-align:center">
-			<h3>Feedback</h3>
-			Things you like
-		       <textarea id="like"></textarea>
-			Things we can improve
-		       <textarea id="improve"></textarea>
-			Things you want to see
-		       <textarea id=""></textarea>
-		       <a style="color: #fff; width: 150px; margin-left:auto; margin-right:auto;" class="btn btn-block btn-primary" href="">Submit Feedback</a>
-		       </div>
-		    <div style="margin-top: 25px; width: 300px; margin: 50px auto; text-align:center">
-			<p><h3>About Drei</h3>
-			Drei is an app that helps you quantify your drive. It logs 
-			your driving patterns and presents you with easy to 
-			understand data about your commutes. It was a project created
-			out of the Stanford CS 210 class to help drivers better understand
-			their driving behavior.
-			<h4>The Drei Team</h4>
-			Rowan Chakoumakos<br/>
-			Bryce Cronkite-Ratcliff<br/>
-			Edgar Flores<br/>
-			Stephen Trusheim<br/>
-			Vikas Yendluri</p>
-		       </div>
+		    <div id="container" class="settings-page">
+		    	<div class="about-app">
+					<h3>About DreiDrive</h3>
+					Drei is an app that helps you log your driving patterns so that you can better understand your commutes.
+				</div>
+			    <div>
+			        <textarea class="feedback-text">Leave us feedback! Things we can improve, features you want to see, or things you like.</textarea>
+			       	<button class="submit-feedback" data-theme="b">Submit Feedback</button>
+				</div>
+		    	<div>
+		    		<button class="logout" data-theme="e">Logout</button>
+				</div> 
+		   	</div>
+		   	    	<div id="nav-bottom" data-role="footer" data-position="fixed" data-id="drei-navbar">	
+		        <div data-role="navbar">
+		    		    <ul>
+		                <li id="nav-drivehistory"><a href="#drivehistory" data-role="button" 		
+						>Drive History</a></li>
+		                <li id="nav-track"><a href="#track" 
 
-	   	</div>
-	   	    	<div id="nav-bottom" data-role="footer" data-position="fixed" data-id="drei-navbar">	
-	        <div data-role="navbar">
-	    		    <ul>
-	                <li id="nav-drivehistory"><a href="#drivehistory" data-role="button" 		
-					>Drive History</a></li>
-	                <li id="nav-track"><a href="#track" 
-	
-	                data-role="button">Track</a></li>
-	                <li id="nav-settings"><a href="#settings" 
-	           
-											class="ui-btn-active ui-state-persist"
-										
-	                data-role="button">Settings</a></li>
-	    		    </ul>
-	        </div><!-- /navbar --> 
-	    </div>
-	</script>
+		                data-role="button">Track</a></li>
+		                <li id="nav-settings"><a href="#settings" 
+
+												class="ui-btn-active ui-state-persist"
+
+		                data-role="button">Settings</a></li>
+		    		    </ul>
+		        </div><!-- /navbar --> 
+		    </div>
+		</script>
 
 	<script type="text/template" id="ActiveTrackingTemplate">
 	    <div id="container">
@@ -369,7 +352,7 @@
 
    <script type="text/template" id="drive-history-entry-view">
     	<p>
-    		<%- start_date_yymmdd %>
+    		<%- datestring %>
     	</p>
     	<div class="ui-grid-b drive-history-info">
 			<div class="ui-block-a">
