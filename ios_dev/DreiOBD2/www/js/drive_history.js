@@ -44,7 +44,7 @@ $(document).ready(function() {
 					});
 				that.$("#drive-history-entries").append(view.render().el);
 			}); */
-
+                                                      
 
 			DreiApp.Callbacks.drei_get_drive_logs(function(results) {
 				jsonResults = JSON.parse(results);

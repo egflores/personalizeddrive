@@ -26,7 +26,7 @@
 			}
 			
 			.commute-box-number {
-				font-size: 30px;
+				font-size: 12px;
 				font-weight: bold;
 				color: rgb(49, 130, 189);
 				margin-top: 5px;
@@ -268,10 +268,10 @@
             <h3>Welcome!</h3>
             <div class="setup-message">
                 <p>
-                	Personalized Drive will help you drive smarter. Start tracking your drives to learn what your true MPG is, how long you're spending on your commute, and how fast you're driving.
+                	<span style = 'font-weight:bold;'>Personalized Drive will help you drive smarter.</span> Start tracking your drives to learn what your true MPG is, how long you're spending on your commute, and how fast you're driving.
                 </p>
                 <p>
-                	We are now going to get your car setup and ready to use the app. Let's get started! <!-- ' -->
+                	We are now going to get your car set up and ready to use the app. Let's get started! <!-- ' -->
                 </p>
             </div>
             <div style="height: 50px"></div>
@@ -292,9 +292,13 @@
 		</div>
 
 	    <div id="container" style="margin: 10px; text-align:center;">
+        <h3>Connect your Car</h3>
             <div class="setup-message">
                 <p>
-                	Plug the device into your car's ODB port. The ODB port is the same port your mechanic uses to diagnose the health of your car. The port is normally located under yout steering wheel. Once you have plugged in the device, turn on your car. <!-- ' -->
+                	Plug the device into your car's ODB port. The ODB port is the same port your mechanic uses to diagnose the health of your car.
+                </p>
+                <p>
+                    The OBD port is normally located under your steering wheel in your driver's side footwell. Once you have plugged in the device, turn on your car. <!-- ' -->
                 </p>
             </div>
             <div style="margin: 0 auto; width: 250px; text-align: center;" class="onboarding-info">
@@ -315,9 +319,13 @@
 		</div>
 
 	    <div id="container" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; text-align:center;">
+        <h3>Connect your Phone</h3>
             <div class="setup-message">
                 <p>
-                	Go to the Settings app on your phone, and connect to the WiFi network called "WiFIOBD." When you are done connecting, the network will be highlighted blue, as shown below. After you finish connecting, come back to this app! 
+                	<strong>Go to your phone's settings and connect to the WiFi network called &quot;WiFiOBD&quot;.</strong>
+                </p>
+                <p>
+                    When you are done connecting, the network will be highlighted blue, as shown below. After you finish connecting, come back here! (You'll only have to do this once.)
                 </p>
                 <img src="img/wifi_example.jpg" />
             </div>
@@ -338,13 +346,14 @@
 		</div>
 
 	    <div id="container" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; text-align:center;">
+        <h3>Let's Drive!</h3>
             <div class="setup-message">
                 <p>
-                	All right, we're ready to go! <!-- ' -->
+                	<strong>Alright, we're ready to go!</strong> <!-- ' -->
                 </p>
-                <p> Just a few things to note. Please don't use this app while you're driving. Turn it on before you start driving, and close it when you're done with your drive. We are not liable for any damage you, your car, or anyone in your car may incur while you you use our software. <!-- ' -->
+                <p> Just a few things to note. Please don't look at the app while you're driving. Turn it on before you start driving, and close it when you're done with your drive. We are not liable for any damage you, your car, or anyone in your car may incur while you you use our software. <!-- ' -->
                 </p>
-                <p> If you agre to these conditions, click "I Agree" below and we can get started!
+                <p> If you agree to these conditions, click "I Agree" below and we can get started!
                 <p>
             </div>
             <div style="margin: 0 auto; width: 250px; text-align: center;" class="onboarding-info">
@@ -360,7 +369,7 @@
 
    <script type="text/template" id="drive-history-entry-view">
     	<p>
-    		<%- start_time.getMonth() %>/<%- start_time.getDate() %>/<%- start_time.getFullYear() %>
+    		<%- start_date_yymmdd %>
     	</p>
     	<div class="ui-grid-b drive-history-info">
 			<div class="ui-block-a">
@@ -446,9 +455,12 @@
 	    <script type="text/javascript" src="js/callbacks.js"></script>
 	    <script type="text/javascript" src="js/router.js"></script>
 	    <script>
-	    	(function( $ ){
+            /* @rowanc - this doesn't ever call the alert... want to take a look? */
+	    	$(document).ready(function( $ ){
 		    	//Initialization Status
-		    	DreiApp.Callbacks.drei_init(function() {}, function() {});
+		    	DreiApp.Callbacks.drei_init();
+                              alert("Init");
+
 		    });
 	    </script>
     </body>

@@ -91,6 +91,9 @@ $(document).ready(function () {
                        }, "DreiConnect", "getDriveLogs", []);
     };
                   
+    cb.drei_init = function() {
+                  cordova.exec(function() {}, function() {}, "DreiConnect", "init", []);
+    };
     cb.drei_send_feedback = function(callback, errorCallback, feedback) {
         cordova.exec(callback, function() {
                    errorCallback();
