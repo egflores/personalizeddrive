@@ -4,10 +4,11 @@ $().ns('DreiApp.Views');
 $(document).ready(function () {
 
     DreiApp.Views.MainView = Backbone.View.extend({
-        transition: "none"
+        // transition: "none" // I kind of like the transition - Vikas
     });
 
-    DreiApp.Views.NonScrollingView = DreiApp.Views.MainView.extend({
+    DreiApp.Views.NonScrollingView = DreiApp.Views.MainView.extend({ /*
+                                                                   
         events: {
             'touchmove': 'disableVerticalScroll'
         },
@@ -15,18 +16,20 @@ $(document).ready(function () {
         disableVerticalScroll: function(e) {
             e.preventDefault();
         }
+*/
     });
 
+/*
     DreiApp.Views.NonScrollingView.extend = function(child){
         /*
          * Code for subclasses of NonScrollingView to add their own events
-         * without overriding events in the base view.
+         * without 4overriding events in the base view.
          * courtesy of http://stackoverflow.com/questions/6968487/sub-class-a-backbone-view-sub-class-retain-events 
-         */
+
         var view = Backbone.View.extend.apply(this, arguments);
         view.prototype.events = _.extend({}, this.prototype.events, child.events);
         return view;
-    };
+    };                                                                     */
 
     DreiApp.Views.Track = DreiApp.Views.NonScrollingView.extend({
                                                         
