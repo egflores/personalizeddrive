@@ -1,4 +1,4 @@
-$().ns('DreiApp.Views');
+ $().ns('DreiApp.Views');
 
 
 $(document).ready(function () {
@@ -32,6 +32,9 @@ $(document).ready(function () {
     };                                                                     */
 
     DreiApp.Views.Track = DreiApp.Views.NonScrollingView.extend({
+        events: {
+            "click .start-tracking-button": "startTracking"
+        },
                                                         
         template: _.template($('#TrackTemplate').html()),
 
@@ -39,6 +42,13 @@ $(document).ready(function () {
             $(this.el).html(this.template());
             mixpanel.track("Navigated to Track Page"); 
             return this;
+        },
+
+        startTracking: function(e) {
+            DreiApp.LoadingWidget.showPageLoadingMsg("a", "foo");
+             // TODO - disable all clicking on view
+            DreiApp.Callbacks.drei_start();
+            // window.location.href = "#activetracking";
         }
     });
 

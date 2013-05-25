@@ -4,6 +4,7 @@ $(document).ready(function() {
     var dv = DreiApp.Views;
 
 	DreiApp.Router = Backbone.Router.extend({
+                                            currPage: null,
  
 	    routes:{
 	    	"": "track",
@@ -59,12 +60,14 @@ $(document).ready(function() {
 	    },
 	 
 	    changePage: function(page) {
+            
 	        $(page.el).attr('data-role', 'page');
 	        page.render();
 	        $('body').append($(page.el));
 	        $.mobile.changePage($(page.el), {
 	        	changeHash:false,
 	        	transition: page.transition,
+                                reloadPage: true
 	        });
 	    },
 

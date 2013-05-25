@@ -39,3 +39,12 @@
 .about-app h3 {
 	text-align: center;
 }
+
+ .modal-overlay {
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1500;
+    background: black;
+    opacity: 0;
+}
