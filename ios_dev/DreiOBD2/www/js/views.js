@@ -45,9 +45,12 @@ $(document).ready(function () {
         },
 
         startTracking: function(e) {
-            DreiApp.LoadingWidget.showPageLoadingMsg("a", "foo");
-             // TODO - disable all clicking on view
-            DreiApp.Callbacks.drei_start();
+            DreiApp.LoadingWidget.showPageLoadingMsg("a", "Connecting to ODB Device");
+            DreiApp.Callbacks.drei_start(function() {
+                alert('connected!');
+            }, function() {
+                alert('failure');
+            });
             // window.location.href = "#activetracking";
         }
     });
