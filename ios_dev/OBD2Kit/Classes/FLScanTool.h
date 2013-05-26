@@ -192,6 +192,8 @@ typedef enum {
 - (void) stream:(NSStream*)stream handleEvent:(NSStreamEvent)eventCode;
 - (void) writeCachedData;
 
+- (void) badass;
+
 @end
 
 //___________________________________________________________________________________________________

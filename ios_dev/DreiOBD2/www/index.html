@@ -120,6 +120,7 @@
                 </p>
             </div>
             <div style="height: 20px"></div>
+            <div id="status"></div>
             <div class="onboarding-info">
                 <div>
                 <a onclick="DreiApp.Callbacks.drei_start()" href="#activetracking" data-role="button" data-theme="b">Start Tracking Commute</a>
@@ -195,7 +196,7 @@
 
 	<script type="text/template" id="ActiveTrackingTemplate">
 	    <div id="container">
-			<h1 style="color:rgb(199,199,199); text-align:center;"> 
+			<h1 id="track_status" style="color:rgb(199,199,199); text-align:center;">
 				Tracking... 
 			</h1>
 			<div id="nextCommute">
@@ -223,6 +224,22 @@
 						<div id="instant_mpg" class="commute-box-number">44</div>
 					</div>
 				</div>
+        <div class="ui-grid-a commute-box">
+        <div class="ui-block-a">
+        <div class="commute-box-label">Lat</div>
+        </div>
+        <div class="ui-block-b">
+        <div id="gps_lat" class="commute-box-number">44</div>
+        </div>
+        </div>
+        <div class="ui-grid-a commute-box">
+        <div class="ui-block-a">
+        <div class="commute-box-label">Long</div>
+        </div>
+        <div class="ui-block-b">
+        <div id="gps_long" class="commute-box-number">44</div>
+        </div>
+        </div>
 			</div>
 			<a onclick="DreiApp.Callbacks.drei_stop()" data-role="button" href="#" data-theme="a">
 				Stop Tracking Commute
