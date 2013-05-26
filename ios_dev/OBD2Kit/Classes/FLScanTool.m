@@ -121,6 +121,19 @@
 	return protocolString;
 }
 
+- (void) badass {
+    [self close];
+	
+	[_priorityCommandQueue release];
+	[_commandQueue release];
+	[_supportedSensorList release];
+	[_sensorScanTargets release];
+	[_locationManager release];
+	[_scanOperationQueue release];
+	[_streamOperation release];
+	[super dealloc];
+}
+
 
 - (void) dealloc {
 	
