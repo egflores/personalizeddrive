@@ -54,7 +54,7 @@
 
 - (void)scanDidCancel:(FLScanTool*)scanTool {
 	NSLog(@"CANCELLED SCAN");
-    [[DreiCarCenter instance] updateConnectionStatus:@"Cancel Scan"];
+    [[DreiCarCenter instance] updateConnectionStatus:@"Scan cancelled"];
 
 }
 
@@ -116,6 +116,8 @@
                                           [NSNumber numberWithInt:0x10], // mass air flow, for instant MPG -- THIS CODE FROM FLKit
                                           //[NSNumber numberWithInt:0x31], // distance since codes cleared. for relative dist - FLKit code
 									 nil]];
+    [[DreiCarCenter instance] updateDriveLogStatus:true];
+
 }
 
 

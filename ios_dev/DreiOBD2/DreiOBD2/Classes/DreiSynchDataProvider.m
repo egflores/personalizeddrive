@@ -45,8 +45,6 @@
                                                  selector:@selector(saveDataCallback)
                                                  userInfo:nil
                                                   repeats:true];
-    [[DreiCarCenter instance] updateDriveLogStatus:true];
-
 }
 
 -(void)stopCollection {
