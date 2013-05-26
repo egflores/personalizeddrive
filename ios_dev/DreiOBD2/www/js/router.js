@@ -13,6 +13,7 @@ $(document).ready(function() {
 	        "setup/:page":"setup",
 	        "activetracking":"activeTracking",
 	        "settings":"settings",
+	        "connecting":"connecting",
 	        "connectionfailure": "connectionfailure"
 	    },
 	 
@@ -60,6 +61,11 @@ $(document).ready(function() {
 	        this.changePage(new dv.Settings());
 	    },
 
+	    connecting: function() {
+	    	var page = new dv.ConnectingScreen();
+	    	this.changePage(page, 'dialog');
+	    },
+
 	    connectionfailure: function() {
 	    	var page = new dv.ConnectionFailure();
 	    	this.changePage(page, 'dialog');
@@ -73,7 +79,7 @@ $(document).ready(function() {
 	        $.mobile.changePage($(page.el), {
 	        	changeHash:false,
 	        	transition: page.transition,
-                                reloadPage: true
+				reloadPage: true
 	        });
 	    },
 

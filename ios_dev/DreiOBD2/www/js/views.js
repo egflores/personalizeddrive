@@ -47,28 +47,8 @@ $(document).ready(function () {
         },
 
         startTracking: function(e) {
-            this.showLoading();
-            DreiApp.Callbacks.drei_start(function(){}, function(){});
-            var that = this;
-            setTimeout(function() {
-                if (that.$el.hasClass('ui-page-active')) {
-                    DreiApp.Callbacks.drei_stop(function(){}, function(){});
-                    that.hideLoading();
-                    window.location.href = "#connectionfailure"
-                }
-            }, 1000); 
+            window.location.href="#connecting"
         },
-
-        showLoading: function() {
-            this.$el.append('<div class="modal-overlay"/>');
-            this.$(".modal-overlay").animate({opacity: .7}, 500, function(){})
-            $.mobile.showPageLoadingMsg("a", "Connecting to ODB Device");
-        },
-
-        hideLoading: function() {
-            this.$(".modal-overlay").remove();
-            $.mobile.hidePageLoadingMsg();
-        }
     });
 
     DreiApp.Views.ActiveTracking = DreiApp.Views.MainView.extend({
@@ -84,8 +64,34 @@ $(document).ready(function () {
         }
     });
 
+    DreiApp.Views.ConnectingScreen = DreiApp.Views.MainView.extend({
+        events: {
+            'pageshow': 'foo'
+        },
+
+        transition: "pop",
+
+        render: function(eventName) {
+            DreiApp.Callbacks.drei_start(function(){}, function(){});
+            var that = this;
+            setTimeout(function() {
+                if (that.$el.hasClass('ui-page-active')) {
+                    alert('vikas');
+                    DreiApp.Callbacks.drei_stop(function(){}, function(){});
+                    $.mobile.hidePageLoadingMsg();
+                    window.location.href = "#connectionfailure"
+                }
+            }, 10000);
+            return this;
+        },
+
+        foo: function() {
+            $.mobile.showPageLoadingMsg("b", "Connecting to ODB Device");
+        }
+    });
+
     DreiApp.Views.ConnectionFailure = DreiApp.Views.MainView.extend({
-        transition: "slideup",
+        transition: "pop",
 
         template: _.template($('#ConnectionFailure').html()),
 
