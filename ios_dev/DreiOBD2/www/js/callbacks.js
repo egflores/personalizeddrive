@@ -8,25 +8,25 @@ $(document).ready(function () {
     drei_callback_debug = function(context, content) {
     };
     drei_callback_connectionStatus = function(status) {
-      
-        // alert(status);
-        // $("#status").html(status);
-        // $("#track_status").html(status);
+        if (status === "Disconnected" || status === "error" || 
+                status === "Scan cancelled") {
+            window.location.href = "#connectionfailure"
+        }
     }
                   
     drei_callback_dataEntry = function(carData) {
-                  if (!carData) {
-                    return;
-                  }
-                  $("#speed").html(carData.vehicle_speed * 0.621371);
-                  $("#rpm").html(carData.rpm);
-                  $("#instant_mpg").html(carData.instant_mpg);
-                  $("#gps_lat").html(carData.gps_latitude);
-                  $("#gps_long").html(carData.gps_longitude);
-                  //TESTING OBDII
-                  //END TESTING OBDII
-                  //cb.proxy.trigger('dataEntry', DreiApp.app.lastCarData);
-                  };
+        if (!carData) {
+          return;
+        }
+        $("#speed").html(carData.vehicle_speed * 0.621371);
+        $("#rpm").html(carData.rpm);
+        $("#instant_mpg").html(carData.instant_mpg);
+        $("#gps_lat").html(carData.gps_latitude);
+        $("#gps_long").html(carData.gps_longitude);
+        //TESTING OBDII
+        //END TESTING OBDII
+        //cb.proxy.trigger('dataEntry', DreiApp.app.lastCarData);
+    };
                   
     drei_callback_driveLog = function(carData) {
         if (carData === "on") {

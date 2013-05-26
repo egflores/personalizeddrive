@@ -3,35 +3,9 @@
 
 $(document).ready(function () {
 
-    DreiApp.Views.MainView = Backbone.View.extend({
-        // transition: "none" // I kind of like the transition - Vikas
-    });
+    DreiApp.Views.MainView = Backbone.View.extend({});
 
-    DreiApp.Views.NonScrollingView = DreiApp.Views.MainView.extend({ /*
-                                                                   
-        events: {
-            'touchmove': 'disableVerticalScroll'
-        },
-
-        disableVerticalScroll: function(e) {
-            e.preventDefault();
-        }
-*/
-    });
-
-/*
-    DreiApp.Views.NonScrollingView.extend = function(child){
-        /*
-         * Code for subclasses of NonScrollingView to add their own events
-         * without 4overriding events in the base view.
-         * courtesy of http://stackoverflow.com/questions/6968487/sub-class-a-backbone-view-sub-class-retain-events 
-
-        var view = Backbone.View.extend.apply(this, arguments);
-        view.prototype.events = _.extend({}, this.prototype.events, child.events);
-        return view;
-    };                                                                     */
-
-    DreiApp.Views.Track = DreiApp.Views.NonScrollingView.extend({
+    DreiApp.Views.Track = DreiApp.Views.MainView.extend({
         events: {
             "click .start-tracking-button": "startTracking"
         },
@@ -76,12 +50,11 @@ $(document).ready(function () {
             var that = this;
             setTimeout(function() {
                 if (that.$el.hasClass('ui-page-active')) {
-                    alert('vikas');
                     DreiApp.Callbacks.drei_stop(function(){}, function(){});
                     $.mobile.hidePageLoadingMsg();
                     window.location.href = "#connectionfailure"
                 }
-            }, 10000);
+            }, 7000); // waits 7 seconds to make a connection, otherwise alerts failure
             return this;
         },
 
@@ -102,7 +75,7 @@ $(document).ready(function () {
         }
     });
 
-    DreiApp.Views.Settings = DreiApp.Views.NonScrollingView.extend({
+    DreiApp.Views.Settings = DreiApp.Views.MainView.extend({
 
         template:_.template($('#SettingsTemplate').html()),
 
