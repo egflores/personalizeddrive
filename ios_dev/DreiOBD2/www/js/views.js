@@ -48,16 +48,15 @@ $(document).ready(function () {
 
         startTracking: function(e) {
             this.showLoading();
-           //  DreiApp.LoadingWidget.showPageLoadingMsg("a", "Connecting to ODB Device");
             DreiApp.Callbacks.drei_start(function(){}, function(){});
             var that = this;
             setTimeout(function() {
                 if (that.$el.hasClass('ui-page-active')) {
                     DreiApp.Callbacks.drei_stop(function(){}, function(){});
                     that.hideLoading();
-                    alert("error");
+                    window.location.href = "#connectionfailure"
                 }
-            }, 10000); 
+            }, 1000); 
         },
 
         showLoading: function() {
@@ -76,12 +75,24 @@ $(document).ready(function () {
 
         transition: "slideup",
 
-        template:_.template($('#ActiveTrackingTemplate').html()),
+        template: _.template($('#ActiveTrackingTemplate').html()),
 
         render:function (eventName) {
             $(this.el).html(this.template());
             mixpanel.track("Navigated to Active Tracking Page");
             return this;
+        }
+    });
+
+    DreiApp.Views.ConnectionFailure = DreiApp.Views.MainView.extend({
+        transition: "slideup",
+
+        template: _.template($('#ConnectionFailure').html()),
+
+        render: function(eventName) {
+            $(this.el).html(this.template());
+            mixpanel.track("Navigated to Connection Failure Page");
+            return this;   
         }
     });
 

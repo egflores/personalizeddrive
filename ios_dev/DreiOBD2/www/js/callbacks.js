@@ -8,6 +8,7 @@ $(document).ready(function () {
     drei_callback_debug = function(context, content) {
     };
     drei_callback_connectionStatus = function(status) {
+      
         // alert(status);
         // $("#status").html(status);
         // $("#track_status").html(status);
@@ -28,20 +29,9 @@ $(document).ready(function () {
                   };
                   
     drei_callback_driveLog = function(carData) {
-
-                  //alert(carData);
-                  //if (carData == null) {
-                  //
-                  //return;
-                  //}
-                  
-                  //alert(JSON.parse(carData).rpm.data);
-                  //$("#speed").html(carData.rpm.data);
-                  //$("#rpm").html(carData.vehicle_speed.data);
-        //DreiApp.app.lastCarData = JSON.parse(carData);
-        //TESTING OBDII
-        //END TESTING OBDII
-        //cb.proxy.trigger('dataEntry', DreiApp.app.lastCarData);
+        if (carData === "on") {
+            window.location.href="#activetracking";
+        }
     };
 
     /*
