@@ -38,19 +38,23 @@ $(document).ready(function() {
 
 			DreiApp.Callbacks.drei_get_drive_logs(function(results) {
 				jsonResults = JSON.parse(results);
-				that.driveLogs = new DriveHistoryCollection(jsonResults);
-				that.driveLogs.comparator = function(driveLog) {
-					// sort in descending order, so multiply by -1
-					return (-1 * driveLog.get('start_time'));
-				}
-				that.driveLogs.sort();
-				that.driveLogs.getValidLogs().each(function(log) {
-					var view = new DriveHistoryEntryView({
-						model: log
+				if (jsonResults.length === 0) {
+					that.$el.append('<div style="margin: 10px">You haven\'t tracked any drives yet. Select track on the bottom to get started!')
+				} else {
+					that.driveLogs = new DriveHistoryCollection(jsonResults);
+					that.driveLogs.comparator = function(driveLog) {
+						// sort in descending order, so multiply by -1
+						return (-1 * driveLog.get('start_time'));
+					}
+					that.driveLogs.sort();
+					that.driveLogs.getValidLogs().each(function(log) {
+						var view = new DriveHistoryEntryView({
+							model: log
+						});
+						that.$("#drive-history-entries").append(view.render().el);
 					});
-					that.$("#drive-history-entries").append(view.render().el);
-				});
-				that.$("#drive-history-entries").listview("refresh");
+					that.$("#drive-history-entries").listview("refresh");
+				}
 			}, function() {}); 
 			
 			return this;
