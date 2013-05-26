@@ -35,6 +35,8 @@ $(document).ready(function () {
         events: {
             "click .start-tracking-button": "startTracking"
         },
+
+        trackingStarted: null,
                                                         
         template: _.template($('#TrackTemplate').html()),
 
@@ -45,13 +47,28 @@ $(document).ready(function () {
         },
 
         startTracking: function(e) {
-            DreiApp.LoadingWidget.showPageLoadingMsg("a", "Connecting to ODB Device");
-            DreiApp.Callbacks.drei_start(function() {
-                alert('connected!');
-            }, function() {
-                alert('failure');
-            });
-            // window.location.href = "#activetracking";
+            this.showLoading();
+           //  DreiApp.LoadingWidget.showPageLoadingMsg("a", "Connecting to ODB Device");
+            DreiApp.Callbacks.drei_start(function(){}, function(){});
+            var that = this;
+            setTimeout(function() {
+                if (that.$el.hasClass('ui-page-active')) {
+                    DreiApp.Callbacks.drei_stop(function(){}, function(){});
+                    that.hideLoading();
+                    alert("error");
+                }
+            }, 10000); 
+        },
+
+        showLoading: function() {
+            this.$el.append('<div class="modal-overlay"/>');
+            this.$(".modal-overlay").animate({opacity: .7}, 500, function(){})
+            $.mobile.showPageLoadingMsg("a", "Connecting to ODB Device");
+        },
+
+        hideLoading: function() {
+            this.$(".modal-overlay").remove();
+            $.mobile.hidePageLoadingMsg();
         }
     });
 

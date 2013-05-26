@@ -8,8 +8,9 @@ $(document).ready(function () {
     drei_callback_debug = function(context, content) {
     };
     drei_callback_connectionStatus = function(status) {
-        $("#status").html(status);
-        $("#track_status").html(status);
+        // alert(status);
+        // $("#status").html(status);
+        // $("#track_status").html(status);
     }
                   
     drei_callback_dataEntry = function(carData) {
@@ -27,6 +28,7 @@ $(document).ready(function () {
                   };
                   
     drei_callback_driveLog = function(carData) {
+
                   //alert(carData);
                   //if (carData == null) {
                   //
