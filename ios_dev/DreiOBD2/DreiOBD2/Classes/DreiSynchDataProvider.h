@@ -42,5 +42,6 @@
 -(void)stopCollection;
 
 -(DL_Entry *)getEntry;
+- (void) processCurrentPoint;
 
 @end

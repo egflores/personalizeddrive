@@ -45,14 +45,12 @@
                                                  selector:@selector(saveDataCallback)
                                                  userInfo:nil
                                                   repeats:true];
-    [[DreiCarCenter instance] updateDriveLogStatus:true];
-
 }
 
 -(void)stopCollection {
     if (!self.in_collection) return;
     
-    if (self._entry) {
+    if (self._entry && [self._saveCache count] > 10) {
         [self._entry setUser:[PFUser currentUser]];
         [self._entry calcStatistics:self._saveCache];
         [self._entry saveEventually];
@@ -65,6 +63,7 @@
 }
 
 -(void)saveDataCallback {
+    [self processCurrentPoint];
     if ([self._currentPoint equals:self._lastPoint]) return; // don't save point if identical to last point
     
     [self._currentPoint setTimestampNow];

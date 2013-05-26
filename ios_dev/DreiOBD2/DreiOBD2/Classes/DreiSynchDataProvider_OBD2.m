@@ -16,59 +16,62 @@
 - (id) init {
     if (self = [super init]) {
         NSLog(@"Initializing scan tool");
-        
-        self._scanTool = [FLScanTool scanToolForDeviceType:kScanToolDeviceTypeELM327];
-        
-        self._scanTool.useLocation= YES;
-        self._scanTool.delegate	= self;
-        
-        // Settings for our OBD2 devices
-        [self._scanTool setHost:@"192.168.0.10"];
-        [self._scanTool setPort:35000];
     }
     return self;
 }
 
 - (void) startCollection {
     [super startCollection];
+    self._scanTool = [FLScanTool scanToolForDeviceType:kScanToolDeviceTypeELM327];
+    
+    self._scanTool.useLocation= YES;
+    self._scanTool.delegate	= self;
+    
+    // Settings for our OBD2 devices
+    [self._scanTool setHost:@"192.168.0.10"];
+    [self._scanTool setPort:35000];
+    
     [self._scanTool startScan];
 }
 
 -(void) stopCollection {
     [super stopCollection];
     [self._scanTool cancelScan];
+    self._scanTool.delegate = nil;
+    self._scanTool = nil;
 }
 
 
 - (void)scanDidStart:(FLScanTool*)scanTool {
-	FLINFO(@"STARTED SCAN")
-    [[DreiCarCenter instance] updateConnectionStatus:@"scanning"];
+	NSLog(@"STARTED SCAN");
+    [[DreiCarCenter instance] updateConnectionStatus:@"Scanning"];
 }
 
 - (void)scanDidPause:(FLScanTool*)scanTool {
 	FLINFO(@"PAUSED SCAN")
-    [[DreiCarCenter instance] updateConnectionStatus:@"initializing"];
+    [[DreiCarCenter instance] updateConnectionStatus:@"Scan paused"];
 }
 
 - (void)scanDidCancel:(FLScanTool*)scanTool {
-	FLINFO(@"CANCELLED SCAN")
-    [[DreiCarCenter instance] updateConnectionStatus:@"initializing"];
+	NSLog(@"CANCELLED SCAN");
+    [[DreiCarCenter instance] updateConnectionStatus:@"Scan cancelled"];
 
 }
 
 - (void)scanToolDidConnect:(FLScanTool*)scanTool {
-	FLINFO(@"SCANTOOL CONNECTED")
-    [[DreiCarCenter instance] updateConnectionStatus:@"connected"];
+	NSLog(@"SCANTOOL CONNECTED");
+    [[DreiCarCenter instance] updateConnectionStatus:@"Connected"];
 }
 
 - (void)scanToolDidDisconnect:(FLScanTool*)scanTool {
 	FLINFO(@"SCANTOOL DISCONNECTED")
-    [[DreiCarCenter instance] updateConnectionStatus:@"disconnected"];
+    [[DreiCarCenter instance] updateConnectionStatus:@"Disconnected"];
 }
 
 
 - (void)scanToolWillSleep:(FLScanTool*)scanTool {
 	FLINFO(@"SCANTOOL SLEEP")
+    [[DreiCarCenter instance] updateConnectionStatus:@"Sleep"];
 }
 
 - (void)scanTool:(FLScanTool*)scanTool didReceiveVoltage:(NSString*)voltage {
@@ -77,7 +80,7 @@
 
 
 - (void)scanTool:(FLScanTool*)scanTool didTimeoutOnCommand:(FLScanToolCommand*)command {
-	FLINFO(@"DID TIMEOUT")
+	NSLog(@"DID TIMEOUT");
 }
 
 
@@ -92,7 +95,7 @@
 }
 
 - (void)scanToolDidFailToInitialize:(FLScanTool*)scanTool {
-	FLINFO(@"SCANTOOL INITIALIZATION FAILURE")
+	NSLog(@"SCANTOOL INITIALIZATION FAILURE");
 	FLDEBUG(@"scanTool.scanToolState: %@", scanTool.scanToolState)
 	FLDEBUG(@"scanTool.supportedSensors count: %d", [scanTool.supportedSensors count])
     [[DreiCarCenter instance] updateConnectionStatus:@"error"];
@@ -101,7 +104,7 @@
 
 
 - (void)scanToolDidInitialize:(FLScanTool*)scanTool {
-	FLINFO(@"SCANTOOL INITIALIZATION COMPLETE")
+	NSLog(@"SCANTOOL INITIALIZATION COMPLETE");
 	FLDEBUG(@"scanTool.scanToolState: %08X", scanTool.scanToolState)
 	FLDEBUG(@"scanTool.supportedSensors count: %d", [scanTool.supportedSensors count])
 	
@@ -113,6 +116,8 @@
                                           [NSNumber numberWithInt:0x10], // mass air flow, for instant MPG -- THIS CODE FROM FLKit
                                           //[NSNumber numberWithInt:0x31], // distance since codes cleared. for relative dist - FLKit code
 									 nil]];
+    [[DreiCarCenter instance] updateDriveLogStatus:true];
+
 }
 
 
