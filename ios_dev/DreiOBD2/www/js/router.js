@@ -4,6 +4,7 @@ $(document).ready(function() {
     var dv = DreiApp.Views;
 
 	DreiApp.Router = Backbone.Router.extend({
+                                            currPage: null,
  
 	    routes:{
 	    	"": "track",
@@ -11,7 +12,9 @@ $(document).ready(function() {
 	        "drivehistory":"driveHistory",
 	        "setup/:page":"setup",
 	        "activetracking":"activeTracking",
-	        "settings":"settings"
+	        "settings":"settings",
+	        "connecting":"connecting",
+	        "connectionfailure": "connectionfailure"
 	    },
 	 
 	    driveHistory: function() {
@@ -57,14 +60,26 @@ $(document).ready(function() {
 	    	}
 	        this.changePage(new dv.Settings());
 	    },
+
+	    connecting: function() {
+	    	var page = new dv.ConnectingScreen();
+	    	this.changePage(page, 'dialog');
+	    },
+
+	    connectionfailure: function() {
+	    	var page = new dv.ConnectionFailure();
+	    	this.changePage(page, 'dialog');
+	    },
 	 
-	    changePage: function(page) {
-	        $(page.el).attr('data-role', 'page');
+	    changePage: function(page, data_role) {
+	    	var data_role = data_role || 'page';
+	        $(page.el).attr('data-role', data_role);
 	        page.render();
 	        $('body').append($(page.el));
 	        $.mobile.changePage($(page.el), {
 	        	changeHash:false,
 	        	transition: page.transition,
+				reloadPage: true
 	        });
 	    },
 

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    DreiApp.Views.Setup1 = DreiApp.Views.NonScrollingView.extend({
+    DreiApp.Views.Setup1 = DreiApp.Views.MainView.extend({
 
         transition: "slideup",
 
@@ -12,7 +12,7 @@ $(document).ready(function () {
         }
     });
 
-    DreiApp.Views.Setup2 = DreiApp.Views.NonScrollingView.extend({
+    DreiApp.Views.Setup2 = DreiApp.Views.MainView.extend({
 
         transition: "slide",
 
@@ -25,7 +25,7 @@ $(document).ready(function () {
         }
     });
 
-    DreiApp.Views.Setup3 = DreiApp.Views.NonScrollingView.extend({
+    DreiApp.Views.Setup3 = DreiApp.Views.MainView.extend({
 
         transition: "slide",
 
@@ -38,7 +38,7 @@ $(document).ready(function () {
         }
     });
 
-    DreiApp.Views.Setup4 = DreiApp.Views.NonScrollingView.extend({
+    DreiApp.Views.Setup4 = DreiApp.Views.MainView.extend({
         transition: "slide",
 
         template:_.template($('#SetupTemplate4').html()),
