@@ -18,11 +18,11 @@ $(document).ready(function () {
         if (!carData) {
           return;
         }
-        $("#speed").html(carData.vehicle_speed * 0.621371);
-        $("#rpm").html(carData.rpm);
-        $("#instant_mpg").html(carData.instant_mpg);
-        $("#gps_lat").html(carData.gps_latitude);
-        $("#gps_long").html(carData.gps_longitude);
+        $(".ui-page-active #speed").html(carData.vehicle_speed * 0.621371);
+        $(".ui-page-active #rpm").html(carData.rpm);
+        $(".ui-page-active #instant_mpg").html(carData.instant_mpg);
+        $(".ui-page-active #gps_lat").html(carData.gps_latitude);
+        $(".ui-page-active #gps_long").html(carData.gps_longitude);
         //TESTING OBDII
         //END TESTING OBDII
         //cb.proxy.trigger('dataEntry', DreiApp.app.lastCarData);
@@ -95,17 +95,5 @@ $(document).ready(function () {
                    console.log("Error in sendFeedback");
                    }, "DreiConnect", "sendFeedback", [feedback]);
     };
-    /* Not implemented
-        cb.drei_upload = function(callback, errorCallback) {
-              cordova.exec(callback, function() {
-                                           errorCallback();
-                                           console.log("Error in uploadDriveLog");
-                                    }, "DreiConnect", "uploadDriveLog", []);
-        };
-    */
-/* TODO: they might use this to do using a headunit
-    drei_callback_carlogging = function(message) {
-        DreiApp.app.set('isTrackingCommute', message=="logOn");
-    };
-*/
+
 });
