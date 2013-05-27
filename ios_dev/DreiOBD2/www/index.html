@@ -51,7 +51,13 @@
 			body {
 				-webkit-tap-highlight-color:rgba(0,0,0,0);
 				-webkit-user-select: none;
-			} 
+			}
+            .scrollable {
+                height:100%;
+                overflow-x:hidden;
+                overflow-y:scroll;
+                -webkit-overflow-scrolling: touch;
+            }
 		</style>
 		<script type="text/javascript">
 		    (function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");
@@ -76,7 +82,7 @@
 	        <h1>Driving History</h1>
 	    </div>
 
-	    <div id="container">
+	    <div id="container" class="scrollable">
 			<ul id="drive-history-entries" data-role="listview" data-divider-theme="d" class="ui-listview">
 				<li data-role="list-divider" role="heading" >
 					Summary
@@ -112,7 +118,7 @@
 	        <h1>Track a Drive</h1>
 	    </div>
 
-	    <div id="container" style="margin: 10px; text-align:center;">
+	    <div id="container" style="margin: 10px; text-align:center;" class="scrollable">
             <h3>Track Your Drives!</h3>
             <div id="track-drive-message">
                 <p>
@@ -123,10 +129,12 @@
             <div id="status"></div>
             <div class="onboarding-info">
                 <div>
-                <a onclick="DreiApp.Callbacks.drei_start()" href="#activetracking" data-role="button" data-theme="b">Start Tracking Commute</a>
+                <button class="start-tracking-button" data-theme="b">Start Tracking Commute</button>
+                <!--
 				<a href="#setup/1" data-role="button" data-icon="gear" data-role="footer">
                     Having problems connecting?
                 </a>
+                -->
                 </div>
             </div>
         </div>
@@ -193,6 +201,17 @@
 		        </div><!-- /navbar --> 
 		    </div>
 		</script>
+
+	<script type="text/template" id="ConnectionFailure">
+		<div data-role="header" data-theme="d" data-add-back-btn="false" >
+			<h1><!-- empty h1 to show the header bar --></h1>
+		</div>
+
+		<div data-role="content" data-theme="c">
+			<h1>Connection Failed</h1>
+			<p>We could not connect to the ODB Device. Please make sure that it is plugged in correctly, and that your phone is connected to the &quot;WiFiOBD&quot; network, and try again. 
+		</div>
+	</script>
 
 	<script type="text/template" id="ActiveTrackingTemplate">
 	    <div id="container">
