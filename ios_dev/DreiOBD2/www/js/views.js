@@ -48,11 +48,12 @@ $(document).ready(function () {
         render: function(eventName) {
             DreiApp.Callbacks.drei_start(function(){}, function(){});
             var that = this;
-            setTimeout(function() {
+            window.setTimeout(function() {
                 if (that.$el.hasClass('ui-page-active')) {
-                    DreiApp.Callbacks.drei_stop(function(){}, function(){});
-                    $.mobile.hidePageLoadingMsg();
-                    window.location.href = "#connectionfailure"
+                    DreiApp.Callbacks.drei_stop(function(){
+                        $.mobile.hidePageLoadingMsg();
+                        window.location.href = "#connectionfailure"
+                    }, function(){});
                 }
             }, 7000); // waits 7 seconds to make a connection, otherwise alerts failure
             return this;
