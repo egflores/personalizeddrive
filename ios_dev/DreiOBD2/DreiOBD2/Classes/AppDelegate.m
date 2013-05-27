@@ -87,6 +87,8 @@
     
     [Parse setApplicationId:@"tLBrJ7ySzwP3xIEP0mb2anvEt2Rb3u7ZeaiqIFc2" clientKey:@"cdowZJzZOepmQM1xz7DJt4QQ8i0oEWCKVTABpe6w"];
     Mixpanel * mixpanel = [Mixpanel sharedInstanceWithToken:@"f43921742f2cfaf7b57b9b044ac793a3"];
+    mixpanel.flushInterval = 55;
+    
     
     if([PFUser currentUser]) {
         [mixpanel identify:[PFUser currentUser].username];

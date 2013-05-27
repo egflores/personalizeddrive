@@ -34,7 +34,7 @@
 
 - (void)stopDriveLog:(CDVInvokedUrlCommand*)command
 {
-    [[Mixpanel sharedInstance] track:@"Stopped Drive Log"];
+    
     BOOL success = [[DreiCarCenter instance] driveLog_stopCollection];
     
     NSString * statistics = [[DreiCarCenter instance] driveLog_getStatisticsJSON];
@@ -42,6 +42,7 @@
     if (success) result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:statistics];
     else result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+    [[Mixpanel sharedInstance] track:@"Stopped Drive Log"];
 }
 
 - (void)uploadDriveLog:(CDVInvokedUrlCommand*)command
