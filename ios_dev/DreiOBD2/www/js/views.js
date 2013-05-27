@@ -40,7 +40,7 @@ $(document).ready(function () {
 
     DreiApp.Views.ConnectingScreen = DreiApp.Views.MainView.extend({
         events: {
-            'pageshow': 'foo'
+            'pageshow': 'showLoadingIcon'
         },
 
         transition: "pop",
@@ -58,7 +58,7 @@ $(document).ready(function () {
             return this;
         },
 
-        foo: function() {
+        showLoadingIcon: function() {
             $.mobile.showPageLoadingMsg("b", "Connecting to ODB Device");
         }
     });
