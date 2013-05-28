@@ -18,6 +18,7 @@
 @property double gps_lat;
 @property double gps_long;
 @property NSDate *timestamp;
+@property int pointIsValid;
 
 @property DL_Entry *entry;
 
