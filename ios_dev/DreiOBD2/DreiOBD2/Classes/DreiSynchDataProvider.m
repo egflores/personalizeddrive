@@ -64,7 +64,7 @@
 
 -(void)saveDataCallback {
     [self processCurrentPoint];
-    if (self._currentPoint.pointIsValid != 1) return;
+    //if (self._currentPoint.pointIsValid != 1) return;
     if ([self._currentPoint equals:self._lastPoint]) return; // don't save point if identical to last point
     
     [self._currentPoint setTimestampNow];
