@@ -18,6 +18,7 @@
 @dynamic rpm;
 @dynamic maf;
 @dynamic timestamp;
+@dynamic pointIsValid;
 
 -(id) init {
     self = [super init];
@@ -60,6 +61,7 @@
     self.rpm = -1;
     self.maf = -1;
     self.timestamp = [NSDate dateWithTimeIntervalSinceNow:0];
+    self.pointIsValid = 0;
 }
 
 -(void)setTimestampNow {

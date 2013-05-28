@@ -151,6 +151,8 @@
         }
 	}
     
+    self._currentPoint.pointIsValid = 1;
+    
 }
 
 - (void) processCurrentPoint {
