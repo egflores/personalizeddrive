@@ -77,6 +77,8 @@
 		5C74E035173CC1FF007053AE /* ODIN.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E02E173CC1FF007053AE /* ODIN.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
 		5C74E036173CC1FF007053AE /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C74E030173CC1FF007053AE /* Mixpanel.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
 		5C74E03A173CC555007053AE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C74E039173CC555007053AE /* CoreTelephony.framework */; };
+		5C8793F717548EBC00DF7F49 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C8793F517548EBC00DF7F49 /* Icon-72.png */; };
+		5C8793F817548EBC00DF7F49 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C8793F617548EBC00DF7F49 /* Icon-72@2x.png */; };
 		7235F313172F821600CBCC17 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7235F312172F821600CBCC17 /* ExternalAccessory.framework */; };
 		7235F31F172F831A00CBCC17 /* DreiCarCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7235F318172F831A00CBCC17 /* DreiCarCenter.m */; };
 		7235F320172F831A00CBCC17 /* DreiConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 7235F31A172F831A00CBCC17 /* DreiConnect.m */; };
@@ -195,6 +197,8 @@
 		5C74E02F173CC1FF007053AE /* Mixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
 		5C74E030173CC1FF007053AE /* Mixpanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixpanel.m; sourceTree = "<group>"; };
 		5C74E039173CC555007053AE /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		5C8793F517548EBC00DF7F49 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		5C8793F617548EBC00DF7F49 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		7235F312172F821600CBCC17 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		7235F317172F831A00CBCC17 /* DreiCarCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreiCarCenter.h; sourceTree = "<group>"; };
 		7235F318172F831A00CBCC17 /* DreiCarCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreiCarCenter.m; sourceTree = "<group>"; };
@@ -307,6 +311,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5C8793F517548EBC00DF7F49 /* Icon-72.png */,
+				5C8793F617548EBC00DF7F49 /* Icon-72@2x.png */,
 				33DADE651742E7AF0032CAD4 /* Splash-568h@2x.png */,
 				33DADE661742E7AF0032CAD4 /* Splash.png */,
 				33DADE671742E7AF0032CAD4 /* Splash@2x.png */,
@@ -706,6 +712,8 @@
 				33DADE681742E7AF0032CAD4 /* Splash-568h@2x.png in Resources */,
 				33DADE691742E7AF0032CAD4 /* Splash.png in Resources */,
 				33DADE6A1742E7AF0032CAD4 /* Splash@2x.png in Resources */,
+				5C8793F717548EBC00DF7F49 /* Icon-72.png in Resources */,
+				5C8793F817548EBC00DF7F49 /* Icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,7 +823,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "DreiOBD2/DreiOBD2-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
@@ -842,7 +850,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "DreiOBD2/DreiOBD2-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
