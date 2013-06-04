@@ -72,9 +72,7 @@
 		    for(e=0;e<h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.2;})(document,window.mixpanel||[]);
 		    mixpanel.init("f43921742f2cfaf7b57b9b044ac793a3");
 		</script>
-	</head>
 
-	<body>
 
 	<!-- The Templates -->
     <script type="text/template" id="DriveHistoryTemplate">
@@ -174,7 +172,7 @@
 					Personalized Drive is an app that helps you log your driving patterns so that you can better understand your commutes.
 				</div>
 			    <div>
-			        <textarea class="feedback-text">Leave us feedback! Things we can improve, features you want to see, or things you like.</textarea>
+			        <textarea class="feedback-text ui-input-text ui-body-c ui-corner-all ui-shadow-inset" style="height: 95px; ">Leave us feedback! Things we can improve, features you want to see, or things you like.</textarea>
 			       	<button class="submit-feedback" data-theme="b">Submit Feedback</button>
 				</div>
 		    	<div>
@@ -209,8 +207,9 @@
 
 		<div data-role="content" data-theme="c">
 			<h1>Connection Failed</h1>
-			<p>We could not connect to the ODB Device. Please make sure that it is plugged in correctly, and that your phone is connected to the &quot;WiFiOBD&quot; network, and try again. 
+			<p>We could not connect to the ODB Device. Please make sure that it is plugged in correctly, and that your phone is connected to the &quot;WiFiOBD&quot; network, and try again. <br /><br /> <a href="#setup/1">Still have trouble connecting?</a>
 		</div>
+        
 	</script>
 
 	<script type="text/template" id="ActiveTrackingTemplate">
@@ -420,5 +419,8 @@
 		    	DreiApp.Callbacks.drei_init();
 		    });
 	    </script>
+            </head>
+    
+	<body>
     </body>
 </html>
