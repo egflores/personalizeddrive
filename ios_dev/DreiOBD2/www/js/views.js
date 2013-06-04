@@ -100,7 +100,10 @@ $(document).ready(function () {
 
         submitFeedback: function() {
             var feedbackText = $(".feedback-text").val();
-            DreiApp.Callbacks.drei_send_feedback(function() {}, function() {}, 
+            DreiApp.Callbacks.drei_send_feedback(function() {
+                                                 navigator.notification.alert("Thank you for sending feedback.", function() {}, "Feedback Sent!", "Okay")
+                                                 
+                                                 }, function() {},
                     feedbackText);
             $(".feedback-text").val('');
         },
